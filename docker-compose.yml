@@ -1,0 +1,19 @@
+services:
+  app:
+    container_name: sva_app
+    build: .
+    ports:
+      - "8000:8000"
+    expose:
+      - "8000"
+    volumes:
+      - .:/app
+    env_file:
+      - .env  
+    restart: unless-stopped
+    networks:
+      - svanetwork
+      
+networks:
+  svanetwork:
+    external: true

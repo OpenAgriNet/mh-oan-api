@@ -1,0 +1,105 @@
+# Cache directories
+.mapbox_cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.cache/
+.pytest_cache/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.envrc
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter Notebooks
+notebooks/
+*.ipynb
+.ipynb_checkpoints/
+
+# Documentation and development files
+docs/
+README.md
+*.md
+API_DOC.md
+DEPLOYMENT.md
+
+# Docker files
+Dockerfile
+docker-compose.yml
+docker-compose.*.yml
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+
+# Node modules (if any)
+node_modules/
+npm-debug.log*
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# Test files
+tests/
+test_*.py
+*_test.py
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Local data files
+data/
+*.csv
+*.xlsx
+*.xls
+*.json.bak 

@@ -1,0 +1,59 @@
+## basic setup packages
+wheel
+setuptools
+python-dotenv==1.0.0
+Jinja2>=3.1.0  # For template rendering
+
+# for data/DB
+simplejson
+requests
+
+# LLM
+openai
+pydantic==2.11.4
+tiktoken
+
+# Logfire
+logfire
+
+# Redis for caching and stuff
+redis
+
+### Pydantic AI (Updated to resolve conflicts)
+pydantic-ai==0.2.4
+
+# Web Server
+uvicorn[standard]==0.34.3  # ASGI server
+
+# FastAPI and dependencies
+fastapi[standard]==0.115.6
+
+# Search and Data
+marqo==3.11.0
+rapidfuzz
+
+# Authentication and Security
+PyJWT
+cryptography
+
+# AWS and Services
+boto3
+
+# Geospatial
+mapbox
+cachecontrol  # For mapbox caching
+
+# Async utilities
+aiocache==0.12.3
+pydantic-settings==2.9.1
+python-dateutil
+pytz  # For timezone handling
+
+# Translation
+google-cloud-translate  # For Google Translation API
+
+# Language codes
+langcodes[data]==3.4.0
+
+# Humanize time, date, numbers, etc.
+humanize
