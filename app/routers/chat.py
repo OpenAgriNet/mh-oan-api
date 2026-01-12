@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, BackgroundTasks, Request
 from fastapi.responses import StreamingResponse
+from app.auth.jwt_auth import get_current_user
 from app.services.chat import stream_chat_messages
 from app.utils import _get_message_history
 from app.tasks.suggestions import create_suggestions
@@ -17,24 +18,23 @@ router = APIRouter(prefix="/chat", tags=["chat"])
 async def chat_endpoint(
     request: Request,
     background_tasks: BackgroundTasks,
-    chat_request: ChatRequest = Depends()
+    chat_request: ChatRequest = Depends(),
+    user_info: dict = Depends(get_current_user)  # Authentication required
 ):
     """
     Chat endpoint that streams responses back to the client.
+    Requires JWT authentication.
     """
     session_id = chat_request.session_id or str(uuid.uuid4())
     
     logger.info(
         f"Chat request received - session_id: {session_id}, user_id: {chat_request.user_id}, "
-        f"source_lang: {chat_request.source_lang}, "
+        f"authenticated_user: {user_info}, source_lang: {chat_request.source_lang}, "
         f"target_lang: {chat_request.target_lang}, query: {chat_request.query}"
     )
     
     history = await _get_message_history(session_id)
     logger.debug(f"Retrieved message history for session {session_id} - length: {len(history)}")
-    
-    # Pass empty dict for user_info since auth is disabled
-    user_info = {}
         
     return StreamingResponse(
         stream_chat_messages(
