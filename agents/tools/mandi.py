@@ -2,7 +2,7 @@ import os
 import uuid
 from datetime import datetime, date, timezone
 from helpers.utils import get_logger
-import requests
+import httpx
 from pydantic import BaseModel, AnyHttpUrl, Field
 from typing import List, Optional, Dict, Any
 from pydantic_ai import ModelRetry, UnexpectedModelBehavior
@@ -26,6 +26,8 @@ class Descriptor(BaseModel):
     short_desc: Optional[str] = None
     long_desc: Optional[str] = None
     images: Optional[List[Image]] = None
+    variety_name: Optional[str] = None  
+
 
     def __str__(self) -> str:
         if self.name:
@@ -95,12 +97,18 @@ class Item(BaseModel):
     time: Optional[Time] = None
 
     def __str__(self) -> str:
-        base_str = f"{self.descriptor.name}: {self.price}"
+        # Include variety name if available to prevent duplicate records
+        item_name = self.descriptor.name
+        if hasattr(self.descriptor, 'variety_name') and self.descriptor.variety_name and self.descriptor.variety_name.strip() and self.descriptor.variety_name.strip() != "----":
+            item_name = f"{item_name} ({self.descriptor.variety_name})"
+
+        base_str = f"{item_name}: {self.price}"
         if self.time:
             # Use relative time instead of absolute date
             relative_time = self.time.get_relative_time()
             base_str += f" ({relative_time})"
         return base_str
+
     
     def get_date_info(self) -> Optional[str]:
         """Get date information for this item, only if provided by API."""
@@ -290,11 +298,13 @@ async def mandi_prices(latitude: float, longitude: float) -> str:
     """
     try:
         payload = MandiRequest(latitude=latitude, longitude=longitude).get_payload()
-        response = requests.post(
-            os.getenv("BAP_ENDPOINT"),
-            json=payload,
-            timeout=(10, 15)
-        )
+        
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                os.getenv("BAP_ENDPOINT"),
+                json=payload,
+                timeout=15.0
+            )
         
         if response.status_code != 200:
             logger.error(f"Mandi API returned status code {response.status_code}")
@@ -303,11 +313,11 @@ async def mandi_prices(latitude: float, longitude: float) -> str:
         mandi_response = MandiResponse.model_validate(response.json())
         return str(mandi_response)
                 
-    except requests.Timeout as e:
+    except httpx.TimeoutException as e:
         logger.error(f"Mandi API request timed out: {str(e)}")
         return "Mandi request timed out. Please try again later."
         
-    except requests.RequestException as e:
+    except httpx.RequestError as e:
         logger.error(f"Mandi API request failed: {e}")
         return f"Mandi request failed: {str(e)}"
     

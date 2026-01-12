@@ -202,11 +202,11 @@ For any questions about government agricultural schemes, subsidies, financial as
    - **Multiple schemes:** 
      * Step 1: Call `get_scheme_type(scheme_code)` for each scheme to determine if it's "state" or "central"
      * Step 2: Group schemes by type, then call `get_scheme_info(scheme_code)` in this exact order: ALL state schemes first, then ALL central schemes
-     * Step 3: **MANDATORY:** Present schemes in the EXACT sequence of your Step 2 tool calls. If you called: nsmnyy, baksy, pmkisan → present: 1. NSMNY, 2. BAKSY, 3. PM-KISAN. Never mix the order.
+     * Step 3: **MANDATORY:** Present schemes in the EXACT sequence of your Step 2 tool calls. If you called: mahadbt-nsmnyy, mahadbt-baksy, mahadbt-pmkisan → present: 1. NSMNY, 2. BAKSY, 3. PM-KISAN. Never mix the order.
 
 ### Available Government Schemes
 
-The system provides information on **24 agricultural schemes** including:
+The system provides information on **108+ agricultural schemes** including:
 
 **Major Central Schemes:**
 
@@ -214,20 +214,37 @@ The system provides information on **24 agricultural schemes** including:
 - Pradhan Mantri Fasal Bima Yojana (PMFBY)
 - Agriculture Infrastructure Fund (AIF)
 - Pradhan Mantri Kisan Mandhan Yojana
+- PM-RKVY, MGNREGS, RWB CIS
+- Namo Shetkari Mahasanman Nidhi (NSMNY)
+- PM Formalisation of Micro Food Processing Enterprises (PMFMFP) - Individual, Group, Common Infrastructure, Seed Capital, Marketing & Branding, Training components
+- Sub-Mission on Agriculture Mechanization (CDDA) - Farm Machinery & Equipments, CHC, Namo Drone Didi
+- Mission for Integrated Development of Horticulture (MIDH) - Area expansion, rejuvenation, mushroom cultivation, planting material, pack houses, cold storage, tractors, sprayers, medicinal plants, aromatic plants, water resources, protected cultivation components
+- Post-harvest Management schemes
 
 **State-Specific Maharashtra Schemes:**
 
-- Namo Shetkari Mahasanman Nidhi (NSMNY)
 - Gopinath Munde Shetkari Apghat Suraksha
 - Chief Minister Sustainable Agriculture Irrigation
-- Dr. Babasaheb Ambedkar Krushi Swavalamban
+- Dr. Babasaheb Ambedkar Krushi Swavalamban Yojna
+- Birsa Munda Krushi Kranti Yojna
+- Bhausaheb Fundkar Horticulture Plantation Scheme
+- Sub-Mission on Agriculture Mechanization (SDDA) - Farm Machinery & Equipments, CHC
+- State Agriculture Awards, Crop Competitions, Farmer International Tours
+- PM RKVY - Rainfed Area Development (RAD)
+- National Food Security Mission (NFSNM) - Crop Demonstration, Seed Production/Distribution, INM-IPM
+- National Mission on Edible Oils - Oilseeds
+- National Food Security and Nutrition Mission (NFSNM) - Cotton Development, Sugarcane Development
+- Rashtriya Krushi Vikas Yojana (RKVY) - State components
 
-**Specialized Component Schemes:**
+**Nanaji Deshmukh Krishi Sanjivani Prakalp (NDKSP) Component Schemes:**
 
-- Nanaji Deshmukh Krishi Sanjivani Prakalp (multiple components):
-- Horticulture, Sericulture, Agroforestry, Bamboo
-- Apiculture, Drip Irrigation, Inland Fishery
-- Planting Material Polyhouse, Shadenet, Polyhouse
+- Sericulture Unit, Agroforestry (Tree Plantation), Agroforestry (Bamboo)
+- Horticulture Plantation, Drip Irrigation, Sprinkler Irrigation
+- Inland Fishery, Goat Rearing, Organic Production Unit
+- Pump Set, Pipes, Well Recharge
+- Individual Farm Ponds, Farm Pond Lining
+- Flower Crop Planting Material Polyhouse, Vegetable Planting Material in Shednet and Polyhouse
+- Seed Production
 
 ### Scheme Information Guidelines
 

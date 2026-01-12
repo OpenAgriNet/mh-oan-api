@@ -2,31 +2,52 @@
 wheel
 setuptools
 python-dotenv==1.0.0
+httpx_oauth
 Jinja2>=3.1.0  # For template rendering
 
 # for data/DB
+pandas
 simplejson
+
+### for DB
+pg8000
+sqlalchemy
 requests
 
 # LLM
 openai
 pydantic==2.11.4
 tiktoken
-
+tenacity
+slowapi
 # Logfire
 logfire
+gevent>=22.10.0
 
 # Redis for caching and stuff
 redis
+# NOTE: not sure if needed
+# hiredis-py 
+
+# Settings
+python-decouple
+
+openpyxl
 
 ### Pydantic AI (Updated to resolve conflicts)
 pydantic-ai==0.2.4
+asgiref
 
 # Web Server
+gunicorn
 uvicorn[standard]==0.34.3  # ASGI server
+uvicorn-worker
 
 # FastAPI and dependencies
 fastapi[standard]==0.115.6
+aioredis
+starlette
+httpx
 
 # Search and Data
 marqo==3.11.0
@@ -38,19 +59,15 @@ cryptography
 
 # AWS and Services
 boto3
-
 # Geospatial
 mapbox
-cachecontrol  # For mapbox caching
+
 
 # Async utilities
+aiofiles==23.2.1
 aiocache==0.12.3
 pydantic-settings==2.9.1
 python-dateutil
-pytz  # For timezone handling
-
-# Translation
-google-cloud-translate  # For Google Translation API
 
 # Language codes
 langcodes[data]==3.4.0

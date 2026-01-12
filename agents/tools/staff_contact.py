@@ -3,7 +3,7 @@ import uuid
 import json
 from datetime import datetime, timezone
 from helpers.utils import get_logger
-import requests
+import httpx
 from pydantic import BaseModel, AnyHttpUrl, Field
 from typing import List, Optional, Dict, Any
 from pydantic_ai import ModelRetry, UnexpectedModelBehavior
@@ -380,7 +380,7 @@ class ContactRequest(BaseModel):
 # -----------------------
 # Helper Functions
 # -----------------------
-def _get_village_code_from_admin_api(latitude: float, longitude: float) -> Optional[str]:
+async def _get_village_code_from_admin_api(latitude: float, longitude: float) -> Optional[str]:
     """Get village code from administrative information API.
     
     Args:
@@ -397,11 +397,12 @@ def _get_village_code_from_admin_api(latitude: float, longitude: float) -> Optio
             logger.error("BAP_ENDPOINT environment variable not set")
             return None
 
-        response = requests.post(
-            bap_endpoint,
-            json=payload,
-            timeout=(10, 15)
-        )
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                bap_endpoint,
+                json=payload,
+                timeout=15.0
+            )
 
         if response.status_code != 200:
             logger.error(f"Administrative API returned status code {response.status_code}")
@@ -426,10 +427,10 @@ def _get_village_code_from_admin_api(latitude: float, longitude: float) -> Optio
         logger.warning("No village code found in administrative response")
         return None
 
-    except requests.Timeout:
+    except httpx.TimeoutException:
         logger.error("Administrative API request timed out")
         return None
-    except requests.RequestException as e:
+    except httpx.RequestError as e:
         logger.error(f"Administrative API request failed: {e}")
         return None
     except Exception as e:
@@ -452,7 +453,7 @@ async def contact_agricultural_staff(latitude: float, longitude: float) -> str:
     """
     try:
         # First, get the village code from administrative information
-        village_code = _get_village_code_from_admin_api(latitude, longitude)
+        village_code = await _get_village_code_from_admin_api(latitude, longitude)
         
         if not village_code:
             logger.warning("Could not retrieve village code for the given coordinates")
@@ -467,11 +468,12 @@ async def contact_agricultural_staff(latitude: float, longitude: float) -> str:
             logger.error("BAP_ENDPOINT environment variable not set")
             return "Agricultural staff details configuration error."
 
-        response = requests.post(
-            bap_endpoint,
-            json=payload,
-            timeout=(10, 15)
-        )
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                bap_endpoint,
+                json=payload,
+                timeout=15.0
+            )
 
         if response.status_code != 200:
             logger.error(f"Officer Details API returned status code {response.status_code}")
@@ -486,10 +488,10 @@ async def contact_agricultural_staff(latitude: float, longitude: float) -> str:
         parsed = ContactResponse.model_validate(response_data)
         return str(parsed)
 
-    except requests.Timeout:
+    except httpx.TimeoutException:
         logger.error("Agricultural staff Details API request timed out")
         return "Agricultural staff details request timed out."
-    except requests.RequestException as e:
+    except httpx.RequestError as e:
         logger.error(f"Agricultural staff Details API request failed: {e}")
         return f"Agricultural staff details request failed: {str(e)}"
     except UnexpectedModelBehavior as e:

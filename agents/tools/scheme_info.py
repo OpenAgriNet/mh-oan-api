@@ -3,7 +3,7 @@ import uuid
 import json
 from datetime import datetime, timezone
 from helpers.utils import get_logger
-import requests
+import httpx
 from pydantic import BaseModel, AnyHttpUrl, Field
 from typing import List, Optional, Dict, Any
 from pydantic_ai import ModelRetry, UnexpectedModelBehavior
@@ -262,14 +262,46 @@ class SchemeRequest(BaseModel):
 
 # Scheme categorization constants
 STATE_SCHEMES = {
-    'nsmnyy', 'bmkky', 'gmsassay', 'cmsaisfp', 'baksy', 'bfhps',
-    'sericulture', 'agroforestry', 'bamboo', 'horticulture', 'apiculture',
-    'planting-material-polyhouse', 'drip-irrigation', 'inland-fishery'
+    'mahadbt-bmkky', 'mahadbt-gmsassay', 'mahadbt-cmsaisfp', 'mahadbt-baksy', 'mahadbt-bfhps',
+    'ndksp-sericulture-unit', 'ndksp-agroforestry-tree', 'ndksp-agroforestry-bamboo', 
+    'ndksp-horticulture-plantation', 'ndksp-flower-crop-planting-material-polyhouse', 
+    'ndksp-drip-irrigation', 'ndksp-inland-fishery', 'ndksp-goat-rearing',
+    'ndksp-sprinkler-irrigation', 'ndksp-organic-production-unit', 'ndksp-pump-set',
+    'ndksp-pipes', 'ndksp-well-recharge', 'ndksp-individual-farm-ponds',
+    'ndksp-farm-pond-lining', 'ndksp-vegetable-planting-material-in-shednet-and-polyhouse',
+    'ndksp-seed-production', 'sdda-farm-machinery-and-equipments', 'sdda-chc',
+    'state-agri-award', 'state-crop-competition', 'state-farmer-international-tour',
+    'mahadbt-rkvy-plastic-cover-for-grape', 'mahadbt-rkvy-anti-hectareil-net-with-ms-angle-structure',
+    'mahadbt-midh-green-house-poly-house', 'pmrkvy-rad',
+    'mahadbt-nmeo-oilseeds', 'mahadbt-nfsnm-cotton-development', 'mahadbt-nfsnm-sugarcane-development',
+    'nfsnm-crop-demonstration', 'nfsnm-seed-production', 'nfsnm-seed-distribution', 'nfsnm-inm-ipm'
 }
 
 CENTRAL_SCHEMES = {
-    'rwbcis', 'pmfby', 'aif', 'kymidh', 'pmkisan', 'pmkmy',
-    'pmrkvysmam', 'pmkrvypdmc', 'mgnregs', 'pmfmfpes'
+    'mahadbt-rwbcis', 'mahadbt-nsmnyy', 'mahadbt-pmfby', 'mahadbt-aif', 'mahadbt-kymidh', 'mahadbt-pmkisan', 'mahadbt-pmkmy',
+    'mahadbt-pmrkvysmam', 'mahadbt-pmkrvypdmc', 'mahadbt-mgnregs',
+    'pmfmfpe-individual-new', 'pmfmfpe-individual-old-more-than-1cr', 'pmfmfpe-individual-old-less-than-1cr',
+    'pmfmfpe-group-fpo-fpc', 'pmfmfpe-group-shg', 'pmfmfpe-group-cs',
+    'pmfmfpe-common-infra-fpo-fpc', 'pmfmfpe-common-infra-shg', 'pmfmfpe-common-infra-cs',
+    'pmfmfpe-common-infra-govt', 'pmfmfpe-seed-capital', 'pmfmfpe-marketing-branding', 'pmfmfpe-training',
+    'cdda-farm-machinery-and-equipments', 'cdda-chc', 'cdda-namo-drone-didi',
+    'mahadbt-midh-water-resources', 'mahadbt-midh-pc-shadenet-house',
+    'mahadbt-midh-pc-plastic-mulching', 'mahadbt-midh-pc-weed-mat', 'mahadbt-midh-pc-fruit-cover-skirting-bag',
+    'mahadbt-midh-pc-hydroponics-technology', 'mahadbt-midh-area-expansion-fruit-flower',
+    'mahadbt-midh-rejuvenation', 'mahadbt-midh-area-expansion-mushroom-cultivation',
+    'mahadbt-midh-pollinatation', 'mahadbt-midh-planting-material', 'mahadbt-midh-pack-house',
+    'mahadbt-midh-collection-centre', 'mahadbt-midh-cold-room-solar-power-room',
+    'mahadbt-midh-cs-1', 'mahadbt-midh-cs-1-onion', 'mahadbt-midh-cs-2', 'mahadbt-midh-cs-2-ca',
+    'mahadbt-midh-cs-4', 'mahadbt-midh-refrigerated-transport-vehicles', 'mahadbt-midh-cs-3',
+    'mahadbt-midh-integrated-cold-chectarein-project', 'mahadbt-post-harvest-management-farm-gate-packhouse',
+    'mahadbt-post-harvest-management-low-cost-onion-garlic-storage', 'mahadbt-midh-tractor-2-wd',
+    'mahadbt-midh-tractor-4-wd', 'mahadbt-midh-power-tiller-below-8-bhp',
+    'mahadbt-midh-power-tiller-above-8-bhp', 'mahadbt-midh-manual-prated-machinery',
+    'mahadbt-midh-manual-prated-machinery-above-8-12-lts', 'mahadbt-midh-manual-prated-machinery-above-12-16-lts',
+    'mahadbt-midh-manual-prated-machinery-above-16-lts', 'mahadbt-midh-tractor-operated-sprayer-boom-type',
+    'mahadbt-midh-operated-sprayer-air-carrier-assisted', 'mahadbt-midh-Tractor-oprated-electrostatics-sprayer',
+    'mahadbt-midh-medicinal-plant', 'mahadbt-midh-cost-intensive-aromatic-plants',
+    'mahadbt-midh-other-aromatic-plants', 'mahadbt-midh-creation-of-water-resources'
 }
 
 def _validate_scheme_code(scheme_code: str) -> bool:
@@ -351,7 +383,7 @@ async def get_scheme_info(scheme_code: str) -> str:
     Available scheme codes can be found by calling `get_scheme_codes()` which returns a markdown table with scheme names and codes.
 
     Args:
-        scheme_code (str): Code of the scheme to retrieve (e.g., 'pmkisan', 'pmfby').
+        scheme_code (str): Code of the scheme to retrieve (e.g., 'mahadbt-pmkisan', 'mahadbt-pmfby').
 
     Returns:
         str: Formatted scheme data including introduction, benefits, eligibility, application process, and other relevant information.
@@ -363,12 +395,12 @@ async def get_scheme_info(scheme_code: str) -> str:
         
         payload = SchemeRequest(scheme_code=scheme_code).get_payload()
         
-        # Optimized timeout: 10s connect, 15s read (reduced from 20s/30s)
-        response = requests.post(
-            os.getenv("BAP_ENDPOINT"),
-            json=payload,
-            timeout=(10, 15)
-        )
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                os.getenv("BAP_ENDPOINT"),
+                json=payload,
+                timeout=15.0
+            )
         
         if response.status_code != 200:
             logger.error(f"Scheme API returned status code {response.status_code}")
@@ -379,11 +411,11 @@ async def get_scheme_info(scheme_code: str) -> str:
         # Agent can read this directly from the response to determine prioritization
         return str(scheme_response)
                 
-    except requests.Timeout as e:
+    except httpx.TimeoutException as e:
         logger.error(f"Scheme API request timed out: {str(e)}")
         return "Scheme request timed out. Please try again later."
     
-    except requests.RequestException as e:
+    except httpx.RequestError as e:
         logger.error(f"Scheme API request failed: {e}")
         return f"Scheme request failed: {str(e)}"
     

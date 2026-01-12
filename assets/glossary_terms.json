@@ -496,13 +496,13 @@
     },
     {
         "en": "Germination",
-        "mr": "उगवण",
-        "transliteration": "ugavana"
+        "mr": "अंकुरण",
+        "transliteration": "ankurana"
     },
     {
         "en": "Fertilization",
-        "mr": "फलधारण",
-        "transliteration": "phaladharana"
+        "mr": "निषेचन",
+        "transliteration": "nishecana"
     },
     {
         "en": "Transpiration",
@@ -586,8 +586,8 @@
     },
     {
         "en": "Grading",
-        "mr": "प्रतवारी",
-        "transliteration": "pratavari"
+        "mr": "गटवारी",
+        "transliteration": "gatavari"
     },
     {
         "en": "Export",
@@ -786,8 +786,8 @@
     },
     {
         "en": "Zinc",
-        "mr": "जस्त",
-        "transliteration": "jasta"
+        "mr": "झिंक",
+        "transliteration": "jhinka"
     },
     {
         "en": "Iron",
@@ -817,7 +817,7 @@
     {
         "en": "Calcium",
         "mr": "कॅल्शियम",
-        "transliteration": "ka.clshiyama"
+        "transliteration": "kaॅlshiyama"
     },
     {
         "en": "Sulphur",
@@ -1136,13 +1136,13 @@
     },
     {
         "en": "Dry Fodder",
-        "mr": "सुका चारा",
-        "transliteration": "suka chara"
+        "mr": "कोरडा चारा",
+        "transliteration": "korada chara"
     },
     {
         "en": "Concentrate Feed",
-        "mr": "संकेद्रित खाद्य",
-        "transliteration": "samkedrita khadya"
+        "mr": "कॉनसेंट्रेट फीड",
+        "transliteration": "kaॉnasentreta phida"
     },
     {
         "en": "Ration Formulation",
@@ -1157,7 +1157,7 @@
     {
         "en": "Balanced Diet",
         "mr": "संतुलित आहार",
-        "transliteration": "samtulita ahara"
+        "transliteration": "santulita ahara"
     },
     {
         "en": "Ruminant",
@@ -1176,8 +1176,8 @@
     },
     {
         "en": "Milking Machine",
-        "mr": "दुध काढणी यंत्र",
-        "transliteration": "dudha kadhani yamtra"
+        "mr": "दूध काढण्याचे यंत्र",
+        "transliteration": "dudha kadhanyace yantra"
     },
     {
         "en": "Milk Chilling Unit",
@@ -1186,13 +1186,13 @@
     },
     {
         "en": "Artificial Insemination",
-        "mr": "कृत्रिम रेतन",
-        "transliteration": "krritrima retana"
+        "mr": "कृत्रिम गर्भाधारणा",
+        "transliteration": "kritrima garbhadharana"
     },
     {
         "en": "Heat Detection",
-        "mr": "माजाचे निदान",
-        "transliteration": "majache nidana"
+        "mr": "ऊष्मा तपासणी",
+        "transliteration": "ushma tapasani"
     },
     {
         "en": "Estrus Cycle",
@@ -1206,33 +1206,33 @@
     },
     {
         "en": "Crossbreeding",
-        "mr": "संकरित प्रजनन",
-        "transliteration": "samkarita prajanana"
+        "mr": "संकरीकरण",
+        "transliteration": "sankarikarana"
     },
     {
         "en": "Livestock Census",
-        "mr": "पशुधन गणना",
-        "transliteration": "pashudhana ganana"
+        "mr": "पशुगणना",
+        "transliteration": "pashuganana"
     },
     {
         "en": "Poultry",
-        "mr": "कुक्कुटपालन",
-        "transliteration": "kukkutapalana"
+        "mr": "कुक्कुट",
+        "transliteration": "kukkuta"
     },
     {
         "en": "Hatchery",
-        "mr": "अंड्यातून पिल्ले काढण्याचे केंद्र",
-        "transliteration": "amdyatuna pille kadhanyache kemdra"
+        "mr": "अंडी उबवणूक केंद्र",
+        "transliteration": "andi ubavanuka kendra"
     },
     {
         "en": "Broiler",
-        "mr": "ब्रॉयलर (मांसासाठी)",
-        "transliteration": "braॉyalara (mamsasathi)"
+        "mr": "मांसासाठी पालन केलेली कोंबडी",
+        "transliteration": "mansasathi palana keleli konbadi"
     },
     {
         "en": "Layer",
         "mr": "अंडी देणारी कोंबडी",
-        "transliteration": "amdi denari kombadi"
+        "transliteration": "andi denari konbadi"
     },
     {
         "en": "Feed Additive",
@@ -1331,8 +1331,8 @@
     },
     {
         "en": "Hydroponics",
-        "mr": "जलकृषी किंवा मातीविना शेती",
-        "transliteration": "jalakrrishi kimva mativina sheti"
+        "mr": "हायड्रोपोनिक्स",
+        "transliteration": "hayadroponiksa"
     },
     {
         "en": "Vertical Farming",
@@ -1511,8 +1511,8 @@
     },
     {
         "en": "Cold Chain",
-        "mr": "शीतसाखळी",
-        "transliteration": "shitasakhali"
+        "mr": "शीत साखळी",
+        "transliteration": "shita sakhali"
     },
     {
         "en": "Logistics",
@@ -1526,8 +1526,8 @@
     },
     {
         "en": "ISO Certification",
-        "mr": "आंतरराष्ट्रीय मानकीकरण संस्था प्रमाणिकरण",
-        "transliteration": "amtararashtriya manakikarana samstha pramanikarana"
+        "mr": "आयएसओ प्रमाणपत्र",
+        "transliteration": "ayaesao pramanapatra"
     },
     {
         "en": "FSSAI",
@@ -1787,7 +1787,7 @@
     {
         "en": "Seasonal Crop",
         "mr": "हंगामी पीक",
-        "transliteration": "hamgami pika"
+        "transliteration": "hangami pika"
     },
     {
         "en": "Annual Crop",
@@ -1847,7 +1847,7 @@
     {
         "en": "Cowpea",
         "mr": "चवळी",
-        "transliteration": "chavali"
+        "transliteration": "cavali"
     },
     {
         "en": "Horse Gram",
@@ -2257,7 +2257,7 @@
     {
         "en": "Cardamom",
         "mr": "वेलची",
-        "transliteration": "velachi"
+        "transliteration": "velaci"
     },
     {
         "en": "Clove",
@@ -2511,8 +2511,8 @@
     },
     {
         "en": "Seed Rate",
-        "mr": "बियाण्याचा दर",
-        "transliteration": "biyanyacha dara"
+        "mr": "बियाण्याची प्रमाण",
+        "transliteration": "biyanyaci pramana"
     },
     {
         "en": "Seed Drill",
@@ -2646,7 +2646,7 @@
     },
     {
         "en": "Urea",
-        "mr": "युरिया",
+        "mr": "यूरिया",
         "transliteration": "yuriya"
     },
     {
@@ -3492,7 +3492,7 @@
     {
         "en": "Heat Stress",
         "mr": "उष्णतेचा ताण",
-        "transliteration": "ushnatecha tana"
+        "transliteration": "ushnateca tana"
     },
     {
         "en": "Cold Tolerance",
@@ -3601,8 +3601,8 @@
     },
     {
         "en": "Fogger",
-        "mr": "धुके निर्माण करणारे यंत्र",
-        "transliteration": "dhuke nirmana karanare yamtra"
+        "mr": "फॉगर",
+        "transliteration": "phaॉgara"
     },
     {
         "en": "Rooftop Farming",
@@ -3911,8 +3911,8 @@
     },
     {
         "en": "Harvesting Stage",
-        "mr": "काढणी अवस्था",
-        "transliteration": "kadhani avastha"
+        "mr": "पीक कापण्याचा टप्पा",
+        "transliteration": "pika kapanyaca tappa"
     },
     {
         "en": "Maturity Indicators",
@@ -4161,8 +4161,8 @@
     },
     {
         "en": "Shelf Life",
-        "mr": "टिकाऊ कालावधी",
-        "transliteration": "tikau kalavadhi"
+        "mr": "टिकाऊपणा",
+        "transliteration": "tikaupana"
     },
     {
         "en": "Preservatives",
@@ -4706,8 +4706,8 @@
     },
     {
         "en": "Water Conservation",
-        "mr": "जलसंधारण",
-        "transliteration": "jalasamdharana"
+        "mr": "पाण्याचे संवर्धन",
+        "transliteration": "panyace sanvardhana"
     },
     {
         "en": "Soil Health Management",
@@ -5166,8 +5166,8 @@
     },
     {
         "en": "Pasture Management",
-        "mr": "चराई व्यवस्थापन",
-        "transliteration": "charai vyavasthapana"
+        "mr": "चराई जमिनीचे व्यवस्थापन",
+        "transliteration": "charai jaminice vyavasthapana"
     },
     {
         "en": "Livestock Housing",
@@ -5191,8 +5191,8 @@
     },
     {
         "en": "Poultry Farming",
-        "mr": "कुक्कुटपालन",
-        "transliteration": "kukkutapalana"
+        "mr": "कुक्कुट पालन",
+        "transliteration": "kukkuta palana"
     },
     {
         "en": "Beekeeping",
@@ -5226,8 +5226,8 @@
     },
     {
         "en": "Egg Production",
-        "mr": "अंडी उत्पादन",
-        "transliteration": "amdi utpadana"
+        "mr": "अंडे उत्पादन",
+        "transliteration": "ande utpadana"
     },
     {
         "en": "Milk Production",
@@ -5256,8 +5256,8 @@
     },
     {
         "en": "Water Management",
-        "mr": "पाणी व्यवस्थापन",
-        "transliteration": "pani vyavasthapana"
+        "mr": "पाण्याचे व्यवस्थापन",
+        "transliteration": "panyace vyavasthapana"
     },
     {
         "en": "Flood Management",
@@ -5816,8 +5816,8 @@
     },
     {
         "en": "Seed Quality",
-        "mr": "बियाणे गुणवत्ता",
-        "transliteration": "biyane gunavatta"
+        "mr": "बियाण्याची गुणवत्ता",
+        "transliteration": "biyanyaci gunavatta"
     },
     {
         "en": "Seed Germination",
@@ -6076,13 +6076,13 @@
     },
     {
         "en": "Aquaculture",
-        "mr": "जलचर",
-        "transliteration": "jalachara"
+        "mr": "जलचर पालन",
+        "transliteration": "jalachara palana"
     },
     {
         "en": "Animal Feed",
         "mr": "जनावरांचे खाद्य",
-        "transliteration": "janavaramche khadya"
+        "transliteration": "janavarance khadya"
     },
     {
         "en": "Worm Farming",
@@ -6271,8 +6271,8 @@
     },
     {
         "en": "Water Efficiency",
-        "mr": "पाणी कार्यक्षमता",
-        "transliteration": "pani karyakshamata"
+        "mr": "पाण्याचा वापर कमी",
+        "transliteration": "panyaca vapara kami"
     },
     {
         "en": "Rainwater Collection",
@@ -6296,13 +6296,13 @@
     },
     {
         "en": "Livestock Farming",
-        "mr": "पशुधन शेती",
-        "transliteration": "pashudhana sheti"
+        "mr": "पशुपालन",
+        "transliteration": "pashupalana"
     },
     {
         "en": "Dairy Products",
-        "mr": "दुग्ध उत्पादने",
-        "transliteration": "dugdha utpadane"
+        "mr": "दुग्धजन्य उत्पादने",
+        "transliteration": "dugdhajanya utpadane"
     },
     {
         "en": "Poultry Products",
@@ -6397,7 +6397,7 @@
     {
         "en": "Animal Husbandry",
         "mr": "पशुसंवर्धन",
-        "transliteration": "pashusamvardhana"
+        "transliteration": "pashusanvardhana"
     },
     {
         "en": "Agricultural Inputs",
@@ -6461,8 +6461,8 @@
     },
     {
         "en": "Aquatic Plants",
-        "mr": "जलीय वनस्पती",
-        "transliteration": "jaliya vanaspati"
+        "mr": "जलचर वनस्पती",
+        "transliteration": "jalachara vanaspati"
     },
     {
         "en": "Crop Growth Stages",
@@ -7971,8 +7971,8 @@
     },
     {
         "en": "Phosphorus Deficiency",
-        "mr": "फॉस्फोरसची कमतरता",
-        "transliteration": "phaॉsphorasachi kamatarata"
+        "mr": "फॉस्फरसचा अभाव",
+        "transliteration": "phaॉspharasaca abhava"
     },
     {
         "en": "Crop Simulation",
@@ -8061,8 +8061,8 @@
     },
     {
         "en": "Iron Deficiency",
-        "mr": "लोहाची कमतरता",
-        "transliteration": "lohachi kamatarata"
+        "mr": "लोहाचा अभाव",
+        "transliteration": "lohaca abhava"
     },
     {
         "en": "Soil Salinization",
@@ -8486,8 +8486,8 @@
     },
     {
         "en": "Alkalinity",
-        "mr": "क्षारता",
-        "transliteration": "ksharata"
+        "mr": "क्षारीयता",
+        "transliteration": "kshariyata"
     },
     {
         "en": "Acid Soils",
@@ -8966,8 +8966,8 @@
     },
     {
         "en": "Copper Deficiency",
-        "mr": "तांब्याची कमतरता",
-        "transliteration": "tambyachi kamatarata"
+        "mr": "तांब्याचा अभाव",
+        "transliteration": "tanbyaca abhava"
     },
     {
         "en": "Sulphur Deficiency",
@@ -9461,8 +9461,8 @@
     },
     {
         "en": "Windbreaks",
-        "mr": "वारा रोधक",
-        "transliteration": "vara rodhaka"
+        "mr": "वारा थांबवणारे अडथळे",
+        "transliteration": "vara thanbavanare adathale"
     },
     {
         "en": "Seedling transplanting",
@@ -9566,8 +9566,8 @@
     },
     {
         "en": "Calcium deficiency",
-        "mr": "कॅल्शियम कमतरता",
-        "transliteration": "ka.clshiyama kamatarata"
+        "mr": "कॅल्शियमचा अभाव",
+        "transliteration": "kaॅlshiyamaca abhava"
     },
     {
         "en": "Physiological disorder",
@@ -9746,8 +9746,8 @@
     },
     {
         "en": "Grazing management",
-        "mr": "चारा व्यवस्थापन",
-        "transliteration": "chara vyavasthapana"
+        "mr": "चराई व्यवस्थापन",
+        "transliteration": "charai vyavasthapana"
     },
     {
         "en": "Ear formation stage",
@@ -10206,8 +10206,8 @@
     },
     {
         "en": "Moisture content",
-        "mr": "आर्द्रता प्रमाण",
-        "transliteration": "ardrata pramana"
+        "mr": "आर्द्रता",
+        "transliteration": "ardrata"
     },
     {
         "en": "Varietal purity",
@@ -10447,7 +10447,7 @@
     {
         "en": "Sprouting",
         "mr": "अंकुरण",
-        "transliteration": "amkurana"
+        "transliteration": "ankurana"
     },
     {
         "en": "Callus",
@@ -10866,8 +10866,8 @@
     },
     {
         "en": "Nutrient deficiency",
-        "mr": "अन्नद्रव्य कमतरता",
-        "transliteration": "annadravya kamatarata"
+        "mr": "पोषण कमतरता",
+        "transliteration": "poshana kamatarata"
     },
     {
         "en": "Nutrient toxicity",
@@ -10886,8 +10886,8 @@
     },
     {
         "en": "Groundnut cake",
-        "mr": "शेंगदाणा खत",
-        "transliteration": "shemgadana khata"
+        "mr": "भुईमूग पेंड",
+        "transliteration": "bhuimuga penda"
     },
     {
         "en": "Seed dibbler",
@@ -13996,8 +13996,8 @@
     },
     {
         "en": "Intercultivation",
-        "mr": "आंतर मशागत",
-        "transliteration": "amtara mashagata"
+        "mr": "अंतरपीक लागवड",
+        "transliteration": "antarapika lagavada"
     },
     {
         "en": "Vector control",
@@ -14701,8 +14701,8 @@
     },
     {
         "en": "Electrolyte",
-        "mr": "इलेक्ट्रोलाईट",
-        "transliteration": "ilektrolaita"
+        "mr": "विद्युतद्रव",
+        "transliteration": "vidyutadrava"
     },
     {
         "en": "Endophytes",
@@ -16266,8 +16266,8 @@
     },
     {
         "en": "Diurnal variation",
-        "mr": "दिवसा होणारे बदल",
-        "transliteration": "divasa honare badala"
+        "mr": "दिवसातील तापमान बदल",
+        "transliteration": "divasatila tapamana badala"
     },
     {
         "en": "Pre-cooling of produce",
@@ -18066,8 +18066,8 @@
     },
     {
         "en": "Shade Net",
-        "mr": "सावलीकरिता जाळीदार आच्छादन",
-        "transliteration": "savalikarita jalidara achchadana"
+        "mr": "सावलीच्या जाळीचे कवच",
+        "transliteration": "savalicya jalice kavaca"
     },
     {
         "en": "Urea Coating",
@@ -18220,14 +18220,9 @@
         "transliteration": "ksharayukta jamina"
     },
     {
-        "en": "Animal husbandry",
-        "mr": "पशुपालन",
-        "transliteration": "pashupalana"
-    },
-    {
         "en": "Aquaponics",
-        "mr": "एकात्मिक मासे आणि वनस्पती उत्पादन",
-        "transliteration": "ekatmika mase ani vanaspati utpadana"
+        "mr": "अक्वापॉनिक्स",
+        "transliteration": "akvapaॉniksa"
     },
     {
         "en": "Artificial pollination",
@@ -18256,8 +18251,8 @@
     },
     {
         "en": "Cuttings",
-        "mr": "छाटणी",
-        "transliteration": "chatani"
+        "mr": "कापणी टप्पे",
+        "transliteration": "kapani tappe"
     },
     {
         "en": "Deep planting",
@@ -19016,8 +19011,8 @@
     },
     {
         "en": "Homogenization",
-        "mr": "एकजिनसीकरण",
-        "transliteration": "ekajinasikarana"
+        "mr": "होमोजिनायझेशन",
+        "transliteration": "homojinayajheshana"
     },
     {
         "en": "Vermiculture",
@@ -19401,8 +19396,8 @@
     },
     {
         "en": "Silage",
-        "mr": "मुरधास",
-        "transliteration": "muradhasa"
+        "mr": "मुरघास",
+        "transliteration": "muraghasa"
     },
     {
         "en": "Stover",
@@ -20181,8 +20176,8 @@
     },
     {
         "en": "Silage production",
-        "mr": "मुरघास (सायलेज) उत्पादन",
-        "transliteration": "muraghasa (sayaleja) utpadana"
+        "mr": "मुरघास उत्पादन",
+        "transliteration": "muraghasa utpadana"
     },
     {
         "en": "Crop intensification",
@@ -20600,11 +20595,6 @@
         "transliteration": "ruta kaॉlara"
     },
     {
-        "en": "Sprouting",
-        "mr": "अंकुरन",
-        "transliteration": "amkurana"
-    },
-    {
         "en": "Cold stratification",
         "mr": "थंड स्तरीकरण",
         "transliteration": "thamda starikarana"
@@ -20698,11 +20688,6 @@
         "en": "Subsurface irrigation",
         "mr": "जमिनीखालील सिंचन",
         "transliteration": "jaminikhalila simchana"
-    },
-    {
-        "en": "Heat stress",
-        "mr": "उष्णता ताण",
-        "transliteration": "ushnata tana"
     },
     {
         "en": "Pollination vector",
@@ -21565,11 +21550,6 @@
         "transliteration": "danedara yuriya supara khata"
     },
     {
-        "en": "Harvesting stage",
-        "mr": "कापणी अवस्था",
-        "transliteration": "kapani avastha"
-    },
-    {
         "en": "Seedling vigor",
         "mr": "रोपांचा जोम",
         "transliteration": "ropamcha joma"
@@ -22396,8 +22376,8 @@
     },
     {
         "en": "Cold stress",
-        "mr": "थंडीमुळे होणारा ताण",
-        "transliteration": "thamdimule honara tana"
+        "mr": "थंडीचा ताण",
+        "transliteration": "thandica tana"
     },
     {
         "en": "Soil pH adjustment",
@@ -22730,11 +22710,6 @@
         "transliteration": "paragana karyakshamata"
     },
     {
-        "en": "Aquaponics",
-        "mr": "जलकृषी प्रणाली",
-        "transliteration": "jalakrrishi pranali"
-    },
-    {
         "en": "Soil pH",
         "mr": "मृदा सामू",
         "transliteration": "mrrida samu"
@@ -22818,11 +22793,6 @@
         "en": "Soil compaction",
         "mr": "मृदाचे संकुचन",
         "transliteration": "mrridache samkuchana"
-    },
-    {
-        "en": "Silage",
-        "mr": "मुरघास",
-        "transliteration": "muraghasa"
     },
     {
         "en": "Plant spacing",
@@ -24766,8 +24736,8 @@
     },
     {
         "en": "Bacterial disease",
-        "mr": "जीवाणूजन्य रोग",
-        "transliteration": "jivanujanya roga"
+        "mr": "बॅक्टेरियाजन्य रोग",
+        "transliteration": "baॅkteriyajanya roga"
     },
     {
         "en": "Nematode",
@@ -25136,8 +25106,8 @@
     },
     {
         "en": "Paragrass",
-        "mr": "पॅरा गवत",
-        "transliteration": "pa.cra gavata"
+        "mr": "पॅराग्रास",
+        "transliteration": "paॅragrasa"
     },
     {
         "en": "Proso Millet",
@@ -26723,5 +26693,4865 @@
         "en": "Drumstick mortality",
         "mr": "शेवग्यातील मर",
         "transliteration": "shevagyatila mara"
+    },
+    {
+        "en": "cattle",
+        "mr": "गाय वर्ग",
+        "transliteration": "gaya varga"
+    },
+    {
+        "en": "buffalo",
+        "mr": "म्हैस",
+        "transliteration": "mhaisa"
+    },
+    {
+        "en": "sheep",
+        "mr": "मेंढी",
+        "transliteration": "mendhi"
+    },
+    {
+        "en": "goat",
+        "mr": "शेळी",
+        "transliteration": "sheli"
+    },
+    {
+        "en": "pig",
+        "mr": "वराह",
+        "transliteration": "varaha"
+    },
+    {
+        "en": "horse",
+        "mr": "घोडा",
+        "transliteration": "ghoda"
+    },
+    {
+        "en": "division",
+        "mr": "विभाग",
+        "transliteration": "vibhaga"
+    },
+    {
+        "en": "district",
+        "mr": "जिल्हा",
+        "transliteration": "jilha"
+    },
+    {
+        "en": "production",
+        "mr": "उत्पादन",
+        "transliteration": "utpadana"
+    },
+    {
+        "en": "meat production",
+        "mr": "मांस उत्पादन",
+        "transliteration": "mansa utpadana"
+    },
+    {
+        "en": "fishery production",
+        "mr": "मत्स्य उत्पादन",
+        "transliteration": "matsya utpadana"
+    },
+    {
+        "en": "per capita availability",
+        "mr": "व्यक्तीगत उपलब्धता",
+        "transliteration": "vyaktigata upalabdhata"
+    },
+    {
+        "en": "global rank",
+        "mr": "जागतिक क्रमांक",
+        "transliteration": "jagatika kramanka"
+    },
+    {
+        "en": "india rank",
+        "mr": "भारतातील क्रमांक",
+        "transliteration": "bharatatila kramanka"
+    },
+    {
+        "en": "dairy business",
+        "mr": "दुग्ध व्यवसाय",
+        "transliteration": "dugdha vyavasaya"
+    },
+    {
+        "en": "fisheries business",
+        "mr": "मत्स्य व्यवसाय",
+        "transliteration": "matsya vyavasaya"
+    },
+    {
+        "en": "self-employment",
+        "mr": "स्वरोजगार",
+        "transliteration": "svarojagara"
+    },
+    {
+        "en": "purebred calves",
+        "mr": "शुद्ध जातीय वासरे",
+        "transliteration": "shuddha jatiya vasare"
+    },
+    {
+        "en": "value-added dairy products",
+        "mr": "मूल्यवर्धित दुग्धजन्य उत्पादने",
+        "transliteration": "mulyavardhita dugdhajanya utpadane"
+    },
+    {
+        "en": "goat farming",
+        "mr": "शेळी पालन",
+        "transliteration": "sheli palana"
+    },
+    {
+        "en": "ornamental fish farming",
+        "mr": "सजावटी मासे पालन",
+        "transliteration": "sajavati mase palana"
+    },
+    {
+        "en": "vermicompost production",
+        "mr": "कृमिसंधारण खत उत्पादन",
+        "transliteration": "krimisandharana khata utpadana"
+    },
+    {
+        "en": "value-added meat products",
+        "mr": "मूल्यवर्धित मांस उत्पादने",
+        "transliteration": "mulyavardhita mansa utpadane"
+    },
+    {
+        "en": "poultry feed production",
+        "mr": "कुक्कुट खाद्य उत्पादन",
+        "transliteration": "kukkuta khadya utpadana"
+    },
+    {
+        "en": "cage aquaculture",
+        "mr": "पिंजरा मत्स्यपालन",
+        "transliteration": "pinjara matsyapalana"
+    },
+    {
+        "en": "biofloc technology",
+        "mr": "बायोफ्लोक तंत्रज्ञान",
+        "transliteration": "bayophloka tantrajnyana"
+    },
+    {
+        "en": "export opportunities",
+        "mr": "निर्यात संधी",
+        "transliteration": "niryata sandhi"
+    },
+    {
+        "en": "entrepreneurship",
+        "mr": "उद्योजकता",
+        "transliteration": "udyojakata"
+    },
+    {
+        "en": "milk",
+        "mr": "दूध",
+        "transliteration": "dudha"
+    },
+    {
+        "en": "protein",
+        "mr": "प्रथिने",
+        "transliteration": "prathine"
+    },
+    {
+        "en": "amino acids",
+        "mr": "अमिनो आम्ल",
+        "transliteration": "amino amla"
+    },
+    {
+        "en": "vitamins",
+        "mr": "जीवनसत्त्वे",
+        "transliteration": "jivanasattve"
+    },
+    {
+        "en": "minerals",
+        "mr": "खनिजे",
+        "transliteration": "khanije"
+    },
+    {
+        "en": "eggs",
+        "mr": "अंडी",
+        "transliteration": "andi"
+    },
+    {
+        "en": "egg yolk",
+        "mr": "अंड्याचा पिवळा भाग",
+        "transliteration": "andyaca pivala bhaga"
+    },
+    {
+        "en": "meat",
+        "mr": "मांस",
+        "transliteration": "mansa"
+    },
+    {
+        "en": "goat meat",
+        "mr": "बकरीचे मांस",
+        "transliteration": "bakarice mansa"
+    },
+    {
+        "en": "fish",
+        "mr": "मासे",
+        "transliteration": "mase"
+    },
+    {
+        "en": "omega-3 fatty acids",
+        "mr": "ओमेगा-3 फॅटी ऍसिड",
+        "transliteration": "omega-3 phaॅti ऍsida"
+    },
+    {
+        "en": "cardiovascular health",
+        "mr": "हृदय व रक्तवाहिन्यांचे आरोग्य",
+        "transliteration": "hridaya va raktavahinyance arogya"
+    },
+    {
+        "en": "brain development",
+        "mr": "मेंदू विकास",
+        "transliteration": "mendu vikasa"
+    },
+    {
+        "en": "lutein",
+        "mr": "ल्यूटिन",
+        "transliteration": "lyutina"
+    },
+    {
+        "en": "zeaxanthin",
+        "mr": "झिअॅक्सॅन्थिन",
+        "transliteration": "jhiaॅksaॅnthina"
+    },
+    {
+        "en": "iodine",
+        "mr": "आयोडिन",
+        "transliteration": "ayodina"
+    },
+    {
+        "en": "complete food",
+        "mr": "संपूर्ण आहार",
+        "transliteration": "sanpurna ahara"
+    },
+    {
+        "en": "mixed diet",
+        "mr": "मिश्र आहार",
+        "transliteration": "mishra ahara"
+    },
+    {
+        "en": "nutritious fodder",
+        "mr": "पौष्टिक चारा",
+        "transliteration": "paushtika chara"
+    },
+    {
+        "en": "monocotyledonous fodder crops",
+        "mr": "एकबीजधारी चारा पिके",
+        "transliteration": "ekabijadhari chara pike"
+    },
+    {
+        "en": "dicotyledonous fodder crops",
+        "mr": "द्विबीजधारी चारा पिके",
+        "transliteration": "dvibijadhari chara pike"
+    },
+    {
+        "en": "perennial fodder crops",
+        "mr": "वार्षिकपेक्षा जास्त काळ टिकणारे चारा पिके",
+        "transliteration": "varshikapeksha jasta kala tikanare chara pike"
+    },
+    {
+        "en": "seasonal fodder crops",
+        "mr": "हंगामी चारा पिके",
+        "transliteration": "hangami chara pike"
+    },
+    {
+        "en": "kharif season",
+        "mr": "खरीप हंगाम",
+        "transliteration": "kharipa hangama"
+    },
+    {
+        "en": "rabi season",
+        "mr": "रबी हंगाम",
+        "transliteration": "rabi hangama"
+    },
+    {
+        "en": "summer crops",
+        "mr": "उन्हाळी पिके",
+        "transliteration": "unhali pike"
+    },
+    {
+        "en": "sowing method",
+        "mr": "बियाणे पेरण्याची पद्धत",
+        "transliteration": "biyane peranyaci paddhata"
+    },
+    {
+        "en": "improved variety",
+        "mr": "सुधारित जात",
+        "transliteration": "sudharita jata"
+    },
+    {
+        "en": "harvesting",
+        "mr": "कापणी",
+        "transliteration": "kapani"
+    },
+    {
+        "en": "hybrid napier",
+        "mr": "हायब्रिड नेपियर",
+        "transliteration": "hayabrida nepiyara"
+    },
+    {
+        "en": "anjan grass",
+        "mr": "अंजन गवत",
+        "transliteration": "anjana gavata"
+    },
+    {
+        "en": "stylo hemata",
+        "mr": "स्टायलो हेमाटा",
+        "transliteration": "stayalo hemata"
+    },
+    {
+        "en": "sugargraze",
+        "mr": "शुगरग्रेस",
+        "transliteration": "shugaragresa"
+    },
+    {
+        "en": "nutrifeed",
+        "mr": "न्यूट्रीफीड",
+        "transliteration": "nyutriphida"
+    },
+    {
+        "en": "hydroponic fodder",
+        "mr": "हायड्रोपोनिक्स चारा",
+        "transliteration": "hayadroponiksa chara"
+    },
+    {
+        "en": "advantages",
+        "mr": "फायदे",
+        "transliteration": "phayade"
+    },
+    {
+        "en": "green nutritious fodder",
+        "mr": "हिरवा पौष्टिक चारा",
+        "transliteration": "hirava paushtika chara"
+    },
+    {
+        "en": "space efficiency",
+        "mr": "जागेचा वापर कमी",
+        "transliteration": "jageca vapara kami"
+    },
+    {
+        "en": "cost reduction",
+        "mr": "खर्च कमी करणे",
+        "transliteration": "kharca kami karane"
+    },
+    {
+        "en": "nutrients",
+        "mr": "पोषक तत्वे",
+        "transliteration": "poshaka tatve"
+    },
+    {
+        "en": "natural feed",
+        "mr": "नैसर्गिक चारा",
+        "transliteration": "naisargika chara"
+    },
+    {
+        "en": "soaking",
+        "mr": "भिजवणे",
+        "transliteration": "bhijavane"
+    },
+    {
+        "en": "gunny bag",
+        "mr": "जूट",
+        "transliteration": "juta"
+    },
+    {
+        "en": "racks",
+        "mr": "रॅक",
+        "transliteration": "raॅka"
+    },
+    {
+        "en": "sprinkling",
+        "mr": "पाण्याचा फवारणी",
+        "transliteration": "panyaca phavarani"
+    },
+    {
+        "en": "salt solution",
+        "mr": "मीठाचे द्रावण",
+        "transliteration": "mithace dravana"
+    },
+    {
+        "en": "fodder height",
+        "mr": "चारा उंची",
+        "transliteration": "chara unci"
+    },
+    {
+        "en": "production time",
+        "mr": "उत्पादन कालावधी",
+        "transliteration": "utpadana kalavadhi"
+    },
+    {
+        "en": "temperature requirement",
+        "mr": "तापमानाची आवश्यकता",
+        "transliteration": "tapamanaci avashyakata"
+    },
+    {
+        "en": "humidity requirement",
+        "mr": "आर्द्रतेची आवश्यकता",
+        "transliteration": "ardrateci avashyakata"
+    },
+    {
+        "en": "roots feeding",
+        "mr": "मुळांसह चारा",
+        "transliteration": "mulansaha chara"
+    },
+    {
+        "en": "animal feed technology",
+        "mr": "पशु आहार तंत्रज्ञान",
+        "transliteration": "pashu ahara tantrajnyana"
+    },
+    {
+        "en": "fodder cutting",
+        "mr": "चारा कापणे",
+        "transliteration": "chara kapane"
+    },
+    {
+        "en": "chaffed fodder",
+        "mr": "कापलेला चारा",
+        "transliteration": "kapalela chara"
+    },
+    {
+        "en": "nutrient availability",
+        "mr": "पोषण मूल्य उपलब्धता",
+        "transliteration": "poshana mulya upalabdhata"
+    },
+    {
+        "en": "feed waste reduction",
+        "mr": "चारा वाया जाण्यापासून बचत",
+        "transliteration": "chara vaya janyapasuna bacata"
+    },
+    {
+        "en": "measured feed",
+        "mr": "मोजलेला चारा",
+        "transliteration": "mojalela chara"
+    },
+    {
+        "en": "wet fodder",
+        "mr": "ओलसर चारा",
+        "transliteration": "olasara chara"
+    },
+    {
+        "en": "salt",
+        "mr": "मीठ",
+        "transliteration": "mitha"
+    },
+    {
+        "en": "baking soda",
+        "mr": "बेकिंग सोडा",
+        "transliteration": "bekinga soda"
+    },
+    {
+        "en": "mineral mixture",
+        "mr": "खनिज मिश्रण",
+        "transliteration": "khanija mishrana"
+    },
+    {
+        "en": "feed storage efficiency",
+        "mr": "चारा साठवण कार्यक्षमतेत सुधार",
+        "transliteration": "chara sathavana karyakshamateta sudhara"
+    },
+    {
+        "en": "chaff cutter machine",
+        "mr": "कडबा कुट्टी यंत्र",
+        "transliteration": "kadaba kutti yantra"
+    },
+    {
+        "en": "rumination",
+        "mr": "उलटपचन",
+        "transliteration": "ulatapacana"
+    },
+    {
+        "en": "nutritional balance",
+        "mr": "पोषण संतुलन",
+        "transliteration": "poshana santulana"
+    },
+    {
+        "en": "rumen bacteria",
+        "mr": "उलटपचनाच्या पोटातील सूक्ष्मजीव",
+        "transliteration": "ulatapacanacya potatila sukshmajiva"
+    },
+    {
+        "en": "secondary farm products",
+        "mr": "दुय्यम कृषी उत्पादने",
+        "transliteration": "duyyama krishi utpadane"
+    },
+    {
+        "en": "feed palatability",
+        "mr": "चारा चवीचा स्वीकार्यता",
+        "transliteration": "chara cavica svikaryata"
+    },
+    {
+        "en": "molasses",
+        "mr": "मोलासेस",
+        "transliteration": "molasesa"
+    },
+    {
+        "en": "processed fodder",
+        "mr": "प्रक्रिया केलेला चारा",
+        "transliteration": "prakriya kelela chara"
+    },
+    {
+        "en": "complete feed",
+        "mr": "संपूर्ण आहार",
+        "transliteration": "sanpurna ahara"
+    },
+    {
+        "en": "feed block",
+        "mr": "चारा ब्लॉक",
+        "transliteration": "chara blaॉka"
+    },
+    {
+        "en": "bypass fat",
+        "mr": "संरक्षित चरबी",
+        "transliteration": "sanrakshita charabi"
+    },
+    {
+        "en": "bypass protein",
+        "mr": "संरक्षित प्रथिने",
+        "transliteration": "sanrakshita prathine"
+    },
+    {
+        "en": "chelated mineral mixture",
+        "mr": "कीलॅटेड खनिज मिश्रण",
+        "transliteration": "kilaॅteda khanija mishrana"
+    },
+    {
+        "en": "feed supplement",
+        "mr": "आहार पूरक",
+        "transliteration": "ahara puraka"
+    },
+    {
+        "en": "metabolic disease",
+        "mr": "चयापचय रोग",
+        "transliteration": "cayapacaya roga"
+    },
+    {
+        "en": "feed ingredient testing",
+        "mr": "चारा घटक चाचणी",
+        "transliteration": "chara ghataka cacani"
+    },
+    {
+        "en": "feed mixing",
+        "mr": "चारा मिसळणे",
+        "transliteration": "chara misalane"
+    },
+    {
+        "en": "animal classification",
+        "mr": "प्राण्यांचे वर्गीकरण",
+        "transliteration": "pranyance vargikarana"
+    },
+    {
+        "en": "digestive system health",
+        "mr": "पचनसंस्था आरोग्य",
+        "transliteration": "pacanasanstha arogya"
+    },
+    {
+        "en": "feed palatability enhancer",
+        "mr": "चारा स्वाद सुधारक",
+        "transliteration": "chara svada sudharaka"
+    },
+    {
+        "en": "feed efficiency",
+        "mr": "चारा कार्यक्षमता",
+        "transliteration": "chara karyakshamata"
+    },
+    {
+        "en": "weight gain",
+        "mr": "वजन वाढ",
+        "transliteration": "vajana vadha"
+    },
+    {
+        "en": "reproductive efficiency",
+        "mr": "प्रजनन कार्यक्षमता",
+        "transliteration": "prajanana karyakshamata"
+    },
+    {
+        "en": "feed storage",
+        "mr": "चारा साठवण",
+        "transliteration": "chara sathavana"
+    },
+    {
+        "en": "ph of silage",
+        "mr": "मुरघास पीएच",
+        "transliteration": "muraghasa pieca"
+    },
+    {
+        "en": "silage process",
+        "mr": "मुरघास प्रक्रिया",
+        "transliteration": "muraghasa prakriya"
+    },
+    {
+        "en": "fodder fermentation",
+        "mr": "चारा किण्वन",
+        "transliteration": "chara kinvana"
+    },
+    {
+        "en": "secondary farm materials",
+        "mr": "दुय्यम कृषी साहित्य",
+        "transliteration": "duyyama krishi sahitya"
+    },
+    {
+        "en": "chopped fodder",
+        "mr": "कापलेला चारा",
+        "transliteration": "kapalela chara"
+    },
+    {
+        "en": "compaction",
+        "mr": "दाबणे",
+        "transliteration": "dabane"
+    },
+    {
+        "en": "beneficial bacteria",
+        "mr": "उपयुक्त जिवाणू",
+        "transliteration": "upayukta jivanu"
+    },
+    {
+        "en": "jaggery",
+        "mr": "गूळ",
+        "transliteration": "gula"
+    },
+    {
+        "en": "airtight covering",
+        "mr": "हवाबंद झाकण",
+        "transliteration": "havabanda jhakana"
+    },
+    {
+        "en": "silage maturation time",
+        "mr": "मुरघास तयार होण्याचा कालावधी",
+        "transliteration": "muraghasa tayara honyaca kalavadhi"
+    },
+    {
+        "en": "silage quality indicators",
+        "mr": "मुरघास गुणवत्ता निर्देशांक",
+        "transliteration": "muraghasa gunavatta nirdeshanka"
+    },
+    {
+        "en": "inferior fodder",
+        "mr": "कमी दर्जाचा चारा",
+        "transliteration": "kami darjaca chara"
+    },
+    {
+        "en": "urea treatment",
+        "mr": "यूरिया प्रक्रिया",
+        "transliteration": "yuriya prakriya"
+    },
+    {
+        "en": "ingredients for processed fodder",
+        "mr": "प्रक्रिया केलेल्या चाऱ्यासाठी साहित्य",
+        "transliteration": "prakriya kelelya caṟyasathi sahitya"
+    },
+    {
+        "en": "fodder layering",
+        "mr": "चारा थरात पसरवणे",
+        "transliteration": "chara tharata pasaravane"
+    },
+    {
+        "en": "airtight covering of processed fodder",
+        "mr": "प्रक्रिया केलेल्या चाऱ्यासाठी हवाबंद झाकण",
+        "transliteration": "prakriya kelelya caṟyasathi havabanda jhakana"
+    },
+    {
+        "en": "ammonia dissipation",
+        "mr": "अमोनिया वायू निघणे",
+        "transliteration": "amoniya vayu nighane"
+    },
+    {
+        "en": "suitable animals",
+        "mr": "योग्य प्राणी",
+        "transliteration": "yogya prani"
+    },
+    {
+        "en": "daily feed arrangement",
+        "mr": "दैनिक आहार व्यवस्था",
+        "transliteration": "dainika ahara vyavastha"
+    },
+    {
+        "en": "feed quantity",
+        "mr": "आहाराची मात्रा",
+        "transliteration": "aharaci matra"
+    },
+    {
+        "en": "urea safety",
+        "mr": "यूरिया सुरक्षितता",
+        "transliteration": "yuriya surakshitata"
+    },
+    {
+        "en": "balanced animal feed",
+        "mr": "संतुलित पशु आहार",
+        "transliteration": "santulita pashu ahara"
+    },
+    {
+        "en": "grains",
+        "mr": "धान्ये",
+        "transliteration": "dhanye"
+    },
+    {
+        "en": "oil cakes",
+        "mr": "पेंड",
+        "transliteration": "penda"
+    },
+    {
+        "en": "safflower cake",
+        "mr": "करडी पेंड",
+        "transliteration": "karadi penda"
+    },
+    {
+        "en": "sunflower cake",
+        "mr": "सुर्यफूल पेंड",
+        "transliteration": "suryaphula penda"
+    },
+    {
+        "en": "gram",
+        "mr": "हरभरा",
+        "transliteration": "harabhara"
+    },
+    {
+        "en": "bran",
+        "mr": "गहु-मका पाट",
+        "transliteration": "gahu-maka pata"
+    },
+    {
+        "en": "ratio",
+        "mr": "प्रमाण",
+        "transliteration": "pramana"
+    },
+    {
+        "en": "feed homogenization",
+        "mr": "खाद्य मिश्रण",
+        "transliteration": "khadya mishrana"
+    },
+    {
+        "en": "nutritional analysis",
+        "mr": "पौष्टिकता विश्लेषण",
+        "transliteration": "paushtikata vishleshana"
+    },
+    {
+        "en": "pellet feed",
+        "mr": "पेलेट फीड",
+        "transliteration": "peleta phida"
+    },
+    {
+        "en": "feed mash",
+        "mr": "दाणेदार खाद्य",
+        "transliteration": "danedara khadya"
+    },
+    {
+        "en": "nutrient utilization",
+        "mr": "पोषण शोषण",
+        "transliteration": "poshana shoshana"
+    },
+    {
+        "en": "fodder scarcity",
+        "mr": "चार्याची कमतरता",
+        "transliteration": "caryaci kamatarata"
+    },
+    {
+        "en": "mechanization",
+        "mr": "यांत्रिकीकरण",
+        "transliteration": "yantrikikarana"
+    },
+    {
+        "en": "methane reduction",
+        "mr": "मीथेन वायू कमी करणे",
+        "transliteration": "mithena vayu kami karane"
+    },
+    {
+        "en": "protein excess risk",
+        "mr": "प्रथिन जास्तीचा धोका",
+        "transliteration": "prathina jastica dhoka"
+    },
+    {
+        "en": "moisture control",
+        "mr": "आर्द्रता नियंत्रण",
+        "transliteration": "ardrata niyantrana"
+    },
+    {
+        "en": "region-specific mineral mixture",
+        "mr": "प्रदेश-विशिष्ट खनिज मिश्रण",
+        "transliteration": "pradesha-vishishta khanija mishrana"
+    },
+    {
+        "en": "gradual feed change",
+        "mr": "हळूहळू आहार बदलणे",
+        "transliteration": "haluhalu ahara badalane"
+    },
+    {
+        "en": "energy supplement",
+        "mr": "ऊर्जा पुरवठा",
+        "transliteration": "urja puravatha"
+    },
+    {
+        "en": "complete feed block",
+        "mr": "संपूर्ण पोषक आहार ब्लॉक",
+        "transliteration": "sanpurna poshaka ahara blaॉka"
+    },
+    {
+        "en": "feed block density",
+        "mr": "खाद्य ब्लॉक घनता",
+        "transliteration": "khadya blaॉka ghanata"
+    },
+    {
+        "en": "selective eating",
+        "mr": "निवडक खाणे",
+        "transliteration": "nivadaka khane"
+    },
+    {
+        "en": "fodder wastage",
+        "mr": "चाऱ्याचा अपव्यय",
+        "transliteration": "caṟyaca apavyaya"
+    },
+    {
+        "en": "transport efficiency",
+        "mr": "वाहतुकीतील कार्यक्षमता",
+        "transliteration": "vahatukitila karyakshamata"
+    },
+    {
+        "en": "nutrient deficiency prevention",
+        "mr": "पोषक तत्वांची कमतरता टाळणे",
+        "transliteration": "poshaka tatvanci kamatarata talane"
+    },
+    {
+        "en": "supplementary feed",
+        "mr": "पूरक आहार",
+        "transliteration": "puraka ahara"
+    },
+    {
+        "en": "early lactation period",
+        "mr": "प्रारंभिक दुधाळ काळ",
+        "transliteration": "praranbhika dudhala kala"
+    },
+    {
+        "en": "calcium balance",
+        "mr": "कॅल्शियम संतुलन",
+        "transliteration": "kaॅlshiyama santulana"
+    },
+    {
+        "en": "conception rate",
+        "mr": "गर्भधारण दर",
+        "transliteration": "garbhadharana dara"
+    },
+    {
+        "en": "calf birth weight",
+        "mr": "वासराचे जन्म वजन",
+        "transliteration": "vasarace janma vajana"
+    },
+    {
+        "en": "post-calving problems",
+        "mr": "व्याल्या नंतरची समस्या",
+        "transliteration": "vyalya nantaraci samasya"
+    },
+    {
+        "en": "rumen",
+        "mr": "रुमेन",
+        "transliteration": "rumena"
+    },
+    {
+        "en": "efficient protein utilization",
+        "mr": "प्रथिनाचा कार्यक्षम वापर",
+        "transliteration": "prathinaca karyakshama vapara"
+    },
+    {
+        "en": "limiting amino acids",
+        "mr": "मर्यादित अमिनो आम्ल",
+        "transliteration": "maryadita amino amla"
+    },
+    {
+        "en": "milk fat and snf",
+        "mr": "दुधातील चरबी आणि SNF",
+        "transliteration": "dudhatila charabi ani snf"
+    },
+    {
+        "en": "immune system improvement",
+        "mr": "रोगप्रतिकारक क्षमता वाढ",
+        "transliteration": "rogapratikaraka kshamata vadha"
+    },
+    {
+        "en": "feed hygiene",
+        "mr": "आहार स्वच्छता",
+        "transliteration": "ahara svacchata"
+    },
+    {
+        "en": "daily net income increase",
+        "mr": "दररोजची निव्वळ कमाई वाढ",
+        "transliteration": "dararojaci nivvala kamai vadha"
+    },
+    {
+        "en": "bioavailability",
+        "mr": "जैवउपलब्धता",
+        "transliteration": "jaivaupalabdhata"
+    },
+    {
+        "en": "rumen protection",
+        "mr": "रुमेन संरक्षण",
+        "transliteration": "rumena sanrakshana"
+    },
+    {
+        "en": "trace minerals",
+        "mr": "सूक्ष्म खनिज",
+        "transliteration": "sukshma khanija"
+    },
+    {
+        "en": "macro minerals",
+        "mr": "मुख्य खनिज",
+        "transliteration": "mukhya khanija"
+    },
+    {
+        "en": "mineral proportion",
+        "mr": "खनिज प्रमाण",
+        "transliteration": "khanija pramana"
+    },
+    {
+        "en": "fertility improvement",
+        "mr": "प्रजनन क्षमता सुधार",
+        "transliteration": "prajanana kshamata sudhara"
+    },
+    {
+        "en": "rapid weight gain",
+        "mr": "जलद वजन वाढ",
+        "transliteration": "jalada vajana vadha"
+    },
+    {
+        "en": "stress management",
+        "mr": "ताण व्यवस्थापन",
+        "transliteration": "tana vyavasthapana"
+    },
+    {
+        "en": "gestation support",
+        "mr": "गर्भधारण काळातील पोषण",
+        "transliteration": "garbhadharana kalatila poshana"
+    },
+    {
+        "en": "hoof strength",
+        "mr": "खुर शक्ती",
+        "transliteration": "khura shakti"
+    },
+    {
+        "en": "immune status improvement",
+        "mr": "रोगप्रतिकारक क्षमता सुधार",
+        "transliteration": "rogapratikaraka kshamata sudhara"
+    },
+    {
+        "en": "somatic cell count reduction",
+        "mr": "सॉमॅटिक पेशी संख्या कमी करणे",
+        "transliteration": "saॉmaॅtika peshi sankhya kami karane"
+    },
+    {
+        "en": "mortality rate reduction",
+        "mr": "मृत्यू दर कमी करणे",
+        "transliteration": "mrityu dara kami karane"
+    },
+    {
+        "en": "animal breeding technology",
+        "mr": "प्राणी प्रजनन तंत्रज्ञान",
+        "transliteration": "prani prajanana tantrajnyana"
+    },
+    {
+        "en": "artificial embryo production",
+        "mr": "कृत्रिम भ्रूण उत्पादन",
+        "transliteration": "kritrima bhruna utpadana"
+    },
+    {
+        "en": "immature ova",
+        "mr": "अपरिपक्व अंडाणु",
+        "transliteration": "aparipakva andanu"
+    },
+    {
+        "en": "laboratory maturation",
+        "mr": "प्रयोगशाळेत परिपक्व करणे",
+        "transliteration": "prayogashaleta paripakva karane"
+    },
+    {
+        "en": "embryo transfer",
+        "mr": "भ्रूण हस्तांतरण",
+        "transliteration": "bhruna hastantarana"
+    },
+    {
+        "en": "embryo freezing",
+        "mr": "भ्रूण गोठवणे",
+        "transliteration": "bhruna gothavane"
+    },
+    {
+        "en": "sex-sorted artificial insemination",
+        "mr": "लिंग-विशिष्ट कृत्रिम प्रजनन",
+        "transliteration": "linga-vishishta kritrima prajanana"
+    },
+    {
+        "en": "x spermatozoa",
+        "mr": "X शुक्राणू",
+        "transliteration": "x shukranu"
+    },
+    {
+        "en": "y spermatozoa",
+        "mr": "Y शुक्राणू",
+        "transliteration": "y shukranu"
+    },
+    {
+        "en": "frozen insemination dose",
+        "mr": "गोठवलेली कृत्रिम प्रजनन मात्रा",
+        "transliteration": "gothavaleli kritrima prajanana matra"
+    },
+    {
+        "en": "heifer",
+        "mr": "पहिली वेळ जन्म देणारी गाय",
+        "transliteration": "pahili vela janma denari gaya"
+    },
+    {
+        "en": "first-calving cow",
+        "mr": "पहिलीच बछडा दिलेली गाय",
+        "transliteration": "pahilica bachada dileli gaya"
+    },
+    {
+        "en": "puberty in cows",
+        "mr": "गायींची प्रौढ अवस्था",
+        "transliteration": "gayinci praudha avastha"
+    },
+    {
+        "en": "positive energy balance",
+        "mr": "सकारात्मक ऊर्जा संतुलन",
+        "transliteration": "sakaratmaka urja santulana"
+    },
+    {
+        "en": "genetic improvement",
+        "mr": "आनुवंशिक सुधार",
+        "transliteration": "anuvanshika sudhara"
+    },
+    {
+        "en": "high pedigree heifer",
+        "mr": "उच्च वंशजाची कालवड",
+        "transliteration": "ucca vanshajaci kalavada"
+    },
+    {
+        "en": "national gokul mission",
+        "mr": "राष्ट्रीय गोकुळ मिशन",
+        "transliteration": "rashtriya gokula mishana"
+    },
+    {
+        "en": "indigenous breeds",
+        "mr": "स्थानिक जाती",
+        "transliteration": "sthanika jati"
+    },
+    {
+        "en": "crossbred animals",
+        "mr": "संकरित प्राणी",
+        "transliteration": "sankarita prani"
+    },
+    {
+        "en": "calving interval",
+        "mr": "वेतामधील अंतर",
+        "transliteration": "vetamadhila antara"
+    },
+    {
+        "en": "superior proven bull",
+        "mr": "उत्कृष्ट सिद्धवळू",
+        "transliteration": "utkrishta siddhavalu"
+    },
+    {
+        "en": "synchronised heat",
+        "mr": "समन्वित माज",
+        "transliteration": "samanvita maja"
+    },
+    {
+        "en": "deworming",
+        "mr": "कृमिनाशक देणे",
+        "transliteration": "kriminashaka dene"
+    },
+    {
+        "en": "milk yield",
+        "mr": "दुधाचे उत्पादन",
+        "transliteration": "dudhace utpadana"
+    },
+    {
+        "en": "cow breeds",
+        "mr": "गायींच्या जाती",
+        "transliteration": "gayincya jati"
+    },
+    {
+        "en": "buffalo breeds",
+        "mr": "म्हशींच्या जाती",
+        "transliteration": "mhashincya jati"
+    },
+    {
+        "en": "sex-sorted semen",
+        "mr": "लिंग-विशिष्ट वीर्य",
+        "transliteration": "linga-vishishta virya"
+    },
+    {
+        "en": "udder",
+        "mr": "कास",
+        "transliteration": "kasa"
+    },
+    {
+        "en": "teat",
+        "mr": "थन",
+        "transliteration": "thana"
+    },
+    {
+        "en": "milk vein",
+        "mr": "दूध वाहिनी",
+        "transliteration": "dudha vahini"
+    },
+    {
+        "en": "monocot fodder",
+        "mr": "एकबीजी चारा",
+        "transliteration": "ekabiji chara"
+    },
+    {
+        "en": "leguminous fodder",
+        "mr": "फुलझडी चारा",
+        "transliteration": "phulajhadi chara"
+    },
+    {
+        "en": "protected protein",
+        "mr": "संरक्षित प्रोटीन",
+        "transliteration": "sanrakshita protina"
+    },
+    {
+        "en": "loose housing system",
+        "mr": "मुक्त गोठा पद्धत",
+        "transliteration": "mukta gotha paddhata"
+    },
+    {
+        "en": "calf rearing",
+        "mr": "वासरांचे संगोपन",
+        "transliteration": "vasarance sangopana"
+    },
+    {
+        "en": "debudding",
+        "mr": "सिंग नष्ट करणे",
+        "transliteration": "singa nashta karane"
+    },
+    {
+        "en": "gestation period",
+        "mr": "गर्भधारण कालावधी",
+        "transliteration": "garbhadharana kalavadhi"
+    },
+    {
+        "en": "calving",
+        "mr": "व्याने",
+        "transliteration": "vyane"
+    },
+    {
+        "en": "uterine involution",
+        "mr": "गर्भाशय पुनर्रचना",
+        "transliteration": "garbhashaya punarracana"
+    },
+    {
+        "en": "vaccination",
+        "mr": "लसीकरण",
+        "transliteration": "lasikarana"
+    },
+    {
+        "en": "external parasites",
+        "mr": "बाह्य परजीवी",
+        "transliteration": "bahya parajivi"
+    },
+    {
+        "en": "pesticide spray",
+        "mr": "कीटकनाशक फवारणी",
+        "transliteration": "kitakanashaka phavarani"
+    },
+    {
+        "en": "preventive healthcare",
+        "mr": "प्रतिबंधात्मक आरोग्य व्यवस्थापन",
+        "transliteration": "pratibandhatmaka arogya vyavasthapana"
+    },
+    {
+        "en": "milk machine",
+        "mr": "दुग्ध काढण्याची यंत्र",
+        "transliteration": "dugdha kadhanyaci yantra"
+    },
+    {
+        "en": "milk quality",
+        "mr": "दुधाची गुणवत्ता",
+        "transliteration": "dudhaci gunavatta"
+    },
+    {
+        "en": "calf starter",
+        "mr": "वासरासाठी प्रारंभिक आहार",
+        "transliteration": "vasarasathi praranbhika ahara"
+    },
+    {
+        "en": "probiotics",
+        "mr": "प्रोबायोटिक्स",
+        "transliteration": "probayotiksa"
+    },
+    {
+        "en": "feed conversion",
+        "mr": "आहार रूपांतरण",
+        "transliteration": "ahara rupantarana"
+    },
+    {
+        "en": "mastitis",
+        "mr": "स्तनदाह",
+        "transliteration": "stanadaha"
+    },
+    {
+        "en": "cow",
+        "mr": "गाय",
+        "transliteration": "gaya"
+    },
+    {
+        "en": "calf",
+        "mr": "वासरू",
+        "transliteration": "vasaru"
+    },
+    {
+        "en": "lactating animal",
+        "mr": "दूध देणारी जनावरे",
+        "transliteration": "dudha denari janavare"
+    },
+    {
+        "en": "milking",
+        "mr": "दूध काढणे",
+        "transliteration": "dudha kadhane"
+    },
+    {
+        "en": "murrah buffalo",
+        "mr": "मुऱ्हा म्हैस",
+        "transliteration": "muṟha mhaisa"
+    },
+    {
+        "en": "sahiwal cow",
+        "mr": "सहिवाल गाय",
+        "transliteration": "sahivala gaya"
+    },
+    {
+        "en": "gir cow",
+        "mr": "गीर गाय",
+        "transliteration": "gira gaya"
+    },
+    {
+        "en": "crossbred cow",
+        "mr": "संकरीत गाय",
+        "transliteration": "sankarita gaya"
+    },
+    {
+        "en": "hypochlorite",
+        "mr": "हायपो क्लोराइट",
+        "transliteration": "hayapo kloraita"
+    },
+    {
+        "en": "somatic cell count",
+        "mr": "सोमॅटिक पेशी संख्या",
+        "transliteration": "somaॅtika peshi sankhya"
+    },
+    {
+        "en": "water trough",
+        "mr": "पिण्याचे तळ",
+        "transliteration": "pinyace tala"
+    },
+    {
+        "en": "body condition score",
+        "mr": "शरीर स्थिती गुणांकन",
+        "transliteration": "sharira sthiti gunankana"
+    },
+    {
+        "en": "reproductive cycle",
+        "mr": "प्रजनन चक्र",
+        "transliteration": "prajanana cakra"
+    },
+    {
+        "en": "parasite control",
+        "mr": "परजीवी नियंत्रण",
+        "transliteration": "parajivi niyantrana"
+    },
+    {
+        "en": "lumpy skin disease",
+        "mr": "गाठीचा रोग",
+        "transliteration": "gathica roga"
+    },
+    {
+        "en": "foot and mouth disease",
+        "mr": "खुर व तोंड रोग",
+        "transliteration": "khura va tonda roga"
+    },
+    {
+        "en": "black quarter",
+        "mr": "काळपुळी रोग",
+        "transliteration": "kalapuli roga"
+    },
+    {
+        "en": "brucellosis",
+        "mr": "ब्रुसॅलोसिस",
+        "transliteration": "brusaॅlosisa"
+    },
+    {
+        "en": "anthrax",
+        "mr": "अँथ्रॅक्स",
+        "transliteration": "a~thraॅksa"
+    },
+    {
+        "en": "theileriosis",
+        "mr": "थायलेरीओसिस",
+        "transliteration": "thayaleriosisa"
+    },
+    {
+        "en": "clean milk production",
+        "mr": "स्वच्छ दूध उत्पादन",
+        "transliteration": "svaccha dudha utpadana"
+    },
+    {
+        "en": "adulteration",
+        "mr": "भेसळ",
+        "transliteration": "bhesala"
+    },
+    {
+        "en": "antibiotic residue",
+        "mr": "प्रतिजैविक अवशेष",
+        "transliteration": "pratijaivika avashesha"
+    },
+    {
+        "en": "white revolution",
+        "mr": "धवल क्रांती",
+        "transliteration": "dhavala kranti"
+    },
+    {
+        "en": "dairy technology",
+        "mr": "दुग्ध तंत्रज्ञान",
+        "transliteration": "dugdha tantrajnyana"
+    },
+    {
+        "en": "milk chilling",
+        "mr": "दूध थंड करणे",
+        "transliteration": "dudha thanda karane"
+    },
+    {
+        "en": "pasteurization",
+        "mr": "पाश्चुरीकरण",
+        "transliteration": "pashcurikarana"
+    },
+    {
+        "en": "batch pasteurization",
+        "mr": "बॅच पाश्चुरीकरण",
+        "transliteration": "baॅca pashcurikarana"
+    },
+    {
+        "en": "milk standardization",
+        "mr": "दूधाचे प्रमानिकीकरण",
+        "transliteration": "dudhace pramanikikarana"
+    },
+    {
+        "en": "toned milk",
+        "mr": "टोनड मिल्क",
+        "transliteration": "tonada milka"
+    },
+    {
+        "en": "double toned milk",
+        "mr": "डबल टोनड मिल्क",
+        "transliteration": "dabala tonada milka"
+    },
+    {
+        "en": "standardized milk",
+        "mr": "स्टँडर्ड मिल्क",
+        "transliteration": "sta~darda milka"
+    },
+    {
+        "en": "full cream milk",
+        "mr": "फुल क्रीम दूध",
+        "transliteration": "phula krima dudha"
+    },
+    {
+        "en": "cream separator",
+        "mr": "क्रीम वेगळे करणारे यंत्र",
+        "transliteration": "krima vegale karanare yantra"
+    },
+    {
+        "en": "homogenizer",
+        "mr": "होमोजिनायझर",
+        "transliteration": "homojinayajhara"
+    },
+    {
+        "en": "milk packaging",
+        "mr": "दूध पॅकेजिंग",
+        "transliteration": "dudha paॅkejinga"
+    },
+    {
+        "en": "milk transport",
+        "mr": "दूध वाहतूक",
+        "transliteration": "dudha vahatuka"
+    },
+    {
+        "en": "microbial count",
+        "mr": "सूक्ष्मजीव संख्या",
+        "transliteration": "sukshmajiva sankhya"
+    },
+    {
+        "en": "food safety and standards act",
+        "mr": "अन्न सुरक्षा आणि मानके कायदा",
+        "transliteration": "anna suraksha ani manake kayada"
+    },
+    {
+        "en": "pasteurized milk",
+        "mr": "पाश्चुरीकृत दूध",
+        "transliteration": "pashcurikrita dudha"
+    },
+    {
+        "en": "bulk collection",
+        "mr": "मोठ्या प्रमाणावर संकलन",
+        "transliteration": "mothya pramanavara sankalana"
+    },
+    {
+        "en": "paneer",
+        "mr": "पनीर",
+        "transliteration": "panira"
+    },
+    {
+        "en": "citric acid",
+        "mr": "सिट्रिक ऍसिड",
+        "transliteration": "sitrika ऍsida"
+    },
+    {
+        "en": "paneer press",
+        "mr": "पनीर प्रेस",
+        "transliteration": "panira presa"
+    },
+    {
+        "en": "pedha",
+        "mr": "पेढा",
+        "transliteration": "pedha"
+    },
+    {
+        "en": "khoya types",
+        "mr": "माव्याचे प्रकार",
+        "transliteration": "mavyace prakara"
+    },
+    {
+        "en": "pindi khoya",
+        "mr": "पिंडी मावा",
+        "transliteration": "pindi mava"
+    },
+    {
+        "en": "dhap khoya",
+        "mr": "ढाप मावा",
+        "transliteration": "dhapa mava"
+    },
+    {
+        "en": "granular khoya",
+        "mr": "दाणेदार मावा",
+        "transliteration": "danedara mava"
+    },
+    {
+        "en": "kalakand",
+        "mr": "कलाकंद",
+        "transliteration": "kalakanda"
+    },
+    {
+        "en": "starter culture",
+        "mr": "विरजन",
+        "transliteration": "virajana"
+    },
+    {
+        "en": "suji",
+        "mr": "रवा",
+        "transliteration": "rava"
+    },
+    {
+        "en": "maida",
+        "mr": "मैदा",
+        "transliteration": "maida"
+    },
+    {
+        "en": "mysore pak",
+        "mr": "मैसूर पाक",
+        "transliteration": "maisura paka"
+    },
+    {
+        "en": "gram flour",
+        "mr": "हरभरा पीठ",
+        "transliteration": "harabhara pitha"
+    },
+    {
+        "en": "single thread consistency",
+        "mr": "एकतारी पाक",
+        "transliteration": "ekatari paka"
+    },
+    {
+        "en": "whey",
+        "mr": "व्हे",
+        "transliteration": "vhe"
+    },
+    {
+        "en": "paneer whey",
+        "mr": "पनीर व्हे",
+        "transliteration": "panira vhe"
+    },
+    {
+        "en": "whey-based beverages",
+        "mr": "व्हे आधारित पेये",
+        "transliteration": "vhe adharita peye"
+    },
+    {
+        "en": "flavored cold beverage",
+        "mr": "स्वादिष्ट थंड पेय",
+        "transliteration": "svadishta thanda peya"
+    },
+    {
+        "en": "gul pedha",
+        "mr": "गुल पेढा",
+        "transliteration": "gula pedha"
+    },
+    {
+        "en": "chap khoya",
+        "mr": "चाप मावा",
+        "transliteration": "capa mava"
+    },
+    {
+        "en": "pistachios",
+        "mr": "पिस्ता",
+        "transliteration": "pista"
+    },
+    {
+        "en": "nutritional value",
+        "mr": "पौष्टिक मूल्य",
+        "transliteration": "paushtika mulya"
+    },
+    {
+        "en": "total solids",
+        "mr": "एकूण घनपदार्थ",
+        "transliteration": "ekuna ghanapadartha"
+    },
+    {
+        "en": "fat content",
+        "mr": "चरबी प्रमाण",
+        "transliteration": "charabi pramana"
+    },
+    {
+        "en": "acidity",
+        "mr": "आम्लता",
+        "transliteration": "amlata"
+    },
+    {
+        "en": "profit",
+        "mr": "नफा",
+        "transliteration": "napha"
+    },
+    {
+        "en": "capital expenditure",
+        "mr": "भांडवली खर्च",
+        "transliteration": "bhandavali kharca"
+    },
+    {
+        "en": "small-scale dairy unit",
+        "mr": "लघु दुग्ध प्रक्रिया युनिट",
+        "transliteration": "laghu dugdha prakriya yunita"
+    },
+    {
+        "en": "raw milk",
+        "mr": "कच्चे दूध",
+        "transliteration": "kacce dudha"
+    },
+    {
+        "en": "direct selling",
+        "mr": "थेट विक्री",
+        "transliteration": "theta vikri"
+    },
+    {
+        "en": "production planning",
+        "mr": "उत्पादन नियोजन",
+        "transliteration": "utpadana niyojana"
+    },
+    {
+        "en": "ghee",
+        "mr": "तूप",
+        "transliteration": "tupa"
+    },
+    {
+        "en": "registration",
+        "mr": "नोंदणी",
+        "transliteration": "nondani"
+    },
+    {
+        "en": "license",
+        "mr": "परवाना",
+        "transliteration": "paravana"
+    },
+    {
+        "en": "food safety and standards act, 2006",
+        "mr": "अन्न सुरक्षा आणि मानके कायदा, 2006",
+        "transliteration": "anna suraksha ani manake kayada, 2006"
+    },
+    {
+        "en": "district food and drug administration office",
+        "mr": "जिल्हा अन्न व औषध प्रशासन कार्यालय",
+        "transliteration": "jilha anna va aushadha prashasana karyalaya"
+    },
+    {
+        "en": "online application",
+        "mr": "ऑनलाइन अर्ज",
+        "transliteration": "ऑnalaina arja"
+    },
+    {
+        "en": "registration fee",
+        "mr": "नोंदणी शुल्क",
+        "transliteration": "nondani shulka"
+    },
+    {
+        "en": "license fee",
+        "mr": "परवाना शुल्क",
+        "transliteration": "paravana shulka"
+    },
+    {
+        "en": "shop act license",
+        "mr": "दुकान कायदा परवाना",
+        "transliteration": "dukana kayada paravana"
+    },
+    {
+        "en": "weights and measures certificate",
+        "mr": "वजन आणि माप प्रमाणपत्र",
+        "transliteration": "vajana ani mapa pramanapatra"
+    },
+    {
+        "en": "milk labeling",
+        "mr": "दूध पॅकेटवर लेबल",
+        "transliteration": "dudha paॅketavara lebala"
+    },
+    {
+        "en": "standard milk",
+        "mr": "मानक दूध",
+        "transliteration": "manaka dudha"
+    },
+    {
+        "en": "skim milk",
+        "mr": "स्किम्ड दूध",
+        "transliteration": "skimda dudha"
+    },
+    {
+        "en": "consumer inclination",
+        "mr": "ग्राहक पसंती",
+        "transliteration": "grahaka pasanti"
+    },
+    {
+        "en": "urbanization",
+        "mr": "शहरीकरण",
+        "transliteration": "shaharikarana"
+    },
+    {
+        "en": "lifestyle changes",
+        "mr": "जीवनशैलीतील बदल",
+        "transliteration": "jivanashailitila badala"
+    },
+    {
+        "en": "dairy processing industry",
+        "mr": "दुग्ध प्रक्रिया उद्योग",
+        "transliteration": "dugdha prakriya udyoga"
+    },
+    {
+        "en": "milk handling capacity",
+        "mr": "दूध हाताळण्याची क्षमता",
+        "transliteration": "dudha hatalanyaci kshamata"
+    },
+    {
+        "en": "buck",
+        "mr": "शेळीचा नर",
+        "transliteration": "shelica nara"
+    },
+    {
+        "en": "ram",
+        "mr": "मेंढीचा नर",
+        "transliteration": "mendhica nara"
+    },
+    {
+        "en": "doe",
+        "mr": "मादी शेळी",
+        "transliteration": "madi sheli"
+    },
+    {
+        "en": "ewe",
+        "mr": "मादी मेंढी",
+        "transliteration": "madi mendhi"
+    },
+    {
+        "en": "kidding",
+        "mr": "शेळीच्या पिल्लांना जन्म देणे",
+        "transliteration": "shelicya pillanna janma dene"
+    },
+    {
+        "en": "lambing",
+        "mr": "मेंढीच्या पिल्लांना जन्म देणे",
+        "transliteration": "mendhicya pillanna janma dene"
+    },
+    {
+        "en": "kid",
+        "mr": "शेळीचे पिल्लू",
+        "transliteration": "shelice pillu"
+    },
+    {
+        "en": "lamb",
+        "mr": "कोकरू",
+        "transliteration": "kokaru"
+    },
+    {
+        "en": "purebred",
+        "mr": "शुद्ध वंशाचे",
+        "transliteration": "shuddha vanshace"
+    },
+    {
+        "en": "lucerne",
+        "mr": "ल्युसेर्न",
+        "transliteration": "lyuserna"
+    },
+    {
+        "en": "berseem",
+        "mr": "बर्सीम",
+        "transliteration": "barsima"
+    },
+    {
+        "en": "subabul",
+        "mr": "सुबाभळ",
+        "transliteration": "subabhala"
+    },
+    {
+        "en": "mulberry leaves",
+        "mr": "तुतीचे पाने",
+        "transliteration": "tutice pane"
+    },
+    {
+        "en": "sesame cake",
+        "mr": "तीळ पेंड",
+        "transliteration": "tila penda"
+    },
+    {
+        "en": "wheat bran",
+        "mr": "गव्हाचा भुसा",
+        "transliteration": "gavhaca bhusa"
+    },
+    {
+        "en": "enterotoxemia",
+        "mr": "अन्नवाहिनीसंबंधी रोग",
+        "transliteration": "annavahinisanbandhi roga"
+    },
+    {
+        "en": "blue tongue",
+        "mr": "निल जिव्हा",
+        "transliteration": "nila jivha"
+    },
+    {
+        "en": "creep feed",
+        "mr": "लहान पिल्लांसाठी विशेष चारा",
+        "transliteration": "lahana pillansathi vishesha chara"
+    },
+    {
+        "en": "intensive system",
+        "mr": "शून्य चराई",
+        "transliteration": "shunya charai"
+    },
+    {
+        "en": "semi-intensive system",
+        "mr": "अर्ध-व्यापक प्रणाली",
+        "transliteration": "ardha-vyapaka pranali"
+    },
+    {
+        "en": "extensive system",
+        "mr": "व्यापक प्रणाली",
+        "transliteration": "vyapaka pranali"
+    },
+    {
+        "en": "elevated shed",
+        "mr": "उंच बांधलेले आश्रयगृह",
+        "transliteration": "unca bandhalele ashrayagriha"
+    },
+    {
+        "en": "fodder trough",
+        "mr": "चारा खाण्याची जागा",
+        "transliteration": "chara khanyaci jaga"
+    },
+    {
+        "en": "twin birth",
+        "mr": "जुळ्या बाळांचा जन्म",
+        "transliteration": "julya balanca janma"
+    },
+    {
+        "en": "hooves",
+        "mr": "खुर",
+        "transliteration": "khura"
+    },
+    {
+        "en": "hygiene",
+        "mr": "स्वच्छता",
+        "transliteration": "svacchata"
+    },
+    {
+        "en": "lime powder",
+        "mr": "चुना पावडर",
+        "transliteration": "cuna pavadara"
+    },
+    {
+        "en": "fodder storage",
+        "mr": "चारा साठवणूक",
+        "transliteration": "chara sathavanuka"
+    },
+    {
+        "en": "grazing pasture",
+        "mr": "चराईची जागा",
+        "transliteration": "charaici jaga"
+    },
+    {
+        "en": "backyard poultry",
+        "mr": "परसातील कुक्कुट पालन",
+        "transliteration": "parasatila kukkuta palana"
+    },
+    {
+        "en": "pullets",
+        "mr": "८–२० आठवड्यांचे मादी कोंबडे",
+        "transliteration": "8–20 athavadyance madi konbade"
+    },
+    {
+        "en": "brooding",
+        "mr": "वाढीसाठी ऊष्मा व काळजी देणे",
+        "transliteration": "vadhisathi ushma va kalaji dene"
+    },
+    {
+        "en": "brooder",
+        "mr": "ब्रूडर उपकरण",
+        "transliteration": "brudara upakarana"
+    },
+    {
+        "en": "hot room brooding",
+        "mr": "गरम खोली ब्रूडिंग",
+        "transliteration": "garama kholi brudinga"
+    },
+    {
+        "en": "cold room brooding",
+        "mr": "थंड खोली ब्रूडिंग",
+        "transliteration": "thanda kholi brudinga"
+    },
+    {
+        "en": "battery brooder",
+        "mr": "बॅटरी ब्रूडर",
+        "transliteration": "baॅtari brudara"
+    },
+    {
+        "en": "gas brooder",
+        "mr": "गॅस ब्रूडर",
+        "transliteration": "gaॅsa brudara"
+    },
+    {
+        "en": "infrared brooder",
+        "mr": "इन्फ्रारेड ब्रूडिंग",
+        "transliteration": "inphrareda brudinga"
+    },
+    {
+        "en": "electrical brooder",
+        "mr": "इलेक्ट्रिक ब्रूडिंग",
+        "transliteration": "ilektrika brudinga"
+    },
+    {
+        "en": "coal brooder",
+        "mr": "कोळसा ब्रूडिंग",
+        "transliteration": "kolasa brudinga"
+    },
+    {
+        "en": "deep litter system",
+        "mr": "गादी पद्धत",
+        "transliteration": "gadi paddhata"
+    },
+    {
+        "en": "environmentally controlled shed",
+        "mr": "पर्यावरण नियंत्रित पद्धतीचा शेड",
+        "transliteration": "paryavarana niyantrita paddhatica sheda"
+    },
+    {
+        "en": "feed management",
+        "mr": "आहार व्यवस्थापन",
+        "transliteration": "ahara vyavasthapana"
+    },
+    {
+        "en": "pre-starter feed",
+        "mr": "प्रारंभिक आहार",
+        "transliteration": "praranbhika ahara"
+    },
+    {
+        "en": "starter feed",
+        "mr": "स्टार्टर्स फीड",
+        "transliteration": "startarsa phida"
+    },
+    {
+        "en": "finisher feed",
+        "mr": "फिनिशर फीड",
+        "transliteration": "phinishara phida"
+    },
+    {
+        "en": "chick mash",
+        "mr": "पिल्लांसाठी मिश्रित आहार",
+        "transliteration": "pillansathi mishrita ahara"
+    },
+    {
+        "en": "grower feed",
+        "mr": "ग्रोअर फीड",
+        "transliteration": "groara phida"
+    },
+    {
+        "en": "pre-layer feed",
+        "mr": "प्री-लेयर फीड",
+        "transliteration": "pri-leyara phida"
+    },
+    {
+        "en": "phase one layer feed",
+        "mr": "फेज वन लेयर फीड",
+        "transliteration": "pheja vana leyara phida"
+    },
+    {
+        "en": "phase two layer feed",
+        "mr": "फेज टू लेयर फीड",
+        "transliteration": "pheja tu leyara phida"
+    },
+    {
+        "en": "phase three layer feed",
+        "mr": "फेज थ्री लेयर फीड",
+        "transliteration": "pheja thri leyara phida"
+    },
+    {
+        "en": "nest box",
+        "mr": "अंडी घालण्याचा डबा",
+        "transliteration": "andi ghalanyaca daba"
+    },
+    {
+        "en": "lighting program",
+        "mr": "प्रकाश व्यवस्थापन",
+        "transliteration": "prakasha vyavasthapana"
+    },
+    {
+        "en": "ventilation",
+        "mr": "हवेची आदळ",
+        "transliteration": "haveci adala"
+    },
+    {
+        "en": "space requirement",
+        "mr": "जागेची आवश्यकता",
+        "transliteration": "jageci avashyakata"
+    },
+    {
+        "en": "beak trimming",
+        "mr": "चोची कापणी",
+        "transliteration": "coci kapani"
+    },
+    {
+        "en": "sexing",
+        "mr": "लिंग ओळख",
+        "transliteration": "linga olakha"
+    },
+    {
+        "en": "marek’s disease",
+        "mr": "मारेक रोग",
+        "transliteration": "mareka roga"
+    },
+    {
+        "en": "fowl pox",
+        "mr": "फोल पॉक्स",
+        "transliteration": "phola paॉksa"
+    },
+    {
+        "en": "killed newcastle vaccine",
+        "mr": "मृत रानीखेत लस",
+        "transliteration": "mrita ranikheta lasa"
+    },
+    {
+        "en": "summer management",
+        "mr": "उन्हाळा काळातील व्यवस्थापन",
+        "transliteration": "unhala kalatila vyavasthapana"
+    },
+    {
+        "en": "winter management",
+        "mr": "हिवाळा काळातील व्यवस्थापन",
+        "transliteration": "hivala kalatila vyavasthapana"
+    },
+    {
+        "en": "rainy season management",
+        "mr": "पावसाळा काळातील व्यवस्थापन",
+        "transliteration": "pavasala kalatila vyavasthapana"
+    },
+    {
+        "en": "temperature control",
+        "mr": "तापमान नियंत्रण",
+        "transliteration": "tapamana niyantrana"
+    },
+    {
+        "en": "feed space",
+        "mr": "आहार देण्याची जागा",
+        "transliteration": "ahara denyaci jaga"
+    },
+    {
+        "en": "water space",
+        "mr": "पिण्याच्या पाण्याची जागा",
+        "transliteration": "pinyacya panyaci jaga"
+    },
+    {
+        "en": "broiler breeds",
+        "mr": "मांसासाठी योग्य जाती",
+        "transliteration": "mansasathi yogya jati"
+    },
+    {
+        "en": "layer breeds",
+        "mr": "अंडी देण्यासाठी योग्य जाती",
+        "transliteration": "andi denyasathi yogya jati"
+    },
+    {
+        "en": "backyard breeds",
+        "mr": "परसातील कुक्कुट पालनासाठी जाती",
+        "transliteration": "parasatila kukkuta palanasathi jati"
+    },
+    {
+        "en": "broiler housing",
+        "mr": "ब्रॉयलर कोंबड्यांचे घर",
+        "transliteration": "braॉyalara konbadyance ghara"
+    },
+    {
+        "en": "laying hens housing",
+        "mr": "अंडी देणाऱ्या कोंबड्यांचे घर",
+        "transliteration": "andi denaṟya konbadyance ghara"
+    },
+    {
+        "en": "nesting space",
+        "mr": "अंडी घालण्यासाठी जागा",
+        "transliteration": "andi ghalanyasathi jaga"
+    },
+    {
+        "en": "nest",
+        "mr": "अंडी घालण्याचे डबे",
+        "transliteration": "andi ghalanyace dabe"
+    },
+    {
+        "en": "feed density",
+        "mr": "आहारातील पोषक तत्वांचे प्रमाण",
+        "transliteration": "aharatila poshaka tatvance pramana"
+    },
+    {
+        "en": "electrolytes",
+        "mr": "इलेक्ट्रोलाइट्स",
+        "transliteration": "ilektrolaitsa"
+    },
+    {
+        "en": "stress-reducing medicines",
+        "mr": "तणाव कमी करणारी औषधे",
+        "transliteration": "tanava kami karanari aushadhe"
+    },
+    {
+        "en": "evaporative cooling pad",
+        "mr": "वाष्पीभवनीय शीतकरण पॅड",
+        "transliteration": "vashpibhavaniya shitakarana paॅda"
+    },
+    {
+        "en": "white reflective paint",
+        "mr": "पांढरे परावर्तक रंग",
+        "transliteration": "pandhare paravartaka ranga"
+    },
+    {
+        "en": "calcium supplement",
+        "mr": "कॅल्शियम पुरवठा",
+        "transliteration": "kaॅlshiyama puravatha"
+    },
+    {
+        "en": "breeding",
+        "mr": "प्रजनन",
+        "transliteration": "prajanana"
+    },
+    {
+        "en": "nutrition",
+        "mr": "पोषण",
+        "transliteration": "poshana"
+    },
+    {
+        "en": "shed",
+        "mr": "निवारा",
+        "transliteration": "nivara"
+    },
+    {
+        "en": "housing",
+        "mr": "निवास व्यवस्था",
+        "transliteration": "nivasa vyavastha"
+    },
+    {
+        "en": "capital",
+        "mr": "भांडवल",
+        "transliteration": "bhandavala"
+    },
+    {
+        "en": "investment",
+        "mr": "गुंतवणूक",
+        "transliteration": "guntavanuka"
+    },
+    {
+        "en": "management",
+        "mr": "व्यवस्थापन",
+        "transliteration": "vyavasthapana"
+    },
+    {
+        "en": "training",
+        "mr": "प्रशिक्षण",
+        "transliteration": "prashikshana"
+    },
+    {
+        "en": "market demand",
+        "mr": "बाजारातील मागणी",
+        "transliteration": "bajaratila magani"
+    },
+    {
+        "en": "government scheme",
+        "mr": "सरकारी योजना",
+        "transliteration": "sarakari yojana"
+    },
+    {
+        "en": "vaccination schedule",
+        "mr": "लसीकरण वेळापत्रक",
+        "transliteration": "lasikarana velapatraka"
+    },
+    {
+        "en": "anti-stress medicine",
+        "mr": "तणाव विरोधी औषध",
+        "transliteration": "tanava virodhi aushadha"
+    },
+    {
+        "en": "boar",
+        "mr": "नर डुक्कर",
+        "transliteration": "nara dukkara"
+    },
+    {
+        "en": "sow",
+        "mr": "मादी डुक्कर",
+        "transliteration": "madi dukkara"
+    },
+    {
+        "en": "piglet",
+        "mr": "पिल्लू डुक्कर",
+        "transliteration": "pillu dukkara"
+    },
+    {
+        "en": "farrowing",
+        "mr": "डुक्कर जन्म देणे",
+        "transliteration": "dukkara janma dene"
+    },
+    {
+        "en": "classical swine fever",
+        "mr": "क्लासिकल स्वाइन फीव्हर",
+        "transliteration": "klasikala svaina phivhara"
+    },
+    {
+        "en": "health management",
+        "mr": "आरोग्य व्यवस्थापन",
+        "transliteration": "arogya vyavasthapana"
+    },
+    {
+        "en": "quarantine",
+        "mr": "विलगीकरण",
+        "transliteration": "vilagikarana"
+    },
+    {
+        "en": "shelter",
+        "mr": "आश्रयस्थान",
+        "transliteration": "ashrayasthana"
+    },
+    {
+        "en": "pig shed",
+        "mr": "डुक्कर शेड",
+        "transliteration": "dukkara sheda"
+    },
+    {
+        "en": "market price",
+        "mr": "बाजार भाव",
+        "transliteration": "bajara bhava"
+    },
+    {
+        "en": "loan facility",
+        "mr": "कर्ज सुविधा",
+        "transliteration": "karja suvidha"
+    },
+    {
+        "en": "business plan",
+        "mr": "व्यवसाय योजना",
+        "transliteration": "vyavasaya yojana"
+    },
+    {
+        "en": "site selection",
+        "mr": "ठिकाण निवड",
+        "transliteration": "thikana nivada"
+    },
+    {
+        "en": "investment planning",
+        "mr": "गुंतवणूक योजना",
+        "transliteration": "guntavanuka yojana"
+    },
+    {
+        "en": "financial management",
+        "mr": "आर्थिक व्यवस्थापन",
+        "transliteration": "arthika vyavasthapana"
+    },
+    {
+        "en": "record keeping",
+        "mr": "नोंद ठेवणे",
+        "transliteration": "nonda thevane"
+    },
+    {
+        "en": "profit estimation",
+        "mr": "नफा अंदाज",
+        "transliteration": "napha andaja"
+    },
+    {
+        "en": "loss prevention",
+        "mr": "नुकसान प्रतिबंध",
+        "transliteration": "nukasana pratibandha"
+    },
+    {
+        "en": "technology adoption",
+        "mr": "तंत्रज्ञानाचा स्वीकार",
+        "transliteration": "tantrajnyanaca svikara"
+    },
+    {
+        "en": "market analysis",
+        "mr": "बाजार विश्लेषण",
+        "transliteration": "bajara vishleshana"
+    },
+    {
+        "en": "dog rearing",
+        "mr": "कुत्रा पाळणे",
+        "transliteration": "kutra palane"
+    },
+    {
+        "en": "pet",
+        "mr": "पाळीव प्राणी",
+        "transliteration": "paliva prani"
+    },
+    {
+        "en": "companion",
+        "mr": "साथीदार",
+        "transliteration": "sathidara"
+    },
+    {
+        "en": "health",
+        "mr": "आरोग्य",
+        "transliteration": "arogya"
+    },
+    {
+        "en": "happiness",
+        "mr": "समाधानीपणा",
+        "transliteration": "samadhanipana"
+    },
+    {
+        "en": "exercise",
+        "mr": "व्यायाम",
+        "transliteration": "vyayama"
+    },
+    {
+        "en": "weight management",
+        "mr": "वजन नियंत्रण",
+        "transliteration": "vajana niyantrana"
+    },
+    {
+        "en": "sterilization",
+        "mr": "नसबंदी",
+        "transliteration": "nasabandi"
+    },
+    {
+        "en": "disease prevention",
+        "mr": "रोग प्रतिबंध",
+        "transliteration": "roga pratibandha"
+    },
+    {
+        "en": "booster dose",
+        "mr": "बूस्टर डोस",
+        "transliteration": "bustara dosa"
+    },
+    {
+        "en": "veterinary checkup",
+        "mr": "पशुवैद्यकीय तपासणी",
+        "transliteration": "pashuvaidyakiya tapasani"
+    },
+    {
+        "en": "grooming",
+        "mr": "खरारा करणे",
+        "transliteration": "kharara karane"
+    },
+    {
+        "en": "infection",
+        "mr": "संसर्ग",
+        "transliteration": "sansarga"
+    },
+    {
+        "en": "symptom",
+        "mr": "लक्षण",
+        "transliteration": "lakshana"
+    },
+    {
+        "en": "treatment",
+        "mr": "उपचार",
+        "transliteration": "upachara"
+    },
+    {
+        "en": "puppy",
+        "mr": "कुत्र्याचे पिल्लू",
+        "transliteration": "kutryace pillu"
+    },
+    {
+        "en": "feeding frequency",
+        "mr": "आहार देण्याची वारंवारिता",
+        "transliteration": "ahara denyaci varanvarita"
+    },
+    {
+        "en": "large dog",
+        "mr": "मोठा कुत्रा",
+        "transliteration": "motha kutra"
+    },
+    {
+        "en": "bloating",
+        "mr": "पोट फुगणे",
+        "transliteration": "pota phugane"
+    },
+    {
+        "en": "meal",
+        "mr": "जेवण",
+        "transliteration": "jevana"
+    },
+    {
+        "en": "nutrient",
+        "mr": "पोषक घटक",
+        "transliteration": "poshaka ghataka"
+    },
+    {
+        "en": "digestive health",
+        "mr": "पचन आरोग्य",
+        "transliteration": "pacana arogya"
+    },
+    {
+        "en": "dental care",
+        "mr": "दातांची काळजी",
+        "transliteration": "datanci kalaji"
+    },
+    {
+        "en": "teeth",
+        "mr": "दात",
+        "transliteration": "data"
+    },
+    {
+        "en": "gums",
+        "mr": "हिरडे",
+        "transliteration": "hirade"
+    },
+    {
+        "en": "oral health",
+        "mr": "तोंडाचे आरोग्य",
+        "transliteration": "tondace arogya"
+    },
+    {
+        "en": "bad breath",
+        "mr": "तोंडातून वाईट वास येणे",
+        "transliteration": "tondatuna vaita vasa yene"
+    },
+    {
+        "en": "broken tooth",
+        "mr": "तुटलेला दात",
+        "transliteration": "tutalela data"
+    },
+    {
+        "en": "loose tooth",
+        "mr": "ढीलला दात",
+        "transliteration": "dhilala data"
+    },
+    {
+        "en": "extra teeth",
+        "mr": "अतिरिक्त दात",
+        "transliteration": "atirikta data"
+    },
+    {
+        "en": "tartar",
+        "mr": "दाताचा टार्टर",
+        "transliteration": "dataca tartara"
+    },
+    {
+        "en": "drooling",
+        "mr": "तोंडातून लाळ येणे",
+        "transliteration": "tondatuna lala yene"
+    },
+    {
+        "en": "appetite loss",
+        "mr": "भूक कमी होणे",
+        "transliteration": "bhuka kami hone"
+    },
+    {
+        "en": "pain",
+        "mr": "वेदना",
+        "transliteration": "vedana"
+    },
+    {
+        "en": "swelling",
+        "mr": "सूज",
+        "transliteration": "suja"
+    },
+    {
+        "en": "behavioural changes",
+        "mr": "वर्तन बदल",
+        "transliteration": "vartana badala"
+    },
+    {
+        "en": "veterinary dentist",
+        "mr": "पशुवैद्यकीय दंततज्ज्ञ",
+        "transliteration": "pashuvaidyakiya dantatajjnya"
+    },
+    {
+        "en": "nail care",
+        "mr": "नखांची काळजी",
+        "transliteration": "nakhanci kalaji"
+    },
+    {
+        "en": "nail trimming",
+        "mr": "नख छाटणी",
+        "transliteration": "nakha chatani"
+    },
+    {
+        "en": "nail clippers",
+        "mr": "नख कटर",
+        "transliteration": "nakha katara"
+    },
+    {
+        "en": "paw",
+        "mr": "पंजा",
+        "transliteration": "panja"
+    },
+    {
+        "en": "quick",
+        "mr": "नखाचा रक्तवाहिनी असलेला भाग",
+        "transliteration": "nakhaca raktavahini asalela bhaga"
+    },
+    {
+        "en": "overgrown nails",
+        "mr": "जास्त वाढलेले नखे",
+        "transliteration": "jasta vadhalele nakhe"
+    },
+    {
+        "en": "walking difficulty",
+        "mr": "चालताना अडचण",
+        "transliteration": "calatana adacana"
+    },
+    {
+        "en": "hind paw",
+        "mr": "मागचा पंजा",
+        "transliteration": "magaca panja"
+    },
+    {
+        "en": "front paw",
+        "mr": "पुढचा पंजा",
+        "transliteration": "pudhaca panja"
+    },
+    {
+        "en": "eye care",
+        "mr": "डोळ्यांची काळजी",
+        "transliteration": "dolyanci kalaji"
+    },
+    {
+        "en": "vision",
+        "mr": "दृष्टी",
+        "transliteration": "drishti"
+    },
+    {
+        "en": "eye infection",
+        "mr": "डोळ्याचा संसर्ग",
+        "transliteration": "dolyaca sansarga"
+    },
+    {
+        "en": "bacterial infection",
+        "mr": "जीवाणू संसर्ग",
+        "transliteration": "jivanu sansarga"
+    },
+    {
+        "en": "viral infection",
+        "mr": "व्हायरल संसर्ग",
+        "transliteration": "vhayarala sansarga"
+    },
+    {
+        "en": "tear stains",
+        "mr": "अश्रूच्या डागांचा निशाण",
+        "transliteration": "ashrucya daganca nishana"
+    },
+    {
+        "en": "cloudy eyes",
+        "mr": "धूसर डोळे",
+        "transliteration": "dhusara dole"
+    },
+    {
+        "en": "discharge",
+        "mr": "स्त्राव",
+        "transliteration": "strava"
+    },
+    {
+        "en": "eye injury",
+        "mr": "डोळ्याला दुखापत",
+        "transliteration": "dolyala dukhapata"
+    },
+    {
+        "en": "distemper",
+        "mr": "डिसटेम्पर",
+        "transliteration": "disatempara"
+    },
+    {
+        "en": "parvovirus",
+        "mr": "पार्वोव्हायरस",
+        "transliteration": "parvovhayarasa"
+    },
+    {
+        "en": "canine hepatitis",
+        "mr": "कुत्र्याचा यकृत संसर्ग",
+        "transliteration": "kutryaca yakrita sansarga"
+    },
+    {
+        "en": "leptospirosis",
+        "mr": "लेप्टोस्पायरोसिस",
+        "transliteration": "leptospayarosisa"
+    },
+    {
+        "en": "canine parainfluenza",
+        "mr": "कॅनाइन पॅराइनफ्लुएन्झा",
+        "transliteration": "kaॅnaina paॅrainaphluenjha"
+    },
+    {
+        "en": "canine coronavirus",
+        "mr": "कॅनाइन कोरोनाव्हायरस",
+        "transliteration": "kaॅnaina koronavhayarasa"
+    },
+    {
+        "en": "kennel cough",
+        "mr": "केनेल खोकला",
+        "transliteration": "kenela khokala"
+    },
+    {
+        "en": "primary vaccination",
+        "mr": "प्राथमिक लस",
+        "transliteration": "prathamika lasa"
+    },
+    {
+        "en": "booster vaccination",
+        "mr": "बूस्टर लस",
+        "transliteration": "bustara lasa"
+    },
+    {
+        "en": "annual checkup",
+        "mr": "वार्षिक तपासणी",
+        "transliteration": "varshika tapasani"
+    },
+    {
+        "en": "internal parasites",
+        "mr": "अंतर्गत परजीवी",
+        "transliteration": "antargata parajivi"
+    },
+    {
+        "en": "worms",
+        "mr": "कृमि",
+        "transliteration": "krimi"
+    },
+    {
+        "en": "sterilized dogs",
+        "mr": "नसबंदी केलेले कुत्रे",
+        "transliteration": "nasabandi kelele kutre"
+    },
+    {
+        "en": "regular exercise",
+        "mr": "नियमित व्यायाम",
+        "transliteration": "niyamita vyayama"
+    },
+    {
+        "en": "early detection",
+        "mr": "लवकर ओळख",
+        "transliteration": "lavakara olakha"
+    },
+    {
+        "en": "healthy livestock",
+        "mr": "निरोगी जनावर",
+        "transliteration": "nirogi janavara"
+    },
+    {
+        "en": "sick livestock",
+        "mr": "रोगग्रस्त जनावर",
+        "transliteration": "rogagrasta janavara"
+    },
+    {
+        "en": "profitability",
+        "mr": "फायदेशीरता",
+        "transliteration": "phayadeshirata"
+    },
+    {
+        "en": "growth",
+        "mr": "वाढ",
+        "transliteration": "vadha"
+    },
+    {
+        "en": "disease diagnosis",
+        "mr": "रोग निदान",
+        "transliteration": "roga nidana"
+    },
+    {
+        "en": "medicinal treatment",
+        "mr": "औषधोपचार",
+        "transliteration": "aushadhopachara"
+    },
+    {
+        "en": "fever",
+        "mr": "ताप",
+        "transliteration": "tapa"
+    },
+    {
+        "en": "body temperature",
+        "mr": "शरीराचा तापमान",
+        "transliteration": "shariraca tapamana"
+    },
+    {
+        "en": "clinical thermometer",
+        "mr": "क्लिनिकल थर्मामीटर",
+        "transliteration": "klinikala tharmamitara"
+    },
+    {
+        "en": "digital thermometer",
+        "mr": "डिजिटल थर्मामीटर",
+        "transliteration": "dijitala tharmamitara"
+    },
+    {
+        "en": "rectum",
+        "mr": "गुदद्वार",
+        "transliteration": "gudadvara"
+    },
+    {
+        "en": "species",
+        "mr": "प्रजाती",
+        "transliteration": "prajati"
+    },
+    {
+        "en": "breed",
+        "mr": "जाती",
+        "transliteration": "jati"
+    },
+    {
+        "en": "pregnancy",
+        "mr": "गरोदरपणा",
+        "transliteration": "garodarapana"
+    },
+    {
+        "en": "eating fodder",
+        "mr": "चारा खाणे",
+        "transliteration": "chara khane"
+    },
+    {
+        "en": "drinking water",
+        "mr": "पाणी पिणे",
+        "transliteration": "pani pine"
+    },
+    {
+        "en": "nostril",
+        "mr": "नाकाचा छिद्र",
+        "transliteration": "nakaca chidra"
+    },
+    {
+        "en": "moist",
+        "mr": "ओले",
+        "transliteration": "ole"
+    },
+    {
+        "en": "dry",
+        "mr": "कोरडे",
+        "transliteration": "korade"
+    },
+    {
+        "en": "eyes",
+        "mr": "डोळे",
+        "transliteration": "dole"
+    },
+    {
+        "en": "dull",
+        "mr": "म्लान",
+        "transliteration": "mlana"
+    },
+    {
+        "en": "tongue",
+        "mr": "जीभ",
+        "transliteration": "jibha"
+    },
+    {
+        "en": "breathing",
+        "mr": "श्वासोच्छवास",
+        "transliteration": "shvasocchavasa"
+    },
+    {
+        "en": "breathing difficulty",
+        "mr": "श्वास घेण्यास अडचण",
+        "transliteration": "shvasa ghenyasa adacana"
+    },
+    {
+        "en": "body hair",
+        "mr": "शरीराचे केस",
+        "transliteration": "sharirace kesa"
+    },
+    {
+        "en": "shiny hair",
+        "mr": "चमकदार केस",
+        "transliteration": "camakadara kesa"
+    },
+    {
+        "en": "rough hair",
+        "mr": "रफ केस",
+        "transliteration": "rapha kesa"
+    },
+    {
+        "en": "hair fall",
+        "mr": "केस गळणे",
+        "transliteration": "kesa galane"
+    },
+    {
+        "en": "dung",
+        "mr": "शेण",
+        "transliteration": "shena"
+    },
+    {
+        "en": "urine",
+        "mr": "मूत्र",
+        "transliteration": "mutra"
+    },
+    {
+        "en": "mucous",
+        "mr": "चिकट पदार्थ",
+        "transliteration": "cikata padartha"
+    },
+    {
+        "en": "walking",
+        "mr": "चालणे",
+        "transliteration": "calane"
+    },
+    {
+        "en": "sitting posture",
+        "mr": "बसण्याची स्थिती",
+        "transliteration": "basanyaci sthiti"
+    },
+    {
+        "en": "head down",
+        "mr": "डोके खाली ठेवणे",
+        "transliteration": "doke khali thevane"
+    },
+    {
+        "en": "body weight",
+        "mr": "शरीराचे वजन",
+        "transliteration": "sharirace vajana"
+    },
+    {
+        "en": "herd",
+        "mr": "पशूंचे झुंड",
+        "transliteration": "pashunce jhunda"
+    },
+    {
+        "en": "staying alone",
+        "mr": "एकटे राहणे",
+        "transliteration": "ekate rahane"
+    },
+    {
+        "en": "heat regulation",
+        "mr": "उष्णता नियंत्रण",
+        "transliteration": "ushnata niyantrana"
+    },
+    {
+        "en": "hypothalamus",
+        "mr": "हायपोथॅलॅमस",
+        "transliteration": "hayapothaॅlaॅmasa"
+    },
+    {
+        "en": "temperature measurement",
+        "mr": "तापमान मापन",
+        "transliteration": "tapamana mapana"
+    },
+    {
+        "en": "thermometer",
+        "mr": "तापमापक",
+        "transliteration": "tapamapaka"
+    },
+    {
+        "en": "mercury",
+        "mr": "पारा",
+        "transliteration": "para"
+    },
+    {
+        "en": "antiseptic solution",
+        "mr": "जीवाणू नाशक द्रावण",
+        "transliteration": "jivanu nashaka dravana"
+    },
+    {
+        "en": "rectal mucosa",
+        "mr": "गुदद्वाराच्या आतील झिल्ली",
+        "transliteration": "gudadvaracya atila jhilli"
+    },
+    {
+        "en": "calming the animal",
+        "mr": "जनावराला शांत करणे",
+        "transliteration": "janavarala shanta karane"
+    },
+    {
+        "en": "travel rest",
+        "mr": "प्रवासानंतर विश्रांती",
+        "transliteration": "pravasanantara vishranti"
+    },
+    {
+        "en": "cold water",
+        "mr": "थंड पाणी",
+        "transliteration": "thanda pani"
+    },
+    {
+        "en": "infectious disease",
+        "mr": "संसर्गजन्य रोग",
+        "transliteration": "sansargajanya roga"
+    },
+    {
+        "en": "preventive measure",
+        "mr": "प्रतिबंधक उपाय",
+        "transliteration": "pratibandhaka upaya"
+    },
+    {
+        "en": "sudden death",
+        "mr": "अचानक मृत्यू",
+        "transliteration": "acanaka mrityu"
+    },
+    {
+        "en": "symptoms",
+        "mr": "लक्षणे",
+        "transliteration": "lakshane"
+    },
+    {
+        "en": "high fever",
+        "mr": "उच्च ताप",
+        "transliteration": "ucca tapa"
+    },
+    {
+        "en": "nasal discharge",
+        "mr": "नाकातून स्त्राव",
+        "transliteration": "nakatuna strava"
+    },
+    {
+        "en": "eye discharge",
+        "mr": "डोळ्यातून स्त्राव",
+        "transliteration": "dolyatuna strava"
+    },
+    {
+        "en": "saliva",
+        "mr": "लाळ",
+        "transliteration": "lala"
+    },
+    {
+        "en": "blisters",
+        "mr": "फोड",
+        "transliteration": "phoda"
+    },
+    {
+        "en": "ulcer",
+        "mr": "जखम",
+        "transliteration": "jakhama"
+    },
+    {
+        "en": "diarrhea",
+        "mr": "दस्त",
+        "transliteration": "dasta"
+    },
+    {
+        "en": "abortion",
+        "mr": "गर्भपात",
+        "transliteration": "garbhapata"
+    },
+    {
+        "en": "weight loss",
+        "mr": "वजन कमी होणे",
+        "transliteration": "vajana kami hone"
+    },
+    {
+        "en": "lameness",
+        "mr": "लंगडणे",
+        "transliteration": "langadane"
+    },
+    {
+        "en": "restlessness",
+        "mr": "बेचैनी",
+        "transliteration": "becaini"
+    },
+    {
+        "en": "weakness",
+        "mr": "अशक्तपणा",
+        "transliteration": "ashaktapana"
+    },
+    {
+        "en": "skin rashes",
+        "mr": "त्वचेवर पुरळ",
+        "transliteration": "tvacevara purala"
+    },
+    {
+        "en": "cracking sound",
+        "mr": "क्रॅकलिंग आवाज",
+        "transliteration": "kraॅkalinga avaja"
+    },
+    {
+        "en": "contagious",
+        "mr": "संसर्गजन्य",
+        "transliteration": "sansargajanya"
+    },
+    {
+        "en": "shed cleanliness",
+        "mr": "शेडची स्वच्छता",
+        "transliteration": "shedaci svacchata"
+    },
+    {
+        "en": "biting insects",
+        "mr": "चावणारे कीटक",
+        "transliteration": "cavanare kitaka"
+    },
+    {
+        "en": "pox",
+        "mr": "देवी",
+        "transliteration": "devi"
+    },
+    {
+        "en": "mava",
+        "mr": "मावा",
+        "transliteration": "mava"
+    },
+    {
+        "en": "veterinarian",
+        "mr": "पशुवैद्यक",
+        "transliteration": "pashuvaidyaka"
+    },
+    {
+        "en": "wound",
+        "mr": "जखम",
+        "transliteration": "jakhama"
+    },
+    {
+        "en": "maggot infestation",
+        "mr": "कीटकजन्य कृमी",
+        "transliteration": "kitakajanya krimi"
+    },
+    {
+        "en": "appetite",
+        "mr": "भूक",
+        "transliteration": "bhuka"
+    },
+    {
+        "en": "placenta",
+        "mr": "झार",
+        "transliteration": "jhara"
+    },
+    {
+        "en": "oral administration",
+        "mr": "तोंडाने देणे",
+        "transliteration": "tondane dene"
+    },
+    {
+        "en": "dose",
+        "mr": "मात्रा",
+        "transliteration": "matra"
+    },
+    {
+        "en": "mouth sores",
+        "mr": "तोंड येणे",
+        "transliteration": "tonda yene"
+    },
+    {
+        "en": "loss of appetite",
+        "mr": "भूक कमी होणे",
+        "transliteration": "bhuka kami hone"
+    },
+    {
+        "en": "not coming into heat",
+        "mr": "उष्ट्रतेस येणे",
+        "transliteration": "ushtratesa yene"
+    },
+    {
+        "en": "retained placenta",
+        "mr": "झार बाहेर न पडणे",
+        "transliteration": "jhara bahera na padane"
+    },
+    {
+        "en": "decreased milk production",
+        "mr": "दुधाचे उत्पादन कमी होणे",
+        "transliteration": "dudhace utpadana kami hone"
+    },
+    {
+        "en": "fisheries",
+        "mr": "मत्स्यव्यवसाय",
+        "transliteration": "matsyavyavasaya"
+    },
+    {
+        "en": "carp fish",
+        "mr": "कापर माशा",
+        "transliteration": "kapara masha"
+    },
+    {
+        "en": "ornamental fish",
+        "mr": "सजावटी माशा",
+        "transliteration": "sajavati masha"
+    },
+    {
+        "en": "brackish water fish",
+        "mr": "खारी पाण्यातील माशा",
+        "transliteration": "khari panyatila masha"
+    },
+    {
+        "en": "fingerling",
+        "mr": "लहान मासे",
+        "transliteration": "lahana mase"
+    },
+    {
+        "en": "feeding",
+        "mr": "खाऊ घालणे",
+        "transliteration": "khau ghalane"
+    },
+    {
+        "en": "pond",
+        "mr": "तलाव",
+        "transliteration": "talava"
+    },
+    {
+        "en": "water quality",
+        "mr": "पाण्याची गुणवत्ता",
+        "transliteration": "panyaci gunavatta"
+    },
+    {
+        "en": "live feed",
+        "mr": "जिवंत आहार",
+        "transliteration": "jivanta ahara"
+    },
+    {
+        "en": "artificial feed",
+        "mr": "कृत्रिम आहार",
+        "transliteration": "kritrima ahara"
+    },
+    {
+        "en": "dissolved oxygen",
+        "mr": "विरघळलेले ऑक्सिजन",
+        "transliteration": "viraghalalele ऑksijana"
+    },
+    {
+        "en": "hardness",
+        "mr": "कठीणता",
+        "transliteration": "kathinata"
+    },
+    {
+        "en": "catla",
+        "mr": "काटला",
+        "transliteration": "katala"
+    },
+    {
+        "en": "rohu",
+        "mr": "रोहू",
+        "transliteration": "rohu"
+    },
+    {
+        "en": "mrigal",
+        "mr": "मृगल",
+        "transliteration": "mrigala"
+    },
+    {
+        "en": "cyprinus",
+        "mr": "सायप्रिनस",
+        "transliteration": "sayaprinasa"
+    },
+    {
+        "en": "grass carp",
+        "mr": "ग्रास कार्प",
+        "transliteration": "grasa karpa"
+    },
+    {
+        "en": "silver carp",
+        "mr": "सिल्वर कार्प",
+        "transliteration": "silvara karpa"
+    },
+    {
+        "en": "maral",
+        "mr": "मरळ",
+        "transliteration": "marala"
+    },
+    {
+        "en": "magur",
+        "mr": "मागूर",
+        "transliteration": "magura"
+    },
+    {
+        "en": "gift tilapia",
+        "mr": "गिफ्ट टिलापिया",
+        "transliteration": "giphta tilapiya"
+    },
+    {
+        "en": "value-added fish products",
+        "mr": "मूल्यवर्धित मासे उत्पादने",
+        "transliteration": "mulyavardhita mase utpadane"
+    },
+    {
+        "en": "ready-to-use products",
+        "mr": "तत्काळ वापरण्यायोग्य उत्पादने",
+        "transliteration": "tatkala vaparanyayogya utpadane"
+    },
+    {
+        "en": "long-lasting products",
+        "mr": "दीर्घकाळ टिकणारी उत्पादने",
+        "transliteration": "dirghakala tikanari utpadane"
+    },
+    {
+        "en": "fish mince preparation",
+        "mr": "फिश मिन्स तयार करणे",
+        "transliteration": "phisha minsa tayara karane"
+    },
+    {
+        "en": "fish-batata vada",
+        "mr": "मासा बटाटा वडा",
+        "transliteration": "masa batata vada"
+    },
+    {
+        "en": "ingredients for fish-batata vada",
+        "mr": "मासा बटाटा वडा साहित्य",
+        "transliteration": "masa batata vada sahitya"
+    },
+    {
+        "en": "fish chakli",
+        "mr": "मासा चकली",
+        "transliteration": "masa cakali"
+    },
+    {
+        "en": "fish chakli ingredients",
+        "mr": "मासा चकली साहित्य",
+        "transliteration": "masa cakali sahitya"
+    },
+    {
+        "en": "fish chakli method",
+        "mr": "मासा चकली तयार करण्याची पद्धत",
+        "transliteration": "masa cakali tayara karanyaci paddhata"
+    },
+    {
+        "en": "fish sev",
+        "mr": "मासा सेव",
+        "transliteration": "masa seva"
+    },
+    {
+        "en": "fish sev method",
+        "mr": "मासा सेव तयार करण्याची पद्धत",
+        "transliteration": "masa seva tayara karanyaci paddhata"
+    },
+    {
+        "en": "self-employment opportunities",
+        "mr": "स्वरोजगार संधी",
+        "transliteration": "svarojagara sandhi"
+    },
+    {
+        "en": "modern fish farming methods",
+        "mr": "आधुनिक मासे पाळी पद्धती",
+        "transliteration": "adhunika mase pali paddhati"
+    },
+    {
+        "en": "benefits of ras",
+        "mr": "आरएएस चे फायदे",
+        "transliteration": "araeesa ce phayade"
+    },
+    {
+        "en": "suitable species for ras",
+        "mr": "आरएएससाठी योग्य मासे",
+        "transliteration": "araeesasathi yogya mase"
+    },
+    {
+        "en": "ras feed management",
+        "mr": "आरएएस फीड व्यवस्थापन",
+        "transliteration": "araeesa phida vyavasthapana"
+    },
+    {
+        "en": "ras components",
+        "mr": "आरएएस घटक",
+        "transliteration": "araeesa ghataka"
+    },
+    {
+        "en": "benefits of aquaponics",
+        "mr": "अक्वापॉनिक्स फायदे",
+        "transliteration": "akvapaॉniksa phayade"
+    },
+    {
+        "en": "biofloc composition",
+        "mr": "बायोफ्लोक संघटन",
+        "transliteration": "bayophloka sanghatana"
+    },
+    {
+        "en": "suitable species for biofloc",
+        "mr": "बायोफ्लोकसाठी योग्य मासे",
+        "transliteration": "bayophlokasathi yogya mase"
+    },
+    {
+        "en": "preparing inoculum",
+        "mr": "इनोकुलम तयार करणे",
+        "transliteration": "inokulama tayara karane"
+    },
+    {
+        "en": "benefits of biofloc",
+        "mr": "बायोफ्लोक फायदे",
+        "transliteration": "bayophloka phayade"
+    },
+    {
+        "en": "cage fish farming",
+        "mr": "पिंजरा मासेमारी",
+        "transliteration": "pinjara masemari"
+    },
+    {
+        "en": "benefits of cage fish farming",
+        "mr": "पिंजरा मासेमारी फायदे",
+        "transliteration": "pinjara masemari phayade"
+    },
+    {
+        "en": "cage site selection",
+        "mr": "पिंजरा साइट निवड",
+        "transliteration": "pinjara saita nivada"
+    },
+    {
+        "en": "suitable fish for cages",
+        "mr": "पिंजऱ्यातील योग्य मासे",
+        "transliteration": "pinjaṟyatila yogya mase"
+    },
+    {
+        "en": "safety precautions for cage farming",
+        "mr": "पिंजरा मासेमारी सुरक्षा खबरदारी",
+        "transliteration": "pinjara masemari suraksha khabaradari"
+    },
+    {
+        "en": "actinobacillosis",
+        "mr": "अॅक्टिनोबॅसिलोसिस",
+        "transliteration": "aॅktinobaॅsilosisa"
+    },
+    {
+        "en": "actinomycosis",
+        "mr": "अॅक्टिनोमायकोसिस",
+        "transliteration": "aॅktinomayakosisa"
+    },
+    {
+        "en": "johne’s disease",
+        "mr": "जोह्न रोग",
+        "transliteration": "johna roga"
+    },
+    {
+        "en": "tuberculosis",
+        "mr": "क्षयरोग",
+        "transliteration": "kshayaroga"
+    },
+    {
+        "en": "listeriosis",
+        "mr": "लिस्टरिओसिस",
+        "transliteration": "listariosisa"
+    },
+    {
+        "en": "colibacillosis",
+        "mr": "कॉलिबॅसिलोसिस",
+        "transliteration": "kaॉlibaॅsilosisa"
+    },
+    {
+        "en": "salmonellosis",
+        "mr": "सॅल्मोनेलोसिस",
+        "transliteration": "saॅlmonelosisa"
+    },
+    {
+        "en": "tetanus",
+        "mr": "टेटॅनस",
+        "transliteration": "tetaॅnasa"
+    },
+    {
+        "en": "botulism",
+        "mr": "बोटुलिझम",
+        "transliteration": "botulijhama"
+    },
+    {
+        "en": "bacillary haemoglobinuria",
+        "mr": "बॅसिलरी हेमोग्लोबिन्यूरिया",
+        "transliteration": "baॅsilari hemoglobinyuriya"
+    },
+    {
+        "en": "foot rot",
+        "mr": "फूट रॉट",
+        "transliteration": "phuta raॉta"
+    },
+    {
+        "en": "strangles",
+        "mr": "स्ट्रॅंगल्स",
+        "transliteration": "straॅngalsa"
+    },
+    {
+        "en": "glanders",
+        "mr": "ग्लॅंडर्स",
+        "transliteration": "glaॅndarsa"
+    },
+    {
+        "en": "vibriosis",
+        "mr": "विव्हायरोसिस",
+        "transliteration": "vivhayarosisa"
+    },
+    {
+        "en": "rinderpest",
+        "mr": "बुळकांडी",
+        "transliteration": "bulakandi"
+    },
+    {
+        "en": "hemorrhagic gastroenteritis",
+        "mr": "रक्तस्रावी जठरांत्र इन्फेक्शन",
+        "transliteration": "raktasravi jatharantra inphekshana"
+    },
+    {
+        "en": "swine fever",
+        "mr": "स्वाइन फीव्हर",
+        "transliteration": "svaina phivhara"
+    },
+    {
+        "en": "swine influenza",
+        "mr": "स्वाइन इन्फ्लुएंझा",
+        "transliteration": "svaina inphluenjha"
+    },
+    {
+        "en": "equine influenza",
+        "mr": "घोडा इन्फ्लुएंझा",
+        "transliteration": "ghoda inphluenjha"
+    },
+    {
+        "en": "anaplasmosis",
+        "mr": "अ‍ॅनाप्लास्मोसिस",
+        "transliteration": "a‍ॅnaplasmosisa"
+    },
+    {
+        "en": "canine ehrlichiosis",
+        "mr": "कुत्र्यांचा अर्लिकिओसिस",
+        "transliteration": "kutryanca arlikiosisa"
+    },
+    {
+        "en": "giardiasis",
+        "mr": "जियार्डियासिस",
+        "transliteration": "jiyardiyasisa"
+    },
+    {
+        "en": "amoebiasis",
+        "mr": "अ‍ॅमेबायसिस",
+        "transliteration": "a‍ॅmebayasisa"
+    },
+    {
+        "en": "coccidiosis",
+        "mr": "कॉक्सिडिओसिस",
+        "transliteration": "kaॉksidiosisa"
+    },
+    {
+        "en": "trichomoniasis",
+        "mr": "ट्रायकोमोनायसिस",
+        "transliteration": "trayakomonayasisa"
+    },
+    {
+        "en": "lice",
+        "mr": "ऊवा",
+        "transliteration": "uva"
+    },
+    {
+        "en": "mites",
+        "mr": "अळ्या",
+        "transliteration": "alya"
+    },
+    {
+        "en": "flies",
+        "mr": "माशी",
+        "transliteration": "mashi"
+    },
+    {
+        "en": "deficiency diseases",
+        "mr": "अभावजन्य आजार",
+        "transliteration": "abhavajanya ajara"
+    },
+    {
+        "en": "magnesium deficiency",
+        "mr": "मॅग्नेशियमचा अभाव",
+        "transliteration": "maॅgneshiyamaca abhava"
+    },
+    {
+        "en": "iodine deficiency",
+        "mr": "आयोडीनचा अभाव",
+        "transliteration": "ayodinaca abhava"
+    },
+    {
+        "en": "vitamin a deficiency",
+        "mr": "जीवनसत्त्व अ चा अभाव",
+        "transliteration": "jivanasattva a ca abhava"
+    },
+    {
+        "en": "protein deficiency",
+        "mr": "प्रथिनांचा अभाव",
+        "transliteration": "prathinanca abhava"
+    },
+    {
+        "en": "salt deficiency",
+        "mr": "मीठ अभाव",
+        "transliteration": "mitha abhava"
+    },
+    {
+        "en": "worm infestation",
+        "mr": "आंत्रातील जंत",
+        "transliteration": "antratila janta"
+    },
+    {
+        "en": "poor quality feed",
+        "mr": "निकृष्ट चारा",
+        "transliteration": "nikrishta chara"
+    },
+    {
+        "en": "fertility",
+        "mr": "प्रजननक्षमता",
+        "transliteration": "prajananakshamata"
+    },
+    {
+        "en": "immunity",
+        "mr": "रोगप्रतिकारशक्ती",
+        "transliteration": "rogapratikarashakti"
+    },
+    {
+        "en": "salt lick",
+        "mr": "चाटण वीट",
+        "transliteration": "catana vita"
+    },
+    {
+        "en": "prevention",
+        "mr": "प्रतिबंध",
+        "transliteration": "pratibandha"
+    },
+    {
+        "en": "veterinary advice",
+        "mr": "पशुवैद्यकीय सल्ला",
+        "transliteration": "pashuvaidyakiya salla"
+    },
+    {
+        "en": "abnormal milk",
+        "mr": "दूषित दूध",
+        "transliteration": "dushita dudha"
+    },
+    {
+        "en": "bacteria",
+        "mr": "जीवाणू",
+        "transliteration": "jivanu"
+    },
+    {
+        "en": "milking hygiene",
+        "mr": "दूध काढण्याची स्वच्छता",
+        "transliteration": "dudha kadhanyaci svacchata"
+    },
+    {
+        "en": "teat injuries",
+        "mr": "थनाग्रावरील जखमा",
+        "transliteration": "thanagravarila jakhama"
+    },
+    {
+        "en": "cracks",
+        "mr": "भेगा",
+        "transliteration": "bhega"
+    },
+    {
+        "en": "bedding",
+        "mr": "गादी",
+        "transliteration": "gadi"
+    },
+    {
+        "en": "intramammary antibiotics",
+        "mr": "थनातील प्रतिजैविक औषधे",
+        "transliteration": "thanatila pratijaivika aushadhe"
+    },
+    {
+        "en": "proper milking out",
+        "mr": "दूषित दूध पूर्णपणे काढणे",
+        "transliteration": "dushita dudha purnapane kadhane"
+    },
+    {
+        "en": "hydration",
+        "mr": "पाण्याचे प्रमाण टिकवणे",
+        "transliteration": "panyace pramana tikavane"
+    },
+    {
+        "en": "clean shed",
+        "mr": "स्वच्छ व कोरडा गोठा",
+        "transliteration": "svaccha va korada gotha"
+    },
+    {
+        "en": "isolation",
+        "mr": "अलग ठेवणे",
+        "transliteration": "alaga thevane"
+    },
+    {
+        "en": "veterinary consultation",
+        "mr": "पशुवैद्यकीय सल्ला",
+        "transliteration": "pashuvaidyakiya salla"
+    },
+    {
+        "en": "mammary gland",
+        "mr": "स्तनग्रंथी",
+        "transliteration": "stanagranthi"
+    },
+    {
+        "en": "economic importance",
+        "mr": "आर्थिक महत्त्व",
+        "transliteration": "arthika mahattva"
+    },
+    {
+        "en": "etiology",
+        "mr": "रोगकारण",
+        "transliteration": "rogakarana"
+    },
+    {
+        "en": "bacterial causes",
+        "mr": "जीवाणूजन्य कारणे",
+        "transliteration": "jivanujanya karane"
+    },
+    {
+        "en": "other pathogens",
+        "mr": "इतर रोगकारक जीव",
+        "transliteration": "itara rogakaraka jiva"
+    },
+    {
+        "en": "contagious sources",
+        "mr": "संसर्गजन्य स्रोत",
+        "transliteration": "sansargajanya srota"
+    },
+    {
+        "en": "environmental sources",
+        "mr": "पर्यावरणीय स्रोत",
+        "transliteration": "paryavaraniya srota"
+    },
+    {
+        "en": "visible signs",
+        "mr": "दृश्यमान लक्षणे",
+        "transliteration": "drishyamana lakshane"
+    },
+    {
+        "en": "electrical conductivity test",
+        "mr": "विद्युत चालकता चाचणी",
+        "transliteration": "vidyuta calakata cacani"
+    },
+    {
+        "en": "pathogenesis",
+        "mr": "रोगनिर्मिती प्रक्रिया",
+        "transliteration": "roganirmiti prakriya"
+    },
+    {
+        "en": "teat canal",
+        "mr": "थनाग्र नलिका",
+        "transliteration": "thanagra nalika"
+    },
+    {
+        "en": "toxins and enzymes",
+        "mr": "विषद्रव्ये व एंझाइम्स",
+        "transliteration": "vishadravye va enjhaimsa"
+    },
+    {
+        "en": "inflammatory cells",
+        "mr": "दाहक पेशी",
+        "transliteration": "dahaka peshi"
+    },
+    {
+        "en": "fibrosis",
+        "mr": "ऊतककठीणता",
+        "transliteration": "utakakathinata"
+    },
+    {
+        "en": "secretory tissue",
+        "mr": "दूधनिर्मित ऊतक",
+        "transliteration": "dudhanirmita utaka"
+    },
+    {
+        "en": "integrated control",
+        "mr": "एकात्मिक नियंत्रण उपाय",
+        "transliteration": "ekatmika niyantrana upaya"
+    },
+    {
+        "en": "veterinary intervention",
+        "mr": "पशुवैद्यकीय हस्तक्षेप",
+        "transliteration": "pashuvaidyakiya hastakshepa"
+    },
+    {
+        "en": "risk factors",
+        "mr": "जोखमीचे घटक",
+        "transliteration": "jokhamice ghataka"
+    },
+    {
+        "en": "poor milking hygiene",
+        "mr": "अस्वच्छ दूध काढण्याची पद्धत",
+        "transliteration": "asvaccha dudha kadhanyaci paddhata"
+    },
+    {
+        "en": "unsanitary housing",
+        "mr": "अस्वच्छ गोठा",
+        "transliteration": "asvaccha gotha"
+    },
+    {
+        "en": "inadequate teat disinfection",
+        "mr": "थनाग्र स्वच्छता न करणे",
+        "transliteration": "thanagra svacchata na karane"
+    },
+    {
+        "en": "immunosuppression",
+        "mr": "रोगप्रतिकारशक्ती कमी",
+        "transliteration": "rogapratikarashakti kami"
+    },
+    {
+        "en": "diagnosis",
+        "mr": "निदान",
+        "transliteration": "nidana"
+    },
+    {
+        "en": "hygienic milking practices",
+        "mr": "स्वच्छ दूध काढण्याची पद्धत",
+        "transliteration": "svaccha dudha kadhanyaci paddhata"
+    },
+    {
+        "en": "post-milking teat dip",
+        "mr": "दूध काढल्यानंतर थनाग्र औषधी द्रावण",
+        "transliteration": "dudha kadhalyanantara thanagra aushadhi dravana"
+    },
+    {
+        "en": "dry cow therapy",
+        "mr": "ड्राय काऊ थेरपी",
+        "transliteration": "draya kau therapi"
+    },
+    {
+        "en": "culling of chronically infected animals",
+        "mr": "दीर्घकालीन आजारी पशूंचे निवृत्तीकरण",
+        "transliteration": "dirghakalina ajari pashunce nivrittikarana"
+    },
+    {
+        "en": "environmental management",
+        "mr": "पर्यावरणीय व्यवस्थापन",
+        "transliteration": "paryavaraniya vyavasthapana"
+    },
+    {
+        "en": "regular screening programs",
+        "mr": "नियमित तपासणी कार्यक्रम",
+        "transliteration": "niyamita tapasani karyakrama"
+    },
+    {
+        "en": "antibiotic therapy",
+        "mr": "प्रतिजैविक उपचार",
+        "transliteration": "pratijaivika upachara"
+    },
+    {
+        "en": "supportive therapy",
+        "mr": "सहायक उपचार",
+        "transliteration": "sahayaka upachara"
+    },
+    {
+        "en": "veterinary guidance",
+        "mr": "पशुवैद्यकीय मार्गदर्शन",
+        "transliteration": "pashuvaidyakiya margadarshana"
+    },
+    {
+        "en": "herd-level strategy",
+        "mr": "गोष्टीसाठी धोरण",
+        "transliteration": "goshtisathi dhorana"
+    },
+    {
+        "en": "sustainable milk production",
+        "mr": "सतत दूध उत्पादन",
+        "transliteration": "satata dudha utpadana"
+    },
+    {
+        "en": "reproductive system diseases",
+        "mr": "प्रजनन प्रणालीचे आजार",
+        "transliteration": "prajanana pranalice ajara"
+    },
+    {
+        "en": "infertility",
+        "mr": "वंध्यत्व",
+        "transliteration": "vandhyatva"
+    },
+    {
+        "en": "anoestrus",
+        "mr": "माजावर न येणे",
+        "transliteration": "majavara na yene"
+    },
+    {
+        "en": "causes of infertility",
+        "mr": "वंध्यत्वाची कारणे",
+        "transliteration": "vandhyatvaci karane"
+    },
+    {
+        "en": "signs of infertility",
+        "mr": "लक्षणे",
+        "transliteration": "lakshane"
+    },
+    {
+        "en": "prevention of infertility",
+        "mr": "वंध्यत्व प्रतिबंधक उपाय",
+        "transliteration": "vandhyatva pratibandhaka upaya"
+    },
+    {
+        "en": "repeat breeding",
+        "mr": "पुनरावृत्ती प्रजनन",
+        "transliteration": "punaravritti prajanana"
+    },
+    {
+        "en": "causes of repeat breeding",
+        "mr": "पुनरावृत्ती प्रजननाची कारणे",
+        "transliteration": "punaravritti prajananaci karane"
+    },
+    {
+        "en": "prevention of repeat breeding",
+        "mr": "पुनरावृत्ती प्रजनन प्रतिबंधक उपाय",
+        "transliteration": "punaravritti prajanana pratibandhaka upaya"
+    },
+    {
+        "en": "mineral deficiency",
+        "mr": "खनिजाची कमतरता",
+        "transliteration": "khanijaci kamatarata"
+    },
+    {
+        "en": "silent heat",
+        "mr": "मुका माज",
+        "transliteration": "muka maja"
+    },
+    {
+        "en": "post-calving care",
+        "mr": "प्रसूतीनंतर काळजी",
+        "transliteration": "prasutinantara kalaji"
+    },
+    {
+        "en": "metritis",
+        "mr": "गर्भाशय संसर्ग",
+        "transliteration": "garbhashaya sansarga"
+    },
+    {
+        "en": "causes of uterine infection",
+        "mr": "गर्भाशय संसर्गाची कारणे",
+        "transliteration": "garbhashaya sansargaci karane"
+    },
+    {
+        "en": "prevention of uterine infection",
+        "mr": "गर्भाशय संसर्ग प्रतिबंधक उपाय",
+        "transliteration": "garbhashaya sansarga pratibandhaka upaya"
+    },
+    {
+        "en": "causes of abortion",
+        "mr": "गर्भपाताची कारणे",
+        "transliteration": "garbhapataci karane"
+    },
+    {
+        "en": "prevention of abortion",
+        "mr": "गर्भपात प्रतिबंधक उपाय",
+        "transliteration": "garbhapata pratibandhaka upaya"
+    },
+    {
+        "en": "male reproductive disorders",
+        "mr": "पुरुष प्रजनन समस्या",
+        "transliteration": "purusha prajanana samasya"
+    },
+    {
+        "en": "causes of male reproductive disorders",
+        "mr": "पुरुष प्रजनन समस्यांची कारणे",
+        "transliteration": "purusha prajanana samasyanci karane"
+    },
+    {
+        "en": "prevention of male reproductive disorders",
+        "mr": "पुरुष प्रजनन समस्या प्रतिबंधक उपाय",
+        "transliteration": "purusha prajanana samasya pratibandhaka upaya"
+    },
+    {
+        "en": "general preventive measures",
+        "mr": "सामान्य प्रतिबंधक उपाय",
+        "transliteration": "samanya pratibandhaka upaya"
+    },
+    {
+        "en": "clean, dry sheds",
+        "mr": "स्वच्छ व कोरडे शेड",
+        "transliteration": "svaccha va korade sheda"
+    },
+    {
+        "en": "postpartum care",
+        "mr": "प्रसूतीनंतर काळजी",
+        "transliteration": "prasutinantara kalaji"
+    },
+    {
+        "en": "early veterinary assistance",
+        "mr": "लवकर पशुवैद्यकीय मदत",
+        "transliteration": "lavakara pashuvaidyakiya madata"
+    },
+    {
+        "en": "conclusion",
+        "mr": "निष्कर्ष",
+        "transliteration": "nishkarsha"
+    },
+    {
+        "en": "skin",
+        "mr": "त्वचा",
+        "transliteration": "tvaca"
+    },
+    {
+        "en": "skin diseases",
+        "mr": "त्वचा आजार",
+        "transliteration": "tvaca ajara"
+    },
+    {
+        "en": "parasitic skin diseases",
+        "mr": "परजीवी त्वचा आजार",
+        "transliteration": "parajivi tvaca ajara"
+    },
+    {
+        "en": "fungal skin infections",
+        "mr": "बुरशीजन्य त्वचा आजार",
+        "transliteration": "burashijanya tvaca ajara"
+    },
+    {
+        "en": "allergic skin diseases",
+        "mr": "अॅलर्जिक त्वचा आजार",
+        "transliteration": "aॅlarjika tvaca ajara"
+    },
+    {
+        "en": "metabolic dermatoses",
+        "mr": "चयापचयी त्वचा आजार",
+        "transliteration": "cayapacayi tvaca ajara"
+    },
+    {
+        "en": "immune-mediated skin diseases",
+        "mr": "प्रतिकारशक्ती-संबंधित त्वचा आजार",
+        "transliteration": "pratikarashakti-sanbandhita tvaca ajara"
+    },
+    {
+        "en": "neoplastic skin diseases",
+        "mr": "त्वचा कर्करोग",
+        "transliteration": "tvaca karkaroga"
+    },
+    {
+        "en": "environmental dermatoses",
+        "mr": "पर्यावरणीय त्वचा आजार",
+        "transliteration": "paryavaraniya tvaca ajara"
+    },
+    {
+        "en": "pruritus",
+        "mr": "खाज",
+        "transliteration": "khaja"
+    },
+    {
+        "en": "alopecia",
+        "mr": "केस गळणे",
+        "transliteration": "kesa galane"
+    },
+    {
+        "en": "scaling",
+        "mr": "खवखवीत त्वचा",
+        "transliteration": "khavakhavita tvaca"
+    },
+    {
+        "en": "erythema",
+        "mr": "लालसरपणा",
+        "transliteration": "lalasarapana"
+    },
+    {
+        "en": "diagnosis of skin diseases",
+        "mr": "त्वचा आजाराचे निदान",
+        "transliteration": "tvaca ajarace nidana"
+    },
+    {
+        "en": "early recognition and therapy",
+        "mr": "लवकर ओळख व उपचार",
+        "transliteration": "lavakara olakha va upachara"
+    },
+    {
+        "en": "hyperpigmentation",
+        "mr": "हायपरपिगमेंटेशन",
+        "transliteration": "hayaparapigamenteshana"
+    },
+    {
+        "en": "history taking",
+        "mr": "इतिहास घेणे",
+        "transliteration": "itihasa ghene"
+    },
+    {
+        "en": "physical",
+        "mr": "शारीरिक तपासणी",
+        "transliteration": "sharirika tapasani"
+    },
+    {
+        "en": "dermatological examination",
+        "mr": "त्वचा तपासणी",
+        "transliteration": "tvaca tapasani"
+    },
+    {
+        "en": "skin scrapings",
+        "mr": "त्वचा स्क्रॅपिंग",
+        "transliteration": "tvaca skraॅpinga"
+    },
+    {
+        "en": "cytology",
+        "mr": "साइटोलॉजी",
+        "transliteration": "saitolaॉji"
+    },
+    {
+        "en": "allergy testing",
+        "mr": "अॅलर्जी चाचणी",
+        "transliteration": "aॅlarji cacani"
+    },
+    {
+        "en": "treatment of parasitic diseases",
+        "mr": "परजीवी आजार उपचार",
+        "transliteration": "parajivi ajara upachara"
+    },
+    {
+        "en": "treatment of infections",
+        "mr": "संसर्ग उपचार",
+        "transliteration": "sansarga upachara"
+    },
+    {
+        "en": "treatment of allergic dermatoses",
+        "mr": "अॅलर्जिक त्वचा आजार उपचार",
+        "transliteration": "aॅlarjika tvaca ajara upachara"
+    },
+    {
+        "en": "treatment of endocrine dermatoses",
+        "mr": "अंत:स्रावी त्वचा आजार उपचार",
+        "transliteration": "anta:sravi tvaca ajara upachara"
+    },
+    {
+        "en": "treatment of autoimmune conditions",
+        "mr": "स्वप्रतिरक्षा आजार उपचार",
+        "transliteration": "svapratiraksha ajara upachara"
+    },
+    {
+        "en": "newborn deworming",
+        "mr": "नवजात पिलांसाठी जंतनाशन",
+        "transliteration": "navajata pilansathi jantanashana"
+    },
+    {
+        "en": "young calf deworming",
+        "mr": "तरुण पिल्ले जंतनाशन",
+        "transliteration": "taruna pille jantanashana"
+    },
+    {
+        "en": "juvenile deworming",
+        "mr": "किशोर पिल्ले जंतनाशन",
+        "transliteration": "kishora pille jantanashana"
+    },
+    {
+        "en": "adult cattle deworming",
+        "mr": "प्रौढ जनावर जंतनाशन",
+        "transliteration": "praudha janavara jantanashana"
+    },
+    {
+        "en": "first aid",
+        "mr": "प्राथमिक उपचार",
+        "transliteration": "prathamika upachara"
+    },
+    {
+        "en": "clean water",
+        "mr": "स्वच्छ पाणी",
+        "transliteration": "svaccha pani"
+    },
+    {
+        "en": "antiseptic",
+        "mr": "रोगनाशक द्रावण",
+        "transliteration": "roganashaka dravana"
+    },
+    {
+        "en": "cotton bandages",
+        "mr": "कापूस बॅंडेज",
+        "transliteration": "kapusa baॅndeja"
+    },
+    {
+        "en": "scissors and forceps",
+        "mr": "कात्री व चिमटे",
+        "transliteration": "katri va cimate"
+    },
+    {
+        "en": "gloves",
+        "mr": "हातमोजे",
+        "transliteration": "hatamoje"
+    },
+    {
+        "en": "rectal glove",
+        "mr": "रेक्टल ग्लोव्ह",
+        "transliteration": "rektala glovha"
+    },
+    {
+        "en": "syringe",
+        "mr": "सिरिंज",
+        "transliteration": "sirinja"
+    },
+    {
+        "en": "pain reliever",
+        "mr": "वेदनाशामक",
+        "transliteration": "vedanashamaka"
+    },
+    {
+        "en": "antihistamine",
+        "mr": "अँटीहिस्टामिन",
+        "transliteration": "a~tihistamina"
+    },
+    {
+        "en": "activated charcoal",
+        "mr": "सक्रिय कोळसा",
+        "transliteration": "sakriya kolasa"
+    },
+    {
+        "en": "rope",
+        "mr": "दोरी",
+        "transliteration": "dori"
+    },
+    {
+        "en": "stick",
+        "mr": "काठी",
+        "transliteration": "kathi"
+    },
+    {
+        "en": "wound care",
+        "mr": "जखमेवर उपचार",
+        "transliteration": "jakhamevara upachara"
+    },
+    {
+        "en": "diarrhoea",
+        "mr": "अतिसार",
+        "transliteration": "atisara"
+    },
+    {
+        "en": "fracture",
+        "mr": "हाड तुटणे",
+        "transliteration": "hada tutane"
+    },
+    {
+        "en": "indigestion",
+        "mr": "अपचन",
+        "transliteration": "apacana"
+    },
+    {
+        "en": "wound healing",
+        "mr": "जखम भरून येणे",
+        "transliteration": "jakhama bharuna yene"
+    },
+    {
+        "en": "low appetite",
+        "mr": "भूक कमी होणे",
+        "transliteration": "bhuka kami hone"
+    },
+    {
+        "en": "hoof infection",
+        "mr": "खुराची संसर्ग",
+        "transliteration": "khuraci sansarga"
+    },
+    {
+        "en": "anaemia",
+        "mr": "रक्तहीनता",
+        "transliteration": "raktahinata"
+    },
+    {
+        "en": "weakness",
+        "mr": "दुर्बलता",
+        "transliteration": "durbalata"
+    },
+    {
+        "en": "clean and fresh remedies",
+        "mr": "स्वच्छ व ताजे औषध",
+        "transliteration": "svaccha va taje aushadha"
+    },
+    {
+        "en": "supportive treatment only",
+        "mr": "सहायक उपचार म्हणून वापरा",
+        "transliteration": "sahayaka upachara mhanuna vapara"
+    },
+    {
+        "en": "clean drinking water",
+        "mr": "स्वच्छ पाणी देणे",
+        "transliteration": "svaccha pani dene"
+    },
+    {
+        "en": "clean sheds",
+        "mr": "स्वच्छ गोठा",
+        "transliteration": "svaccha gotha"
+    },
+    {
+        "en": "new animals",
+        "mr": "नवीन पशू",
+        "transliteration": "navina pashu"
+    },
+    {
+        "en": "maintain records",
+        "mr": "नोंदी ठेवा",
+        "transliteration": "nondi theva"
+    },
+    {
+        "en": "semen",
+        "mr": "वीर्य",
+        "transliteration": "virya"
+    },
+    {
+        "en": "sire",
+        "mr": "नर जनक",
+        "transliteration": "nara janaka"
+    },
+    {
+        "en": "donor cow",
+        "mr": "दाता गाय",
+        "transliteration": "data gaya"
+    },
+    {
+        "en": "recipient cow",
+        "mr": "ग्रहक गाय",
+        "transliteration": "grahaka gaya"
+    },
+    {
+        "en": "superovulation",
+        "mr": "जास्त अंडी निर्मिती",
+        "transliteration": "jasta andi nirmiti"
+    },
+    {
+        "en": "progeny testing",
+        "mr": "संतती चाचणी",
+        "transliteration": "santati cacani"
+    },
+    {
+        "en": "herd improvement",
+        "mr": "कळप सुधारणा",
+        "transliteration": "kalapa sudharana"
+    },
+    {
+        "en": "genetic abnormalities",
+        "mr": "आनुवंशिक अपवाद",
+        "transliteration": "anuvanshika apavada"
+    },
+    {
+        "en": "estrus synchronization",
+        "mr": "ऊत्तरावस्था समकालीन करणे",
+        "transliteration": "uttaravastha samakalina karane"
+    },
+    {
+        "en": "deep-frozen semen",
+        "mr": "गहिरे गोठवलेले वीर्य",
+        "transliteration": "gahire gothavalele virya"
+    },
+    {
+        "en": "electro-ejaculator",
+        "mr": "इलेक्ट्रो-एजाक्युलेटर",
+        "transliteration": "ilektro-ejakyuletara"
+    },
+    {
+        "en": "biopsy",
+        "mr": "ऊतीचे नमुना तपासणी",
+        "transliteration": "utice namuna tapasani"
+    },
+    {
+        "en": "excisional biopsy",
+        "mr": "संपूर्ण ऊती काढणे",
+        "transliteration": "sanpurna uti kadhane"
+    },
+    {
+        "en": "incisional biopsy",
+        "mr": "काही भागाची ऊती काढणे",
+        "transliteration": "kahi bhagaci uti kadhane"
+    },
+    {
+        "en": "core needle biopsy",
+        "mr": "मध्यभागी सूईसह ऊती तपासणी",
+        "transliteration": "madhyabhagi suisaha uti tapasani"
+    },
+    {
+        "en": "endoscopic biopsy",
+        "mr": "एंडोस्कोपिक ऊती तपासणी",
+        "transliteration": "endoskopika uti tapasani"
+    },
+    {
+        "en": "laparoscopic biopsy",
+        "mr": "लेप्रोस्कोपिक ऊती तपासणी",
+        "transliteration": "leproskopika uti tapasani"
+    },
+    {
+        "en": "indications",
+        "mr": "निर्देश",
+        "transliteration": "nirdesha"
+    },
+    {
+        "en": "contraindications",
+        "mr": "निषेध",
+        "transliteration": "nishedha"
+    },
+    {
+        "en": "complications",
+        "mr": "जटिलता",
+        "transliteration": "jatilata"
+    },
+    {
+        "en": "liver biopsy",
+        "mr": "यकृत ऊती तपासणी",
+        "transliteration": "yakrita uti tapasani"
+    },
+    {
+        "en": "lymph node biopsy",
+        "mr": "लिम्फ ग्रंथी ऊती तपासणी",
+        "transliteration": "limpha granthi uti tapasani"
+    },
+    {
+        "en": "bone marrow biopsy",
+        "mr": "हाडमज्जा ऊती तपासणी",
+        "transliteration": "hadamajja uti tapasani"
+    },
+    {
+        "en": "tumor biopsy",
+        "mr": "गाठ/कर्करोग ऊती तपासणी",
+        "transliteration": "gatha/karkaroga uti tapasani"
+    },
+    {
+        "en": "rhabdomyolysis",
+        "mr": "रॅब्डोमायोलायसिस",
+        "transliteration": "raॅbdomayolayasisa"
+    },
+    {
+        "en": "muscular dystrophy",
+        "mr": "स्नायू दोष",
+        "transliteration": "snayu dosha"
+    },
+    {
+        "en": "isoenzyme",
+        "mr": "आयसोएनझाइम",
+        "transliteration": "ayasoenajhaima"
+    },
+    {
+        "en": "cytosolic enzyme",
+        "mr": "साइटोसोलीक एन्झाइम",
+        "transliteration": "saitosolika enjhaima"
+    },
+    {
+        "en": "electrophoresis",
+        "mr": "इलेक्ट्रोफोरेसिस",
+        "transliteration": "ilektrophoresisa"
+    },
+    {
+        "en": "skeletal muscle",
+        "mr": "कंकाल स्नायू",
+        "transliteration": "kankala snayu"
+    },
+    {
+        "en": "cardiac muscle",
+        "mr": "हृदय स्नायू",
+        "transliteration": "hridaya snayu"
+    },
+    {
+        "en": "hepatocytes",
+        "mr": "यकृत पेशी",
+        "transliteration": "yakrita peshi"
+    },
+    {
+        "en": "neuromuscular disease",
+        "mr": "न्यूरोमस्क्युलर आजार",
+        "transliteration": "nyuromaskyulara ajara"
+    },
+    {
+        "en": "sample collection",
+        "mr": "नमुना संकलन",
+        "transliteration": "namuna sankalana"
+    },
+    {
+        "en": "dispatch",
+        "mr": "नमुना पाठविणे",
+        "transliteration": "namuna pathavine"
+    },
+    {
+        "en": "serum",
+        "mr": "सिरम",
+        "transliteration": "sirama"
+    },
+    {
+        "en": "anticoagulant",
+        "mr": "रक्त गोठणे प्रतिबंधक द्रव्य",
+        "transliteration": "rakta gothane pratibandhaka dravya"
+    },
+    {
+        "en": "edta",
+        "mr": "ईडीटीए",
+        "transliteration": "iditie"
+    },
+    {
+        "en": "nasal swab",
+        "mr": "नाकातील स्वॅब",
+        "transliteration": "nakatila svaॅba"
+    },
+    {
+        "en": "fecal sample",
+        "mr": "मल नमुना",
+        "transliteration": "mala namuna"
+    },
+    {
+        "en": "pcr",
+        "mr": "पीसीआर",
+        "transliteration": "pisiara"
+    },
+    {
+        "en": "viral transport medium",
+        "mr": "विषाणू वाहतूक माध्यम",
+        "transliteration": "vishanu vahatuka madhyama"
+    },
+    {
+        "en": "histopathology",
+        "mr": "ऊतक रोगशास्त्र",
+        "transliteration": "utaka rogashastra"
+    },
+    {
+        "en": "sterile container",
+        "mr": "निर्जंतुक डबी",
+        "transliteration": "nirjantuka dabi"
+    },
+    {
+        "en": "ice pack",
+        "mr": "बर्फ पॅक",
+        "transliteration": "barpha paॅka"
+    },
+    {
+        "en": "post-mortem sample",
+        "mr": "मृत्युपश्चात नमुना",
+        "transliteration": "mrityupashcata namuna"
+    },
+    {
+        "en": "swab",
+        "mr": "स्वॅब",
+        "transliteration": "svaॅba"
+    },
+    {
+        "en": "centrifuge",
+        "mr": "केंद्रभ्रमणक",
+        "transliteration": "kendrabhramanaka"
+    },
+    {
+        "en": "form-fill",
+        "mr": "नमुना माहिती फॉर्म",
+        "transliteration": "namuna mahiti phaॉrma"
+    },
+    {
+        "en": "fomites",
+        "mr": "दूषित वस्तू",
+        "transliteration": "dushita vastu"
+    },
+    {
+        "en": "snowfall",
+        "mr": "हिवाळ्यातील बर्फाळ पाऊस",
+        "transliteration": "hivalyatila barphala pausa"
+    },
+    {
+        "en": "thunderstorm",
+        "mr": "विजेचा गडगडाटासह वादळ",
+        "transliteration": "vijeca gadagadatasaha vadala"
+    },
+    {
+        "en": "feed conservation",
+        "mr": "आहाराचा साठा",
+        "transliteration": "aharaca satha"
+    },
+    {
+        "en": "ration balancing",
+        "mr": "आहार संतुलन",
+        "transliteration": "ahara santulana"
+    },
+    {
+        "en": "alternate feeds",
+        "mr": "पर्यायी आहार",
+        "transliteration": "paryayi ahara"
+    },
+    {
+        "en": "hypothermia",
+        "mr": "हायपोथर्मिया",
+        "transliteration": "hayapotharmiya"
+    },
+    {
+        "en": "frostbite",
+        "mr": "बर्फामुळे झालेली जखम",
+        "transliteration": "barphamule jhaleli jakhama"
+    },
+    {
+        "en": "evacuation",
+        "mr": "स्थलांतर",
+        "transliteration": "sthalantara"
+    },
+    {
+        "en": "carcass disposal",
+        "mr": "मृत प्राण्यांचे निपटारा",
+        "transliteration": "mrita pranyance nipatara"
+    },
+    {
+        "en": "heat mitigation",
+        "mr": "उष्णता कमी करण्याची उपाययोजना",
+        "transliteration": "ushnata kami karanyaci upayayojana"
+    },
+    {
+        "en": "cold mitigation",
+        "mr": "थंडी कमी करण्याची उपाययोजना",
+        "transliteration": "thandi kami karanyaci upayayojana"
+    },
+    {
+        "en": "lightning safety",
+        "mr": "वीज सुरक्षा",
+        "transliteration": "vija suraksha"
+    },
+    {
+        "en": "species-specific management",
+        "mr": "जाती-विशिष्ट काळजी",
+        "transliteration": "jati-vishishta kalaji"
+    },
+    {
+        "en": "stress reduction",
+        "mr": "ताण कमी करणे",
+        "transliteration": "tana kami karane"
+    },
+    {
+        "en": "blood",
+        "mr": "रक्त",
+        "transliteration": "rakta"
+    },
+    {
+        "en": "heparin",
+        "mr": "हेपारिन",
+        "transliteration": "heparina"
+    },
+    {
+        "en": "plasma",
+        "mr": "प्लाझ्मा",
+        "transliteration": "plajhma"
+    },
+    {
+        "en": "rbc",
+        "mr": "लाल रक्तपेशी",
+        "transliteration": "lala raktapeshi"
+    },
+    {
+        "en": "wbc",
+        "mr": "पांढऱ्या रक्तपेशी",
+        "transliteration": "pandhaṟya raktapeshi"
+    },
+    {
+        "en": "neutrophils",
+        "mr": "न्युट्रोफिल्स",
+        "transliteration": "nyutrophilsa"
+    },
+    {
+        "en": "lymphocytes",
+        "mr": "लिम्फोसाइट्स",
+        "transliteration": "limphosaitsa"
+    },
+    {
+        "en": "monocytes",
+        "mr": "मोनोसाइट्स",
+        "transliteration": "monosaitsa"
+    },
+    {
+        "en": "eosinophils",
+        "mr": "ईओसिनोफिल्स",
+        "transliteration": "iosinophilsa"
+    },
+    {
+        "en": "basophils",
+        "mr": "बेसोफिल्स",
+        "transliteration": "besophilsa"
+    },
+    {
+        "en": "mcv",
+        "mr": "सरासरी लाल रक्तपेशी आयतन",
+        "transliteration": "sarasari lala raktapeshi ayatana"
+    },
+    {
+        "en": "mch",
+        "mr": "सरासरी लाल रक्तपेशी हीमोग्लोबिन",
+        "transliteration": "sarasari lala raktapeshi himoglobina"
+    },
+    {
+        "en": "mchc",
+        "mr": "सरासरी लाल रक्तपेशी हीमोग्लोबिन संकेंद्रण",
+        "transliteration": "sarasari lala raktapeshi himoglobina sankendrana"
+    },
+    {
+        "en": "esr",
+        "mr": "एरिथ्रोसाइट सेडिमेंटेशन रेट",
+        "transliteration": "erithrosaita sedimenteshana reta"
+    },
+    {
+        "en": "hemoconcentration",
+        "mr": "हेमोकॉन्सेंट्रेशन",
+        "transliteration": "hemokaॉnsentreshana"
+    },
+    {
+        "en": "polycythemia",
+        "mr": "पॉलीसायक्थेमिया",
+        "transliteration": "paॉlisayakthemiya"
+    },
+    {
+        "en": "anemia",
+        "mr": "अ‍ॅनीमिया",
+        "transliteration": "a‍ॅnimiya"
+    },
+    {
+        "en": "leukocytosis",
+        "mr": "ल्यूकोसाइटोसिस",
+        "transliteration": "lyukosaitosisa"
+    },
+    {
+        "en": "leukopenia",
+        "mr": "ल्यूकोपेनिया",
+        "transliteration": "lyukopeniya"
+    },
+    {
+        "en": "buffy coat",
+        "mr": "बफी कोट",
+        "transliteration": "baphi kota"
+    },
+    {
+        "en": "lipemia",
+        "mr": "लिपीमिया",
+        "transliteration": "lipimiya"
+    },
+    {
+        "en": "hemolysis",
+        "mr": "हेमोलिसिस",
+        "transliteration": "hemolisisa"
+    },
+    {
+        "en": "avian blood",
+        "mr": "कावळ्यांचे/पक्ष्यांचे रक्त",
+        "transliteration": "kavalyance/pakshyance rakta"
+    },
+    {
+        "en": "summer season",
+        "mr": "उन्हाळी हंगाम",
+        "transliteration": "unhali hangama"
+    },
+    {
+        "en": "cereal fodder crop",
+        "mr": "धान्य वर्गातील चारा पीक",
+        "transliteration": "dhanya vargatila chara pika"
+    },
+    {
+        "en": "legume fodder crop",
+        "mr": "कडधान्य वर्गातील चारा पीक",
+        "transliteration": "kadadhanya vargatila chara pika"
+    },
+    {
+        "en": "haemato-biochemical parameters",
+        "mr": "रक्त-जीवरासायनिक घटक",
+        "transliteration": "rakta-jivarasayanika ghataka"
+    },
+    {
+        "en": "clinical importance",
+        "mr": "वैद्यकीय महत्त्व",
+        "transliteration": "vaidyakiya mahattva"
+    },
+    {
+        "en": "interpretation",
+        "mr": "विश्लेषण",
+        "transliteration": "vishleshana"
+    },
+    {
+        "en": "physiological response",
+        "mr": "शारीरिक प्रतिसाद",
+        "transliteration": "sharirika pratisada"
+    },
+    {
+        "en": "breed variation",
+        "mr": "जातीतील फरक",
+        "transliteration": "jatitila pharaka"
+    },
+    {
+        "en": "individual variation",
+        "mr": "वैयक्तिक फरक",
+        "transliteration": "vaiyaktika pharaka"
+    },
+    {
+        "en": "physiological status",
+        "mr": "शारीरिक स्थिती",
+        "transliteration": "sharirika sthiti"
+    },
+    {
+        "en": "biochemical analysis",
+        "mr": "रासायनिक विश्लेषण",
+        "transliteration": "rasayanika vishleshana"
+    },
+    {
+        "en": "constituents of blood",
+        "mr": "रक्तातील घटक",
+        "transliteration": "raktatila ghataka"
+    },
+    {
+        "en": "clinical enzymology",
+        "mr": "वैद्यकीय एन्झाइमशास्त्र",
+        "transliteration": "vaidyakiya enjhaimashastra"
+    },
+    {
+        "en": "functional enzymes",
+        "mr": "कार्यशील एन्झाइम्स",
+        "transliteration": "karyashila enjhaimsa"
+    },
+    {
+        "en": "non-functional enzymes",
+        "mr": "अकार्यशील एन्झाइम्स",
+        "transliteration": "akaryashila enjhaimsa"
+    },
+    {
+        "en": "marker enzyme",
+        "mr": "निदान दर्शक एन्झाइम",
+        "transliteration": "nidana darshaka enjhaima"
+    },
+    {
+        "en": "cellular damage",
+        "mr": "पेशींचे नुकसान",
+        "transliteration": "peshince nukasana"
+    },
+    {
+        "en": "amylase",
+        "mr": "ऍमायलेज एन्झाइम",
+        "transliteration": "ऍmayaleja enjhaima"
+    },
+    {
+        "en": "dry matter",
+        "mr": "सुका घटक",
+        "transliteration": "suka ghataka"
+    },
+    {
+        "en": "digestible feed",
+        "mr": "पचण्यास सुलभ खाद्य",
+        "transliteration": "pacanyasa sulabha khadya"
+    },
+    {
+        "en": "protein value",
+        "mr": "प्रथिन मूल्य",
+        "transliteration": "prathina mulya"
+    },
+    {
+        "en": "calorific value",
+        "mr": "उष्मांक मूल्य",
+        "transliteration": "ushmanka mulya"
+    },
+    {
+        "en": "concentrates",
+        "mr": "दाणेदार खाद्य",
+        "transliteration": "danedara khadya"
+    },
+    {
+        "en": "selective breeding",
+        "mr": "निवडक प्रजनन",
+        "transliteration": "nivadaka prajanana"
+    },
+    {
+        "en": "dam",
+        "mr": "मादी जनावर माता",
+        "transliteration": "madi janavara mata"
+    },
+    {
+        "en": "proven sire",
+        "mr": "प्रमाणित नर",
+        "transliteration": "pramanita nara"
+    },
+    {
+        "en": "pedigree",
+        "mr": "वंशावळ",
+        "transliteration": "vanshavala"
+    },
+    {
+        "en": "progeny",
+        "mr": "संतती",
+        "transliteration": "santati"
+    },
+    {
+        "en": "germplasm",
+        "mr": "आनुवंशिक द्रव्य",
+        "transliteration": "anuvanshika dravya"
+    },
+    {
+        "en": "exotic breed",
+        "mr": "परदेशी जात",
+        "transliteration": "paradeshi jata"
+    },
+    {
+        "en": "heritability",
+        "mr": "आनुवंशिकता",
+        "transliteration": "anuvanshikata"
+    },
+    {
+        "en": "genetic gain",
+        "mr": "आनुवंशिक वाढ",
+        "transliteration": "anuvanshika vadha"
+    },
+    {
+        "en": "genetic potential",
+        "mr": "आनुवंशिक क्षमता",
+        "transliteration": "anuvanshika kshamata"
+    },
+    {
+        "en": "herd registration",
+        "mr": "कळप नोंदणी",
+        "transliteration": "kalapa nondani"
+    },
+    {
+        "en": "data recording system",
+        "mr": "माहिती नोंद प्रणाली",
+        "transliteration": "mahiti nonda pranali"
+    },
+    {
+        "en": "sire evaluation",
+        "mr": "नर मूल्यांकन",
+        "transliteration": "nara mulyankana"
+    },
+    {
+        "en": "pedigree selection programme",
+        "mr": "वंशावळ आधारित निवड योजना",
+        "transliteration": "vanshavala adharita nivada yojana"
+    },
+    {
+        "en": "non-descript population",
+        "mr": "अपरीचीत जात",
+        "transliteration": "aparicita jata"
+    },
+    {
+        "en": "semen freezing facility",
+        "mr": "वीर्य गोठविण्याची सुविधा",
+        "transliteration": "virya gothavinyaci suvidha"
+    },
+    {
+        "en": "nucleus farm",
+        "mr": "केंद्रिय प्रजनन शेत",
+        "transliteration": "kendriya prajanana sheta"
+    },
+    {
+        "en": "breed conservation",
+        "mr": "जात संवर्धन",
+        "transliteration": "jata sanvardhana"
+    },
+    {
+        "en": "role model breeder",
+        "mr": "आदर्श प्रजनक",
+        "transliteration": "adarsha prajanaka"
+    },
+    {
+        "en": "breed association society",
+        "mr": "जात संघ संस्था",
+        "transliteration": "jata sangha sanstha"
+    },
+    {
+        "en": "economic incentives",
+        "mr": "आर्थिक प्रोत्साहन",
+        "transliteration": "arthika protsahana"
+    },
+    {
+        "en": "climate adaptability",
+        "mr": "हवामानाशी जुळवून घेण्याची क्षमता",
+        "transliteration": "havamanashi julavuna ghenyaci kshamata"
+    },
+    {
+        "en": "milch animal",
+        "mr": "दुग्धजन्य जनावर",
+        "transliteration": "dugdhajanya janavara"
+    },
+    {
+        "en": "exotic blood level",
+        "mr": "परदेशी रक्तांश प्रमाण",
+        "transliteration": "paradeshi raktansha pramana"
+    },
+    {
+        "en": "parasitological examination",
+        "mr": "परजीवी परीक्षण",
+        "transliteration": "parajivi parikshana"
+    },
+    {
+        "en": "gravid proglottids",
+        "mr": "अंडित टेपवर्म सेगमेंट्स",
+        "transliteration": "andita tepavarma segamentsa"
+    },
+    {
+        "en": "microscopic examination",
+        "mr": "सूक्ष्मदर्शनी परीक्षण",
+        "transliteration": "sukshmadarshani parikshana"
+    },
+    {
+        "en": "qualitative examination",
+        "mr": "गुणात्मक परीक्षण",
+        "transliteration": "gunatmaka parikshana"
+    },
+    {
+        "en": "quantitative examination",
+        "mr": "मात्रात्मक परीक्षण",
+        "transliteration": "matratmaka parikshana"
+    },
+    {
+        "en": "direct smear method",
+        "mr": "थेट स्मीयर पद्धत",
+        "transliteration": "theta smiyara paddhata"
+    },
+    {
+        "en": "sedimentation technique",
+        "mr": "तलन पद्धत",
+        "transliteration": "talana paddhata"
+    },
+    {
+        "en": "flotation technique",
+        "mr": "तरंग पद्धत",
+        "transliteration": "taranga paddhata"
+    },
+    {
+        "en": "mcmaster method",
+        "mr": "मॅकमास्टर पद्धत",
+        "transliteration": "maॅkamastara paddhata"
+    },
+    {
+        "en": "urine sample",
+        "mr": "मूत्र नमुना",
+        "transliteration": "mutra namuna"
+    },
+    {
+        "en": "schistosoma haematobium",
+        "mr": "मनुष्याची शिस्टोसोमा",
+        "transliteration": "manushyaci shistosoma"
+    },
+    {
+        "en": "supernatant",
+        "mr": "वरचे द्रव",
+        "transliteration": "varace drava"
+    },
+    {
+        "en": "sodium citrate",
+        "mr": "सोडियम सिट्रेट",
+        "transliteration": "sodiyama sitreta"
+    },
+    {
+        "en": "ammonium potassium oxalate",
+        "mr": "ऍमोनियम पोटॅशियम ऑक्सलेट",
+        "transliteration": "ऍmoniyama potaॅshiyama ऑksaleta"
+    },
+    {
+        "en": "peripheral blood",
+        "mr": "परिधीय रक्त",
+        "transliteration": "paridhiya rakta"
+    },
+    {
+        "en": "haemoprotozoan",
+        "mr": "रक्तातील प्रोटोजोअन",
+        "transliteration": "raktatila protojoana"
+    },
+    {
+        "en": "wet blood film",
+        "mr": "ओले रक्त फिल्म",
+        "transliteration": "ole rakta philma"
+    },
+    {
+        "en": "thin blood smear",
+        "mr": "पातळ रक्त स्मीयर",
+        "transliteration": "patala rakta smiyara"
+    },
+    {
+        "en": "dehaemoglobinization",
+        "mr": "रक्तातून हेमोग्लोबिन काढणे",
+        "transliteration": "raktatuna hemoglobina kadhane"
+    },
+    {
+        "en": "romanowsky stains",
+        "mr": "रोमानॉस्की रंगद्रव्य",
+        "transliteration": "romanaॉski rangadravya"
+    },
+    {
+        "en": "giemsa stain",
+        "mr": "गिम्सा रंगद्रव्य",
+        "transliteration": "gimsa rangadravya"
+    },
+    {
+        "en": "leishman stain",
+        "mr": "लीश्मन रंगद्रव्य",
+        "transliteration": "lishmana rangadravya"
+    },
+    {
+        "en": "oil immersion objective",
+        "mr": "तेल इमर्शन लेंस",
+        "transliteration": "tela imarshana lensa"
+    },
+    {
+        "en": "skin scraping",
+        "mr": "स्क्रॅपिंग",
+        "transliteration": "skraॅpinga"
+    },
+    {
+        "en": "superficial skin scraping",
+        "mr": "पृष्ठभागीय त्वचा स्क्रॅपिंग",
+        "transliteration": "prishthabhagiya tvaca skraॅpinga"
+    },
+    {
+        "en": "deep skin scraping",
+        "mr": "खोल त्वचा स्क्रॅपिंग",
+        "transliteration": "khola tvaca skraॅpinga"
+    },
+    {
+        "en": "centrifuge tube",
+        "mr": "केंद्रीयकक ट्यूब",
+        "transliteration": "kendriyakaka tyuba"
     }
 ]

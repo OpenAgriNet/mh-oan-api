@@ -3,7 +3,7 @@ import uuid
 import json
 from datetime import datetime
 from helpers.utils import get_logger
-import requests
+import httpx
 from pydantic import BaseModel, AnyHttpUrl, Field
 from typing import List, Optional, Dict, Any, Literal
 from pydantic_ai import ModelRetry, UnexpectedModelBehavior
@@ -286,11 +286,12 @@ async def agri_services(latitude: float, longitude: float, category_code: Litera
             logger.error("BAP_ENDPOINT environment variable not set")
             return "Agricultural services configuration error."
 
-        response = requests.post(
-            bap_endpoint,
-            json=payload,
-            timeout=(10, 15)
-        )
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                bap_endpoint,
+                json=payload,
+                timeout=15.0
+            )
 
         if response.status_code != 200:
             logger.error(f"Agricultural Services API returned status code {response.status_code}")
@@ -305,10 +306,10 @@ async def agri_services(latitude: float, longitude: float, category_code: Litera
         parsed = AgriServicesResponse.model_validate(response_data)
         return str(parsed)
 
-    except requests.Timeout:
+    except httpx.TimeoutException:
         logger.error("Agricultural Services API request timed out")
         return "Agricultural services request timed out."
-    except requests.RequestException as e:
+    except httpx.RequestError as e:
         logger.error(f"Agricultural Services API request failed: {e}")
         return f"Agricultural services request failed: {str(e)}"
     except UnexpectedModelBehavior as e:
