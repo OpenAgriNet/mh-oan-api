@@ -1,10 +1,11 @@
-from fastapi import APIRouter, Body, Request
+from fastapi import APIRouter, Body, Depends, Request
 from fastapi.responses import JSONResponse
 from app.models.requests import TTSRequest
 from helpers.tts import text_to_speech_bhashini
 import uuid
 import base64
 from helpers.utils import get_logger
+from app.auth.jwt_auth import get_current_user
 from app.core.limiter import limiter
 logger = get_logger(__name__)
 
@@ -12,7 +13,7 @@ router = APIRouter(prefix="/tts", tags=["tts"])
 
 @router.post("/")
 @limiter.limit("10/minute")
-async def tts(request: Request, tts_request: TTSRequest = Body(...)):
+async def tts(request: Request, tts_request: TTSRequest = Body(...), user_info: dict = Depends(get_current_user)):
     """
     Convert text to speech using the specified service.
     """

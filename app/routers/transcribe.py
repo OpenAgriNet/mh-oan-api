@@ -1,10 +1,11 @@
 import uuid
 import time
-from fastapi import APIRouter, Body, Request
+from fastapi import APIRouter, Body, Depends, Request
 from fastapi.responses import JSONResponse
 from app.models.requests import TranscribeRequest
 from helpers.transcription import transcribe_bhashini, detect_audio_language_bhashini, transcribe_whisper
 from helpers.utils import get_logger
+from app.auth.jwt_auth import get_current_user
 from app.core.limiter import limiter
 logger = get_logger(__name__)
 
@@ -12,7 +13,7 @@ router = APIRouter(prefix="/transcribe", tags=["transcribe"])
 
 @router.post("/")
 @limiter.limit("10/minute")
-async def transcribe(request: Request, transcribe_request: TranscribeRequest = Body(...)):
+async def transcribe(request: Request, transcribe_request: TranscribeRequest = Body(...), user_info: dict = Depends(get_current_user)):
     """
     Transcribe audio content using the specified service.
     """
