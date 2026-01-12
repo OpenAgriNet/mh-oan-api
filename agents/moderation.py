@@ -9,7 +9,7 @@ from agents.models import LLM_MODEL
 class QueryModerationResult(BaseModel):
     """Moderation result of the query."""
     category: Literal["valid_agricultural",
-                      "invalid_language", 
+                      "invalid_language", # NOTE: Added this category that was missing here but was present in the prompt
                       "invalid_non_agricultural",
                       "invalid_external_reference",
                       "invalid_compound_mixed",

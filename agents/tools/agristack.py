@@ -2,7 +2,7 @@ import os
 import uuid
 from datetime import datetime
 from helpers.utils import get_logger
-import requests
+import httpx
 from pydantic import BaseModel, AnyHttpUrl, Field
 from typing import List, Optional, Dict, Any, ClassVar
 from pydantic_ai import ModelRetry, UnexpectedModelBehavior, RunContext
@@ -72,7 +72,7 @@ class Item(BaseModel):
         "mobile",
         "email",
         "farmer_name_mr",
-        "identifier_name", 
+        "identifier_name",  # NOTE: What is this?
         "dob",
         "phone",
         "contact_number",
@@ -398,7 +398,9 @@ async def fetch_agristack_data(ctx: RunContext[FarmerContext]) -> str:
 
     try:
         payload = AgristackRequest(farmer_id=farmer_id).get_payload()
-        response = requests.post(os.getenv("BAP_ENDPOINT"), json=payload, timeout=(10, 15))
+        
+        async with httpx.AsyncClient() as client:
+            response = await client.post(os.getenv("BAP_ENDPOINT"), json=payload, timeout=15.0)
 
         if response.status_code != 200:
             logger.error(f"Farmer Info API returned status code {response.status_code}")
@@ -407,11 +409,11 @@ async def fetch_agristack_data(ctx: RunContext[FarmerContext]) -> str:
         farmer_response = AgristackResponse.model_validate(response.json())
         return str(farmer_response)
 
-    except requests.Timeout as e:
+    except httpx.TimeoutException as e:
         logger.error(f"Farmer Info API request timed out: {str(e)}")
         return "Farmer information request timed out. Please try again later."
 
-    except requests.RequestException as e:
+    except httpx.RequestError as e:
         logger.error(f"Farmer Info API request failed: {e}")
         return f"Farmer information request failed: {str(e)}"
 

@@ -2,7 +2,7 @@ import os
 import uuid
 from datetime import datetime, timedelta, timezone
 from helpers.utils import get_logger, get_today_date_str
-import requests
+import httpx
 from pydantic import BaseModel, AnyHttpUrl, Field
 from typing import List, Optional, Dict, Any, Tuple
 from dateutil import parser
@@ -461,9 +461,11 @@ async def weather_forecast(latitude: float, longitude: float, days: int = 5) -> 
     """    
     try:        
         payload  = WeatherRequest(latitude=latitude, longitude=longitude, days=days, request_type="forecast").get_payload()
-        response = requests.post(os.getenv("BAP_ENDPOINT"),
-                                 json=payload,
-                                 timeout=(10,15))
+        
+        async with httpx.AsyncClient() as client:
+            response = await client.post(os.getenv("BAP_ENDPOINT"),
+                                     json=payload,
+                                     timeout=15.0)
         
         if response.status_code != 200:
             logger.error(f"Weather API returned status code {response.status_code}")
@@ -474,10 +476,10 @@ async def weather_forecast(latitude: float, longitude: float, days: int = 5) -> 
             
         return str(weather_response)
                 
-    except requests.Timeout:
+    except httpx.TimeoutException:
         logger.error("Weather API request timed out")
         return "Weather request timed out."
-    except requests.RequestException as e:
+    except httpx.RequestError as e:
         logger.error(f"Weather API request failed: {e}")
         return f"Weather request failed: {str(e)}"
     except UnexpectedModelBehavior as e:
@@ -500,9 +502,11 @@ async def weather_historical(latitude: float, longitude: float, days: int = 5) -
     """    
     try:        
         payload  = WeatherRequest(latitude=latitude, longitude=longitude, days=days, request_type="historical").get_payload()
-        response = requests.post(os.getenv("BAP_ENDPOINT"),
-                                 json=payload,
-                                 timeout=(10,15))
+        
+        async with httpx.AsyncClient() as client:
+            response = await client.post(os.getenv("BAP_ENDPOINT"),
+                                     json=payload,
+                                     timeout=15.0)
         
         if response.status_code != 200:
             logger.error(f"Weather API returned status code {response.status_code}")
@@ -513,10 +517,10 @@ async def weather_historical(latitude: float, longitude: float, days: int = 5) -
             
         return str(weather_response)
                 
-    except requests.Timeout:
+    except httpx.TimeoutException:
         logger.error("Weather API request timed out")
         return "Weather request timed out."
-    except requests.RequestException as e:
+    except httpx.RequestError as e:
         logger.error(f"Weather API request failed: {e}")
         return f"Weather request failed: {str(e)}"
     except UnexpectedModelBehavior as e:

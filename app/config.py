@@ -43,7 +43,7 @@ class Settings(BaseSettings):
     redis_key_prefix: str = "sva-cache-"
     redis_socket_connect_timeout: int = 10
     redis_socket_timeout: int = 10
-    redis_max_connections: int = 100
+    redis_max_connections: int = 20  # Reduced from 100 to 20 per worker
     redis_retry_on_timeout: bool = True
 
     # Cache Configuration
@@ -63,7 +63,6 @@ class Settings(BaseSettings):
 
     # External Service API Keys
     openai_api_key: Optional[str] = None
-    sarvam_api_key: Optional[str] = None
     meity_api_key_value: Optional[str] = None
     logfire_token: Optional[str] = None
     bhashini_api_key: str = ""

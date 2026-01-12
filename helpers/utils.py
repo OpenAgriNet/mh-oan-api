@@ -55,7 +55,7 @@ def count_tokens_str(doc: str) -> int:
         int: number of tokens in the string
 
     """
-    encoder = tiktoken.get_encoding('cl100k_base')
+    encoder = tiktoken.get_encoding('o200k_base')
     return len(encoder.encode(doc, disallowed_special=()))
 
 

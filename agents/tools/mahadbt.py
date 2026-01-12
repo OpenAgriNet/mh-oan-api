@@ -8,7 +8,7 @@ import os
 import uuid
 from datetime import datetime
 from helpers.utils import get_logger
-import requests
+import httpx
 from pydantic import BaseModel, AnyHttpUrl, Field
 from typing import List, Optional, Dict, Any, ClassVar
 from pydantic_ai import ModelRetry, UnexpectedModelBehavior, RunContext
@@ -496,7 +496,9 @@ async def get_scheme_status(ctx: RunContext[FarmerContext]) -> str:
 
     try:
         payload = MahaDBTRequest(farmer_id=farmer_id).get_payload()
-        response = requests.post(os.getenv("BAP_ENDPOINT"), json=payload, timeout=(10, 15))
+        
+        async with httpx.AsyncClient() as client:
+            response = await client.post(os.getenv("BAP_ENDPOINT"), json=payload, timeout=15.0)
 
         if response.status_code != 200:
             logger.error(f"MahaDBT API returned status code {response.status_code}")
@@ -505,11 +507,11 @@ async def get_scheme_status(ctx: RunContext[FarmerContext]) -> str:
         scheme_response = MahaDBTResponse.model_validate(response.json())
         return str(scheme_response)
 
-    except requests.Timeout as e:
+    except httpx.TimeoutException as e:
         logger.error(f"MahaDBT API request timed out: {str(e)}")
         return "MahaDBT Scheme status request timed out. Please try again later."
 
-    except requests.RequestException as e:
+    except httpx.RequestError as e:
         logger.error(f"MahaDBT API request failed: {e}")
         return f"MahaDBT Scheme status request failed: {str(e)}"
 
