@@ -15,6 +15,61 @@ from agents.deps import FarmerContext
 
 logger = get_logger(__name__)
 
+
+async def run_agent_full(
+    query: str,
+    session_id: str,
+    target_lang: str,
+    user_id: str,
+    history: list,
+    user_info: dict,
+    background_tasks: BackgroundTasks,
+) -> str:
+    """Run the agent once (no streaming) and return the full response text. Updates message history."""
+    deps = FarmerContext(
+        query=query,
+        lang_code=target_lang,
+        farmer_id=user_info.get("farmer_id"),
+    )
+    message_pairs = "\n\n".join(format_message_pairs(history, 3))
+    if message_pairs:
+        last_response = f"**Conversation**\n\n{message_pairs}\n\n---\n\n"
+    else:
+        last_response = ""
+
+    try:
+        user_message = f"{last_response}{deps.get_user_message()}"
+        moderation_run = await moderation_agent.run(user_message)
+        moderation_data = moderation_run.output
+        if moderation_data.category == "valid_agricultural":
+            try:
+                background_tasks.add_task(create_suggestions, session_id, target_lang)
+            except Exception as e:
+                logger.error(f"Error adding suggestions task: {str(e)}")
+        deps.update_moderation_str(str(moderation_data))
+    except Exception as e:
+        logger.error(f"Error in moderation: {str(e)}")
+
+    user_message = deps.get_user_message()
+    trimmed_history = trim_history(
+        history,
+        max_tokens=80_000,
+        include_system_prompts=True,
+        include_tool_calls=True,
+    )
+
+    run_result = await agrinet_agent.run(
+        user_message,
+        message_history=trimmed_history,
+        deps=deps,
+    )
+    response_text = run_result.output or ""
+    new_messages = run_result.new_messages()
+    messages = [*history, *new_messages]
+    await update_message_history(session_id, messages)
+    return response_text
+
+
 async def stream_chat_messages(
     query: str,
     session_id: str,
