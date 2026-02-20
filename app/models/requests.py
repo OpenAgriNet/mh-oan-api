@@ -20,5 +20,6 @@ class SuggestionsRequest(BaseModel):
 class TTSRequest(BaseModel):
     text: str = Field(..., description="Text to convert to speech")
     target_lang: str = Field('mr', description="Target language code for TTS")
+    source_lang: str = Field('mr', description="Source language code for TTS")
     session_id: Optional[str] = Field(None, description="Session ID")
     service_type: Literal['bhashini', 'eleven_labs'] = Field('bhashini', description="TTS service to use") 
