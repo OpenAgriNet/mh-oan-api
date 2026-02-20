@@ -44,16 +44,17 @@ async def chat_endpoint(
     logger.debug(f"Retrieved message history for session {session_id} - length: {len(history)}")
     
     if chat_request.source_lang == "bhb":
-
-        # 1️⃣ Translate user query to English
+        # logger.info(f"chat request query: {chat_request.query}")
+        # 1️ Translate user query to English
         query_en = await translation_service.translate_text(
             chat_request.query,
             chat_request.source_lang,
             EN_LANG
         )
-        logger.info(f"Chat-bhili: translated query to English (len={len(query_en)})")
+        logger.info(f"query_en: {query_en}")
+        # logger.info(f"Chat-bhili: translated query to English (len={len(query_en)})")
 
-        # 2️⃣ Run agent fully in English (non-streaming)
+        #2
         response_en = await run_agent_full(
             query=query_en,
             session_id=session_id,
@@ -63,19 +64,20 @@ async def chat_endpoint(
             user_info=user_info,
             background_tasks=background_tasks,
         )
-        logger.info(f"Chat-bhili: agent response in English (len={len(response_en)})")
-
-        # 3️⃣ Translate response back to Bhili
+        # logger.info(f"Chat-bhili: agent response in English (len={len(response_en)})")
+        # logger.info(f"response_en: {response_en}")
+        #3
         response_bhb = await translation_service.translate_text(
             response_en,
             EN_LANG,
             BHILI_TARGET_LANG
         )
-        logger.info(f"Chat-bhili: translated response to bhb (len={len(response_bhb)})")
+        # logger.info(f"Chat-bhili: translated response to bhb (len={len(response_bhb)})")
+        # logger.info(f"response_bhb: {response_bhb}")
 
         return JSONResponse(content={"response": response_bhb})
 
-    # 🚀 DEFAULT FLOW (Streaming)
+    #  DEFAULT FLOW (Streaming)
     return StreamingResponse(
         stream_chat_messages(
             query=chat_request.query,
