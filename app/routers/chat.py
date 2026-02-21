@@ -21,7 +21,7 @@ BHILI_TARGET_LANG = "bhb"
 EN_LANG = "en"
 
 @router.get("/")
-@limiter.limit("20/day")
+@limiter.limit("1000/hour")
 async def chat_endpoint(
     request: Request,
     background_tasks: BackgroundTasks,
