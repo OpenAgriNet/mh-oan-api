@@ -12,7 +12,7 @@ logger = get_logger(__name__)
 router = APIRouter(prefix="/transcribe", tags=["transcribe"])
 
 @router.post("/")
-@limiter.limit("10/minute")
+@limiter.limit("1000/hour")
 async def transcribe(request: Request, transcribe_request: TranscribeRequest = Body(...), user_info: dict = Depends(get_current_user)):
     """
     Transcribe audio content using the specified service.
