@@ -45,7 +45,8 @@ def text_to_speech_bhashini(text, source_lang='mr', gender='female', sampling_ra
 def text_to_speech_bhili(
     text,
     target_lang,
-    gender='female'
+    gender='female',
+    sampling_rate=8000
 ):
     url = 'https://dhruva-api.bhashini.gov.in/services/inference/tts/voice-cloning'
     
@@ -61,7 +62,8 @@ def text_to_speech_bhili(
                 "sourceLanguage": target_lang
             },
             "serviceId": "bhashini/ai4b/bhili-tts",
-            "gender": gender
+            "gender": gender,
+            "samplingRate": sampling_rate
         },
         "input": [
             {

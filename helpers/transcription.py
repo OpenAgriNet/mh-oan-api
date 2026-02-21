@@ -54,12 +54,13 @@ def transcribe_whisper(audio_base64: str):
     
 
 
-def transcribe_bhashini(audio_base64: str, source_lang='mr'):
+def transcribe_bhashini(audio_base64: str, source_lang='mr', original_source_lang=None):
     """
     Transcribes an audio file using the Bhashini service.
 
     Parameters:
-    source_lang (str): The language code of the audio file's language. Default is 'mr' (Marathi).
+    source_lang (str): The language code used for ASR (e.g. 'mr'). Default is 'mr' (Marathi).
+    original_source_lang (str): The original source language requested by the caller (e.g. 'bhb' for Bhili).
 
     Returns:
     str: The transcribed text if the request is successful.
@@ -72,19 +73,21 @@ def transcribe_bhashini(audio_base64: str, source_lang='mr'):
         'Authorization': os.getenv('MEITY_API_KEY_VALUE'),
         'Content-Type': 'application/json'
     }
+    asr_config = {
+        "language": {
+            "sourceLanguage": source_lang,
+        },
+        "audioFormat": "wav",
+        "samplingRate": 16000,
+        "preProcessors": ["vad"],
+    }
+    if original_source_lang == 'bhb':
+        asr_config["serviceId"] = "bhashini/ai4b/bhili-asr"
     data = {
         "pipelineTasks": [
             {
                 "taskType": "asr",
-                "config": {
-                    # "serviceId": "bhashini/ai4bharat/conformer-multilingual-asr",
-                    "language": {
-                        "sourceLanguage": source_lang,
-                    },
-                    "audioFormat": "wav",
-                    "samplingRate": 16000,
-                    "preProcessors": ["vad"],
-                }
+                "config": asr_config
             }
         ],
         "inputData": {
