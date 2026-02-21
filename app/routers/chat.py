@@ -17,8 +17,8 @@ router = APIRouter(prefix="/chat", tags=["chat"])
 async def chat_endpoint(
     request: Request,
     background_tasks: BackgroundTasks,
-    chat_request: ChatRequest = Depends(),
-    user_info: dict = {"sub": "anonymous", "preferred_username": "anonymous"}  # Authentication required
+    chat_request: ChatRequest,
+    user_info: dict = Depends(get_current_user)
 ):
     """
     Chat endpoint that streams responses back to the client.
