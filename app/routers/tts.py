@@ -27,7 +27,7 @@ async def tts(
 
         # 🔹 If Bhili (bhb), use voice cloning endpoint
         if tts_request.source_lang == "bhb":
-            logger.info(f"Using Bhili voice cloning endpoint for source language: {tts_request.source_lang}")
+            logger.info(f"Using Bhili TTS endpoint for source language: {tts_request.source_lang}")
             audio_data = text_to_speech_bhili(
                 text=tts_request.text,
                 target_lang=tts_request.target_lang,
