@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 from app.models.requests import SuggestionsRequest
 from app.utils import get_cache
 from app.auth.jwt_auth import get_current_user
-from helpers.translation import translation_service
+from helpers.translation import BhashiniTranslator
 
 router = APIRouter(prefix="/suggest", tags=["suggest"],)
 
@@ -18,8 +18,6 @@ async def suggest(request: SuggestionsRequest = Depends(), user_info: dict = Dep
     cache_key = f"suggestions_{request.session_id}_{cache_lang}"
     suggestions = await get_cache(cache_key) or []
     if request.target_lang == "bhb" and suggestions:
-        suggestions = [
-            await translation_service.translate_text(s, "en", "bhb")
-            for s in suggestions
-        ]
+        translator = BhashiniTranslator(source_lang="en", target_lang="bhb")
+        suggestions = await translator.translate(suggestions)
     return JSONResponse(suggestions)
