@@ -12,7 +12,7 @@ logger = get_logger(__name__)
 router = APIRouter(prefix="/tts", tags=["tts"])
 
 @router.post("/")
-@limiter.limit("10/minute")
+@limiter.limit("1000/hour")
 async def tts(
     request: Request,
     tts_request: TTSRequest = Body(...),
