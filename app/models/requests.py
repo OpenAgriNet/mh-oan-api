@@ -12,6 +12,7 @@ class TranscribeRequest(BaseModel):
     audio_content: str = Field(..., description="Base64 encoded audio content")
     service_type: Literal['bhashini', 'whisper'] = Field('bhashini', description="Transcription service to use")
     session_id: Optional[str] = Field(None, description="Session ID")
+    selected_lang: Optional[str] = Field(None, description="Source language code of the audio")
 
 class SuggestionsRequest(BaseModel):
     session_id: str = Field(..., description="Session ID to get suggestions for")
