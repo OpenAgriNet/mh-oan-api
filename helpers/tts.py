@@ -44,42 +44,45 @@ def text_to_speech_bhashini(text, source_lang='mr', gender='female', sampling_ra
 
 def text_to_speech_bhili(
     text,
-    target_lang,
-    gender='female',
-    sampling_rate=8000
+    target_lang='bhb',
+    description='A male speaker delivers speech at a moderate speed with a moderate pitch. The recording is of good quality'
 ):
-    url = 'https://dhruva-api.bhashini.gov.in/services/inference/tts/voice-cloning'
-    
+    url = 'https://dhruva-api.bhashini.gov.in/services/inference/pipeline'
+
     headers = {
         'Accept': '*/*',
-        'Authorization': os.getenv('MEITY_API_KEY_VALUE'),  # Don't hardcode tokens. Ever.
+        'Authorization': os.getenv('MEITY_API_KEY_VALUE'),
         'Content-Type': 'application/json',
     }
 
     data = {
-        "config": {
-            "language": {
-                "sourceLanguage": target_lang
-            },
-            "serviceId": "bhashini/ai4b/bhili-tts",
-            "gender": gender,
-            "samplingRate": sampling_rate
-        },
-        "input": [
+        "pipelineTasks": [
             {
-                "source": text,
-                "refText": "माहारी पाकवुला ई बिमारी की वाचवुला यंत्रणा हाय, तिया की पीक सुरक्षित रेहे",
-                "refAudioUrl": "https://bhashinimigrationns.sosnm1.shakticloud.ai:9024/logsdata/ref_audio.wav"
+                "taskType": "tts",
+                "config": {
+                    "language": {
+                        "sourceLanguage": target_lang
+                    },
+                    "serviceId": "bhashini/ai4b/bhili-tts",
+                    "description": description
+                }
             }
-        ]
+        ],
+        "inputData": {
+            "input": [
+                {
+                    "source": text
+                }
+            ]
+        }
     }
 
     response = requests.post(url, headers=headers, json=data)
     assert response.status_code == 200, f"Error: {response.status_code} {response.text}"
-    
+
     response_json = response.json()
 
-    audio_content = response_json['audio'][0]['audioContent']
+    audio_content = response_json['pipelineResponse'][0]['audio'][0]['audioContent']
     audio_data = base64.b64decode(audio_content)
 
     return audio_data
