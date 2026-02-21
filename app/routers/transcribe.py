@@ -22,9 +22,13 @@ async def transcribe(request: Request, transcribe_request: TranscribeRequest = B
 #    current_timestamp = int(time.time() * 1000)
     
     if transcribe_request.service_type == 'bhashini':
-        lang_code = detect_audio_language_bhashini(transcribe_request.audio_content)
-        logger.info(f"Detected language code: {lang_code}")
-        transcription = transcribe_bhashini(transcribe_request.audio_content, lang_code)
+        if transcribe_request.selected_lang == 'bhb':
+            lang_code = 'mr'
+            logger.info(f"Source language is Bhili (bhb), skipping detection and using lang_code: {lang_code}")
+        else:
+            lang_code = detect_audio_language_bhashini(transcribe_request.audio_content)
+            logger.info(f"Detected language code: {lang_code}")
+        transcription = transcribe_bhashini(transcribe_request.audio_content, lang_code, transcribe_request.selected_lang)
         logger.info(f"Transcription: {transcription}")
     elif transcribe_request.service_type == 'whisper':
         lang_code, transcription = transcribe_whisper(transcribe_request.audio_content)
