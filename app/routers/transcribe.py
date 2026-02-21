@@ -3,7 +3,7 @@ import time
 from fastapi import APIRouter, Body, Depends, Request
 from fastapi.responses import JSONResponse
 from app.models.requests import TranscribeRequest
-from helpers.transcription import transcribe_bhashini, detect_audio_language_bhashini, transcribe_whisper
+from helpers.transcription import transcribe_bhashini
 from helpers.utils import get_logger
 from app.auth.jwt_auth import get_current_user
 from app.core.limiter import limiter
@@ -22,16 +22,9 @@ async def transcribe(request: Request, transcribe_request: TranscribeRequest = B
 #    current_timestamp = int(time.time() * 1000)
     
     if transcribe_request.service_type == 'bhashini':
-        if transcribe_request.selected_lang == 'bhb':
-            lang_code = 'mr'
-            logger.info(f"Source language is Bhili (bhb), skipping detection and using lang_code: {lang_code}")
-        else:
-            lang_code = detect_audio_language_bhashini(transcribe_request.audio_content)
-            logger.info(f"Detected language code: {lang_code}")
+        lang_code = 'mr' if transcribe_request.selected_lang == 'bhb' else transcribe_request.selected_lang
         transcription = transcribe_bhashini(transcribe_request.audio_content, lang_code, transcribe_request.selected_lang)
         logger.info(f"Transcription: {transcription}")
-    elif transcribe_request.service_type == 'whisper':
-        lang_code, transcription = transcribe_whisper(transcribe_request.audio_content)
     else:
         return JSONResponse({
             'status': 'error',
