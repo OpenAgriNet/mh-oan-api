@@ -7,10 +7,8 @@ Translation Class
 import os
 import re
 import json
-import requests
+import httpx
 from dotenv import load_dotenv
-from google.cloud import translate_v2 as translate
-from google.oauth2 import service_account
 from typing import Any, Dict, List, Tuple, Union, Set
 
 load_dotenv(override=True)
@@ -243,7 +241,7 @@ class BaseTranslator:
             # Fallback to original text if replacement fails
             return text
 
-    def translate_texts(self, texts: List[str]) -> List[str]:
+    async def translate_texts(self, texts: List[str]) -> List[str]:
         """Abstract method to be implemented by concrete translators."""
         raise NotImplementedError("translate_texts method must be implemented by subclasses.")
 
@@ -304,7 +302,7 @@ class BaseTranslator:
         else:
             return data
 
-    def translate(self, data: Any, exclude_keys: Set[str] = None, use_term_pairs: bool = False) -> Any:
+    async def translate(self, data: Any, exclude_keys: Set[str] = None, use_term_pairs: bool = False) -> Any:
         """
         Translate any data structure while preserving structure and non-string values.
         Handles single strings, lists, dictionaries, and nested structures.
@@ -318,7 +316,7 @@ class BaseTranslator:
         if isinstance(data, str):
             if not exclude_keys and self._should_translate_string(data):
                 text = self._add_paired_translations(data) if use_term_pairs else data
-                return self.translate_texts([text])[0]
+                return (await self.translate_texts([text]))[0]
             return data
             
         # Collect all translatable strings with their paths
@@ -335,7 +333,7 @@ class BaseTranslator:
             strings = [self._add_paired_translations(text) for text in strings]
         
         # Batch translate all strings at once
-        translated_strings = self.translate_texts(list(strings))
+        translated_strings = await self.translate_texts(list(strings))
         
         # Reconstruct the data structure with translations
         return self._reconstruct_data(data, translated_strings, paths)
@@ -343,25 +341,33 @@ class BaseTranslator:
 
 class BhashiniTranslator(BaseTranslator):
     """Translator implementation using the Bhashini API."""
+
+    BHILI_SERVICE_ID = "bhashini/ai4b/bhili-nmt"
+    DEFAULT_SERVICE_ID = "bhashini/ai4bharat/indictrans-v3"
+
     def __init__(self, source_lang='en', target_lang='hi', batch_size=4, term_pairs=None):
         super().__init__(source_lang, target_lang, batch_size, term_pairs)
-        self.session = requests.Session()
         self.api_key = os.getenv("MEITY_API_KEY_VALUE")
         self.base_url = 'https://dhruva-api.bhashini.gov.in/services/inference/pipeline'
 
-    def translate_texts(self, texts: List[str]) -> List[str]:
+    def _get_service_id(self, source_lang: str, target_lang: str) -> str:
+        if source_lang == "bhb" or target_lang == "bhb":
+            return self.BHILI_SERVICE_ID
+        return self.DEFAULT_SERVICE_ID
+
+    async def translate_texts(self, texts: List[str]) -> List[str]:
         """Translate a list of texts using the Bhashini API."""
         headers = {
             'Authorization': self.api_key,
             'Content-Type': 'application/json'
         }
+        service_id = self._get_service_id(self.source_lang, self.target_lang)
         data = {
             "pipelineTasks": [
                 {
                     "taskType": "translation",
                     "config": {
-                        #"serviceId": "ai4bharat/indictrans-v2-all-gpu--t4",
-                        "serviceId": "bhashini/ai4bharat/indictrans-v3",
+                        "serviceId": service_id,
                         "language": {
                             "sourceLanguage": self.source_lang,
                             "targetLanguage": self.target_lang
@@ -373,7 +379,8 @@ class BhashiniTranslator(BaseTranslator):
                 "input": [{"source": text} for text in texts]
             }
         }
-        response = self.session.post(self.base_url, headers=headers, json=data, timeout=(10, 30))
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            response = await client.post(self.base_url, headers=headers, json=data)
 
         if response.status_code != 200:
             raise Exception(f"Error: {response.status_code} {response.text}")
@@ -381,35 +388,38 @@ class BhashiniTranslator(BaseTranslator):
         response_json = response.json()
         return [item['target'] for item in response_json['pipelineResponse'][0]['output']]
 
+    async def translate_text(self, text: str, source_lang: str, target_lang: str) -> str:
+        """Translate a single text with per-call language pair."""
+        if source_lang == target_lang or not text:
+            return text
+        headers = {
+            'Authorization': self.api_key,
+            'Content-Type': 'application/json'
+        }
+        service_id = self._get_service_id(source_lang, target_lang)
+        data = {
+            "pipelineTasks": [
+                {
+                    "taskType": "translation",
+                    "config": {
+                        "serviceId": service_id,
+                        "language": {
+                            "sourceLanguage": source_lang,
+                            "targetLanguage": target_lang
+                        }
+                    }
+                }
+            ],
+            "inputData": {
+                "input": [{"source": text}]
+            }
+        }
+        async with httpx.AsyncClient(timeout=30.0) as client:
+            response = await client.post(self.base_url, headers=headers, json=data)
+            response.raise_for_status()
+            result = response.json()
 
-class GoogleTranslator(BaseTranslator):
-    """Translator implementation using Google Translation API."""
-    def __init__(self, source_lang='en', target_lang='hi', batch_size=4, term_pairs=None):
-        super().__init__(source_lang, target_lang, batch_size, term_pairs)
-        
-        # Get the absolute path to the credentials file
-        credentials_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 
-                                      'cloud-translate-credentials.json')
-        
-        if not os.path.exists(credentials_path):
-            raise ValueError(f"Google Cloud credentials file not found at: {credentials_path}")
-            
-        # Load service account credentials
-        credentials = service_account.Credentials.from_service_account_file(
-            credentials_path,
-            scopes=['https://www.googleapis.com/auth/cloud-platform']
-        )
-        
-        # Initialize the client with explicit credentials
-        self.client = translate.Client(credentials=credentials)
+        return result['pipelineResponse'][0]['output'][0]['target']
 
-    def translate_texts(self, texts: List[str]) -> List[str]:
-        """Translate a list of texts using the Google Translation API."""
-        results = self.client.translate(
-            texts,
-            source_language=self.source_lang,
-            target_language=self.target_lang,
-        )
-        if not results:
-            raise Exception("Error: Translation failed")
-        return [result['translatedText'] for result in results]
+
+translation_service = BhashiniTranslator()

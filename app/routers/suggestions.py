@@ -3,8 +3,7 @@ from fastapi.responses import JSONResponse
 from app.models.requests import SuggestionsRequest
 from app.utils import get_cache
 from app.auth.jwt_auth import get_current_user
-# translation service is used when suggestions are requested in Bhili
-from app.services.bhili_translate import translation_service
+from helpers.translation import translation_service
 
 router = APIRouter(prefix="/suggest", tags=["suggest"],)
 

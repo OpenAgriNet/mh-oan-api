@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, BackgroundTasks, Request
 from fastapi.responses import StreamingResponse
 from app.auth.jwt_auth import get_current_user
 from app.services.chat import stream_chat_messages
-from app.services.bhili_translate import translation_service
+from helpers.translation import translation_service
 from app.utils import _get_message_history
 from app.tasks.suggestions import create_suggestions
 from app.models.requests import ChatRequest
