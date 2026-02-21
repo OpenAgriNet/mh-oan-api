@@ -31,7 +31,8 @@ async def tts(
             audio_data = text_to_speech_bhili(
                 text=tts_request.text,
                 target_lang=tts_request.target_lang,
-                gender='female'
+                gender='female',
+                sampling_rate=8000
             )
 
         # All other languages use normal pipeline TTS
