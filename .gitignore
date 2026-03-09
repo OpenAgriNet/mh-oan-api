@@ -1,6 +1,10 @@
 # Byte-compiled / optimized / DLL files
+.next/
+viewer/.next/
+viewer/node_modules/
 __pycache__/
 *.py[cod]
+data/synthetic/*
 *$py.class
 *.DS_Store
 .DS_Store
