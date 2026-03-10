@@ -17,14 +17,14 @@ class QueryModerationResult(BaseModel):
                       "political_controversial",
                       "cultural_sensitive",
                       "role_obfuscation"] = Field(..., description="Moderation category of the user's message.")
-    action: str = Field(..., description="Action to take on the query, always in English.")
+    action: str = Field(..., description="Compliance action to take on the query, always in English.")
 
     def __str__(self):
         category_str = self.category.replace("_", " ").title()
-        return f"**Moderation Recommendation:** {self.action} ({category_str})"
+        return f"**Moderation Compliance:** {self.action} ({category_str})"
 
 moderation_agent = Agent(
-    model=LLM_MODEL,
+    model='gpt-5-mini',
     name="Moderation Agent",
     system_prompt=get_prompt('moderation_system'),
     instrument=True,
@@ -32,7 +32,8 @@ moderation_agent = Agent(
     retries=2,
     model_settings=ModelSettings(
         temperature=0.1,
-        max_tokens=128,
+        openai_reasoning_effort="low",
+        max_tokens=1024,
         timeout=5 # NOTE: Added timeout to avoid infinite loops
     )
 )

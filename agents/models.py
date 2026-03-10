@@ -1,5 +1,5 @@
 import os
-from pydantic_ai.models.openai import OpenAIModel
+from pydantic_ai.models.openai import OpenAIModel, OpenAIChatModel
 from pydantic_ai.providers.openai import OpenAIProvider
 from dotenv import load_dotenv
 from openai import AsyncAzureOpenAI
@@ -12,7 +12,7 @@ LLM_PROVIDER    = os.getenv('LLM_PROVIDER', 'openai').lower()
 LLM_MODEL_NAME = os.getenv('LLM_MODEL_NAME')
 
 if LLM_PROVIDER == 'vllm':
-    LLM_MODEL = OpenAIModel(
+    LLM_MODEL = OpenAIChatModel(
         LLM_MODEL_NAME,
         provider=OpenAIProvider(
             base_url=os.getenv('INFERENCE_ENDPOINT_URL'), 

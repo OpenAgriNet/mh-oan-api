@@ -16,7 +16,7 @@ from synthetic.user.tools import EndConversation
 user_agent = Agent[FarmerProfile, Union[str, EndConversation]](
     model=LLM_AGRINET_MODEL,
     name="Farmer User",
-    instrument=False,
+    instrument=True,
     output_type=Union[str, EndConversation],  # type: ignore[arg-type]
     deps_type=FarmerProfile,
     retries=3,

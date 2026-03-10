@@ -20,6 +20,7 @@ import {
 
 const langLabels: Record<string, string> = {
   mr: "Marathi",
+  hi: "Hindi",
   en: "English",
 };
 

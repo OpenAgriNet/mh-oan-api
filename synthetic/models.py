@@ -1,5 +1,5 @@
 import os
-from pydantic_ai.models.openai import OpenAIChatModel
+from pydantic_ai.models.openai import OpenAIChatModel, OpenAIResponsesModel
 from pydantic_ai.providers.openai import OpenAIProvider
 from dotenv import load_dotenv
 
@@ -16,14 +16,14 @@ VLLM_MODERATION_MODEL_URL = os.getenv('VLLM_MODERATION_MODEL_URL')
 
 
 if LLM_PROVIDER == 'vllm':
-    LLM_MODEL = OpenAIChatModel(
+    LLM_AGRINET_MODEL = OpenAIResponsesModel(
         LLM_AGRINET_MODEL_NAME,
         provider=OpenAIProvider(
             base_url=VLLM_AGRINET_MODEL_URL,
             api_key="not-required",
         ),
     )
-    LLM_MODERATION_MODEL = OpenAIChatModel(
+    LLM_MODERATION_MODEL = OpenAIResponsesModel(
         LLM_MODERATION_MODEL_NAME,
         provider=OpenAIProvider(
             base_url=VLLM_MODERATION_MODEL_URL,
@@ -31,7 +31,7 @@ if LLM_PROVIDER == 'vllm':
         ),
     )
 elif LLM_PROVIDER == 'openai':
-    LLM_AGRINET_MODEL = OpenAIChatModel(
+    LLM_AGRINET_MODEL = OpenAIResponsesModel(
         LLM_AGRINET_MODEL_NAME,
         provider=OpenAIProvider(
             api_key=os.getenv('OPENAI_API_KEY'),

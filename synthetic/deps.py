@@ -7,6 +7,8 @@ from langcodes import Language
 from datetime import datetime
 from pydantic_ai.messages import ModelResponse, ThinkingPart
 
+from helpers.utils import get_crop_season
+
 
 class FarmerContext(BaseModel):
     """Context for the farmer agent in MH-OAN synthetic conversations.
@@ -65,6 +67,11 @@ class FarmerContext(BaseModel):
 
     def get_today_date_str(self) -> str:
         return self.today_date.strftime('%A, %d %B %Y')
+
+    @property
+    def crop_season(self) -> str:
+        """Current Indian agricultural season based on today_date."""
+        return get_crop_season(self.today_date)
 
 
 # ---------------------------------------------------------------------------

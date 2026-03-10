@@ -1,12 +1,9 @@
 """Mock weather tools for Maharashtra."""
 
-import random
 from datetime import datetime, timedelta
 
 from synthetic.mock_data import (
-    WEATHER_CONDITIONS, WIND_DIRECTIONS,
-    random_temp, random_humidity, random_rainfall, random_wind_speed,
-    should_fail,
+    random_temp, random_weather, should_fail,
 )
 
 
@@ -44,19 +41,15 @@ def _generate_weather_days(num_days: int, start_date: datetime, response_type: s
             day = start_date + timedelta(days=i)
 
         min_t, max_t = random_temp(season)
-        condition = random.choice(WEATHER_CONDITIONS)
-        humidity = random_humidity()
-        rainfall = random_rainfall()
-        wind = random_wind_speed()
-        wind_dir = random.choice(WIND_DIRECTIONS)
+        w = random_weather(season)
 
         lines.append(f"        {day.strftime('%Y-%m-%d')}:")
-        lines.append(f"          Condition: {condition}")
+        lines.append(f"          Condition: {w['condition']}")
         lines.append(f"          Min Temp: {min_t}°C")
         lines.append(f"          Max Temp: {max_t}°C")
-        lines.append(f"          Humidity: {humidity}%")
-        lines.append(f"          Rainfall: {rainfall} mm")
-        lines.append(f"          Wind: {wind} km/h {wind_dir}")
+        lines.append(f"          Humidity: {w['humidity']}%")
+        lines.append(f"          Rainfall: {w['rainfall']} mm")
+        lines.append(f"          Wind: {w['wind_speed']} km/h {w['wind_dir']}")
 
     return "\n".join(lines)
 

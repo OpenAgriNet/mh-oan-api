@@ -177,11 +177,37 @@ GRADES = ["FAQ", "Non-FAQ", "Average", "Superior", "Ordinary"]
 
 # ─── Weather Ranges ──────────────────────────────────────────────────────────
 
-WEATHER_CONDITIONS = [
-    "Clear Sky", "Partly Cloudy", "Mostly Cloudy", "Overcast",
-    "Light Rain", "Moderate Rain", "Heavy Rain", "Thunderstorm",
-    "Haze", "Fog", "Mist", "Sunny",
-]
+# Conditions grouped by whether they produce rain
+DRY_CONDITIONS = ["Clear Sky", "Partly Cloudy", "Mostly Cloudy", "Overcast",
+                  "Haze", "Fog", "Mist", "Sunny"]
+RAIN_CONDITIONS = ["Light Rain", "Moderate Rain", "Heavy Rain", "Thunderstorm"]
+WEATHER_CONDITIONS = DRY_CONDITIONS + RAIN_CONDITIONS
+
+# Season-dependent probability of a rainy day
+SEASON_RAIN_PROBABILITY = {
+    "summer": 0.05,
+    "monsoon": 0.55,
+    "spring": 0.10,
+    "winter": 0.08,
+}
+
+# Rainfall ranges (mm) keyed by rain condition
+_RAINFALL_RANGES = {
+    "Light Rain": (0.5, 7.0),
+    "Moderate Rain": (7.1, 35.0),
+    "Heavy Rain": (35.1, 100.0),
+    "Thunderstorm": (15.0, 80.0),
+}
+
+# Humidity ranges keyed by condition type
+_HUMIDITY_RANGES = {
+    "Clear Sky": (25, 50), "Sunny": (20, 45),
+    "Partly Cloudy": (35, 60), "Mostly Cloudy": (50, 75),
+    "Overcast": (60, 85), "Haze": (40, 65),
+    "Fog": (85, 100), "Mist": (75, 95),
+    "Light Rain": (65, 90), "Moderate Rain": (75, 95),
+    "Heavy Rain": (85, 100), "Thunderstorm": (70, 98),
+}
 
 WIND_DIRECTIONS = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"]
 
@@ -199,6 +225,45 @@ def random_temp(season: str = "summer") -> Tuple[float, float]:
     return min_t, max_t
 
 
+def random_weather(season: str = "summer") -> dict:
+    """Generate a coherent set of weather parameters for one day.
+
+    Returns dict with keys: condition, humidity, rainfall, wind_speed, wind_dir.
+    """
+    rain_prob = SEASON_RAIN_PROBABILITY.get(season, 0.15)
+    is_rainy = random.random() < rain_prob
+
+    if is_rainy:
+        condition = random.choice(RAIN_CONDITIONS)
+        lo, hi = _RAINFALL_RANGES[condition]
+        rainfall = round(random.uniform(lo, hi), 1)
+    else:
+        condition = random.choice(DRY_CONDITIONS)
+        rainfall = 0.0
+
+    hum_lo, hum_hi = _HUMIDITY_RANGES.get(condition, (30, 70))
+    humidity = random.randint(hum_lo, hum_hi)
+
+    # Stronger winds during storms/heavy rain
+    if condition == "Thunderstorm":
+        wind_speed = round(random.uniform(25, 55), 1)
+    elif condition == "Heavy Rain":
+        wind_speed = round(random.uniform(15, 40), 1)
+    else:
+        wind_speed = round(random.uniform(5, 25), 1)
+
+    wind_dir = random.choice(WIND_DIRECTIONS)
+
+    return {
+        "condition": condition,
+        "humidity": humidity,
+        "rainfall": rainfall,
+        "wind_speed": wind_speed,
+        "wind_dir": wind_dir,
+    }
+
+
+# Keep backward-compatible standalone helpers (used elsewhere)
 def random_humidity() -> int:
     return random.randint(30, 95)
 
@@ -246,14 +311,16 @@ MOOD_WEIGHTS = {
     "adversarial": 0.02,
 }
 
-# MH-OAN only supports Marathi and English
+# MH-OAN supports Marathi, Hindi, and English
 LANGUAGE_WEIGHTS = {
-    "mr": 0.80,
+    "mr": 0.50,
+    "hi": 0.30,
     "en": 0.20,
 }
 
 TARGET_LANGUAGE_WEIGHTS = {
-    "mr": 0.80,
+    "mr": 0.50,
+    "hi": 0.30,
     "en": 0.20,
 }
 
@@ -294,45 +361,45 @@ MAHADBT_FINANCIAL_YEARS = ["2324", "2425", "2526"]
 # ─── Agricultural Services Data ──────────────────────────────────────────────
 
 KVK_NAMES = [
-    "Krishi Vigyan Kendra, Baramati", "Krishi Vigyan Kendra, Rahuri",
-    "Krishi Vigyan Kendra, Niphad", "Krishi Vigyan Kendra, Latur",
-    "Krishi Vigyan Kendra, Amravati", "Krishi Vigyan Kendra, Nagpur",
-    "Krishi Vigyan Kendra, Kolhapur", "Krishi Vigyan Kendra, Aurangabad",
-    "Krishi Vigyan Kendra, Parbhani", "Krishi Vigyan Kendra, Akola",
+    "कृषी विज्ञान केंद्र, बारामती", "कृषी विज्ञान केंद्र, राहुरी",
+    "कृषी विज्ञान केंद्र, निफाड", "कृषी विज्ञान केंद्र, लातूर",
+    "कृषी विज्ञान केंद्र, अमरावती", "कृषी विज्ञान केंद्र, नागपूर",
+    "कृषी विज्ञान केंद्र, कोल्हापूर", "कृषी विज्ञान केंद्र, औरंगाबाद",
+    "कृषी विज्ञान केंद्र, परभणी", "कृषी विज्ञान केंद्र, अकोला",
 ]
 
 CHC_NAMES = [
-    "Custom Hiring Centre, Baramati", "Custom Hiring Centre, Karad",
-    "Custom Hiring Centre, Latur", "Custom Hiring Centre, Nashik",
-    "Custom Hiring Centre, Nagpur", "Custom Hiring Centre, Jalgaon",
+    "कस्टम हायरिंग सेंटर, बारामती", "कस्टम हायरिंग सेंटर, कराड",
+    "कस्टम हायरिंग सेंटर, लातूर", "कस्टम हायरिंग सेंटर, नाशिक",
+    "कस्टम हायरिंग सेंटर, नागपूर", "कस्टम हायरिंग सेंटर, जळगाव",
 ]
 
 SOIL_LAB_NAMES = [
-    "Soil Testing Laboratory, Pune", "Soil Testing Laboratory, Nashik",
-    "Soil Testing Laboratory, Aurangabad", "Soil Testing Laboratory, Nagpur",
-    "Soil Testing Laboratory, Kolhapur", "Soil Testing Laboratory, Amravati",
+    "माती परीक्षण प्रयोगशाळा, पुणे", "माती परीक्षण प्रयोगशाळा, नाशिक",
+    "माती परीक्षण प्रयोगशाळा, औरंगाबाद", "माती परीक्षण प्रयोगशाळा, नागपूर",
+    "माती परीक्षण प्रयोगशाळा, कोल्हापूर", "माती परीक्षण प्रयोगशाळा, अमरावती",
 ]
 
 WAREHOUSE_NAMES = [
-    "CWC Warehouse, Pune", "State Warehouse, Nashik",
-    "State Warehouse, Solapur", "CWC Warehouse, Nagpur",
-    "State Warehouse, Latur", "CWC Warehouse, Aurangabad",
+    "केंद्रीय गोदाम (CWC), पुणे", "राज्य गोदाम, नाशिक",
+    "राज्य गोदाम, सोलापूर", "केंद्रीय गोदाम (CWC), नागपूर",
+    "राज्य गोदाम, लातूर", "केंद्रीय गोदाम (CWC), औरंगाबाद",
 ]
 
 
 # ─── Officer / Staff Contact Data ────────────────────────────────────────────
 
 OFFICER_NAMES = [
-    "Shri. Patil R.M.", "Shri. Jadhav S.B.", "Shri. Deshmukh P.K.",
-    "Shri. More A.R.", "Smt. Kulkarni V.S.", "Shri. Gaikwad D.N.",
-    "Shri. Pawar M.B.", "Smt. Shinde T.R.", "Shri. Chavan K.L.",
-    "Shri. Nikam H.J.", "Smt. Bhosale S.M.", "Shri. Kale R.G.",
+    "श्री. पाटील रा.म.", "श्री. जाधव स.बा.", "श्री. देशमुख प.कि.",
+    "श्री. मोरे अ.रा.", "सौ. कुलकर्णी वि.स.", "श्री. गायकवाड दि.ना.",
+    "श्री. पवार म.बा.", "सौ. शिंदे ता.रा.", "श्री. चव्हाण कि.ल.",
+    "श्री. निकम ह.ज.", "सौ. भोसले स.म.", "श्री. काळे रा.ग.",
 ]
 
 OFFICER_ROLES = [
-    "Krushi Sahayak (Agricultural Assistant)",
-    "Taluka Krushi Adhikari (Taluka Agriculture Officer)",
-    "Mandal Krushi Adhikari (Circle Agriculture Officer)",
+    "कृषी सहाय्यक",
+    "तालुका कृषी अधिकारी",
+    "मंडळ कृषी अधिकारी",
 ]
 
 
@@ -373,3 +440,7 @@ SAMPLE_CENTRAL_SCHEMES = [
     "mahadbt-pmkisan", "mahadbt-pmfby", "mahadbt-aif",
     "mahadbt-pmrkvysmam", "mahadbt-kymidh", "cdda-namo-drone-didi",
 ]
+
+# ─── Crop Seasons ────────────────────────────────────────────────────────────
+
+SEASONS = ["Kharif", "Rabi", "Summer"]

@@ -364,6 +364,7 @@ export default function SimulatePage() {
                   <SelectContent>
                     <SelectItem value="any">Random</SelectItem>
                     <SelectItem value="mr">Marathi</SelectItem>
+                    <SelectItem value="hi">Hindi</SelectItem>
                     <SelectItem value="en">English</SelectItem>
                   </SelectContent>
                 </Select>
@@ -384,6 +385,7 @@ export default function SimulatePage() {
                   <SelectContent>
                     <SelectItem value="any">Random</SelectItem>
                     <SelectItem value="mr">Marathi</SelectItem>
+                    <SelectItem value="hi">Hindi</SelectItem>
                     <SelectItem value="en">English</SelectItem>
                   </SelectContent>
                 </Select>

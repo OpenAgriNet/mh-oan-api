@@ -2,15 +2,17 @@ from pydantic_ai import Agent, RunContext
 from helpers.utils import get_prompt
 from synthetic.models import LLM_AGRINET_MODEL, ENABLE_INSTRUMENTATION
 from synthetic.tools import TOOLS
-from pydantic_ai.models.openai import OpenAIChatModelSettings
+from pydantic_ai.models.openai import OpenAIResponsesModelSettings
 from synthetic.deps import FarmerContext
 
-_AGRINET_MODEL_SETTINGS = OpenAIChatModelSettings(
+_AGRINET_MODEL_SETTINGS = OpenAIResponsesModelSettings(
     # temperature=0.7,
     # top_p=0.95,
+    parallel_tool_calls=True,
     timeout=120,
-    max_tokens=4096,
-    openai_reasoning_effort="medium",
+    openai_text_verbosity="medium",
+    # max_tokens=4096,
+    openai_reasoning_effort="low",
 )
 
 agrinet_agent = Agent(
@@ -29,6 +31,9 @@ agrinet_agent = Agent(
 @agrinet_agent.system_prompt(dynamic=True)
 def get_system_prompt(ctx: RunContext[FarmerContext]):
     deps = ctx.deps
-    return get_prompt('agrinet_system', context={
+    lang_code = deps.lang_code or 'en'
+    prompt_name = f'agrinet_system_{lang_code}'
+    return get_prompt(prompt_name, context={
         'today_date': deps.get_today_date_str(),
+        'crop_season': deps.crop_season,
     })

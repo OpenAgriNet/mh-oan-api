@@ -9,7 +9,7 @@ from agents.tools.maps import reverse_geocode, forward_geocode
 from agents.tools.agristack import fetch_agristack_data
 from agents.tools.mahadbt import get_scheme_status
 from agents.tools.terms import search_terms
-from agents.tools.scheme_info import get_scheme_codes, get_scheme_info, get_multiple_schemes_info
+from agents.tools.scheme_info import get_scheme_codes, get_scheme_info
 from agents.tools.staff_contact import contact_agricultural_staff
 
 TOOLS = [
@@ -104,14 +104,6 @@ TOOLS = [
     # Scheme Info (single scheme)
     Tool(
         get_scheme_info,
-        takes_ctx=False,
-        docstring_format='auto', 
-        require_parameter_descriptions=True,
-        ),
-
-    # Multiple Schemes Info (with automatic state-first prioritization)
-    Tool(
-        get_multiple_schemes_info,
         takes_ctx=False,
         docstring_format='auto', 
         require_parameter_descriptions=True,

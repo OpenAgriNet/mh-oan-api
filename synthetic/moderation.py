@@ -23,20 +23,19 @@ class QueryModerationResult(BaseModel):
 
     def __str__(self):
         category_str = self.category.replace("_", " ").title()
-        return f"**Moderation Recommendation:** {self.action} ({category_str})"
+        return f"**Moderation Compliance:** {self.action} ({category_str})"
 
 
 moderation_agent = Agent(
     model=LLM_MODERATION_MODEL,
     name="Moderation Agent",
     system_prompt=get_prompt('moderation_system'),
-    instrument=False,
+    instrument=True,
     output_type=QueryModerationResult,
     retries=2,
     model_settings=ModelSettings(
-#        temperature=0.1,
-        openai_reasoning_effort="low",
+        #openai_reasoning_effort="low",
         max_tokens=1024,
-        timeout=5,
+        timeout=30,
     ),
 )

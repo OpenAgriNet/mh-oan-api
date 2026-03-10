@@ -15,6 +15,73 @@ logger = get_logger(__name__)
 
 DocumentType = Literal['video', 'document']
 
+# Mapping of English document/source names to Devanagari equivalents
+# Used so source citations appear in the response language, not English
+DOCUMENT_NAME_DEVANAGARI = {
+    # Maharashtra Agricultural Universities
+    "Dr. Panjabrao Deshmukh Krishi Vidyapeeth": "डॉ. पंजाबराव देशमुख कृषी विद्यापीठ, अकोला",
+    "Dr. Panjabrao Deshmukh Krishi Vidyapeeth, Akola": "डॉ. पंजाबराव देशमुख कृषी विद्यापीठ, अकोला",
+    "MPKV Krishi Darshani": "महात्मा फुले कृषी विद्यापीठ (MPKV) कृषी दर्शनी",
+    "MPKV Research Recommendation 2023 Rahuri": "MPKV संशोधन शिफारसी २०२३, राहुरी",
+    "MPKV Research Recommendation 2024 Rahuri": "MPKV संशोधन शिफारसी २०२४, राहुरी",
+    "MPKV": "महात्मा फुले कृषी विद्यापीठ (MPKV), राहुरी",
+    "Krushi VNMAU": "वसंतराव नाईक मराठवाडा कृषी विद्यापीठ (VNMAU)",
+    "VNMAU": "वसंतराव नाईक मराठवाडा कृषी विद्यापीठ (VNMAU)",
+    "VNMKV Parbhani": "वसंतराव नाईक मराठवाडा कृषी विद्यापीठ, परभणी",
+    "VNMKV": "वसंतराव नाईक मराठवाडा कृषी विद्यापीठ, परभणी",
+    "Krishi Darshani Dr BSKKV, Dapoli 2025": "डॉ. बाळासाहेब सावंत कोकण कृषी विद्यापीठ, दापोली — कृषी दर्शनी २०२५",
+    "Dr BSKKV, Dapoli 2025": "डॉ. बाळासाहेब सावंत कोकण कृषी विद्यापीठ, दापोली २०२५",
+    "Sugarcane MPKV Rahuri": "ऊस — MPKV राहुरी",
+    "Wheat MPKV Rahuri": "गहू — MPKV राहुरी",
+
+    # Maharashtra State Projects & Departments
+    "NDKSP": "नानाजी देशमुख कृषी संजीवनी प्रकल्प (NDKSP)",
+    "Department of Animal Husbandry,Maharashtra": "पशुसंवर्धन विभाग, महाराष्ट्र",
+    "Department of Education, Maharashtra": "शिक्षण विभाग, महाराष्ट्र",
+    "Department of Animal Husbandry and Dairying GOM": "पशुसंवर्धन व दुग्धव्यवसाय विभाग, महाराष्ट्र शासन",
+
+    # Central Government Departments
+    "Department of Agriculture & Cooperation, Government of India ": "कृषी व सहकार विभाग, भारत सरकार",
+    "Department of Agriculture & Cooperation, Government of India": "कृषी व सहकार विभाग, भारत सरकार",
+    "Department of Animal Husbandry and Dairying ,Government of India ": "पशुसंवर्धन व दुग्धव्यवसाय विभाग, भारत सरकार",
+    "Department of Animal Husbandry and Dairying ,Government of India": "पशुसंवर्धन व दुग्धव्यवसाय विभाग, भारत सरकार",
+    "Department of Agriculture and Farmers Welfare (DAFW)": "कृषी व शेतकरी कल्याण विभाग (DAFW)",
+    "Department of Agriculture & Farmers Welfare, Government of India ": "कृषी व शेतकरी कल्याण विभाग, भारत सरकार",
+    "Department of Agriculture & Farmers Welfare, Government of India": "कृषी व शेतकरी कल्याण विभाग, भारत सरकार",
+    "Department of Agriculture, Cooperation & Farmers Welfare, Government of India ": "कृषी, सहकार व शेतकरी कल्याण विभाग, भारत सरकार",
+    "Department of Agriculture, Cooperation & Farmers Welfare, Government of India": "कृषी, सहकार व शेतकरी कल्याण विभाग, भारत सरकार",
+    "Department of Agriculture & Cooperation and Department of Information Technology , Government of India ": "कृषी व सहकार विभाग आणि माहिती तंत्रज्ञान विभाग, भारत सरकार",
+    "Department of Animal Husbandry, Dairying & Fisheries, Ministry of Agriculture & Farmers Welfare, Government of India": "पशुसंवर्धन, दुग्धव्यवसाय व मत्स्यव्यवसाय विभाग, कृषी व शेतकरी कल्याण मंत्रालय, भारत सरकार",
+    "Department of Agriculture & Farmers Welfare \nMinistry of Agriculture & Farmers Welfare \nGovernment of India  ": "कृषी व शेतकरी कल्याण विभाग, कृषी व शेतकरी कल्याण मंत्रालय, भारत सरकार",
+    "GOVERNMENT OF INDIA Ministry of Commerce & Industry Department of Commerce": "भारत सरकार, वाणिज्य व उद्योग मंत्रालय, वाणिज्य विभाग",
+    "GOI": "भारत सरकार",
+    "Krishi Bhavan, New Delhi": "कृषी भवन, नवी दिल्ली",
+
+    # ICAR & Research Centres
+    "Indian Council of Agricultural Research, New Delhi": "भारतीय कृषी संशोधन परिषद (ICAR), नवी दिल्ली",
+    "Indian Council of Agricultural Research": "भारतीय कृषी संशोधन परिषद (ICAR)",
+    "ICAR": "भारतीय कृषी संशोधन परिषद (ICAR)",
+    "ICAR DOGR": "ICAR — कांदा व लसूण संशोधन संचालनालय (DOGR)",
+    "Central Research Centre on Goats (CIRG), Makhdoom": "केंद्रीय शेळी संशोधन संस्था (CIRG), मखदूम",
+    "Directorate of Poultry Research, Hyderabad": "कुक्कुटपालन संशोधन संचालनालय, हैदराबाद",
+    "GAVASU, Ludhiana": "गुरू अंगद देव पशुवैद्यकीय व प्राणी विज्ञान विद्यापीठ (GAVASU), लुधियाना",
+
+    # National Boards & Missions
+    "National Dairy Development Board": "राष्ट्रीय दुग्ध विकास मंडळ (NDDB)",
+    "National Dairy Development Board website": "राष्ट्रीय दुग्ध विकास मंडळ (NDDB)",
+    "National Bee Board, New Delhi": "राष्ट्रीय मधुमक्षिका मंडळ, नवी दिल्ली",
+    "National Bamboo Mission, New Delhi": "राष्ट्रीय बांबू मिशन, नवी दिल्ली",
+    "National Biodiversity Authority": "राष्ट्रीय जैवविविधता प्राधिकरण",
+    "Rashtriya Krishi Vikas Yojana": "राष्ट्रीय कृषी विकास योजना (RKVY)",
+    "NFDB, Hyderabad": "राष्ट्रीय मत्स्यव्यवसाय विकास मंडळ (NFDB), हैदराबाद",
+
+    # Training & Other
+    "MANAGE, Hyderabad": "राष्ट्रीय कृषी विस्तार व्यवस्थापन संस्था (MANAGE), हैदराबाद",
+    "Aquaculture Department Southeast Asian Fisheries Development Center": "जलचर संवर्धन विभाग, आग्नेय आशियाई मत्स्यव्यवसाय विकास केंद्र",
+    "Multi-sourced": "बहु-स्रोत",
+}
+
+
 class SearchHit(BaseModel):
     """Individual search hit from elasticsearch"""
     name: str
@@ -26,20 +93,24 @@ class SearchHit(BaseModel):
     id: str = Field(alias="_id")
 
     @property
+    def processed_name(self) -> str:
+        """Returns the document name in Devanagari if a mapping exists, otherwise as-is."""
+        return DOCUMENT_NAME_DEVANAGARI.get(self.name, self.name)
+
+    @property
     def processed_text(self) -> str:
         """Returns the text with cleaned up whitespace and newlines"""
         # Replace multiple newlines with a single line
         cleaned = re.sub(r'\n{2,}', '\n\n', self.text)
         cleaned = re.sub(r'\t+', '\t', cleaned)
-        # NOTE: This is a hack to add Marathi terms to the search results.
         cleaned = normalize_text_with_glossary(cleaned)
         return cleaned
 
     def __str__(self) -> str:
         if self.type == 'document':
-            return f"**{self.name}**\n" + "```\n" + self.processed_text +  "\n```\n" 
+            return f"**{self.processed_name}**\n" + "```\n" + self.processed_text +  "\n```\n"
         else:
-            return f"**[{self.name}]({self.source})**\n" + "```\n" + self.processed_text + "\n```\n"
+            return f"**[{self.processed_name}]({self.source})**\n" + "```\n" + self.processed_text + "\n```\n"
 
 
 async def search_documents(

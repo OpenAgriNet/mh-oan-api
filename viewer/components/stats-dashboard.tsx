@@ -16,6 +16,7 @@ import {
 
 const LANG_LABELS: Record<string, string> = {
   mr: "Marathi",
+  hi: "Hindi",
   en: "English",
 };
 
