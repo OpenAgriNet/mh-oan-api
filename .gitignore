@@ -5,6 +5,8 @@ viewer/node_modules/
 __pycache__/
 *.py[cod]
 data/synthetic/*
+data/suggestions/
+data/
 *$py.class
 *.DS_Store
 .DS_Store

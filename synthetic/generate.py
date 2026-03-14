@@ -240,6 +240,8 @@ async def generate_batch(
     max_parallel: int = 5,
     output_dir: str = "data/synthetic",
     max_turns: int = 25,
+    mood: str | None = None,
+    scenario_ids: list[str] | None = None,
 ) -> Path:
     """Generate a batch of n synthetic conversations and write to JSONL."""
 
@@ -252,7 +254,8 @@ async def generate_batch(
         async with semaphore:
             env = generate_random_environment()
             user_lang = env.target_language if random.random() < SAME_LANGUAGE_PROBABILITY else None
-            profile = generate_random_profile(language=user_lang)
+            sid = scenario_ids[index % len(scenario_ids)] if scenario_ids else None
+            profile = generate_random_profile(language=user_lang, mood=mood, scenario_id=sid)
             scenario_id = profile.scenario.get("id", "unknown")
 
             try:
@@ -300,6 +303,8 @@ def main() -> None:
     parser.add_argument("--max-parallel", type=int, default=5, help="Max concurrent conversations (default: 5)")
     parser.add_argument("--max-turns", type=int, default=25, help="Max turns per conversation (default: 25)")
     parser.add_argument("--output-dir", type=str, default="data/synthetic", help="Output directory")
+    parser.add_argument("--mood", type=str, default=None, choices=["normal", "frustrated", "adversarial"], help="Force a specific mood")
+    parser.add_argument("--scenario", type=str, nargs="+", default=None, help="Force specific scenario ID(s), cycles through them")
     args = parser.parse_args()
 
     asyncio.run(
@@ -308,6 +313,8 @@ def main() -> None:
             max_parallel=args.max_parallel,
             output_dir=args.output_dir,
             max_turns=args.max_turns,
+            mood=args.mood,
+            scenario_ids=args.scenario,
         )
     )
 

@@ -1,11 +1,29 @@
 """Utility functions used by the synthetic module (extracted from helpers.utils)."""
-
+import os
 import logging
 from datetime import datetime
 from typing import Dict
 
 from jinja2 import Environment, FileSystemLoader
 
+
+def walk_dir(path: str, keyword: str = "", extension: str = "") -> list:
+    """Walk through a directory and return a list of filepaths (full path).
+    
+    Args:
+        path (str): Path to the directory to walk through.
+        keyword (str, optional): Keyword to filter files. Defaults to "".
+        extension (str, optional): Extension to filter files. Defaults to "".
+    Returns:
+        list: List of filepaths.
+    """
+    list_of_files = []
+    for (dirpath, dirnames, filenames) in os.walk(path):
+        for filename in filenames:
+            if (filename.endswith(extension)) & (str(keyword) in filename):
+                list_of_files.append(os.path.join(dirpath, filename))
+    list_of_files.sort()
+    return list_of_files
 
 def get_prompt(prompt_file: str, context: Dict = {}, prompt_dir: str = "assets/prompts") -> str:
     """Load a prompt from a file and format it with a context using Jinja2 templating."""

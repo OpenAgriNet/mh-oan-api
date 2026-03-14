@@ -15,6 +15,7 @@ from pydantic import BaseModel
 logger = logging.getLogger(__name__)
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "synthetic"
+SUGGESTIONS_DIR = Path(__file__).resolve().parent.parent / "data" / "suggestions"
 
 app = FastAPI(title="MH-OAN Synthetic Conversation Viewer API")
 
@@ -161,6 +162,58 @@ async def delete_conversation(session_id: str, file: str = Query(None)):
         return {"deleted": session_id}
 
     raise HTTPException(status_code=404, detail=f"Conversation {session_id} not found")
+
+
+# ---------------------------------------------------------------------------
+# Suggestions endpoints
+# ---------------------------------------------------------------------------
+
+
+@app.get("/api/suggestions")
+async def list_suggestions():
+    """List all suggestion records."""
+    if not SUGGESTIONS_DIR.exists():
+        return []
+    summaries = []
+    for p in sorted(SUGGESTIONS_DIR.glob("*.jsonl"), key=lambda x: x.stat().st_mtime, reverse=True):
+        try:
+            with open(p) as f:
+                for line in f:
+                    line = line.strip()
+                    if line:
+                        r = json.loads(line)
+                        summaries.append({
+                            "id": r.get("id", p.stem),
+                            "source_session_id": r.get("source_session_id", ""),
+                            "target_language": r.get("target_language", ""),
+                            "suggestion_count": len(r.get("suggestions", [])),
+                        })
+        except Exception:
+            continue
+    return summaries
+
+
+@app.get("/api/suggestion/{suggestion_id}")
+async def get_suggestion(suggestion_id: str):
+    """Get a single suggestion record by ID."""
+    direct = SUGGESTIONS_DIR / f"{suggestion_id}.jsonl"
+    if direct.exists():
+        with open(direct) as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    return json.loads(line)
+
+    if SUGGESTIONS_DIR.exists():
+        for p in SUGGESTIONS_DIR.glob("*.jsonl"):
+            with open(p) as f:
+                for line in f:
+                    line = line.strip()
+                    if line:
+                        r = json.loads(line)
+                        if r.get("id") == suggestion_id:
+                            return r
+    raise HTTPException(status_code=404, detail=f"Suggestion {suggestion_id} not found")
 
 
 # ---------------------------------------------------------------------------

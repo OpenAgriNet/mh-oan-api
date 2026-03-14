@@ -75,10 +75,16 @@ export default function HomePage() {
         {!loading && !error && (
           <>
             <StatsDashboard conversations={conversations} />
-            <div className="flex justify-center pt-2">
+            <div className="flex justify-center gap-3 pt-2">
               <Link href="/conversations">
                 <Button variant="outline" size="lg">
                   View All Conversations
+                  <ArrowRight className="size-4 ml-1" />
+                </Button>
+              </Link>
+              <Link href="/suggestions">
+                <Button variant="outline" size="lg">
+                  View Suggestions
                   <ArrowRight className="size-4 ml-1" />
                 </Button>
               </Link>

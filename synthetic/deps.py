@@ -1,11 +1,13 @@
+import json
 from copy import deepcopy
 from dataclasses import replace
+from pathlib import Path
 from typing import List, Optional
 
 from pydantic import BaseModel, Field
 from langcodes import Language
 from datetime import datetime
-from pydantic_ai.messages import ModelResponse, ThinkingPart
+from pydantic_ai.messages import ModelMessagesTypeAdapter, ModelMessage, ModelResponse, ThinkingPart
 
 from synthetic.utils import get_crop_season
 
@@ -152,3 +154,67 @@ def build_moderation_input(user_text: str, agrinet_history: list, limit: int = 3
     if message_pairs:
         return f"**Conversation**\n\n{message_pairs}\n\n---\n\n{user_text}"
     return user_text
+
+
+def build_suggestions_input(agrinet_history: list, limit: int = 3) -> str:
+    """Build the suggestions prompt from the last N QA pairs.
+
+    Returns a formatted conversation block the suggestions agent can use
+    to generate contextual follow-up questions.  Returns an empty string
+    when there is no history (caller should skip the suggestions call).
+    """
+    formatted = format_message_pairs(agrinet_history, limit)
+    if not formatted:
+        return ""
+    return "**Conversation History**\n\n" + "\n\n---\n\n".join(formatted)
+
+
+# ---------------------------------------------------------------------------
+# JSONL conversation loader
+# ---------------------------------------------------------------------------
+
+DEFAULT_DATA_DIR = Path(__file__).resolve().parent.parent / "data" / "synthetic"
+
+
+def load_conversation(session_id: str, data_dir: Path = DEFAULT_DATA_DIR) -> dict:
+    """Load a conversation record from a JSONL file.
+
+    Looks for ``<session_id>.jsonl`` first, then scans all JSONL files in
+    *data_dir*.  Returns the raw dict with an extra ``agrinet_history`` key
+    containing the deserialised pydantic-ai message list.
+    """
+    # Try direct file first
+    direct = data_dir / f"{session_id}.jsonl"
+    record = None
+
+    if direct.exists():
+        with open(direct) as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    record = json.loads(line)
+                    break
+    else:
+        # Scan all JSONL files
+        for p in data_dir.glob("*.jsonl"):
+            with open(p) as f:
+                for line in f:
+                    line = line.strip()
+                    if line:
+                        r = json.loads(line)
+                        if r.get("session_id") == session_id:
+                            record = r
+                            break
+            if record:
+                break
+
+    if record is None:
+        raise FileNotFoundError(f"Conversation {session_id} not found in {data_dir}")
+
+    # Deserialise the agrinet message history
+    raw_messages = record.get("agrinet_messages_json", "[]")
+    if isinstance(raw_messages, str):
+        raw_messages = json.loads(raw_messages)
+    record["agrinet_history"] = ModelMessagesTypeAdapter.validate_python(raw_messages)
+
+    return record
