@@ -7,7 +7,7 @@ from mapbox import Geocoder
 from cachecontrol.caches.file_cache import FileCache
 from typing import Optional
 from pydantic import BaseModel, Field, field_validator
-from helpers.utils import get_logger
+from synthetic.utils import get_logger
 
 logger = get_logger(__name__)
 

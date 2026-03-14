@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field
 from typing import Literal
 from pydantic_ai import Agent
-from helpers.utils import get_prompt
+from synthetic.utils import get_prompt
 from pydantic_ai.settings import ModelSettings
 from synthetic.models import LLM_MODERATION_MODEL
 
@@ -23,7 +23,11 @@ class QueryModerationResult(BaseModel):
 
     def __str__(self):
         category_str = self.category.replace("_", " ").title()
-        return f"**Moderation Compliance:** {self.action} ({category_str})"
+        if self.category == "valid_agricultural":
+            tick = "✅"
+        else:
+            tick = "❌"
+        return f"**Moderation Compliance:** {tick} {self.action} ({category_str})"
 
 
 moderation_agent = Agent(

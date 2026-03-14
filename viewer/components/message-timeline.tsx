@@ -2,7 +2,6 @@
 
 import type { TimelineEntry } from "@/lib/types";
 import { MessageBubble } from "./message-bubble";
-import { ThinkingBlock } from "./thinking-block";
 import { ToolCallBlock } from "./tool-call-block";
 import { SystemPromptBlock } from "./system-prompt-block";
 
@@ -63,14 +62,6 @@ export function MessageTimeline({ entries }: MessageTimelineProps) {
               />
             );
 
-          case "thinking":
-            return (
-              <div key={i} className="flex justify-end my-1">
-                <div className="max-w-[85%]">
-                  <ThinkingBlock content={entry.content ?? ""} />
-                </div>
-              </div>
-            );
 
           case "tool-call":
             return (

@@ -52,7 +52,6 @@
   {"id": "advisory_video_general", "category": "crop_advisory", "description": "You learn better from videos than text. Ask the assistant to show you any helpful farming video about {crop}."},
 
   {"id": "advisory_organic_practices", "category": "crop_advisory", "description": "You want to grow {crop} without any chemicals. Ask about organic pest control, composting, and natural fertilizers."},
-  {"id": "advisory_organic_certification", "category": "crop_advisory", "description": "You've been doing organic farming for 2 years. How do you get organic certification? Ask about the process."},
 
   {"id": "advisory_intercrop", "category": "crop_advisory", "description": "What crops can you grow between rows of {crop} for extra income? Ask about suitable intercropping combinations."},
   {"id": "advisory_crop_rotation", "category": "crop_advisory", "description": "You grew {crop} last season. What should you plant next to maintain soil health? Ask about crop rotation."},
@@ -90,11 +89,8 @@
   {"id": "mandi_best_rate", "category": "mandi", "description": "Which nearby mandi is giving the best rate for {crop}?"},
   {"id": "mandi_vague_query", "category": "mandi", "description": "Just ask 'rate sangaa' or 'bhaav kay aahe' without specifying which crop or location. Be intentionally vague and see if the assistant asks for details."},
   {"id": "mandi_store_vs_sell", "category": "mandi", "description": "Prices for {crop} are low right now. Should you store it in a warehouse and sell later, or sell now? Ask for advice."},
-  {"id": "mandi_trend", "category": "mandi", "description": "Are {crop} prices going up or down in {district}? Ask about the recent price trend."},
   {"id": "mandi_uncommon_crop", "category": "mandi", "description": "You grew a less common crop like drumstick or custard apple. Ask about its mandi price near {district}. See how the system handles it."},
-  {"id": "mandi_transport_cost", "category": "mandi", "description": "The best price for {crop} is at a distant mandi. Is it worth the transport cost? Ask for help calculating."},
   {"id": "mandi_multiple_crops", "category": "mandi", "description": "You have both {crop} and another crop ready to sell. Ask about prices for both at the same time."},
-  {"id": "mandi_grade_quality", "category": "mandi", "description": "You have FAQ and non-FAQ quality {crop}. Ask whether there's a price difference at the mandi."},
   {"id": "mandi_middleman_vs_direct", "category": "mandi", "description": "A middleman is offering a price for {crop} at your farm gate. Is the mandi price significantly better to justify going there?"},
   {"id": "mandi_seasonal_glut", "category": "mandi", "description": "Everyone in {district} harvested {crop} at the same time and prices have crashed. Ask what your options are."},
   {"id": "mandi_minimum_support_price", "category": "mandi", "description": "What is the MSP (minimum support price) for {crop} this year? Is the mandi giving more or less than MSP?"},
@@ -115,7 +111,6 @@
   {"id": "scheme_comparison", "category": "scheme", "description": "You want to set up a greenhouse. There seem to be multiple schemes. Ask the assistant to compare and recommend the best one for your {land_acres} acres."},
   {"id": "scheme_solar_pump", "category": "scheme", "description": "You want to install a solar water pump for irrigation. Ask about the Mukhyamantri Saur Krushi Pump Yojana."},
   {"id": "scheme_goat_rearing", "category": "scheme", "description": "You want to start goat rearing as a side business. Ask about NDKSP goat rearing scheme and eligibility."},
-  {"id": "scheme_how_to_apply", "category": "scheme", "description": "You found a scheme you like but don't know how to apply. Ask step-by-step how to apply on MahaDBT portal."},
 
   {"id": "service_kvk_nearest", "category": "services", "description": "Where is the nearest Krishi Vigyan Kendra (KVK) from {village}? You need expert advice."},
   {"id": "service_kvk_training", "category": "services", "description": "Does the KVK near {district} conduct any training programs for farmers? You want to learn new techniques."},
@@ -145,14 +140,11 @@
 
   {"id": "mahadbt_check_status", "category": "mahadbt", "description": "You have applied for some schemes on MahaDBT. Check the status of your applications."},
   {"id": "mahadbt_payment_delay", "category": "mahadbt", "description": "You applied for a scheme 6 months ago on MahaDBT but haven't received money yet. Check what's happening."},
-  {"id": "mahadbt_upload_docs", "category": "mahadbt", "description": "MahaDBT is asking you to upload documents for your scheme application. What documents are needed?"},
   {"id": "mahadbt_rejected", "category": "mahadbt", "description": "Your MahaDBT application was rejected. You don't understand why. Ask what the reason could be and how to reapply."},
   {"id": "mahadbt_multiple_applications", "category": "mahadbt", "description": "You applied for 3 different schemes on MahaDBT. Ask about the status of all of them at once."},
   {"id": "mahadbt_partial_payment", "category": "mahadbt", "description": "You received subsidy money from MahaDBT but it was less than expected. Ask why the amount is different."},
-  {"id": "mahadbt_first_time", "category": "mahadbt", "description": "You've never used MahaDBT before. Ask how to create an account and apply for schemes. You need hand-holding."},
   {"id": "mahadbt_document_list", "category": "mahadbt", "description": "What documents do you need to keep ready before applying for schemes on MahaDBT? 7/12 extract, Aadhaar, bank passbook — ask for a complete list."},
   {"id": "mahadbt_reapply", "category": "mahadbt", "description": "Your previous MahaDBT application was cancelled. Can you reapply for the same scheme? Ask how."},
-  {"id": "mahadbt_bank_account", "category": "mahadbt", "description": "The subsidy should have come to your bank account but it didn't. Ask how to verify your bank details on MahaDBT."},
   {"id": "mahadbt_waitlist", "category": "mahadbt", "description": "Your MahaDBT application status shows 'Wait List'. What does this mean? How long will you have to wait?"},
   {"id": "mahadbt_fund_disbursed_not_received", "category": "mahadbt", "description": "MahaDBT shows 'Fund Disbursed' but money hasn't reached your bank. Ask what to do next."},
 
@@ -211,7 +203,6 @@
   {"id": "agristack_multiple_plots", "category": "agristack", "description": "You have multiple plots registered. Ask the system to show all your land holdings and their areas."},
   {"id": "agristack_coordinates_weather", "category": "agristack", "description": "Ask for weather forecast but don't mention any location. You expect the system to use your registered GPS coordinates from Agristack."},
   {"id": "agristack_profile_not_found", "category": "agristack", "description": "You're a new farmer and might not be registered in Agristack yet. Ask the system to look up your profile. See how it handles the case when no data is found."},
-  {"id": "agristack_update_info", "category": "agristack", "description": "Your registered crop is wrong — you switched from {crop} to something else this season. Ask how to update your Agristack profile."},
   {"id": "agristack_privacy_concern", "category": "agristack", "description": "You're worried about your personal data. Ask what information the system stores about you and who can see it. Express concern about privacy."},
 
   {"id": "mahadbt_scheme_specific_status", "category": "mahadbt", "description": "You applied specifically for the PMFBY crop insurance. Ask about the status of just that one application on MahaDBT."},
@@ -221,5 +212,18 @@
   {"id": "mahadbt_department_cancelled", "category": "mahadbt", "description": "Your MahaDBT application was cancelled by the department. You didn't cancel it yourself. Ask why this happened and what recourse you have."},
   {"id": "mahadbt_winner_status", "category": "mahadbt", "description": "Your MahaDBT status shows 'Winner'. What does this mean exactly? When will you get the benefit? What's the next step?"},
   {"id": "mahadbt_compare_two_apps", "category": "mahadbt", "description": "You applied for both a drip irrigation scheme and a farm pond scheme on MahaDBT. One is approved, the other is on waitlist. Ask about both and what to expect."},
-  {"id": "mahadbt_deadline_missed", "category": "mahadbt", "description": "You think you missed the deadline for uploading documents on MahaDBT. Is there any way to still submit them? Ask urgently."}
+  {"id": "mahadbt_deadline_missed", "category": "mahadbt", "description": "You think you missed the deadline for uploading documents on MahaDBT. Is there any way to still submit them? Ask urgently."},
+
+  {"id": "edge_greeting_only", "category": "edge_case", "description": "Start with just a greeting — 'namaskar' or 'hello' or 'namaste' — with no farming question. See how the assistant responds. Then ask your actual question about {crop}."},
+  {"id": "edge_crop_name_only", "category": "edge_case", "description": "Send just the crop name '{crop}' with zero context — no question, no details. See if the assistant asks what you need help with."},
+  {"id": "edge_two_crops_one_message", "category": "edge_case", "description": "Ask about two crops in a single message — fertilizer for {crop} and pest control for another crop you also grow. See if the assistant handles both."},
+  {"id": "edge_same_question_twice", "category": "edge_case", "description": "Ask about {crop} mandi prices. After getting the answer, ask the exact same question again a turn later. The assistant should make fresh tool calls, not reuse old data."},
+  {"id": "edge_location_outside_maharashtra", "category": "edge_case", "description": "Claim you are from a village in Madhya Pradesh or Karnataka, not Maharashtra. Ask about mandi prices or weather for that location. See how the assistant handles out-of-state queries."},
+  {"id": "edge_topic_switch_midconv", "category": "edge_case", "description": "Start asking about {crop} pest management, then mid-conversation abruptly switch to asking about a completely different topic like mandi prices for a different crop. Don't finish the first topic."},
+  {"id": "edge_misspelled_crop", "category": "edge_case", "description": "Misspell the crop name badly when asking about {crop} — like 'soybeen' instead of 'soybean' or 'tomatoo' instead of 'tomato'. See if the assistant understands."},
+  {"id": "edge_pocra_noneligible_scheme", "category": "edge_case", "description": "Ask about NDKSP drip irrigation scheme. You are NOT in a PoCRA village. The assistant should check your PoCRA status and suggest alternative non-PoCRA schemes instead."},
+  {"id": "edge_no_agristack_mahadbt", "category": "edge_case", "description": "You are not logged in (no Agristack). Ask to check your MahaDBT application status. The assistant should tell you this is only available for logged-in users, not ask for your ID."},
+  {"id": "edge_number_no_context", "category": "edge_case", "description": "Send just a phone number or random number with no context. See if the assistant asks what it's for rather than assuming."},
+  {"id": "edge_followup_changes_crop", "category": "edge_case", "description": "Ask about fertilizer for {crop}. After getting the answer, ask a follow-up about a completely different crop without saying you switched. See if the assistant catches the change."},
+  {"id": "edge_wrong_season_crop", "category": "edge_case", "description": "Ask about sowing a kharif crop during rabi season (or vice versa). See if the assistant flags that the timing is off based on the current crop season."}
 ]

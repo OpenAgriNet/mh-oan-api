@@ -109,8 +109,9 @@ export default function SimulatePage() {
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
       let buffer = "";
+      let finished = false;
 
-      while (true) {
+      while (!finished) {
         const { done, value } = await reader.read();
         if (done) break;
 
@@ -125,6 +126,9 @@ export default function SimulatePage() {
           } else if (line.startsWith("data: ") && eventType) {
             const data = JSON.parse(line.slice(6));
             handleEvent(eventType, data);
+            if (eventType === "done" || eventType === "error") {
+              finished = true;
+            }
             eventType = "";
           }
         }

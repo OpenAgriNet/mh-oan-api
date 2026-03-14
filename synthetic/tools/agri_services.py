@@ -4,7 +4,7 @@ import random
 from typing import Literal
 from synthetic.mock_data import (
     KVK_NAMES, CHC_NAMES, SOIL_LAB_NAMES, WAREHOUSE_NAMES,
-    LOCATIONS, should_fail,
+    should_fail, get_nearest_locations,
 )
 
 
@@ -35,16 +35,17 @@ async def agri_services(latitude: float, longitude: float, category_code: Litera
     if random.random() < 0.10:
         return "> Agricultural Services\nNo agricultural services found for the requested location."
 
-    # Pick 1-3 services
+    # Pick 1-3 services from nearest locations
+    nearby = get_nearest_locations(latitude, longitude, n=3)
     num = random.randint(1, min(3, len(names)))
     selected = random.sample(names, num)
 
     lines = ["> Agricultural Services", "Responses:"]
     lines.append("    Providers:")
 
-    for service_name in selected:
-        loc = random.choice(LOCATIONS)
-        distance = round(random.uniform(2.0, 45.0), 1)
+    for i, service_name in enumerate(selected):
+        loc = nearby[i % len(nearby)]
+        distance = round(random.uniform(2.0, 25.0), 1)
         phone = str(random.choice([6, 7, 8, 9])) + "".join(str(random.randint(0, 9)) for _ in range(9))
 
         lines.append(f"    **{service_name}**")

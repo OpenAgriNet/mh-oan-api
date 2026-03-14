@@ -151,7 +151,7 @@ def generate_random_profile(
     )
 
     # Agristack availability: 85% of farmers have it
-    has_agristack = random.random() < 0.85
+    has_agristack = random.random() < 0.50
 
     # MahaDBT schemes: 0-3 active applications
     from synthetic.mock_data import SAMPLE_STATE_SCHEMES, SAMPLE_CENTRAL_SCHEMES

@@ -13,7 +13,7 @@ LLM_MODERATION_MODEL_NAME = os.getenv('LLM_MODERATION_MODEL_NAME')
 ENABLE_INSTRUMENTATION = os.getenv('ENABLE_INSTRUMENTATION', 'false').lower() in ('true', '1', 'yes')
 VLLM_AGRINET_MODEL_URL = os.getenv('VLLM_AGRINET_MODEL_URL')
 VLLM_MODERATION_MODEL_URL = os.getenv('VLLM_MODERATION_MODEL_URL')
-
+LLM_USER_MODEL_NAME = os.getenv('LLM_USER_MODEL_NAME')
 
 if LLM_PROVIDER == 'vllm':
     LLM_AGRINET_MODEL = OpenAIResponsesModel(
@@ -37,7 +37,12 @@ elif LLM_PROVIDER == 'openai':
             api_key=os.getenv('OPENAI_API_KEY'),
         ),
     )
-
+    LLM_USER_MODEL = OpenAIChatModel(
+        LLM_USER_MODEL_NAME,
+        provider=OpenAIProvider(
+            api_key=os.getenv('OPENAI_API_KEY'),
+        ),
+    )
     LLM_MODERATION_MODEL = OpenAIChatModel(
         LLM_MODERATION_MODEL_NAME,
         provider=OpenAIProvider(

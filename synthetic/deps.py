@@ -7,7 +7,7 @@ from langcodes import Language
 from datetime import datetime
 from pydantic_ai.messages import ModelResponse, ThinkingPart
 
-from helpers.utils import get_crop_season
+from synthetic.utils import get_crop_season
 
 
 class FarmerContext(BaseModel):

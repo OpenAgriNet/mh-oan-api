@@ -1,5 +1,5 @@
 from pydantic_ai import Agent, RunContext
-from helpers.utils import get_prompt
+from synthetic.utils import get_prompt
 from synthetic.models import LLM_AGRINET_MODEL, ENABLE_INSTRUMENTATION
 from synthetic.tools import TOOLS
 from pydantic_ai.models.openai import OpenAIResponsesModelSettings
@@ -12,7 +12,7 @@ _AGRINET_MODEL_SETTINGS = OpenAIResponsesModelSettings(
     timeout=120,
     openai_text_verbosity="medium",
     # max_tokens=4096,
-    openai_reasoning_effort="low",
+    openai_reasoning_effort="medium",
 )
 
 agrinet_agent = Agent(

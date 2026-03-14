@@ -2,7 +2,7 @@
 
 import random
 from synthetic.mock_data import (
-    OFFICER_NAMES, OFFICER_ROLES, LOCATIONS, should_fail,
+    OFFICER_NAMES, OFFICER_ROLES, should_fail, get_nearest_locations,
 )
 
 
@@ -23,18 +23,19 @@ async def contact_agricultural_staff(latitude: float, longitude: float) -> str:
     if random.random() < 0.10:
         return "> Officer Details\nNo officer details found for the requested location."
 
-    # Pick 1-3 officers
-    num = random.randint(1, 3)
+    # Pick 1-3 officers from nearest locations
+    nearby = get_nearest_locations(latitude, longitude, n=3)
+    num = random.randint(1, min(3, len(nearby)))
 
     lines = ["> Officer Details", "Responses:"]
     lines.append("    Providers:")
     lines.append("      Provider: Maharashtra Agriculture Department")
     lines.append("      Officers:")
 
-    for _ in range(num):
+    for i in range(num):
         name = random.choice(OFFICER_NAMES)
         role = random.choice(OFFICER_ROLES)
-        loc = random.choice(LOCATIONS)
+        loc = nearby[i]
         phone = str(random.choice([6, 7, 8, 9])) + "".join(str(random.randint(0, 9)) for _ in range(9))
 
         lines.append(f"        **{name}**")

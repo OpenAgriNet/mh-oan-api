@@ -281,6 +281,10 @@ async def simulate(req: SimulateRequest, request: Request):
                 user_output = user_result.output
                 is_end = isinstance(user_output, EndConversation)
 
+                # Also detect "EndConversation" leaked as text
+                if not is_end and isinstance(user_output, str) and "EndConversation" in user_output:
+                    is_end = True
+
                 if is_end:
                     yield _sse_event("user_message", {"turn_number": turn_count, "text": "[End conversation]", "is_end": True})
                     completed = True

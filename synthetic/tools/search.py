@@ -7,7 +7,7 @@ import marqo
 from typing import Optional, Literal
 from pydantic import BaseModel, Field
 from pydantic_ai import ModelRetry
-from helpers.utils import get_logger
+from synthetic.utils import get_logger
 from synthetic.tools.terms import normalize_text_with_glossary
 
 logger = get_logger(__name__)

@@ -1,5 +1,4 @@
-"""
-Translation Class
+"""Translation Class
 - Handles translation of data structures while preserving non-string values -> using Depth First Search (DFS)
 - Supports Google and Bhashini APIs.
 - Can exclude specific keys from translation.

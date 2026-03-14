@@ -98,6 +98,12 @@ def get_random_location() -> dict:
     return random.choice(LOCATIONS)
 
 
+def get_nearest_locations(lat: float, lon: float, n: int = 3) -> list[dict]:
+    """Return the n nearest locations to the given coordinates."""
+    scored = sorted(LOCATIONS, key=lambda loc: (loc["lat"] - lat) ** 2 + (loc["lon"] - lon) ** 2)
+    return scored[:n]
+
+
 # ─── Maharashtra APMC Mandi Names ────────────────────────────────────────────
 
 MANDI_NAMES = [
@@ -306,9 +312,9 @@ FARMER_CROPS = [
 # ─── Mood & Language Weights ─────────────────────────────────────────────────
 
 MOOD_WEIGHTS = {
-    "normal": 0.75,
-    "frustrated": 0.23,
-    "adversarial": 0.02,
+    "normal": 0.65,
+    "frustrated": 0.25,
+    "adversarial": 0.10,
 }
 
 # MH-OAN supports Marathi, Hindi, and English
@@ -440,6 +446,28 @@ SAMPLE_CENTRAL_SCHEMES = [
     "mahadbt-pmkisan", "mahadbt-pmfby", "mahadbt-aif",
     "mahadbt-pmrkvysmam", "mahadbt-kymidh", "cdda-namo-drone-didi",
 ]
+
+# Human-readable scheme names — what a farmer would actually say
+SCHEME_DISPLAY_NAMES: dict[str, str] = {
+    "mahadbt-baksy": "Birsa Munda Krishi Kranti Yojana",
+    "ndksp-drip-irrigation": "drip irrigation subsidy",
+    "ndksp-goat-rearing": "goat rearing scheme",
+    "sdda-farm-machinery-and-equipments": "farm machinery subsidy",
+    "ndksp-sprinkler-irrigation": "sprinkler irrigation subsidy",
+    "ndksp-horticulture-plantation": "horticulture plantation scheme",
+    "ndksp-individual-farm-ponds": "farm pond scheme",
+    "mahadbt-pmkisan": "PM Kisan",
+    "mahadbt-pmfby": "crop insurance (PMFBY)",
+    "mahadbt-aif": "agriculture infrastructure fund",
+    "mahadbt-pmrkvysmam": "micro irrigation scheme",
+    "mahadbt-kymidh": "honey mission scheme",
+    "cdda-namo-drone-didi": "Namo Drone Didi scheme",
+}
+
+
+def scheme_display_name(code: str) -> str:
+    """Return farmer-friendly scheme name for a code."""
+    return SCHEME_DISPLAY_NAMES.get(code, code)
 
 # ─── Crop Seasons ────────────────────────────────────────────────────────────
 
