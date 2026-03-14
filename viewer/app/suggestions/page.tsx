@@ -1,10 +1,17 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Loader2, RefreshCw } from "lucide-react";
+import {
+  PieChart,
+  Pie,
+  Cell,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
 interface SuggestionSummary {
   id: string;
@@ -20,6 +27,14 @@ interface SuggestionDetail {
   suggestions_input: string;
   suggestions: string[];
 }
+
+const LANG_LABELS: Record<string, string> = {
+  mr: "Marathi",
+  hi: "Hindi",
+  en: "English",
+};
+
+const COLORS = ["#6366f1", "#f59e0b", "#10b981", "#ef4444", "#8b5cf6", "#06b6d4"];
 
 export default function SuggestionsPage() {
   const [suggestions, setSuggestions] = useState<SuggestionSummary[]>([]);
@@ -45,6 +60,29 @@ export default function SuggestionsPage() {
   useEffect(() => {
     fetchSuggestions();
   }, [fetchSuggestions]);
+
+  const stats = useMemo(() => {
+    const langCounts: Record<string, number> = {};
+    let totalSuggestions = 0;
+    for (const s of suggestions) {
+      const label = LANG_LABELS[s.target_language] || s.target_language;
+      langCounts[label] = (langCounts[label] || 0) + 1;
+      totalSuggestions += s.suggestion_count;
+    }
+    const langData = Object.entries(langCounts)
+      .map(([name, value]) => ({ name, value }))
+      .sort((a, b) => b.value - a.value);
+
+    const suggCountCounts: Record<number, number> = {};
+    for (const s of suggestions) {
+      suggCountCounts[s.suggestion_count] = (suggCountCounts[s.suggestion_count] || 0) + 1;
+    }
+    const countData = Object.entries(suggCountCounts)
+      .map(([name, value]) => ({ name: `${name} suggestions`, value }))
+      .sort((a, b) => parseInt(a.name) - parseInt(b.name));
+
+    return { langData, countData, totalSuggestions };
+  }, [suggestions]);
 
   const loadDetail = (id: string) => {
     fetch(`/api/suggestion/${id}`)
@@ -91,6 +129,71 @@ export default function SuggestionsPage() {
         )}
 
         {!loading && !error && (
+          <div className="space-y-6">
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="rounded-lg border p-4">
+                <p className="text-2xl font-bold">{suggestions.length}</p>
+                <p className="text-xs text-muted-foreground">Total Records</p>
+              </div>
+              <div className="rounded-lg border p-4">
+                <p className="text-2xl font-bold">{stats.totalSuggestions}</p>
+                <p className="text-xs text-muted-foreground">Total Suggestions</p>
+              </div>
+              <div className="rounded-lg border p-4">
+                <p className="text-sm font-medium text-muted-foreground mb-2">Language Distribution</p>
+                <ResponsiveContainer width="100%" height={140}>
+                  <PieChart>
+                    <Pie
+                      data={stats.langData}
+                      dataKey="value"
+                      nameKey="name"
+                      cx="50%"
+                      cy="50%"
+                      outerRadius={55}
+                      innerRadius={28}
+                      paddingAngle={2}
+                      label={({ name, percent }) =>
+                        `${name} ${((percent ?? 0) * 100).toFixed(0)}%`
+                      }
+                      labelLine={false}
+                    >
+                      {stats.langData.map((_, i) => (
+                        <Cell key={i} fill={COLORS[i % COLORS.length]} />
+                      ))}
+                    </Pie>
+                    <Tooltip formatter={(value) => [value, "Count"]} />
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
+              <div className="rounded-lg border p-4">
+                <p className="text-sm font-medium text-muted-foreground mb-2">Suggestions per Record</p>
+                <ResponsiveContainer width="100%" height={140}>
+                  <PieChart>
+                    <Pie
+                      data={stats.countData}
+                      dataKey="value"
+                      nameKey="name"
+                      cx="50%"
+                      cy="50%"
+                      outerRadius={55}
+                      innerRadius={28}
+                      paddingAngle={2}
+                      label={({ name, percent }) =>
+                        `${name} ${((percent ?? 0) * 100).toFixed(0)}%`
+                      }
+                      labelLine={false}
+                    >
+                      {stats.countData.map((_, i) => (
+                        <Cell key={i} fill={COLORS[i % COLORS.length]} />
+                      ))}
+                    </Pie>
+                    <Tooltip formatter={(value) => [value, "Count"]} />
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* List */}
             <div className="space-y-2">
@@ -184,6 +287,7 @@ export default function SuggestionsPage() {
                 </div>
               )}
             </div>
+          </div>
           </div>
         )}
       </div>

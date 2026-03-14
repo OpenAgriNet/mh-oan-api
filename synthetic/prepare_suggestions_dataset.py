@@ -106,9 +106,14 @@ def main():
     else:
         combined = suggestions_ds
 
-    # Save
-    MAIN_DATASET_DIR.mkdir(parents=True, exist_ok=True)
-    combined.save_to_disk(str(MAIN_DATASET_DIR))
+    # Save (use temp dir to avoid overwrite-self error)
+    import shutil
+    tmp_dir = MAIN_DATASET_DIR.with_name("hf_dataset_tmp")
+    tmp_dir.mkdir(parents=True, exist_ok=True)
+    combined.save_to_disk(str(tmp_dir))
+    if MAIN_DATASET_DIR.exists():
+        shutil.rmtree(MAIN_DATASET_DIR)
+    tmp_dir.rename(MAIN_DATASET_DIR)
     print(f"\nDataset saved to {MAIN_DATASET_DIR}")
 
     parquet_path = MAIN_DATASET_DIR / "data.parquet"
