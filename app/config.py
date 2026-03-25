@@ -13,7 +13,6 @@ class Settings(BaseSettings):
     environment: str = os.getenv("ENVIRONMENT")
     debug: bool = False
     base_dir: Path = Path(__file__).resolve().parent.parent
-    secret_key: str = os.getenv("SECRET_KEY", "your-secret-key-change-in-production")
     timezone: str = "Asia/Kolkata"
 
     # Server Configuration
@@ -21,6 +20,12 @@ class Settings(BaseSettings):
     port: int = 8000
     api_prefix: str = "/api"
     rate_limit_requests_per_minute: int = 1000
+
+    # Security Settings
+    allowed_origins: List[str] = os.getenv("ALLOWED_ORIGINS", "*").split(",")
+    allowed_credentials: bool = True
+    allowed_methods: List[str] = ["*"]
+    allowed_headers: List[str] = ["*"]
 
     # JWT Configuration
     jwt_algorithm: str = "RS256"
