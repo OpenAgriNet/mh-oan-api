@@ -31,6 +31,8 @@ class Settings(BaseSettings):
     jwt_algorithm: str = "RS256"
     jwt_public_key_path: str = os.getenv("JWT_PUBLIC_KEY_PATH", "jwt_public_key.pem")
     jwt_private_key_path: Optional[str] = os.getenv("JWT_PRIVATE_KEY_PATH")
+    jwt_audience: Optional[str] = os.getenv("JWT_AUDIENCE")
+    jwt_issuer: Optional[str] = os.getenv("JWT_ISSUER")
 
     # Worker Settings
     uvicorn_workers: int = os.cpu_count() or 1

@@ -41,10 +41,12 @@ class JWTStateMiddleware(BaseHTTPMiddleware):
                     token,
                     public_key,
                     algorithms=[settings.jwt_algorithm],
+                    audience=settings.jwt_audience,
+                    issuer=settings.jwt_issuer,
                     options={
                         "verify_signature": True,
-                        "verify_aud": False,
-                        "verify_iss": False
+                        "verify_aud": True if settings.jwt_audience else False,
+                        "verify_iss": True if settings.jwt_issuer else False
                     }
                 )
                 
