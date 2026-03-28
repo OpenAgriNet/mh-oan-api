@@ -2,7 +2,6 @@ import os
 from pydantic_ai.models.openai import OpenAIModel
 from pydantic_ai.providers.openai import OpenAIProvider
 from dotenv import load_dotenv
-from openai import AsyncAzureOpenAI, AsyncOpenAI
 
 load_dotenv()
 
@@ -16,7 +15,10 @@ AGRINET_MODEL = OpenAIModel(
 )
 
 # --- Moderation Model (port 8081) ---
-MODERATION_CLIENT = AsyncOpenAI(
+MODERATION_MODEL = OpenAIModel(
+    os.getenv('MODERATION_MODEL_NAME'),
+    provider=OpenAIProvider(
     base_url=os.getenv('MODERATION_INFERENCE_URL'),
     api_key=os.getenv('MODERATION_API_KEY', 'no-key'),
+),
 )

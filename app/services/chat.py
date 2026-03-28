@@ -60,8 +60,8 @@ async def stream_chat_messages(
     
     try:
         user_message    = f"{last_response}{deps.get_user_message()}"
-        moderation_run  = await moderation_agent.run(user_message)
-        moderation_data = moderation_run.output
+        moderation_result = await moderation_agent.run(user_message)
+        moderation_data = moderation_result.output
         logger.info(f"Moderation data: {moderation_data}")
 
         if moderation_data.category == "valid_agricultural":

@@ -18,7 +18,7 @@ agrinet_agent = Agent(
     tools=TOOLS,
     end_strategy='exhaustive',
     model_settings=ModelSettings(
-        max_tokens=10240,
+        max_tokens=8192,
         parallel_tool_calls=True,
         request_limit=50,
    )
