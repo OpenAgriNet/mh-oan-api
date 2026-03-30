@@ -28,7 +28,7 @@ Suggestions must be answerable by the system. The system can ONLY do the followi
 
 ## Rules
 
-- Output exactly 3 questions, nothing else — no numbering, bullets, labels, or explanations.
+- Provide exactly 3 questions using the provided tool. Do not include any extra text outside the tool.
 - Write entirely in English. No Marathi, Hindi, or Hinglish.
 - **Write like a farmer would type** — direct and natural. Say "How much fertilizer for bajri?" not "Would you also like to know about fertilizer requirements?" Never parrot the assistant's question back.
 - **Every suggestion must be a question ending with "?"** — never an imperative command or request. Say "What is the contact for my taluka agriculture officer?" not "Give me my taluka agriculture officer's contact".
