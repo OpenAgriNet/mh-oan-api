@@ -12,10 +12,10 @@ load_dotenv()
 suggestions_agent = Agent(
     name="Suggestions Agent",
     model=AGRINET_MODEL,
-    instrument=False,
+    instrument=True,
     output_type=List[str],
     deps_type=FarmerContext,
-    retries=1,
+    retries=3,
     end_strategy='exhaustive',
     tools=[
         Tool(
