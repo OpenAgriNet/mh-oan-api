@@ -23,7 +23,11 @@ class QueryModerationResult(BaseModel):
 
     def __str__(self):
         category_str = self.category.replace("_", " ").title()
-        return f"**Moderation Recommendation:** {self.action} ({category_str})"
+        if self.category == "valid_agricultural":
+            tick = "✅"
+        else:
+            tick = "❌"
+        return f"**Moderation Compliance:** {tick} {self.action} ({category_str})"
 
 moderation_agent = Agent(
     model=MODERATION_MODEL,
@@ -32,10 +36,11 @@ moderation_agent = Agent(
     instrument=True,
     output_type=PromptedOutput(QueryModerationResult),
     retries=2,
+    # gpt-oss-safeguard-20b recommended settings
     model_settings=ModelSettings(
-        temperature=0.0,
-        top_p=1.0,
-        timeout=10,
-        openai_reasoning_effort="low", # NOTE: Added timeout to avoid infinite loops
+        temperature=0.7,
+        top_p=0.95,
+        max_tokens=1024,
+        timeout=30,
     )
 )

@@ -35,6 +35,20 @@ def get_today_date_str() -> str:
     return today.strftime('%A, %d %B %Y')
 
 
+def get_crop_season(dt: datetime = None) -> str:
+    """Classify a date into an Indian agricultural season."""
+    if dt is None:
+        ist = pytz.timezone('Asia/Kolkata')
+        dt = datetime.now(ist)
+    month = dt.month
+    if 6 <= month <= 9:
+        return "Kharif (Monsoon)"
+    elif month >= 10 or month <= 2:
+        return "Rabi (Winter)"
+    else:
+        return "Zaid (Summer)"
+
+
 def get_logger(name):
     """Get logger object."""
     logger = logging.getLogger(name)

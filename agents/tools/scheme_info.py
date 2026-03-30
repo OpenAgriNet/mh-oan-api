@@ -10,6 +10,14 @@ from pydantic_ai import ModelRetry, UnexpectedModelBehavior
 
 logger = get_logger(__name__)
 
+# Load scheme list once at module level
+with open('assets/scheme_list.json', 'r', encoding='utf-8') as _f:
+    SCHEME_LIST = json.load(_f)
+
+_scheme_codes_set = {s["scheme_code"] for s in SCHEME_LIST}
+STATE_SCHEMES = {s["scheme_code"] for s in SCHEME_LIST if s.get("type") == "state"}
+CENTRAL_SCHEMES = {s["scheme_code"] for s in SCHEME_LIST if s.get("type") == "central"}
+
 # -----------------------
 # Basic Models
 # -----------------------
@@ -260,117 +268,27 @@ class SchemeRequest(BaseModel):
         }
 
 
-# Scheme categorization constants
-STATE_SCHEMES = {
-    'mahadbt-bmkky', 'mahadbt-gmsassay', 'mahadbt-cmsaisfp', 'mahadbt-baksy', 'mahadbt-bfhps',
-    'ndksp-sericulture-unit', 'ndksp-agroforestry-tree', 'ndksp-agroforestry-bamboo', 
-    'ndksp-horticulture-plantation', 'ndksp-flower-crop-planting-material-polyhouse', 
-    'ndksp-drip-irrigation', 'ndksp-inland-fishery', 'ndksp-goat-rearing',
-    'ndksp-sprinkler-irrigation', 'ndksp-organic-production-unit', 'ndksp-pump-set',
-    'ndksp-pipes', 'ndksp-well-recharge', 'ndksp-individual-farm-ponds',
-    'ndksp-farm-pond-lining', 'ndksp-vegetable-planting-material-in-shednet-and-polyhouse',
-    'ndksp-seed-production', 'sdda-farm-machinery-and-equipments', 'sdda-chc',
-    'state-agri-award', 'state-crop-competition', 'state-farmer-international-tour',
-    'mahadbt-rkvy-plastic-cover-for-grape', 'mahadbt-rkvy-anti-hectareil-net-with-ms-angle-structure',
-    'mahadbt-midh-green-house-poly-house', 'pmrkvy-rad',
-    'mahadbt-nmeo-oilseeds', 'mahadbt-nfsnm-cotton-development', 'mahadbt-nfsnm-sugarcane-development',
-    'nfsnm-crop-demonstration', 'nfsnm-seed-production', 'nfsnm-seed-distribution', 'nfsnm-inm-ipm'
-}
-
-CENTRAL_SCHEMES = {
-    'mahadbt-rwbcis', 'mahadbt-nsmnyy', 'mahadbt-pmfby', 'mahadbt-aif', 'mahadbt-kymidh', 'mahadbt-pmkisan', 'mahadbt-pmkmy',
-    'mahadbt-pmrkvysmam', 'mahadbt-pmkrvypdmc', 'mahadbt-mgnregs',
-    'pmfmfpe-individual-new', 'pmfmfpe-individual-old-more-than-1cr', 'pmfmfpe-individual-old-less-than-1cr',
-    'pmfmfpe-group-fpo-fpc', 'pmfmfpe-group-shg', 'pmfmfpe-group-cs',
-    'pmfmfpe-common-infra-fpo-fpc', 'pmfmfpe-common-infra-shg', 'pmfmfpe-common-infra-cs',
-    'pmfmfpe-common-infra-govt', 'pmfmfpe-seed-capital', 'pmfmfpe-marketing-branding', 'pmfmfpe-training',
-    'cdda-farm-machinery-and-equipments', 'cdda-chc', 'cdda-namo-drone-didi',
-    'mahadbt-midh-water-resources', 'mahadbt-midh-pc-shadenet-house',
-    'mahadbt-midh-pc-plastic-mulching', 'mahadbt-midh-pc-weed-mat', 'mahadbt-midh-pc-fruit-cover-skirting-bag',
-    'mahadbt-midh-pc-hydroponics-technology', 'mahadbt-midh-area-expansion-fruit-flower',
-    'mahadbt-midh-rejuvenation', 'mahadbt-midh-area-expansion-mushroom-cultivation',
-    'mahadbt-midh-pollinatation', 'mahadbt-midh-planting-material', 'mahadbt-midh-pack-house',
-    'mahadbt-midh-collection-centre', 'mahadbt-midh-cold-room-solar-power-room',
-    'mahadbt-midh-cs-1', 'mahadbt-midh-cs-1-onion', 'mahadbt-midh-cs-2', 'mahadbt-midh-cs-2-ca',
-    'mahadbt-midh-cs-4', 'mahadbt-midh-refrigerated-transport-vehicles', 'mahadbt-midh-cs-3',
-    'mahadbt-midh-integrated-cold-chectarein-project', 'mahadbt-post-harvest-management-farm-gate-packhouse',
-    'mahadbt-post-harvest-management-low-cost-onion-garlic-storage', 'mahadbt-midh-tractor-2-wd',
-    'mahadbt-midh-tractor-4-wd', 'mahadbt-midh-power-tiller-below-8-bhp',
-    'mahadbt-midh-power-tiller-above-8-bhp', 'mahadbt-midh-manual-prated-machinery',
-    'mahadbt-midh-manual-prated-machinery-above-8-12-lts', 'mahadbt-midh-manual-prated-machinery-above-12-16-lts',
-    'mahadbt-midh-manual-prated-machinery-above-16-lts', 'mahadbt-midh-tractor-operated-sprayer-boom-type',
-    'mahadbt-midh-operated-sprayer-air-carrier-assisted', 'mahadbt-midh-Tractor-oprated-electrostatics-sprayer',
-    'mahadbt-midh-medicinal-plant', 'mahadbt-midh-cost-intensive-aromatic-plants',
-    'mahadbt-midh-other-aromatic-plants', 'mahadbt-midh-creation-of-water-resources'
-}
-
-def _validate_scheme_code(scheme_code: str) -> bool:
-    """Validate the scheme code.
-    
-    Args:
-        scheme_code (str): The scheme code to validate.
-        
-    Returns:
-        bool: True if the scheme code is valid, False otherwise.
-    """
-    with open('assets/scheme_list.json', 'r') as f:
-        scheme_list = json.load(f)
-    return any(scheme['scheme_code'] == scheme_code for scheme in scheme_list)
-
-
-async def get_scheme_type(scheme_code: str) -> str:
-    """Get the type of a scheme (state or central).
-    
-    Args:
-        scheme_code (str): The scheme code to check.
-        
-    Returns:
-        str: "state" if it's a Maharashtra state scheme, "central" if it's a central scheme, "unknown" if invalid.
-    """
-    if scheme_code in STATE_SCHEMES:
-        return "state"
-    elif scheme_code in CENTRAL_SCHEMES:
-        return "central"
-    else:
-        return "unknown"
-
 async def get_scheme_codes() -> str:
     """Returns a prioritized list of scheme names and codes with state schemes first.
-    
+
     Returns:
-        str: A markdown-formatted table with scheme names and codes, prioritizing state schemes.
+        str: A markdown-formatted table with scheme names and codes.
     """
-    with open('assets/scheme_list.json', 'r') as f:
-        scheme_list = json.load(f)
-    
-    # Create a lookup dictionary for scheme data
-    scheme_lookup = {scheme['scheme_code']: scheme for scheme in scheme_list}
-    
-    # Build prioritized lists
-    state_schemes = []
-    central_schemes = []
-    
-    for scheme_code in STATE_SCHEMES:
-        if scheme_code in scheme_lookup:
-            state_schemes.append(scheme_lookup[scheme_code])
-    
-    for scheme_code in CENTRAL_SCHEMES:
-        if scheme_code in scheme_lookup:
-            central_schemes.append(scheme_lookup[scheme_code])
-    
-    # Build markdown table with state schemes first
+    scheme_lookup = {s['scheme_code']: s for s in SCHEME_LIST}
+
+    state_schemes = [scheme_lookup[c] for c in STATE_SCHEMES if c in scheme_lookup]
+    central_schemes = [scheme_lookup[c] for c in CENTRAL_SCHEMES if c in scheme_lookup]
+
     markdown_table = "## State Schemes (Maharashtra)\n\n"
     markdown_table += "| Scheme Name | Scheme Code |\n|-------------|-------------|\n"
-    
     for scheme in state_schemes:
         markdown_table += f"| {scheme['scheme_name']} | {scheme['scheme_code']} |\n"
-    
+
     markdown_table += "\n## Central Schemes\n\n"
     markdown_table += "| Scheme Name | Scheme Code |\n|-------------|-------------|\n"
-    
     for scheme in central_schemes:
         markdown_table += f"| {scheme['scheme_name']} | {scheme['scheme_code']} |\n"
-    
+
     return markdown_table
 
 
@@ -389,9 +307,8 @@ async def get_scheme_info(scheme_code: str) -> str:
         str: Formatted scheme data including introduction, benefits, eligibility, application process, and other relevant information.
     """
     try:
-        # Check if the scheme code is valid
-        if not _validate_scheme_code(scheme_code):
-            raise ModelRetry(f"Invalid scheme code: {scheme_code}. Available scheme codes can be found by calling `get_scheme_codes()` which returns a markdown table with scheme names and codes.")
+        if scheme_code not in _scheme_codes_set:
+            raise ModelRetry(f"Invalid scheme code: {scheme_code}. Use get_scheme_codes() to find valid codes.")
         
         payload = SchemeRequest(scheme_code=scheme_code).get_payload()
         
@@ -425,63 +342,4 @@ async def get_scheme_info(scheme_code: str) -> str:
     except Exception as e:
         logger.error(f"Error getting scheme data: {e}")
         raise ModelRetry(f"Unexpected error in scheme request. {str(e)}") 
-
-
-async def get_multiple_schemes_info(scheme_codes: List[str]) -> str:
-    """Retrieve detailed information about multiple government agricultural schemes with automatic prioritization.
-    
-    This tool fetches comprehensive scheme data for multiple schemes at once and automatically returns them 
-    in the correct order: Maharashtra state schemes FIRST, then central schemes SECOND.
-    
-    Args:
-        scheme_codes (List[str]): List of scheme codes to retrieve (e.g., ['state scheme code', 'central scheme code', 'central scheme code']).
-
-    Returns:
-        str: Formatted scheme data with state schemes first, then central schemes, including benefits, 
-             eligibility, application process, and other relevant information for each scheme.
-    """
-    try:
-        if not scheme_codes or len(scheme_codes) == 0:
-            return "No scheme codes provided. Please provide at least one scheme code."
-        
-        # Validate all scheme codes first
-        invalid_codes = [code for code in scheme_codes if not _validate_scheme_code(code)]
-        if invalid_codes:
-            raise ModelRetry(f"Invalid scheme codes: {', '.join(invalid_codes)}. Available scheme codes can be found by calling `get_scheme_codes()`.")
-        
-        # Categorize schemes into state and central
-        state_schemes = []
-        central_schemes = []
-        
-        for code in scheme_codes:
-            scheme_type = await get_scheme_type(code)
-            if scheme_type == "state":
-                state_schemes.append(code)
-            elif scheme_type == "central":
-                central_schemes.append(code)
-        
-        # Build ordered list: state schemes first, then central schemes
-        ordered_schemes = state_schemes + central_schemes
-        
-        # Fetch information for each scheme in order
-        results = []
-        for idx, code in enumerate(ordered_schemes, start=1):
-            scheme_info = await get_scheme_info(code)
-            # Add a numbered header for each scheme
-            results.append(f"## {idx}. Scheme Information\n\n{scheme_info}")
-        
-        if not results:
-            return "No valid schemes found."
-        
-        # Combine all results with clear separators
-        combined_results = "\n\n---\n\n".join(results)
-        
-        # Add a summary header
-        summary = f"**Total schemes: {len(ordered_schemes)}** (State schemes: {len(state_schemes)}, Central schemes: {len(central_schemes)})\n\n"
-        
-        return summary + combined_results
-                
-    except Exception as e:
-        logger.error(f"Error getting multiple schemes data: {e}")
-        raise ModelRetry(f"Unexpected error in multiple schemes request. {str(e)}")
 

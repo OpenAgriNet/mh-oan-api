@@ -1,24 +1,20 @@
 import os
-from pydantic_ai import Agent
+from pydantic_ai import Agent, RunContext, Tool
 from pydantic_ai.settings import ModelSettings
 from typing import List
-from helpers.utils import get_prompt
+from helpers.utils import get_prompt, get_today_date_str, get_crop_season
 from dotenv import load_dotenv
-# from agents.models import LLM_MODEL
 from agents.models import AGRINET_MODEL
 from agents.tools.search import search_documents
-from pydantic_ai import Tool
+from agents.deps import FarmerContext
 load_dotenv()
 
 suggestions_agent = Agent(
     name="Suggestions Agent",
-    # model=LLM_MODEL,
     model=AGRINET_MODEL,
-    system_prompt=get_prompt('suggestions_system'),
     instrument=True,
     output_type=List[str],
-    # result_tool_name="suggestions",
-    # result_tool_description="A list of 3-5 suggested questions for the farmer to ask.",
+    deps_type=FarmerContext,
     retries=1,
     end_strategy='exhaustive',
     tools=[
@@ -28,6 +24,21 @@ suggestions_agent = Agent(
         )
     ],
     model_settings=ModelSettings(
-        parallel_tool_calls=False, # Prevent multiple tool calls
+        parallel_tool_calls=False,
+        extra_body={
+            "chat_template_kwargs": {"enable_thinking": False},
+            "top_k": 20,
+            "presence_penalty": 1.5,
+        },
     )
 )
+
+
+@suggestions_agent.system_prompt(dynamic=True)
+def get_suggestions_system_prompt(ctx: RunContext[FarmerContext]):
+    lang_code = ctx.deps.lang_code or 'en'
+    prompt_name = f'suggestions_{lang_code}'
+    return get_prompt(prompt_name, context={
+        'today_date': get_today_date_str(),
+        'crop_season': get_crop_season(),
+    })

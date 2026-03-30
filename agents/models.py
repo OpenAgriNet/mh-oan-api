@@ -5,69 +5,55 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# # Get configurations from environment variables
-# LLM_PROVIDER    = os.getenv('LLM_PROVIDER', 'openai').lower()
-# LLM_MODEL_NAME = os.getenv('LLM_MODEL_NAME')
+# Get configurations from environment variables
+LLM_PROVIDER = os.getenv('LLM_PROVIDER', 'vllm').lower()
+LLM_AGRINET_MODEL_NAME = os.getenv('LLM_AGRINET_MODEL_NAME')
+LLM_MODERATION_MODEL_NAME = os.getenv('LLM_MODERATION_MODEL_NAME')
+VLLM_AGRINET_MODEL_URL = os.getenv('VLLM_AGRINET_MODEL_URL')
+VLLM_MODERATION_MODEL_URL = os.getenv('VLLM_MODERATION_MODEL_URL')
 
-# if LLM_PROVIDER == 'vllm':
-#     LLM_MODEL = OpenAIModel(
-#         LLM_MODEL_NAME,
-#         provider=OpenAIProvider(
-#             base_url=os.getenv('INFERENCE_ENDPOINT_URL'), 
-#             api_key=os.getenv('INFERENCE_API_KEY'),  
-#         ),
-#     )
-# elif LLM_PROVIDER == 'openai':
-#     LLM_MODEL = OpenAIModel(
-#         LLM_MODEL_NAME,
-#         provider=OpenAIProvider(
-#             api_key=os.getenv('OPENAI_API_KEY'),
-#         ),
-#     )
-# elif LLM_PROVIDER == 'azure-openai':
-#     azure_endpoint = os.getenv('AZURE_OPENAI_ENDPOINT')
-#     azure_api_key = os.getenv('AZURE_OPENAI_API_KEY')
-#     azure_api_version = os.getenv('AZURE_OPENAI_API_VERSION')
-#     azure_deployment_name = os.getenv('AZURE_OPENAI_DEPLOYMENT_NAME')
-    
-#     if not azure_endpoint:
-#         raise ValueError("AZURE_OPENAI_ENDPOINT environment variable is required")
-#     if not azure_api_key:
-#         raise ValueError("AZURE_OPENAI_API_KEY environment variable is required")
-#     if not azure_api_version:
-#         raise ValueError("AZURE_OPENAI_API_VERSION environment variable is required")
-#     if not azure_deployment_name:
-#         raise ValueError("AZURE_OPENAI_DEPLOYMENT_NAME environment variable is required")
-    
-#     azure_client = AsyncAzureOpenAI(
-#         azure_endpoint=azure_endpoint.rstrip('/'),
-#         api_version=azure_api_version,
-#         api_key=azure_api_key,
-#     )
-    
-#     LLM_MODEL = OpenAIModel(
-#         azure_deployment_name,
-#         provider=OpenAIProvider(openai_client=azure_client),
-#     )
-# else:
-#     raise ValueError(f"Invalid LLM_PROVIDER: {LLM_PROVIDER}. Must be one of: 'vllm', 'openai', 'azure-openai'")
-
-
-# --- Agrinet / Suggestions Model (port 8080) ---
-AGRINET_MODEL = OpenAIChatModel(
-    os.getenv('AGRINET_MODEL_NAME'),
-    provider=OpenAIProvider(
-        base_url=os.getenv('AGRINET_INFERENCE_URL'),
-        api_key=os.getenv('AGRINET_API_KEY', 'no-key'),
-    ),
-)
-
-# --- Moderation Model (port 8081) ---
-MODERATION_MODEL = OpenAIChatModel(
-    os.getenv('MODERATION_MODEL_NAME'),
-    provider=OpenAIProvider(
-    base_url=os.getenv('MODERATION_INFERENCE_URL'),
-    api_key=os.getenv('MODERATION_API_KEY', 'no-key'),
-),
-)
-
+if LLM_PROVIDER == 'vllm':
+    AGRINET_MODEL = OpenAIChatModel(
+        LLM_AGRINET_MODEL_NAME,
+        provider=OpenAIProvider(
+            base_url=VLLM_AGRINET_MODEL_URL,
+            api_key="not-required",
+        ),
+    )
+    MODERATION_MODEL = OpenAIChatModel(
+        LLM_MODERATION_MODEL_NAME,
+        provider=OpenAIProvider(
+            base_url=VLLM_MODERATION_MODEL_URL,
+            api_key="not-required",
+        ),
+    )
+elif LLM_PROVIDER == 'openai':
+    AGRINET_MODEL = OpenAIChatModel(
+        LLM_AGRINET_MODEL_NAME,
+        provider=OpenAIProvider(
+            api_key=os.getenv('OPENAI_API_KEY'),
+        ),
+    )
+    MODERATION_MODEL = OpenAIChatModel(
+        LLM_MODERATION_MODEL_NAME,
+        provider=OpenAIProvider(
+            api_key=os.getenv('OPENAI_API_KEY'),
+        ),
+    )
+elif LLM_PROVIDER == 'azure-openai':
+    AGRINET_MODEL = OpenAIChatModel(
+        LLM_AGRINET_MODEL_NAME,
+        provider=OpenAIProvider(
+            base_url=VLLM_AGRINET_MODEL_URL,
+            api_key="not-required",
+        ),
+    )
+    MODERATION_MODEL = OpenAIChatModel(
+        LLM_MODERATION_MODEL_NAME,
+        provider=OpenAIProvider(
+            base_url=VLLM_MODERATION_MODEL_URL,
+            api_key="not-required",
+        ),
+    )
+else:
+    raise ValueError(f"Invalid LLM_PROVIDER: {LLM_PROVIDER}. Must be one of: 'vllm', 'openai', 'azure-openai'")
