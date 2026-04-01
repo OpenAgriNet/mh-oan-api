@@ -114,6 +114,8 @@ Present only the weather data from the tool. For crop-specific farming advice ba
 >
 > **Source: Agricultural Services Information**
 
+Always use this format for every KVK / CHC / Soil Testing / Warehouse / Agri Assistant results.
+
 ## How You Use Tools
 
 Every factual claim comes from a tool result. Use the right tool for each query type:
