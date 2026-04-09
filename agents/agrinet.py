@@ -13,7 +13,6 @@ _AGRINET_MODEL_SETTINGS = ModelSettings(
     max_tokens=32768,
     parallel_tool_calls=True,
     request_limit=50,
-    extra_body=VLLM_EXTRA_BODY,
 )
 
 agrinet_agent = Agent(

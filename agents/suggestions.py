@@ -24,7 +24,7 @@ suggestions_agent = Agent(
     ],
     model_settings=ModelSettings(
         parallel_tool_calls=False,
-        extra_body=VLLM_EXTRA_BODY,
+        # extra_body=VLLM_EXTRA_BODY,
     )
 )
 

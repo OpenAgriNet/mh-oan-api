@@ -1,6 +1,8 @@
-import os
 from pydantic_ai.providers.azure import AzureProvider
 from pydantic_ai.providers.openai import OpenAIProvider
+from openai import AsyncOpenAI
+import httpx
+import os
 from pydantic_ai.models.fallback import FallbackModel
 from pydantic_ai.models.openai import OpenAIChatModel
 from pydantic_ai.settings import ModelSettings
@@ -86,6 +88,7 @@ def _make_azure_model() -> OpenAIChatModel:
         raise ValueError('AZURE_OPENAI_API_KEY environment variable is required')
     if not AZURE_OPENAI_DEPLOYMENT_NAME:
         raise ValueError('AZURE_OPENAI_DEPLOYMENT_NAME environment variable is required')
+        
     return OpenAIChatModel(
         AZURE_OPENAI_DEPLOYMENT_NAME,
         provider=AzureProvider(
@@ -112,24 +115,35 @@ if LLM_PROVIDER == 'vllm':
 
     azure_model = _make_azure_model()
 
+    vllm_http_client = httpx.AsyncClient(timeout=httpx.Timeout(45.0, connect=2.0))
+
+    agrinet_openai_client = AsyncOpenAI(
+        base_url=VLLM_AGRINET_MODEL_URL,
+        api_key="not-required",
+        http_client=vllm_http_client,
+        max_retries=0,
+    )
+
     AGRINET_MODEL = FallbackModel(
         OpenAIChatModel(
             LLM_AGRINET_MODEL_NAME,
-            provider=OpenAIProvider(
-                base_url=VLLM_AGRINET_MODEL_URL,
-                api_key="not-required",
-            ),
+            provider=OpenAIProvider(openai_client=agrinet_openai_client),
             settings=_vllm_settings_for_base_url(VLLM_AGRINET_MODEL_URL),
         ),
         azure_model,
     )
+
+    moderation_openai_client = AsyncOpenAI(
+        base_url=VLLM_MODERATION_MODEL_URL,
+        api_key="not-required",
+        http_client=vllm_http_client,
+        max_retries=0,
+    )
+
     MODERATION_MODEL = FallbackModel(
         OpenAIChatModel(
             LLM_MODERATION_MODEL_NAME,
-            provider=OpenAIProvider(
-                base_url=VLLM_MODERATION_MODEL_URL,
-                api_key="not-required",
-            ),
+            provider=OpenAIProvider(openai_client=moderation_openai_client),
             settings=_vllm_settings_for_base_url(VLLM_MODERATION_MODEL_URL),
         ),
         azure_model,
