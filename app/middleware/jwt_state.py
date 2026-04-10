@@ -62,4 +62,3 @@ class JWTStateMiddleware(BaseHTTPMiddleware):
         # Continue processing the request
         response = await call_next(request)
         return response
-
