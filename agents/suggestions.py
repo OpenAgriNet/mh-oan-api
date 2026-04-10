@@ -2,7 +2,7 @@ from pydantic_ai import Agent, RunContext, Tool
 from pydantic_ai.settings import ModelSettings
 from typing import List
 from helpers.utils import get_prompt, get_today_date_str, get_crop_season
-from agents.models import AGRINET_MODEL, VLLM_EXTRA_BODY
+from agents.models import AGRINET_MODEL
 from agents.tools.search import search_documents
 from agents.deps import FarmerContext
 from dotenv import load_dotenv
@@ -24,7 +24,6 @@ suggestions_agent = Agent(
     ],
     model_settings=ModelSettings(
         parallel_tool_calls=False,
-        # extra_body=VLLM_EXTRA_BODY,
     )
 )
 

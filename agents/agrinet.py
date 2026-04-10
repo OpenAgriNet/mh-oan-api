@@ -1,6 +1,6 @@
 from pydantic_ai import Agent, RunContext
 from helpers.utils import get_prompt, get_today_date_str, get_crop_season
-from agents.models import AGRINET_MODEL, VLLM_EXTRA_BODY
+from agents.models import AGRINET_MODEL
 from agents.tools import TOOLS
 from pydantic_ai.settings import ModelSettings
 from agents.deps import FarmerContext
