@@ -24,13 +24,6 @@ _VLLM_FULL_EXTRA_BODY = {
 _AZURE_FALLBACK_SETTINGS = ModelSettings(extra_body=None)
 
 
-def _require_env(name, context):
-    value = os.getenv(name)
-    if not value:
-        raise ValueError(f"{name} environment variable is required {context}")
-    return value
-
-
 def _vllm_settings(base_url):
     if LLM_PROVIDER != "vllm" or not base_url:
         return None
@@ -41,11 +34,11 @@ def _vllm_settings(base_url):
 
 def _make_azure_model():
     return OpenAIChatModel(
-        _require_env("AZURE_OPENAI_DEPLOYMENT_NAME", "for Azure OpenAI"),
+        os.environ["AZURE_OPENAI_DEPLOYMENT_NAME"],
         provider=AzureProvider(
-            azure_endpoint=_require_env("AZURE_OPENAI_ENDPOINT", "for Azure OpenAI"),
+            azure_endpoint=os.environ["AZURE_OPENAI_ENDPOINT"],
             api_version=AZURE_OPENAI_API_VERSION,
-            api_key=_require_env("AZURE_OPENAI_API_KEY", "for Azure OpenAI"),
+            api_key=os.environ["AZURE_OPENAI_API_KEY"],
         ),
         settings=_AZURE_FALLBACK_SETTINGS,
     )
@@ -71,19 +64,11 @@ if LLM_PROVIDER == 'vllm':
     http_client = httpx.AsyncClient(timeout=httpx.Timeout(45.0, connect=2.0))
 
     AGRINET_MODEL = FallbackModel(
-        _make_vllm_model(
-            _require_env("LLM_AGRINET_MODEL_NAME", "when LLM_PROVIDER=vllm"),
-            _require_env("VLLM_AGRINET_MODEL_URL", "when LLM_PROVIDER=vllm"),
-            http_client,
-        ),
+        _make_vllm_model(os.environ["LLM_AGRINET_MODEL_NAME"], os.environ["VLLM_AGRINET_MODEL_URL"], http_client),
         azure_model,
     )
     MODERATION_MODEL = FallbackModel(
-        _make_vllm_model(
-            _require_env("LLM_MODERATION_MODEL_NAME", "when LLM_PROVIDER=vllm"),
-            _require_env("VLLM_MODERATION_MODEL_URL", "when LLM_PROVIDER=vllm"),
-            http_client,
-        ),
+        _make_vllm_model(os.environ["LLM_MODERATION_MODEL_NAME"], os.environ["VLLM_MODERATION_MODEL_URL"], http_client),
         azure_model,
     )
 
