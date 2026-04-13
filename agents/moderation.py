@@ -35,11 +35,8 @@ moderation_agent = Agent(
     system_prompt=get_prompt('moderation_system'),
     instrument=True,
     output_type=PromptedOutput(QueryModerationResult),
-    retries=2,
-    # gpt-oss-safeguard-20b recommended settings
+    retries=3,
     model_settings=ModelSettings(
-        temperature=0.7,
-        top_p=0.95,
-        max_tokens=1024,
+        request_limit=5,
     )
 )

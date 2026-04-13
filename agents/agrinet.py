@@ -8,11 +8,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 _AGRINET_MODEL_SETTINGS = ModelSettings(
-    temperature=0.7,
-    top_p=0.8,
     max_tokens=32768,
     parallel_tool_calls=True,
-    request_limit=50,
+    request_limit=10,
 )
 
 agrinet_agent = Agent(

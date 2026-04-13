@@ -17,15 +17,6 @@ suggestions_agent = Agent(
     deps_type=FarmerContext,
     retries=3,
     end_strategy="exhaustive",
-    # tools=[
-    #     Tool(
-    #         search_documents,
-    #         takes_ctx=False,
-    #     )
-    # ],
-    # model_settings=ModelSettings(
-    #     parallel_tool_calls=False,
-    # )
 )
 
 @suggestions_agent.system_prompt(dynamic=True)

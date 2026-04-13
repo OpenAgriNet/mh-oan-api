@@ -5,31 +5,54 @@ import httpx
 import os
 from pydantic_ai.models.fallback import FallbackModel
 from pydantic_ai.models.openai import OpenAIChatModel
+from pydantic_ai.models.concurrency import ConcurrencyLimitedModel
 from pydantic_ai.settings import ModelSettings
+from pydantic_ai.concurrency import ConcurrencyLimiter
 from dotenv import load_dotenv
 from helpers.utils import get_logger
 
 logger = get_logger(__name__)
 load_dotenv()
 
-LLM_PROVIDER = os.getenv('LLM_PROVIDER', 'vllm').lower()
 AZURE_OPENAI_API_VERSION = os.getenv('AZURE_OPENAI_API_VERSION', '2024-12-01-preview')
 
-_VLLM_FULL_EXTRA_BODY = {
-    "presence_penalty": 1.5,
-    "chat_template_kwargs": {"enable_thinking": False},
-    "top_k": 20,
-}
+agrinet_vllm_settings = ModelSettings(
+    temperature=1.0,
+    top_p=0.95,
+    presence_penalty=1.5,
+    extra_body={
+        "top_k": 20,
+        "min_p": 0.0,
+        "repetition_penalty": 1.0,
+        "chat_template_kwargs": {"enable_thinking": False},
+    },
+)
 
-_AZURE_FALLBACK_SETTINGS = ModelSettings(extra_body=None)
+moderation_vllm_settings = ModelSettings(
+    temperature=1.0,
+    top_p=1.0,
+    extra_body={
+        "chat_template_kwargs": {"thinking": "low"},
+    },
+)
+
+azure_settings = ModelSettings(extra_body=None)
+
+http_client = httpx.AsyncClient(timeout=httpx.Timeout(45.0, connect=2.0))
+vllm_limiter = ConcurrencyLimiter(max_running=2, name='vllm-pool')
 
 
-def _vllm_settings(base_url):
-    if LLM_PROVIDER != "vllm" or not base_url:
-        return None
-    if "openai.com" in base_url.lower() or "azure.com" in base_url.lower():
-        return ModelSettings(extra_body={"presence_penalty": _VLLM_FULL_EXTRA_BODY["presence_penalty"]})
-    return ModelSettings(extra_body=_VLLM_FULL_EXTRA_BODY)
+def _make_vllm_model(model_name, base_url, settings):
+    return OpenAIChatModel(
+        model_name,
+        provider=OpenAIProvider(openai_client=AsyncOpenAI(
+            base_url=base_url,
+            api_key="not-required",
+            http_client=http_client,
+            max_retries=0,
+        )),
+        settings=settings,
+    )
 
 
 def _make_azure_model():
@@ -40,42 +63,24 @@ def _make_azure_model():
             api_version=AZURE_OPENAI_API_VERSION,
             api_key=os.environ["AZURE_OPENAI_API_KEY"],
         ),
-        settings=_AZURE_FALLBACK_SETTINGS,
+        settings=azure_settings,
     )
 
 
-def _make_vllm_model(model_name, base_url, http_client):
-    return OpenAIChatModel(
-        model_name,
-        provider=OpenAIProvider(openai_client=AsyncOpenAI(
-            base_url=base_url,
-            api_key="not-required",
-            http_client=http_client,
-            max_retries=0,
-        )),
-        settings=_vllm_settings(base_url),
-    )
+azure_model = _make_azure_model()
 
+AGRINET_MODEL = FallbackModel(
+    ConcurrencyLimitedModel(
+        _make_vllm_model(os.environ["LLM_AGRINET_MODEL_NAME"], os.environ["VLLM_AGRINET_MODEL_URL"], agrinet_vllm_settings),
+        limiter=vllm_limiter,
+    ),
+    azure_model,
+)
 
-if LLM_PROVIDER == 'vllm':
-    logger.info("LLM_PROVIDER=%s using vLLM with Azure fallback", LLM_PROVIDER)
-
-    azure_model = _make_azure_model()
-    http_client = httpx.AsyncClient(timeout=httpx.Timeout(45.0, connect=2.0))
-
-    AGRINET_MODEL = FallbackModel(
-        _make_vllm_model(os.environ["LLM_AGRINET_MODEL_NAME"], os.environ["VLLM_AGRINET_MODEL_URL"], http_client),
-        azure_model,
-    )
-    MODERATION_MODEL = FallbackModel(
-        _make_vllm_model(os.environ["LLM_MODERATION_MODEL_NAME"], os.environ["VLLM_MODERATION_MODEL_URL"], http_client),
-        azure_model,
-    )
-
-elif LLM_PROVIDER == 'azure-openai':
-    logger.info("LLM_PROVIDER=%s using Azure OpenAI", LLM_PROVIDER)
-    AGRINET_MODEL = _make_azure_model()
-    MODERATION_MODEL = AGRINET_MODEL
-
-else:
-    raise ValueError(f"Invalid LLM_PROVIDER: {LLM_PROVIDER}. Must be one of: 'vllm', 'azure-openai'")
+MODERATION_MODEL = FallbackModel(
+    ConcurrencyLimitedModel(
+        _make_vllm_model(os.environ["LLM_MODERATION_MODEL_NAME"], os.environ["VLLM_MODERATION_MODEL_URL"], moderation_vllm_settings),
+        limiter=vllm_limiter,
+    ),
+    azure_model,
+)
