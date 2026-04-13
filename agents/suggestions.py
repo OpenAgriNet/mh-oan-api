@@ -1,9 +1,10 @@
-from pydantic_ai import Agent, RunContext, Tool
+from pydantic_ai import Agent, RunContext
+# from pydantic_ai import Tool
 from pydantic_ai.settings import ModelSettings
 from typing import List
 from helpers.utils import get_prompt, get_today_date_str, get_crop_season
 from agents.models import AGRINET_MODEL
-from agents.tools.search import search_documents
+# from agents.tools.search import search_documents
 from agents.deps import FarmerContext
 from dotenv import load_dotenv
 load_dotenv()
@@ -16,15 +17,15 @@ suggestions_agent = Agent(
     deps_type=FarmerContext,
     retries=3,
     end_strategy="exhaustive",
-    tools=[
-        Tool(
-            search_documents,
-            takes_ctx=False,
-        )
-    ],
-    model_settings=ModelSettings(
-        parallel_tool_calls=False,
-    )
+    # tools=[
+    #     Tool(
+    #         search_documents,
+    #         takes_ctx=False,
+    #     )
+    # ],
+    # model_settings=ModelSettings(
+    #     parallel_tool_calls=False,
+    # )
 )
 
 @suggestions_agent.system_prompt(dynamic=True)
