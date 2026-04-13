@@ -18,8 +18,8 @@ load_dotenv()
 AZURE_OPENAI_API_VERSION = os.getenv('AZURE_OPENAI_API_VERSION', '2024-12-01-preview')
 
 agrinet_vllm_settings = ModelSettings(
-    temperature=1.0,
-    top_p=0.95,
+    temperature=0.7,
+    top_p=0.8,
     presence_penalty=1.5,
     extra_body={
         "top_k": 20,
