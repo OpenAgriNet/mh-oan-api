@@ -7,6 +7,7 @@ from pydantic_ai.models.fallback import FallbackModel
 from pydantic_ai.models.openai import OpenAIChatModel
 from pydantic_ai.models.concurrency import ConcurrencyLimitedModel
 from pydantic_ai.settings import ModelSettings
+from pydantic_ai.models.openai import OpenAIChatModelSettings
 from pydantic_ai.concurrency import ConcurrencyLimiter
 from dotenv import load_dotenv
 from helpers.utils import get_logger
@@ -28,12 +29,10 @@ agrinet_vllm_settings = ModelSettings(
     },
 )
 
-moderation_vllm_settings = ModelSettings(
+moderation_vllm_settings = OpenAIChatModelSettings(
     temperature=1.0,
     top_p=1.0,
-    extra_body={
-        "chat_template_kwargs": {"thinking": "low"},
-    },
+    openai_reasoning_effort='low',
 )
 
 azure_settings = ModelSettings(extra_body=None)
