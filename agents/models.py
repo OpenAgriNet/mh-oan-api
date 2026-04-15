@@ -38,7 +38,8 @@ moderation_vllm_settings = OpenAIChatModelSettings(
 azure_settings = ModelSettings(extra_body=None)
 
 http_client = httpx.AsyncClient(timeout=httpx.Timeout(45.0, connect=2.0))
-vllm_limiter = ConcurrencyLimiter(max_running=2, name='vllm-pool')
+agrinet_limiter = ConcurrencyLimiter(max_running=10, max_queued=0, name='agrinet-vllm')
+moderation_limiter = ConcurrencyLimiter(max_running=10, max_queued=0, name='moderation-vllm')
 
 
 def _make_vllm_model(model_name, base_url, settings):
@@ -71,7 +72,7 @@ azure_model = _make_azure_model()
 AGRINET_MODEL = FallbackModel(
     ConcurrencyLimitedModel(
         _make_vllm_model(os.environ["LLM_AGRINET_MODEL_NAME"], os.environ["VLLM_AGRINET_MODEL_URL"], agrinet_vllm_settings),
-        limiter=vllm_limiter,
+        limiter=agrinet_limiter,
     ),
     azure_model,
 )
@@ -79,7 +80,7 @@ AGRINET_MODEL = FallbackModel(
 MODERATION_MODEL = FallbackModel(
     ConcurrencyLimitedModel(
         _make_vllm_model(os.environ["LLM_MODERATION_MODEL_NAME"], os.environ["VLLM_MODERATION_MODEL_URL"], moderation_vllm_settings),
-        limiter=vllm_limiter,
+        limiter=moderation_limiter,
     ),
     azure_model,
 )
