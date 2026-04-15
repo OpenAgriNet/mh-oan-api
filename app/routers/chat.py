@@ -13,7 +13,7 @@ logger = get_logger(__name__)
 router = APIRouter(prefix="/chat", tags=["chat"])
 
 @router.get("/")
-@limiter.limit("1000/hour")
+# @limiter.limit("1000/hour")  # temporarily disabled
 async def chat_endpoint(
     request: Request,
     background_tasks: BackgroundTasks,
