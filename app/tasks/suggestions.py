@@ -27,8 +27,11 @@ async def create_suggestions(session_id: str, target_lang: str = 'mr'):
                           include_tool_calls=False,
                           include_system_prompts=False
                           )
-        message_pairs = "\n\n".join(format_message_pairs(history, 5))
+        if not history:
+            logger.info(f"No conversation history for session {session_id}, skipping suggestions")
+            return []
 
+        message_pairs = "\n\n".join(format_message_pairs(history, 5))
         target_lang_name = Language.get(target_lang).display_name(target_lang)
         message = f"**Conversation**\n\n{message_pairs}\n\n**Based on the conversation, suggest 3-5 questions the farmer can ask in {target_lang_name}.**"
         
