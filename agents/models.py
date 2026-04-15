@@ -1,9 +1,10 @@
 from pydantic_ai.providers.azure import AzureProvider
 from pydantic_ai.providers.openai import OpenAIProvider
-from openai import AsyncOpenAI
+from openai import AsyncOpenAI, APIError
 import httpx
 import os
 from pydantic_ai.models.fallback import FallbackModel
+from pydantic_ai.exceptions import ModelAPIError, ConcurrencyLimitExceeded, UnexpectedModelBehavior
 from pydantic_ai.models.openai import OpenAIChatModel
 from pydantic_ai.models.concurrency import ConcurrencyLimitedModel
 from pydantic_ai.settings import ModelSettings
@@ -19,7 +20,7 @@ AZURE_OPENAI_API_VERSION = os.getenv('AZURE_OPENAI_API_VERSION', '2024-12-01-pre
 
 agrinet_vllm_settings = ModelSettings(
     temperature=0.7,
-    top_p=0.8,
+    top_p=0.95,
     presence_penalty=1.5,
     extra_body={
         "top_k": 20,
@@ -75,6 +76,7 @@ AGRINET_MODEL = FallbackModel(
         limiter=agrinet_limiter,
     ),
     azure_model,
+    fallback_on=(ModelAPIError, APIError, ConcurrencyLimitExceeded, UnexpectedModelBehavior),
 )
 
 MODERATION_MODEL = FallbackModel(
@@ -83,4 +85,5 @@ MODERATION_MODEL = FallbackModel(
         limiter=moderation_limiter,
     ),
     azure_model,
+    fallback_on=(ModelAPIError, APIError, ConcurrencyLimitExceeded, UnexpectedModelBehavior),
 )
