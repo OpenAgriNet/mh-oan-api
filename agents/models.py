@@ -22,6 +22,7 @@ agrinet_vllm_settings = ModelSettings(
     temperature=0.7,
     top_p=0.95,
     presence_penalty=1.5,
+    parallel_tool_calls=True,
     extra_body={
         "top_k": 20,
         "min_p": 0.0,
