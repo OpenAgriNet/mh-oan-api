@@ -6,9 +6,9 @@ import re
 import marqo
 from typing import Optional, Literal
 from pydantic import BaseModel, Field
-from pydantic_ai import ModelRetry
+from pydantic_ai import ModelRetry, RunContext
+from agents.deps import FarmerContext
 from helpers.utils import get_logger
-# NOTE: This is a hack to add Marathi terms to the search results.
 from agents.tools.terms import normalize_text_with_glossary
 
 logger = get_logger(__name__)
@@ -91,6 +91,7 @@ class SearchHit(BaseModel):
     source: str
     score: float = Field(alias="_score")
     id: str = Field(alias="_id")
+    lang_code: str = Field(default="mr")
 
     @property
     def processed_name(self) -> str:
@@ -102,7 +103,8 @@ class SearchHit(BaseModel):
         """Returns the text with cleaned up whitespace and newlines"""
         cleaned = re.sub(r'\n{2,}', '\n\n', self.text)
         cleaned = re.sub(r'\t+', '\t', cleaned)
-        cleaned = normalize_text_with_glossary(cleaned)
+        if self.lang_code != "en":
+            cleaned = normalize_text_with_glossary(cleaned, target_lang="hi")
         return cleaned
 
     def __str__(self) -> str:
@@ -113,8 +115,9 @@ class SearchHit(BaseModel):
 
 
 async def search_documents(
-    query: str, 
-    top_k: int = 10, 
+    ctx: RunContext[FarmerContext],
+    query: str,
+    top_k: int = 10,
 ) -> str:
     """
     Semantic search for documents. Use this tool to search for relevant documents.
@@ -156,9 +159,9 @@ async def search_documents(
         
         if len(results) == 0:
             return f"No results found for `{query}`"
-        else:            
-            search_hits = [SearchHit(**hit) for hit in results]            
-            # Convert back to dict format for compatibility
+        else:
+            lang_code = ctx.deps.lang_code
+            search_hits = [SearchHit(**hit, lang_code=lang_code) for hit in results]
             document_string = '\n\n----\n\n'.join([str(document) for document in search_hits])
             return "> Search Results for `" + query + "`\n\n" + document_string
     except Exception as e:
@@ -167,8 +170,9 @@ async def search_documents(
 
 
 async def search_videos(
-    query: str, 
-    top_k: int = 3, 
+    ctx: RunContext[FarmerContext],
+    query: str,
+    top_k: int = 3,
 ) -> str:
     """
     Semantic search for videos. Use this tool when recommending videos to the farmer.
@@ -205,8 +209,9 @@ async def search_videos(
         
         if len(results) == 0:
             return f"No videos found for `{query}`"
-        else:            
-            search_hits = [SearchHit(**hit) for hit in results]            
+        else:
+            lang_code = ctx.deps.lang_code
+            search_hits = [SearchHit(**hit, lang_code=lang_code) for hit in results]
             video_string = '\n\n----\n\n'.join([str(document) for document in search_hits])
             return "> Videos for `" + query + "`\n\n" + video_string
         
