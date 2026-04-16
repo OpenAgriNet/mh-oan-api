@@ -104,7 +104,8 @@ class SearchHit(BaseModel):
         cleaned = re.sub(r'\n{2,}', '\n\n', self.text)
         cleaned = re.sub(r'\t+', '\t', cleaned)
         if self.lang_code != "en":
-            cleaned = normalize_text_with_glossary(cleaned, target_lang="hi")
+            glossary_lang = "hi" if self.lang_code == "bhb" else self.lang_code
+            cleaned = normalize_text_with_glossary(cleaned, target_lang=glossary_lang)
         return cleaned
 
     def __str__(self) -> str:
