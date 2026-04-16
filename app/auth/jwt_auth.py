@@ -65,8 +65,8 @@ async def get_current_user(token: str | None = Depends(oauth2_scheme)):
             algorithms=[settings.jwt_algorithm],
             options={
                 "verify_signature": True,
-                "verify_aud": True,
-                "verify_iss": True
+                "verify_aud": False,
+                "verify_iss": False
             }
         )
         
