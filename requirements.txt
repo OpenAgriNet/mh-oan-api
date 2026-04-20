@@ -74,3 +74,6 @@ langcodes[data]==3.4.0
 
 # Humanize time, date, numbers, etc.
 humanize
+
+# Langfuse
+langfuse==3.20.0

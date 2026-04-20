@@ -9,6 +9,7 @@ from dateutil import parser
 from dateutil.parser import ParserError
 from pydantic_ai import ModelRetry, UnexpectedModelBehavior
 from dotenv import load_dotenv
+from langfuse import observe
 
 load_dotenv()
 
@@ -447,7 +448,7 @@ class WeatherRequest(BaseModel):
 
 
 
-    
+@observe(name="tool:weather_forecast", as_type="tool")
 async def weather_forecast(latitude: float, longitude: float, days: int = 5) -> str:
     """Get Weather forecast for a specific location.
 
@@ -489,6 +490,7 @@ async def weather_forecast(latitude: float, longitude: float, days: int = 5) -> 
         logger.error(f"Error getting weather forecast: {e}")
         raise ModelRetry(f"Unexpected error in weather forecast. {str(e)}")
 
+@observe(name="tool:weather_historical", as_type="tool")
 async def weather_historical(latitude: float, longitude: float, days: int = 5) -> str:
     """Get historical weather data for a specific location.
 

@@ -5,6 +5,7 @@ from copy import deepcopy
 from pydantic_ai.messages import (
     ModelMessagesTypeAdapter,
     ModelMessage,
+    ModelResponse,
     SystemPromptPart,
 )
 from pydantic_core import to_jsonable_python
@@ -96,6 +97,28 @@ def filter_out_tool_calls(messages: List[ModelMessage]) -> List[ModelMessage]:
             filtered_messages.append(msg_copy)            
     return filtered_messages
 
+
+
+def filter_thinking_from_history(messages: List[ModelMessage]) -> List[ModelMessage]:
+    """
+    Remove 'thinking' parts from message history.
+
+    Reasoning models (e.g. QwQ, Claude extended-thinking) emit internal
+    chain-of-thought tokens tagged with part_kind='thinking'. These must be
+    stripped before re-sending history to the model to avoid token-limit
+    bloat and unexpected model behaviour on multi-turn conversations.
+    """
+    filtered: List[ModelMessage] = []
+    for msg in messages:
+        if isinstance(msg, ModelResponse):
+            new_parts = [p for p in msg.parts if getattr(p, "part_kind", "") != "thinking"]
+            if new_parts:
+                m2 = deepcopy(msg)
+                m2.parts = new_parts
+                filtered.append(m2)
+        else:
+            filtered.append(msg)
+    return filtered
 
 
 def get_message_pairs(history: List[ModelMessage], limit: int = None) -> List[List]:

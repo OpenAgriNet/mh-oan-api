@@ -14,6 +14,7 @@ from typing import List, Optional, Dict, Any, ClassVar
 from pydantic_ai import ModelRetry, UnexpectedModelBehavior, RunContext
 from agents.deps import FarmerContext
 from dotenv import load_dotenv
+from langfuse import observe
 
 load_dotenv()
 
@@ -487,6 +488,7 @@ class MahaDBTRequest(BaseModel):
             "message": {"intent": {"category": {"descriptor": {"code": "farmer-details-info"}}, "item": {"id": self.farmer_id}}},
         }
 
+@observe(name="tool:get_scheme_status",as_type="tool")
 async def get_scheme_status(ctx: RunContext[FarmerContext]) -> str:
     """Fetch a summary of the farmer's scheme applications and their status from MahaDBT API. Returns a summary of the farmer's scheme applications and their status from MahaDBT, including application status, disbursement information, and scheme details."""
     if ctx.deps.farmer_id:

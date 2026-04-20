@@ -5,6 +5,7 @@ from cachecontrol.caches.file_cache import FileCache
 from typing import Optional
 from pydantic import BaseModel, Field, field_validator
 from helpers.utils import get_logger
+from langfuse import observe
 
 logger = get_logger(__name__)
 
@@ -54,6 +55,7 @@ class Location(BaseModel):
         return f"{self.place_name} ({self.latitude}, {self.longitude})"
     
 
+@observe(name="tool:formward_geocode",as_type="tool")
 async def forward_geocode(place_name: str) -> Optional[Location]:
     """Forward Geocoding to get latitude and longitude from place name.
 
@@ -87,6 +89,7 @@ async def forward_geocode(place_name: str) -> Optional[Location]:
         logger.info(f"Error: {response.status_code}")
     return None
 
+@observe(name="tool:reverse_geocode", as_type="tool")
 async def reverse_geocode(latitude: float, longitude: float) -> Optional[Location]:
     """Reverse Geocoding to get place name from latitude and longitude.
 

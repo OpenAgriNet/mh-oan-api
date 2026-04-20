@@ -7,7 +7,7 @@ import httpx
 from pydantic import BaseModel, AnyHttpUrl, Field
 from typing import List, Optional, Dict, Any
 from pydantic_ai import ModelRetry, UnexpectedModelBehavior
-
+from langfuse import observe
 logger = get_logger(__name__)
 
 # Load scheme list once at module level
@@ -267,7 +267,7 @@ class SchemeRequest(BaseModel):
             }
         }
 
-
+@observe(name="tool:get_scheme_codes", as_type="tool")
 async def get_scheme_codes() -> str:
     """Returns a prioritized list of scheme names and codes with state schemes first.
 
@@ -291,8 +291,7 @@ async def get_scheme_codes() -> str:
 
     return markdown_table
 
-
-
+@observe(name="tool:get_scheme_info", as_type="tool")
 async def get_scheme_info(scheme_code: str) -> str:
     """Retrieve detailed information about government agricultural schemes.
     
