@@ -22,7 +22,7 @@ tenacity
 slowapi
 # Logfire
 logfire
-gevent>=22.10.0
+# gevent>=22.10.0  # commented out for local/docker installs (was building from source and failing)
 
 # Redis for caching and stuff
 redis

@@ -20,7 +20,7 @@ load_dotenv()
 AZURE_OPENAI_API_VERSION = os.getenv('AZURE_OPENAI_API_VERSION', '2024-12-01-preview')
 
 agrinet_vllm_settings = ModelSettings(
-    temperature=1.0,
+    temperature=0.9,
     top_p=0.95,
     tool_calls_limit=15,
     presence_penalty=1.5,
@@ -33,7 +33,7 @@ agrinet_vllm_settings = ModelSettings(
     ),
     extra_body={
         "top_k": 20,
-        "min_p": 0.0,
+        "min_p": 0.05,
         "repetition_penalty": 1.0,
         "chat_template_kwargs": {"enable_thinking": False},
     },
