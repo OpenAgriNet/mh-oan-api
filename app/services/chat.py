@@ -32,8 +32,8 @@ from agents.deps import FarmerContext
 logger = get_logger(__name__)
 
 MODEL_NAME = (
-    os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME")
-    or os.getenv("LLM_AGRINET_MODEL_NAME")
+    os.getenv("LLM_AGRINET_MODEL_NAME")
+    or os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME")
     or os.getenv("LLM_MODEL_NAME")
 )
 
