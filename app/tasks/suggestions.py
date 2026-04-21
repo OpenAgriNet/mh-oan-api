@@ -21,7 +21,7 @@ SUGGESTIONS_CACHE_TTL = 60 * 30  # 30 minutes
 SUGGESTIONS_TRACE_NAME = (
     os.getenv("LANGFUSE_SUGGESTIONS_TRACE_NAME")
     or os.getenv("LANGFUSE_SUGGESTIONS_TRACE_ROOT_NAME")
-    or "mh-vistaar-suggestions"
+    or "suggestions-agent"
 )
 SUGGESTIONS_CHAIN_SPAN_NAME = "chain.suggestions"
 

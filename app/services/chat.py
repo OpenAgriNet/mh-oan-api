@@ -40,7 +40,7 @@ MODEL_NAME = (
 CHAT_TRACE_NAME = (
     os.getenv("LANGFUSE_TRACE_NAME")
     or os.getenv("LANGFUSE_TRACE_ROOT_NAME")
-    or "mh-vistaar-chat"
+    or "vistaar-agent"
 )
 CHAT_CHAIN_SPAN_NAME = "chain.chat"
 
