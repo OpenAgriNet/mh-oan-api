@@ -4,6 +4,7 @@ from typing import List, Optional
 from pydantic_settings import BaseSettings
 from dotenv import load_dotenv
 
+
 # Load environment variables from .env file
 load_dotenv()
 
@@ -66,6 +67,13 @@ class Settings(BaseSettings):
     meity_api_key_value: Optional[str] = None
     logfire_token: Optional[str] = None
     bhashini_api_key: str = ""
+    langfuse_public_key: Optional[str] = None
+    langfuse_secret_key: Optional[str] = None
+    langfuse_host: Optional[str] = None
+    # Langfuse UI "Env" badge + OTel resource; defaults to app ENVIRONMENT so it matches env: tags in chat traces.
+    langfuse_tracing_environment: str = (
+        os.getenv("LANGFUSE_TRACING_ENVIRONMENT") or os.getenv("ENVIRONMENT", "development")
+    )
     eleven_labs_api_key: str = ""
     inference_api_key: Optional[str] = None
     gemini_api_key: Optional[str] = None

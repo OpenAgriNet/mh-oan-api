@@ -10,6 +10,7 @@ from pydantic_ai import ModelRetry, RunContext
 from agents.deps import FarmerContext
 from helpers.utils import get_logger
 from agents.tools.terms import normalize_text_with_glossary
+from langfuse import observe
 
 logger = get_logger(__name__)
 
@@ -114,7 +115,7 @@ class SearchHit(BaseModel):
         else:
             return f"**[{self.processed_name}]({self.source})**\n" + "```\n" + self.processed_text + "\n```\n"
 
-
+@observe(name="tool:search_documents", as_type="tool")
 async def search_documents(
     ctx: RunContext[FarmerContext],
     query: str,
@@ -169,7 +170,7 @@ async def search_documents(
         logger.error(f"Error searching documents: {e} for query: {query}")
         raise ModelRetry(f"Error searching documents, please try again")
 
-
+@observe(name="tool:search_videos", as_type="tool")
 async def search_videos(
     ctx: RunContext[FarmerContext],
     query: str,

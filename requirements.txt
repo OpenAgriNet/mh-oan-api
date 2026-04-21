@@ -22,7 +22,7 @@ tenacity
 slowapi
 # Logfire
 logfire
-gevent>=22.10.0
+gevent>=22.10.0,<26  # 26.x has no aarch64 cp310 wheel; sdist hits libev configure errors
 
 # Redis for caching and stuff
 redis
@@ -74,3 +74,6 @@ langcodes[data]==3.4.0
 
 # Humanize time, date, numbers, etc.
 humanize
+
+# Langfuse
+langfuse==3.14.6

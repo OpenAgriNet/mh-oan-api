@@ -8,6 +8,7 @@ from pydantic import BaseModel, AnyHttpUrl, Field
 from typing import List, Optional, Dict, Any, Literal
 from pydantic_ai import ModelRetry, UnexpectedModelBehavior
 from dotenv import load_dotenv
+from langfuse import observe
 
 load_dotenv()
 
@@ -263,7 +264,7 @@ class AgriServicesRequest(BaseModel):
             }
         }
 
-
+@observe(name="tool:agri_services", as_type="tool")
 async def agri_services(latitude: float, longitude: float, category_code: Literal["kvk", "chc", "soil_lab", "warehouse"]) -> str:
     """Fetch agricultural services (KVK, CHC, soil labs, warehouse) for a given location via BAP.
 

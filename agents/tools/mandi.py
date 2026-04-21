@@ -9,6 +9,8 @@ from pydantic_ai import ModelRetry, UnexpectedModelBehavior
 from dotenv import load_dotenv
 from dateutil import parser
 import humanize
+import pytz
+from langfuse import observe
 
 load_dotenv()
 
@@ -286,7 +288,11 @@ class MandiRequest(BaseModel):
             }
         }
 
-async def mandi_prices(latitude: float, longitude: float) -> str:
+@observe(name="tool:get_mandi_prices",as_type="tool")
+async def mandi_prices(
+    latitude: float, 
+    longitude: float,
+    ) -> str:
     """Get Market/Mandi prices for a specific location.
 
     Args:
@@ -297,7 +303,10 @@ async def mandi_prices(latitude: float, longitude: float) -> str:
         str: The mandi prices for the specific location
     """
     try:
-        payload = MandiRequest(latitude=latitude, longitude=longitude).get_payload()
+        payload = MandiRequest(
+            latitude=latitude, 
+            longitude=longitude,
+            ).get_payload()
         
         async with httpx.AsyncClient() as client:
             response = await client.post(

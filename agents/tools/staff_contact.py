@@ -8,6 +8,7 @@ from pydantic import BaseModel, AnyHttpUrl, Field
 from typing import List, Optional, Dict, Any
 from pydantic_ai import ModelRetry, UnexpectedModelBehavior
 from dotenv import load_dotenv
+from langfuse import observe
 
 load_dotenv()
 
@@ -380,6 +381,7 @@ class ContactRequest(BaseModel):
 # -----------------------
 # Helper Functions
 # -----------------------
+@observe(name="tool:get_village_code_from_admin_api", as_type="tool")
 async def _get_village_code_from_admin_api(latitude: float, longitude: float) -> Optional[str]:
     """Get village code from administrative information API.
     
@@ -441,6 +443,7 @@ async def _get_village_code_from_admin_api(latitude: float, longitude: float) ->
 # -----------------------
 # Contact information for - aa (Agricultural Assistant), ga (Government Agricultural Staff)
 # -----------------------
+@observe(name="tool:contact_agricultural_staff", as_type="tool")
 async def contact_agricultural_staff(latitude: float, longitude: float) -> str:
     """Get the contact information for the agricultural staff for a specific location.
 

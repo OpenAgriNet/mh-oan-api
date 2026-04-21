@@ -9,6 +9,7 @@ from pydantic_ai import ModelRetry, UnexpectedModelBehavior, RunContext
 from agents.deps import FarmerContext
 from agents.tools.maps import Location
 from dotenv import load_dotenv
+from langfuse import observe
 
 load_dotenv()
 
@@ -384,6 +385,7 @@ class AgristackRequest(BaseModel):
             "message": {"intent": {"category": {"descriptor": {"code": "agristack_farmer_info"}}, "item": {"id": self.farmer_id}}},
         }
 
+@observe(name="tool:fetch_agristack_data", as_type="tool")
 async def fetch_agristack_data(ctx: RunContext[FarmerContext]) -> str:
     """If Agristack Information is available for the user, use this tool to fetch it. This tool returns details of the farmer from the Agristack API, for instance:
         - Profile information such as Gender, Caste Category
