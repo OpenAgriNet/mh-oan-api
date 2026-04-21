@@ -1,7 +1,7 @@
-import jwt
+# import jwt  # JWT disabled for local testing
 import os
 from dotenv import load_dotenv
-from cryptography.hazmat.primitives import serialization
+# from cryptography.hazmat.primitives import serialization  # JWT disabled for local testing
 from fastapi import Depends, HTTPException, status, Request
 from fastapi.security import OAuth2PasswordBearer
 from fastapi.security.utils import get_authorization_scheme_param
@@ -30,70 +30,77 @@ class OptionalOAuth2PasswordBearer(OAuth2PasswordBearer):
 # OAuth2 scheme for FastAPI - optional in development
 oauth2_scheme = OptionalOAuth2PasswordBearer(tokenUrl="token")
 
-# Construct the absolute path to the public key using settings
-public_key_path = settings.base_dir / settings.jwt_public_key_path
+# # Construct the absolute path to the public key using settings
+# public_key_path = settings.base_dir / settings.jwt_public_key_path
+#
+# with open(public_key_path, 'rb') as key_file:
+#     public_key = serialization.load_pem_public_key(key_file.read())
+# logger.info(f"Successfully loaded JWT Public Key from: {public_key_path}")
+public_key = None
 
-with open(public_key_path, 'rb') as key_file:
-    public_key = serialization.load_pem_public_key(key_file.read())
-logger.info(f"Successfully loaded JWT Public Key from: {public_key_path}")
+# --- JWT disabled for local testing ---
+# async def get_current_user(token: str | None = Depends(oauth2_scheme)):
+#     """
+#     FastAPI dependency to get current authenticated user from JWT token.
+#     This replaces the Django middleware approach.
+#     Bypasses authentication in development environment.
+#     """
+#     # Skip authentication in development environment
+#     if settings.environment == "development":
+#         logger.info("Development environment detected - bypassing authentication")
+#         return "development_user"
+#
+#     credentials_exception = HTTPException(
+#         status_code=status.HTTP_401_UNAUTHORIZED,
+#         detail="Could not validate credentials",
+#         headers={"WWW-Authenticate": "Bearer"},
+#     )
+#
+#     if public_key is None:
+#         logger.error("JWT Public Key is not loaded, cannot verify tokens.")
+#         raise credentials_exception
+#
+#     try:
+#         decoded_token = jwt.decode(
+#             token,
+#             public_key,
+#             algorithms=[settings.jwt_algorithm],
+#             options={
+#                 "verify_signature": True,
+#                 "verify_aud": False,
+#                 "verify_iss": False
+#             }
+#         )
+#
+#         logger.info(f"Decoded token: {decoded_token}")
+#
+#         return decoded_token
+#
+#     except jwt.ExpiredSignatureError:
+#         logger.warning("Token has expired")
+#         raise HTTPException(
+#             status_code=status.HTTP_401_UNAUTHORIZED,
+#             detail="Token has expired",
+#             headers={"WWW-Authenticate": "Bearer"},
+#         )
+#
+#     except jwt.InvalidTokenError as e:
+#         logger.warning(f"Invalid token error: {str(e)}")
+#         raise HTTPException(
+#             status_code=status.HTTP_401_UNAUTHORIZED,
+#             detail=f"Invalid token: {str(e)}",
+#             headers={"WWW-Authenticate": "Bearer"},
+#         )
+#
+#     except Exception as e:
+#         logger.error(f"Unexpected error during token verification: {str(e)}")
+#         raise HTTPException(
+#             status_code=status.HTTP_401_UNAUTHORIZED,
+#             detail="Token verification failed",
+#             headers={"WWW-Authenticate": "Bearer"},
+#         )
 
 async def get_current_user(token: str | None = Depends(oauth2_scheme)):
-    """
-    FastAPI dependency to get current authenticated user from JWT token.
-    This replaces the Django middleware approach.
-    Bypasses authentication in development environment.
-    """
-    # # Skip authentication in development environment
-    # if settings.environment == "development":
-    #     logger.info("Development environment detected - bypassing authentication")
-    #     return "development_user"
-    
-    credentials_exception = HTTPException(
-        status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Could not validate credentials",
-        headers={"WWW-Authenticate": "Bearer"},
-    )
-    
-    if public_key is None:
-        logger.error("JWT Public Key is not loaded, cannot verify tokens.")
-        raise credentials_exception
-        
-    try:
-        decoded_token = jwt.decode(
-            token,
-            public_key,
-            algorithms=[settings.jwt_algorithm],
-            options={
-                "verify_signature": True,
-                "verify_aud": True,
-                "verify_iss": True
-            }
-        )
-        
-        logger.info(f"Decoded token: {decoded_token}")
-        
-        return decoded_token
-        
-    except jwt.ExpiredSignatureError:
-        logger.warning("Token has expired")
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Token has expired",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
-    
-    except jwt.InvalidTokenError as e:
-        logger.warning(f"Invalid token error: {str(e)}")
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail=f"Invalid token: {str(e)}",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
-    
-    except Exception as e:
-        logger.error(f"Unexpected error during token verification: {str(e)}")
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Token verification failed",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
+    """JWT auth disabled for local testing — always returns a mock user."""
+    logger.info("JWT disabled for local testing - returning mock user")
+    return {"sub": "local_test_user", "env": "local"}
