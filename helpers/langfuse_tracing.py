@@ -10,8 +10,8 @@ from langfuse import get_client
 
 def lf_set_trace_io(*, input: Any = None, output: Any = None) -> None:
     """Trace-level input/output for the Langfuse trace detail view."""
-    get_client().set_current_trace_io(input=input, output=output)
-
+    client = get_client()
+    client.update_current_trace(input=input, output=output)
 
 def lf_update_current_observation(
     *,

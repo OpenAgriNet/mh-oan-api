@@ -1,26 +1,3 @@
-"""Chat service — true streaming with per-request Langfuse tracing.
-
-Trace hierarchy produced in Langfuse:
-  chain.chat          ← stream_chat_messages  (@observe, async generator)
-  ├── agent.moderation ← _run_moderation       (@observe, regular coroutine)
-  └── agent.vistaar    ← _run_agrinet_stream   (@observe, async generator)
-
-Design notes
-------------
-* Langfuse v3 @observe supports async generators (same as stream_chat_messages
-  on disk already demonstrates).  The span is closed when the generator is
-  exhausted or .aclose() is called (client disconnect).
-* lf_update_current_observation() is called BEFORE the first yield (sets
-  input) and inside a finally block (sets output + usage) so the span is
-  always closed with correct data even on early disconnect.
-* History update runs AFTER the finally block — it is only reached on normal
-  exhaustion.  On early disconnect the generator is .aclose()'d, skipping
-  the history write (incomplete responses are not persisted).
-* The only await inside finally is intentionally avoided — lf_update and
-  lf_set_trace_io are synchronous — keeping the generator safe on all
-  Python 3.9+ runtimes.
-"""
-
 import os
 from typing import AsyncGenerator
 
@@ -84,7 +61,6 @@ async def _translate_paragraph(text: str, source_lang: str, target_lang: str) ->
 # Public entry-point
 # ---------------------------------------------------------------------------
 
-@observe(name=CHAT_CHAIN_SPAN_NAME, as_type="chain")
 async def stream_chat_messages(
     query: str,
     session_id: str,
@@ -95,14 +71,20 @@ async def stream_chat_messages(
     user_info: dict,
     background_tasks: BackgroundTasks,
 ) -> AsyncGenerator[str, None]:
-    """Async generator for streaming chat messages with full Langfuse tracing."""
+    """Async generator for streaming chat messages with full Langfuse tracing.
+
+    Uses start_as_current_observation (not @observe) so an OpenTelemetry current
+    span exists across StreamingResponse/async-generator yields.
+    """
     logger.info(f"User info: {user_info}")
 
     lf_env = os.getenv("LANGFUSE_TRACING_ENVIRONMENT", "development")
-    trace_tags = [f"env:{lf_env}", *([ f"model:{MODEL_NAME}"] if MODEL_NAME else [])]
+    trace_tags = [f"env:{lf_env}", *([f"model:{MODEL_NAME}"] if MODEL_NAME else [])]
+
+    lf_client = get_client()
 
     # propagate_attributes sets TRACE-level metadata (user_id, session_id,
-    # trace_name, tags) inherited by all child @observe spans.
+    # trace_name, tags) inherited by all child spans.
     with propagate_attributes(
         user_id=user_id,
         session_id=session_id,
@@ -115,75 +97,79 @@ async def stream_chat_messages(
         tags=trace_tags,
         trace_name=CHAT_TRACE_NAME,
     ):
-        lf_set_trace_io(input=query)
+        with lf_client.start_as_current_observation(
+            as_type="chain",
+            name=CHAT_CHAIN_SPAN_NAME,
+        ):
+            lf_set_trace_io(input=query)
 
-        # ------------------------------------------------------------------
-        # Bhili: translate query → English before processing
-        # ------------------------------------------------------------------
-        is_bhili = source_lang == "bhb"
-        if is_bhili:
-            query = await translation_service.translate_text(query, source_lang, "en")
-            logger.info(f"Bhili query translated to English: {query}")
-            target_lang = "en"
+            # ------------------------------------------------------------------
+            # Bhili: translate query → English before processing
+            # ------------------------------------------------------------------
+            is_bhili = source_lang == "bhb"
+            if is_bhili:
+                query = await translation_service.translate_text(query, source_lang, "en")
+                logger.info(f"Bhili query translated to English: {query}")
+                target_lang = "en"
 
-        deps = FarmerContext(
-            query=query,
-            lang_code=target_lang,
-            farmer_id=user_info.get("farmer_id"),
-        )
+            deps = FarmerContext(
+                query=query,
+                lang_code=target_lang,
+                farmer_id=user_info.get("farmer_id"),
+            )
 
-        message_pairs = "\n\n".join(format_message_pairs(history, 3))
-        logger.info(f"Message pairs: {message_pairs}")
-        last_response = (
-            f"**Conversation**\n\n{message_pairs}\n\n---\n\n" if message_pairs else ""
-        )
+            message_pairs = "\n\n".join(format_message_pairs(history, 3))
+            logger.info(f"Message pairs: {message_pairs}")
+            last_response = (
+                f"**Conversation**\n\n{message_pairs}\n\n---\n\n" if message_pairs else ""
+            )
 
-        # ------------------------------------------------------------------
-        # Moderation — child span via @observe (regular coroutine, safe)
-        # ------------------------------------------------------------------
-        moderation_data = await _run_moderation(
-            user_message=f"{last_response}{deps.get_user_message()}",
-            session_id=session_id,
-        )
-        logger.info(f"Moderation data: {moderation_data}")
-        deps.update_moderation_str(str(moderation_data))
-
-        if moderation_data.category == "valid_agricultural":
-            logger.info(f"Triggering suggestions generation for session {session_id}")
-            try:
-                background_tasks.add_task(create_suggestions, session_id, target_lang)
-            except Exception as e:
-                logger.error(f"Error adding suggestions task: {str(e)}")
-
-        # ------------------------------------------------------------------
-        # History prep
-        # ------------------------------------------------------------------
-        trimmed_history = trim_history(
-            history,
-            max_tokens=80_000,
-            include_system_prompts=True,
-            include_tool_calls=True,
-        )
-        logger.info(f"Trimmed history: {len(trimmed_history)} messages")
-        trimmed_history = filter_thinking_from_history(trimmed_history)
-
-        # ------------------------------------------------------------------
-        # Main agent — true streaming, child span via @observe async generator
-        # ------------------------------------------------------------------
-        with propagate_attributes(tags=[moderation_data.category]):
-            async for chunk in _run_agrinet_stream(
-                user_message=deps.get_user_message(),
-                trimmed_history=trimmed_history,
-                history=history,
-                deps=deps,
+            # ------------------------------------------------------------------
+            # Moderation — child span via @observe (regular coroutine, safe)
+            # ------------------------------------------------------------------
+            moderation_data = await _run_moderation(
+                user_message=f"{last_response}{deps.get_user_message()}",
                 session_id=session_id,
-                user_id=user_id,
-                moderation_category=moderation_data.category,
-                is_bhili=is_bhili,
-            ):
-                yield chunk
+            )
+            logger.info(f"Moderation data: {moderation_data}")
+            deps.update_moderation_str(str(moderation_data))
 
-        get_client().flush()
+            if moderation_data.category == "valid_agricultural":
+                logger.info(f"Triggering suggestions generation for session {session_id}")
+                try:
+                    background_tasks.add_task(create_suggestions, session_id, target_lang)
+                except Exception as e:
+                    logger.error(f"Error adding suggestions task: {str(e)}")
+
+            # ------------------------------------------------------------------
+            # History prep
+            # ------------------------------------------------------------------
+            trimmed_history = trim_history(
+                history,
+                max_tokens=80_000,
+                include_system_prompts=True,
+                include_tool_calls=True,
+            )
+            logger.info(f"Trimmed history: {len(trimmed_history)} messages")
+            trimmed_history = filter_thinking_from_history(trimmed_history)
+
+            # ------------------------------------------------------------------
+            # Main agent — true streaming, child span via manual observation
+            # ------------------------------------------------------------------
+            with propagate_attributes(tags=[moderation_data.category]):
+                async for chunk in _run_agrinet_stream(
+                    user_message=deps.get_user_message(),
+                    trimmed_history=trimmed_history,
+                    history=history,
+                    deps=deps,
+                    session_id=session_id,
+                    user_id=user_id,
+                    moderation_category=moderation_data.category,
+                    is_bhili=is_bhili,
+                ):
+                    yield chunk
+
+            lf_client.flush()
 
 
 # ---------------------------------------------------------------------------
@@ -215,7 +201,6 @@ async def _run_moderation(user_message: str, session_id: str):
 # Agrinet agent span — true streaming async generator
 # ---------------------------------------------------------------------------
 
-@observe(name=AGENT_VISTAAR, as_type="agent")
 async def _run_agrinet_stream(
     user_message: str,
     trimmed_history: list,
@@ -234,75 +219,83 @@ async def _run_agrinet_stream(
     inside a finally block so the span is always closed correctly even on early
     client disconnect.
 
+    Uses start_as_current_observation (not @observe) so current span exists
+    across async-generator yields.
+
     History is updated AFTER the generator fully exhausts.  On early disconnect
     (generator .aclose()'d) the history write is skipped — partial responses
     are not persisted.
     """
-    # Set span input before streaming starts.
-    lf_update_current_observation(
-        input=user_message,
-        metadata={
-            "session_id": session_id,
-            "user_id": user_id,
-            "moderation_category": moderation_category,
-        },
-    )
-
-    full_output = ""
-    new_messages = []
-    request_tokens = 0
-    response_tokens = 0
-
-    try:
-        async with agrinet_agent.run_stream(
-            user_prompt=user_message,
-            message_history=trimmed_history,
-            deps=deps,
-        ) as response_stream:
-
-            if is_bhili:
-                # Buffer paragraph-by-paragraph so Bhashini receives complete
-                # sentences, then translate each paragraph before yielding.
-                buffer = ""
-                async for chunk in response_stream.stream_text(delta=True):
-                    buffer += chunk
-                    while "\n\n" in buffer:
-                        paragraph, buffer = buffer.split("\n\n", 1)
-                        translated = await _translate_paragraph(paragraph, "en", "bhb")
-                        full_output += translated + "\n\n"
-                        yield translated + "\n\n"
-                # Flush remaining tail (no trailing double-newline)
-                if buffer.strip():
-                    translated_tail = await _translate_paragraph(buffer, "en", "bhb")
-                    full_output += translated_tail
-                    yield translated_tail
-            else:
-                async for chunk in response_stream.stream_text(delta=True):
-                    full_output += chunk
-                    yield chunk
-
-            logger.info(f"Streaming complete for session {session_id}")
-            new_messages = response_stream.new_messages()
-
-            # Usage is only available after the stream context exits.
-            try:
-                usage = response_stream.usage()
-                request_tokens = usage.request_tokens or 0
-                response_tokens = usage.response_tokens or 0
-            except Exception:
-                pass  # Usage unavailable — tokens reported as 0
-
-    finally:
-        # Synchronous-only block: safe inside async generators on Python 3.9+.
-        # Runs on normal exhaustion AND on early .aclose() (client disconnect).
+    lf_client = get_client()
+    with lf_client.start_as_current_observation(
+        as_type="agent",
+        name=AGENT_VISTAAR,
+    ):
+        # Set span input before streaming starts.
         lf_update_current_observation(
-            output=full_output,
-            model=MODEL_NAME,
-            request_tokens=request_tokens,
-            response_tokens=response_tokens,
-            metadata={},
+            input=user_message,
+            metadata={
+                "session_id": session_id,
+                "user_id": user_id,
+                "moderation_category": moderation_category,
+            },
         )
-        lf_set_trace_io(output=full_output)
+
+        full_output = ""
+        new_messages = []
+        request_tokens = 0
+        response_tokens = 0
+
+        try:
+            async with agrinet_agent.run_stream(
+                user_prompt=user_message,
+                message_history=trimmed_history,
+                deps=deps,
+            ) as response_stream:
+
+                if is_bhili:
+                    # Buffer paragraph-by-paragraph so Bhashini receives complete
+                    # sentences, then translate each paragraph before yielding.
+                    buffer = ""
+                    async for chunk in response_stream.stream_text(delta=True):
+                        buffer += chunk
+                        while "\n\n" in buffer:
+                            paragraph, buffer = buffer.split("\n\n", 1)
+                            translated = await _translate_paragraph(paragraph, "en", "bhb")
+                            full_output += translated + "\n\n"
+                            yield translated + "\n\n"
+                    # Flush remaining tail (no trailing double-newline)
+                    if buffer.strip():
+                        translated_tail = await _translate_paragraph(buffer, "en", "bhb")
+                        full_output += translated_tail
+                        yield translated_tail
+                else:
+                    async for chunk in response_stream.stream_text(delta=True):
+                        full_output += chunk
+                        yield chunk
+
+                logger.info(f"Streaming complete for session {session_id}")
+                new_messages = response_stream.new_messages()
+
+                # Usage is only available after the stream context exits.
+                try:
+                    usage = response_stream.usage()
+                    request_tokens = usage.request_tokens or 0
+                    response_tokens = usage.response_tokens or 0
+                except Exception:
+                    pass  # Usage unavailable — tokens reported as 0
+
+        finally:
+            # Synchronous-only block: safe inside async generators on Python 3.9+.
+            # Runs on normal exhaustion AND on early .aclose() (client disconnect).
+            lf_update_current_observation(
+                output=full_output,
+                model=MODEL_NAME,
+                request_tokens=request_tokens,
+                response_tokens=response_tokens,
+                metadata={},
+            )
+            lf_set_trace_io(output=full_output)
 
     # Reached only on normal exhaustion (not on .aclose()).
     # Persist the confirmed full response to message history.
