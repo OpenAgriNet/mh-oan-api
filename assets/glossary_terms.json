@@ -11,7 +11,7 @@
         "mr": "मर / मररोग",
         "transliteration": "mar",
         "hi": "मुरझाने का रोग",
-        "bhb": "मुर"
+        "bhb": "मर"
     },
     {
         "en": "Agriculture",
@@ -25,7 +25,7 @@
         "mr": "शेतकरी",
         "transliteration": "shetkaree",
         "hi": "किसान",
-        "bhb": "शेतकरी"
+        "bhb": "खेडूत"
     },
     {
         "en": "Crop",
@@ -102,7 +102,7 @@
         "mr": "पावसावर अवलंबून शेती",
         "transliteration": "paavsaavar avalamboon shetee",
         "hi": "वर्षा पर निर्भर कृषि",
-        "bhb": "पावसाव अवलंबून खेती"
+        "bhb": "कोरडवाहू खेती"
     },
     {
         "en": "Crop Rotation",
@@ -158,7 +158,7 @@
         "mr": "गांडूळखत",
         "transliteration": "gaandoolakhat",
         "hi": "केंचुआ खाद",
-        "bhb": "गांडूळ खत"
+        "bhb": "हेवाया खत"
     },
     {
         "en": "Drip Irrigation",
@@ -193,14 +193,14 @@
         "mr": "डाळ",
         "transliteration": "daal",
         "hi": "दाल",
-        "bhb": "नाडी"
+        "bhb": "दाळ वर्गीय पिके"
     },
     {
         "en": "Oilseed",
         "mr": "तेलबिया",
         "transliteration": "telabiyaa",
         "hi": "तिलहन",
-        "bhb": "तेलबी"
+        "bhb": "तेला बी"
     },
     {
         "en": "Mulching",
@@ -284,7 +284,7 @@
         "mr": "ज्वारी",
         "transliteration": "jvaaree",
         "hi": "ज्वार",
-        "bhb": "जुवार"
+        "bhb": "जुवां"
     },
     {
         "en": "Bajra",
@@ -305,7 +305,7 @@
         "mr": "हळद",
         "transliteration": "halad",
         "hi": "हल्दी",
-        "bhb": "एदो"
+        "bhb": "ऐअदो"
     },
     {
         "en": "Ginger",
@@ -326,7 +326,7 @@
         "mr": "लसूण / लसून",
         "transliteration": "lasoon",
         "hi": "लहसुन",
-        "bhb": "लुहण्यो"
+        "bhb": "गोंदलं"
     },
     {
         "en": "Tomato",
@@ -368,7 +368,7 @@
         "mr": "गाजर",
         "transliteration": "gaajar",
         "hi": "गाजर",
-        "bhb": "गाजर"
+        "bhb": "गाजरे"
     },
     {
         "en": "Radish",
@@ -417,7 +417,7 @@
         "mr": "कोथिंबीर",
         "transliteration": "kothimbeer",
         "hi": "धनिया",
-        "bhb": "कोथों"
+        "bhb": "खतबुरं"
     },
     {
         "en": "Fenugreek",
@@ -431,7 +431,7 @@
         "mr": "मोहरी",
         "transliteration": "moharee",
         "hi": "सरसों",
-        "bhb": "मोहरी"
+        "bhb": "रायटों"
     },
     {
         "en": "Sesame",
@@ -459,7 +459,7 @@
         "mr": "सूर्यफूल / सुर्यफुल",
         "transliteration": "sooryaphool",
         "hi": "सूरजमुखी",
-        "bhb": "सूर्यफूल"
+        "bhb": "हुरजा फुल"
     },
     {
         "en": "Lentil",
@@ -487,14 +487,14 @@
         "mr": "मूग",
         "transliteration": "moog",
         "hi": "मूंग",
-        "bhb": "मूग"
+        "bhb": "मुगड्या"
     },
     {
         "en": "Pigeon Pea",
         "mr": "तूर",
         "transliteration": "toor",
         "hi": "अरहर",
-        "bhb": "तोव"
+        "bhb": "तुव्या"
     },
     {
         "en": "Farm Equipment",
@@ -515,21 +515,21 @@
         "mr": "विळा",
         "transliteration": "vilaa",
         "hi": "हंसिया",
-        "bhb": "दातरों"
+        "bhb": "दाहलो"
     },
     {
         "en": "Spade",
         "mr": "फावडा",
         "transliteration": "phaavadaa",
         "hi": "फावड़ा",
-        "bhb": "खुरपी"
+        "bhb": "ओश्यो"
     },
     {
         "en": "Shovel",
         "mr": "फावडे",
         "transliteration": "phaavade",
         "hi": "फावड़ा",
-        "bhb": "कोदलो"
+        "bhb": "पावडी"
     },
     {
         "en": "Rake",
@@ -543,14 +543,14 @@
         "mr": "वखर",
         "transliteration": "vakhar",
         "hi": "पाटा/हैरो",
-        "bhb": "हारो"
+        "bhb": "ओल"
     },
     {
         "en": "Thresher",
         "mr": "मळणी यंत्र",
         "transliteration": "malanee yantra",
         "hi": "थ्रेशर/गहाई मशीन",
-        "bhb": "मोलनी"
+        "bhb": "चरको"
     },
     {
         "en": "Seeder",
@@ -564,14 +564,14 @@
         "mr": "रोप लावण्याचे यंत्र",
         "transliteration": "rop laavanyaache yantra",
         "hi": "रोपाई मशीन",
-        "bhb": "रोप लावणू यंत्र"
+        "bhb": "रोप लागवुनू मसीन"
     },
     {
         "en": "Sprayer",
         "mr": "फवारणी यंत्र",
         "transliteration": "phavaaranee yantra",
         "hi": "स्प्रेयर/छिड़काव यंत्र",
-        "bhb": "फवारणी यंत्र"
+        "bhb": "फवारणी पंप"
     },
     {
         "en": "Duster",
@@ -585,14 +585,14 @@
         "mr": "सिंचन कालवा",
         "transliteration": "sinchan kaalavaa",
         "hi": "सिंचाई नहर",
-        "bhb": "सिंचन कालवा"
+        "bhb": "नेर"
     },
     {
         "en": "Borewell",
         "mr": "कूपनलिका",
         "transliteration": "koopanalikaa",
         "hi": "नलकूप",
-        "bhb": "बोअरवेल"
+        "bhb": "बोरींग"
     },
     {
         "en": "Tube Well",
@@ -620,21 +620,21 @@
         "mr": "पावसाचे पाणी साठवणे",
         "transliteration": "paavasaache paanee saathavane",
         "hi": "वर्षा जल संचयन",
-        "bhb": "पावसानू पाण्या साठवण"
+        "bhb": "वहराता पाय अजनू"
     },
     {
         "en": "Flood",
         "mr": "पूर",
         "transliteration": "poor",
         "hi": "बाढ़",
-        "bhb": "पूर"
+        "bhb": "खाड़ी"
     },
     {
         "en": "Drought",
         "mr": "दुष्काळ",
         "transliteration": "dushkaal",
         "hi": "सूखा",
-        "bhb": "दुष्काळ"
+        "bhb": "काल"
     },
     {
         "en": "Climate",
@@ -655,7 +655,7 @@
         "mr": "तापमान",
         "transliteration": "taapamaan",
         "hi": "तापमान",
-        "bhb": "तापमान"
+        "bhb": "तोप"
     },
     {
         "en": "Humidity",
@@ -676,7 +676,7 @@
         "mr": "प्रकाश",
         "transliteration": "prakaash",
         "hi": "प्रकाश",
-        "bhb": "प्रकाश"
+        "bhb": "उजवाडं"
     },
     {
         "en": "Photosynthesis",
@@ -690,7 +690,7 @@
         "mr": "श्वसन",
         "transliteration": "shvasan",
         "hi": "श्वसन",
-        "bhb": "सांसो"
+        "bhb": "हाआं लेवनू"
     },
     {
         "en": "Germination",
@@ -704,7 +704,7 @@
         "mr": "निषेचन",
         "transliteration": "nishechan",
         "hi": "फलधारण",
-        "bhb": "फळधारणा"
+        "bhb": "फलधारणा"
     },
     {
         "en": "Transpiration",
@@ -830,14 +830,14 @@
         "mr": "निर्यात",
         "transliteration": "niryaat",
         "hi": "निर्यात",
-        "bhb": "निर्यात"
+        "bhb": "मोकलावनू"
     },
     {
         "en": "Import",
         "mr": "आयात",
         "transliteration": "aayaat",
         "hi": "आयात",
-        "bhb": "आवनु"
+        "bhb": "मागावनू"
     },
     {
         "en": "Farm Loan",
@@ -872,7 +872,7 @@
         "mr": "कृषी अधिकारी",
         "transliteration": "krushee adhikaaree",
         "hi": "कृषि अधिकारी",
-        "bhb": "कृषी अधिकारी"
+        "bhb": "कृषि वालो सायब"
     },
     {
         "en": "Krishi Vigyan Kendra",
@@ -928,7 +928,7 @@
         "mr": "शेतकरी उत्पादक कंपनी",
         "transliteration": "shetkaree utpaadak kanpanee",
         "hi": "किसान उत्पादक कंपनी",
-        "bhb": "शेतकरी उत्पादक कंपनी"
+        "bhb": "खेडूताहा उत्पादन फॅक्टरी"
     },
     {
         "en": "Co-operative Society",
@@ -1026,7 +1026,7 @@
         "mr": "स्मार्ट शेती",
         "transliteration": "smaart shetee",
         "hi": "स्मार्ट कृषि",
-        "bhb": "स्मार्ट खेती"
+        "bhb": "हारी खेती"
     },
     {
         "en": "Drone Spraying",
@@ -1180,7 +1180,7 @@
         "mr": "चिकणमाती",
         "transliteration": "chikanamaatee",
         "hi": "चिकनी मिट्टी",
-        "bhb": "चिकनी कादू"
+        "bhb": "चिकनं कादू"
     },
     {
         "en": "Red Soil",
@@ -1194,14 +1194,14 @@
         "mr": "काळी मृदा",
         "transliteration": "kaalee mrudaa",
         "hi": "काली मिट्टी",
-        "bhb": "काली कादू"
+        "bhb": "कालं कादू"
     },
     {
         "en": "Salinity",
         "mr": "खारटपणा",
         "transliteration": "khaaratapanaa",
         "hi": "लवणता",
-        "bhb": "क्षारता"
+        "bhb": "खारी"
     },
     {
         "en": "Runoff",
@@ -1222,7 +1222,7 @@
         "mr": "झिरपण प्रक्रिया",
         "transliteration": "jhirapan prakriyaa",
         "hi": "लीचिंग प्रक्रिया",
-        "bhb": "पांय मुरनूं"
+        "bhb": "पाई मुरनू"
     },
     {
         "en": "Soil Profile",
@@ -1236,7 +1236,7 @@
         "mr": "मुळांचा भाग",
         "transliteration": "mulaanchaa bhaag",
         "hi": "जड़ों का क्षेत्र",
-        "bhb": "मुळ क्षेत्र"
+        "bhb": "मुलाहा जागो"
     },
     {
         "en": "Rhizosphere",
@@ -1257,7 +1257,7 @@
         "mr": "पीक विविधीकरण / पीक वैविध्यकरण",
         "transliteration": "peek vividheekaran",
         "hi": "फसल विविधीकरण",
-        "bhb": "पिकुंहा वेगळो वेगळो पिक"
+        "bhb": "पिकाहा अलग - अलग पीक"
     },
     {
         "en": "Biofertilizer",
@@ -1299,7 +1299,7 @@
         "mr": "बाजार बुद्धिमत्ता",
         "transliteration": "baajaar buddhimattaa",
         "hi": "बाजार बुद्धिमत्ता",
-        "bhb": "बाजारू माहिती"
+        "bhb": "बाजारा माहिती"
     },
     {
         "en": "Farm Mechanization",
@@ -1355,7 +1355,7 @@
         "mr": "पीक निरीक्षण",
         "transliteration": "peek nireekshan",
         "hi": "फसल निरीक्षण",
-        "bhb": "पिकां निरीक्षण"
+        "bhb": "पिक पारखुनू"
     },
     {
         "en": "Field Sensor",
@@ -1425,7 +1425,7 @@
         "mr": "शेणखत",
         "transliteration": "shenakhat",
         "hi": "गोबर खाद",
-        "bhb": "शेणखत"
+        "bhb": "साण्यखत"
     },
     {
         "en": "Leaf Manure",
@@ -1446,7 +1446,7 @@
         "mr": "मृदा सुधारणा",
         "transliteration": "mrudaa sudhaaranaa",
         "hi": "मृदा सुधारक",
-        "bhb": "मृदा सुधार"
+        "bhb": "कादू हुदरावनु"
     },
     {
         "en": "Basal Dose",
@@ -1579,7 +1579,7 @@
         "mr": "चारा",
         "transliteration": "chaaraa",
         "hi": "चारा",
-        "bhb": "चारा"
+        "bhb": "चारों"
     },
     {
         "en": "Green Fodder",
@@ -1656,14 +1656,14 @@
         "mr": "दूध थंड करणारे यंत्र",
         "transliteration": "doodh thand karanaare yantra",
         "hi": "दूध शीतलन यंत्र",
-        "bhb": "दूद थंड केनू यंत्र"
+        "bhb": "दुद हेलं केनू मसीन"
     },
     {
         "en": "Artificial Insemination",
         "mr": "कृत्रिम गर्भाधारणा",
         "transliteration": "krutrim garbhaadhaaranaa",
         "hi": "कृत्रिम गर्भाधान",
-        "bhb": "कृत्रिम रेतन"
+        "bhb": "टुप थोवनू"
     },
     {
         "en": "Heat Detection",
@@ -1803,7 +1803,7 @@
         "mr": "कोष",
         "transliteration": "kosh",
         "hi": "कोया",
-        "bhb": "कोष"
+        "bhb": "गोहटो"
     },
     {
         "en": "Fish Farming",
@@ -1824,7 +1824,7 @@
         "mr": "खाऱ्या पाण्यातील मत्स्यपालन",
         "transliteration": "khaayaa paanyaateel matsyapaalan",
         "hi": "खारे पानी मत्स्य पालन",
-        "bhb": "खारा पाण्याम मासे पालन"
+        "bhb": "खारा पायामने मासे पालन"
     },
     {
         "en": "Pond Management",
@@ -1838,7 +1838,7 @@
         "mr": "मासे खाद्य",
         "transliteration": "maase khaady",
         "hi": "मछली आहार",
-        "bhb": "मासा खावनु"
+        "bhb": "मासाहा चारो"
     },
     {
         "en": "Cage Culture",
@@ -1901,7 +1901,7 @@
         "mr": "परसबाग",
         "transliteration": "parasabaag",
         "hi": "रसोई बाग",
-        "bhb": "कोचरा"
+        "bhb": "वाडामने खेती"
     },
     {
         "en": "Community Farming",
@@ -2321,7 +2321,7 @@
         "mr": "मजूर टंचाई",
         "transliteration": "majoor tanchaaee",
         "hi": "मजदूर कमी",
-        "bhb": "मोजरी कमी"
+        "bhb": "मोजऱ्याहा कमी"
     },
     {
         "en": "Migration",
@@ -2391,7 +2391,7 @@
         "mr": "लवकर पक्व होणारे वाण",
         "transliteration": "lavakar pakv honaare vaan",
         "hi": "जल्दी पकने वाली किस्म",
-        "bhb": "माहरी पाकेहे"
+        "bhb": "माहरी पाकणारी जात"
     },
     {
         "en": "High Yielding Variety",
@@ -2573,7 +2573,7 @@
         "mr": "कोडो / कोद्रा बाजरी",
         "transliteration": "kodo",
         "hi": "कोदो",
-        "bhb": "कोदो"
+        "bhb": "कोदरा"
     },
     {
         "en": "Amaranth",
@@ -2629,7 +2629,7 @@
         "mr": "एरंडी / एरंड",
         "transliteration": "erandee",
         "hi": "अरंडी",
-        "bhb": "एरंडी"
+        "bhb": "ओंडे"
     },
     {
         "en": "Citrus Greening",
@@ -2818,7 +2818,7 @@
         "mr": "गवार",
         "transliteration": "gavaar",
         "hi": "ग्वार",
-        "bhb": "गवार"
+        "bhb": "गोरवाया"
     },
     {
         "en": "Garden Pea",
@@ -2895,7 +2895,7 @@
         "mr": "सुरण / सुरण / जिमीकंद",
         "transliteration": "suran",
         "hi": "जिमीकंद",
-        "bhb": "हत्ती पाग"
+        "bhb": "आथी पाग"
     },
     {
         "en": "Water Chestnut",
@@ -2972,7 +2972,7 @@
         "mr": "शकरकंद / युका/साबुदाणा",
         "transliteration": "shakarakand",
         "hi": "शकरकंद",
-        "bhb": "शकरकंद"
+        "bhb": "हाबूदाणे"
     },
     {
         "en": "Arrowroot",
@@ -3042,7 +3042,7 @@
         "mr": "आल्याचे कोंब",
         "transliteration": "aalyaache konb",
         "hi": "अदरक की कोंप",
-        "bhb": "आले"
+        "bhb": "अद्रक"
     },
     {
         "en": "Onion Set",
@@ -3056,7 +3056,7 @@
         "mr": "लसूण गाठा",
         "transliteration": "lasoon gaathaa",
         "hi": "लहसुन की गांठ",
-        "bhb": "लसणी कांद"
+        "bhb": "गोंदला कांद"
     },
     {
         "en": "Broccoli",
@@ -3098,7 +3098,7 @@
         "mr": "कोथिंबीर बियाणे",
         "transliteration": "kothimbeer biyaane",
         "hi": "धनिया बीज",
-        "bhb": "धणे बियारो"
+        "bhb": "खोतबुरा बियारो"
     },
     {
         "en": "Cumin Seed",
@@ -3161,7 +3161,7 @@
         "mr": "वेलची",
         "transliteration": "velachee",
         "hi": "इलायची",
-        "bhb": "वेलदोडा"
+        "bhb": "ईलायची"
     },
     {
         "en": "Clove",
@@ -3245,7 +3245,7 @@
         "mr": "बोरफळ",
         "transliteration": "boraphal",
         "hi": "बेर फल",
-        "bhb": "बेर"
+        "bhb": "बोरे"
     },
     {
         "en": "Sapodilla",
@@ -3336,7 +3336,7 @@
         "mr": "खजूर",
         "transliteration": "khajoor",
         "hi": "खजूर",
-        "bhb": "खजूर"
+        "bhb": "खोजर्यो"
     },
     {
         "en": "Fig",
@@ -3581,7 +3581,7 @@
         "mr": "मोकाट सिंचन / पूर सिंचन / पटपाणी",
         "transliteration": "mokaat sinchan",
         "hi": "प्रवाही सिंचाई",
-        "bhb": "पाट पाणी देवनू"
+        "bhb": "पाटाम पाई देवनू"
     },
     {
         "en": "Moisture Stress",
@@ -3763,7 +3763,7 @@
         "mr": "कीटकनाशक",
         "transliteration": "keetakanaashak",
         "hi": "कीटनाशक",
-        "bhb": "किटकनाशक"
+        "bhb": "किडे मानू दावो"
     },
     {
         "en": "Nematicide",
@@ -3903,7 +3903,7 @@
         "mr": "फलन (वनस्पती)",
         "transliteration": "phalan (vanaspatee)",
         "hi": "परागण (पौधा)",
-        "bhb": "फळधारणा"
+        "bhb": "फलधारणा"
     },
     {
         "en": "Photoperiodism",
@@ -3938,7 +3938,7 @@
         "mr": "फळधारणा",
         "transliteration": "phaladhaaranaa",
         "hi": "फल धारण",
-        "bhb": "फळधारणा"
+        "bhb": "फलधारणा"
     },
     {
         "en": "Maturity Index",
@@ -4134,7 +4134,7 @@
         "mr": "बियाणे पेरणी यंत्र",
         "transliteration": "biyaane peranee yantra",
         "hi": "बीज बोने की मशीन",
-        "bhb": "बियारो पेरणी मशीन"
+        "bhb": "बियारो ओनुं मशीन"
     },
     {
         "en": "Rotavator",
@@ -4148,7 +4148,7 @@
         "mr": "कापणी यंत्र",
         "transliteration": "kaapanee yantra",
         "hi": "कटाई यंत्र",
-        "bhb": "कापणी यंत्र"
+        "bhb": "वाडनू मशीन"
     },
     {
         "en": "Baler",
@@ -4232,7 +4232,7 @@
         "mr": "शेतकरी नवकल्पना",
         "transliteration": "shetkaree navakalpanaa",
         "hi": "किसान नवाचार",
-        "bhb": "शेतकरी नवोन्मेष"
+        "bhb": "खेडूत नवोन्मेष"
     },
     {
         "en": "Sustainable Agriculture",
@@ -4442,7 +4442,7 @@
         "mr": "सत्यप्रत बियाणे",
         "transliteration": "satyaprat biyaane",
         "hi": "सत्यप्रत बीज",
-        "bhb": "सत्य लेबल वाला बियारो"
+        "bhb": "सत्य बिल्ला वालो बियारो"
     },
     {
         "en": "Seed Act",
@@ -4498,7 +4498,7 @@
         "mr": "कापणीपूर्व कालावधी",
         "transliteration": "kaapaneepoorv kaalaavadhee",
         "hi": "कटाई पूर्व अंतराल",
-        "bhb": "कापणी पेला अंतर"
+        "bhb": "वाढुनू पेला अंतर"
     },
     {
         "en": "Trap Plant",
@@ -4750,7 +4750,7 @@
         "mr": "शेणखत",
         "transliteration": "shenakhat",
         "hi": "गोबर खाद",
-        "bhb": "सां खत"
+        "bhb": "साण्याखत"
     },
     {
         "en": "Poultry Manure",
@@ -5205,7 +5205,7 @@
         "mr": "सिंचन तुट",
         "transliteration": "sinchan tut",
         "hi": "घट सिंचाई",
-        "bhb": "कम पाणी"
+        "bhb": "कमी पाई"
     },
     {
         "en": "Micro Irrigation",
@@ -5275,7 +5275,7 @@
         "mr": "हाताने तण काढणे",
         "transliteration": "haataane tan kaadhane",
         "hi": "हाथ से निराई",
-        "bhb": "आथकी नेदनू"
+        "bhb": "आथाकी नेदुनू"
     },
     {
         "en": "Hoeing",
@@ -5499,14 +5499,14 @@
         "mr": "कापणी आणि बांधणी यंत्र",
         "transliteration": "kaapanee aani baandhanee yantra",
         "hi": "कटाई और बंधाई यंत्र",
-        "bhb": "कापणी यंत्र"
+        "bhb": "वाडनु मसीन"
     },
     {
         "en": "Post-Harvest Losses",
         "mr": "काढणी पश्चात नुकसान",
         "transliteration": "kaadhanee pashchaat nukasaan",
         "hi": "कटाई के बाद नुकसान",
-        "bhb": "कापणी फाचे नुकसान"
+        "bhb": "वाडीन फाचे नुकसान"
     },
     {
         "en": "Grain Moisture Content",
@@ -5870,7 +5870,7 @@
         "mr": "कडधान्य प्रक्रिया",
         "transliteration": "kadadhaany prakriyaa",
         "hi": "दाल प्रसंस्करण",
-        "bhb": "डाअ प्रक्रिया"
+        "bhb": "डाई प्रक्रिया"
     },
     {
         "en": "Oil Extraction",
@@ -5884,21 +5884,21 @@
         "mr": "पिठाची गिरणी",
         "transliteration": "pithaachee giranee",
         "hi": "आटे की चक्की",
-        "bhb": "आटा मिल"
+        "bhb": "नोटा मिल"
     },
     {
         "en": "Rice Mill",
         "mr": "तांदळाची गिरणी",
         "transliteration": "taandalaachee giranee",
         "hi": "चावल की मिल",
-        "bhb": "भात मिल"
+        "bhb": "चोखाहा मिल"
     },
     {
         "en": "Dehydration",
         "mr": "निर्जलीकरण",
         "transliteration": "nirjaleekaran",
         "hi": "निर्जलीकरण",
-        "bhb": "पाय कमी"
+        "bhb": "कमी पाई"
     },
     {
         "en": "Freeze Drying",
@@ -5982,7 +5982,7 @@
         "mr": "गांडूळ खत",
         "transliteration": "gaandool khat",
         "hi": "केंचुआ खाद",
-        "bhb": "गांडूळ खत"
+        "bhb": "हेवाया खत"
     },
     {
         "en": "Panchagavya",
@@ -6115,7 +6115,7 @@
         "mr": "जल लेखापरीक्षण",
         "transliteration": "jal lekhaapareekshan",
         "hi": "जल लेखा परीक्षण",
-        "bhb": "पाणी लेखा परीक्षण"
+        "bhb": "पाई लेखा परीक्षण"
     },
     {
         "en": "Climate Adaptation",
@@ -6262,7 +6262,7 @@
         "mr": "पेरणी काठी",
         "transliteration": "peranee kaathee",
         "hi": "बुवाई की लकड़ी",
-        "bhb": "ओनू दांडा"
+        "bhb": "ओऊनू दांडो"
     },
     {
         "en": "Traditional Seed Storage",
@@ -6283,7 +6283,7 @@
         "mr": "बांबूची टोपली",
         "transliteration": "baanboochee topalee",
         "hi": "बांस की टोकरी",
-        "bhb": "बांबू टोकरी"
+        "bhb": "वाहटाहा सिबली"
     },
     {
         "en": "Indigenous Seed",
@@ -6577,21 +6577,21 @@
         "mr": "स्मार्ट हरितगृहे",
         "transliteration": "smaart haritagruhe",
         "hi": "स्मार्ट हरितगृह",
-        "bhb": "स्मार्ट हरितगृह"
+        "bhb": "हारो हरितगृह"
     },
     {
         "en": "Water-Efficient Farming",
         "mr": "पाणी-कार्यक्षम शेती",
         "transliteration": "paanee-kaaryaksham shetee",
         "hi": "पानी-कुशल खेती",
-        "bhb": "पाणी बचत खेती"
+        "bhb": "पाई वाचवूनू खेती"
     },
     {
         "en": "Water Conservation",
         "mr": "पाण्याचे संवर्धन",
         "transliteration": "paanyaache sanvardhan",
         "hi": "जल संरक्षण",
-        "bhb": "पाणी बचत"
+        "bhb": "पाई वाचवूनू"
     },
     {
         "en": "Soil Health Management",
@@ -6815,7 +6815,7 @@
         "mr": "दुग्ध प्रक्रिया",
         "transliteration": "dugdh prakriyaa",
         "hi": "दुग्ध प्रसंस्करण",
-        "bhb": "दुध प्रक्रिया"
+        "bhb": "दुदा प्रक्रिया"
     },
     {
         "en": "Meat Processing",
@@ -6864,7 +6864,7 @@
         "mr": "पाणी पुनर्वापर",
         "transliteration": "paanee punarvaapar",
         "hi": "पानी पुनः उपयोग",
-        "bhb": "पाणी पुनर्चक्रण"
+        "bhb": "पायां चक्र"
     },
     {
         "en": "No-Till Farming",
@@ -6906,7 +6906,7 @@
         "mr": "पशुधन खत",
         "transliteration": "pashudhan khat",
         "hi": "पशुधन की खाद",
-        "bhb": "जनावराहा साडो"
+        "bhb": "जनावराहा खत"
     },
     {
         "en": "Agro-ecology",
@@ -7067,14 +7067,14 @@
         "mr": "एफपीओ (शेतकरी उत्पादक संघटना)",
         "transliteration": "ephapeeo (shetakaree utpaadak sanghatanaa)",
         "hi": "एफपीओ (किसान उत्पादक संगठन)",
-        "bhb": "शेतकरी उत्पादक संघटना"
+        "bhb": "खेडूत उत्पादक संघटना"
     },
     {
         "en": "Farmer Producer Company (FPC)",
         "mr": "शेतकरी उत्पादक कंपनी (एफपीसी)",
         "transliteration": "shetkaree utpaadak kanpanee (ephapeesee)",
         "hi": "किसान उत्पादक कंपनी (एफपीसी)",
-        "bhb": "शेतकरी उत्पादक कंपनी"
+        "bhb": "खेडूत उत्पादक फॅक्टरी"
     },
     {
         "en": "Rural Entrepreneurship",
@@ -7151,7 +7151,7 @@
         "mr": "कीटकनाशके",
         "transliteration": "keetakanaashake",
         "hi": "कीटनाशक",
-        "bhb": "किटकनाशक"
+        "bhb": "किड़े मानू दावो"
     },
     {
         "en": "Fungicides",
@@ -7277,7 +7277,7 @@
         "mr": "मधमाशी पालन",
         "transliteration": "madhamaashee paalan",
         "hi": "मधुमक्खी पालन",
-        "bhb": "मधमाशी पालन"
+        "bhb": "मदामाशी पालन"
     },
     {
         "en": "Sheep Farming",
@@ -12723,28 +12723,28 @@
         "mr": "तांदूळ / बासमती तांदूळ",
         "transliteration": "taandool",
         "hi": "चावल",
-        "bhb": "चांअ"
+        "bhb": "चोखा"
     },
     {
         "en": "Millet",
         "mr": "भरडधान्य",
         "transliteration": "bharadadhaany",
         "hi": "मोटा अनाज",
-        "bhb": "बाजरी"
+        "bhb": "बाजरो"
     },
     {
         "en": "Pigeonpea",
         "mr": "तूर",
         "transliteration": "toor",
         "hi": "अरहर",
-        "bhb": "तुर"
+        "bhb": "तुव्या"
     },
     {
         "en": "Pea",
         "mr": "वाटाणा / वाटणा",
         "transliteration": "vaataanaa",
         "hi": "मटर",
-        "bhb": "मटरो"
+        "bhb": "ओटाना"
     },
     {
         "en": "Okra",
@@ -12765,14 +12765,14 @@
         "mr": "दुधी / दुधी भोपळा",
         "transliteration": "dudhee",
         "hi": "लौकी",
-        "bhb": "दुदें"
+        "bhb": "दुदयें"
     },
     {
         "en": "Ridge Gourd",
         "mr": "दोडका",
         "transliteration": "dodakaa",
         "hi": "तोरी",
-        "bhb": "शेंडे"
+        "bhb": "गिलक्या"
     },
     {
         "en": "Sponge Gourd",
@@ -12800,7 +12800,7 @@
         "mr": "टरबूज",
         "transliteration": "tarabooj",
         "hi": "तरबूज",
-        "bhb": "टरबूज"
+        "bhb": "डांगरे"
     },
     {
         "en": "Muskmelon",
@@ -12828,7 +12828,7 @@
         "mr": "पेरू",
         "transliteration": "peroo",
         "hi": "अमरूद",
-        "bhb": "जाबूरों"
+        "bhb": "जांबुरखे"
     },
     {
         "en": "Papaya",
@@ -12856,7 +12856,7 @@
         "mr": "लिंबू",
         "transliteration": "linboo",
         "hi": "नींबू",
-        "bhb": "लिंबू"
+        "bhb": "निंबवे"
     },
     {
         "en": "Grapes",
@@ -12891,14 +12891,14 @@
         "mr": "नारळ",
         "transliteration": "naaral",
         "hi": "नारियल",
-        "bhb": "नारालो"
+        "bhb": "नाराल्यें"
     },
     {
         "en": "Arecanut",
         "mr": "सुपारी",
         "transliteration": "supaaree",
         "hi": "सुपारी",
-        "bhb": "सुपारी"
+        "bhb": "होपारी"
     },
     {
         "en": "Cashew",
@@ -12926,14 +12926,14 @@
         "mr": "रबर",
         "transliteration": "rabar",
         "hi": "रबर",
-        "bhb": "रबर"
+        "bhb": "चिक"
     },
     {
         "en": "Tobacco",
         "mr": "तंबाखू",
         "transliteration": "tanbaakhoo",
         "hi": "तंबाकू",
-        "bhb": "तंबाखू"
+        "bhb": "पांग"
     },
     {
         "en": "Granary",
@@ -12947,7 +12947,7 @@
         "mr": "रोपट्याची अवस्था",
         "transliteration": "ropatyaachee avasthaa",
         "hi": "पौधे की अवस्था",
-        "bhb": "रोपावस्था"
+        "bhb": "आदो"
     },
     {
         "en": "Extension Services",
@@ -13066,7 +13066,7 @@
         "mr": "सरी",
         "transliteration": "saree",
         "hi": "मेड़",
-        "bhb": "वरंबा"
+        "bhb": "सारा"
     },
     {
         "en": "Ridge",
@@ -13080,7 +13080,7 @@
         "mr": "यंत्राद्वारे कापणी / यांत्रिक कापणी",
         "transliteration": "yantraadvaare kaapanee",
         "hi": "यांत्रिक कटाई",
-        "bhb": "यंत्राकी वाडनु"
+        "bhb": "मशिनाकी वाडनू"
     },
     {
         "en": "Post-harvest Loss",
@@ -13150,7 +13150,7 @@
         "mr": "शेंग",
         "transliteration": "sheng",
         "hi": "फली",
-        "bhb": "फळ"
+        "bhb": "पापड्या"
     },
     {
         "en": "Flail",
@@ -13248,7 +13248,7 @@
         "mr": "वारा थांबवणारे अडथळे",
         "transliteration": "vaaraa thaanbavanaare adathale",
         "hi": "पवन अवरोध",
-        "bhb": "वारो रोखूलो"
+        "bhb": "वारो ओटकावनू"
     },
     {
         "en": "Seedling Transplanting",
@@ -13269,7 +13269,7 @@
         "mr": "पाण्याचा ताण",
         "transliteration": "paanyaachaa taan",
         "hi": "पानी का तनाव",
-        "bhb": "पाणी ताण"
+        "bhb": "पाया ताण"
     },
     {
         "en": "Soil Bulk Density",
@@ -13318,7 +13318,7 @@
         "mr": "पीक अवशेष जाळणे",
         "transliteration": "peek avashesh jaalane",
         "hi": "फसल अवशेष जलाना",
-        "bhb": "पिकाहां अवशेष बालनूं"
+        "bhb": "पिकाहां कोचरो बालनूं"
     },
     {
         "en": "Insect Emergence Trap",
@@ -14431,7 +14431,7 @@
         "mr": "सुकलेले बियाणे",
         "transliteration": "sukalele biyaane",
         "hi": "सूखा बीज",
-        "bhb": "सुकलो बियारो"
+        "bhb": "हुकालं बियारो"
     },
     {
         "en": "Discolored Seed",
@@ -15691,7 +15691,7 @@
         "mr": "लसूण-मिरची पूड फवारणी",
         "transliteration": "lasoona-mirachee pood phavaaranee",
         "hi": "लहसुन-मिर्च पाउडर छिड़काव",
-        "bhb": "लसणी - मिरची फवारणी"
+        "bhb": "गोंदला - मिरची फवारणी"
     },
     {
         "en": "Fish Tonic",
@@ -15894,7 +15894,7 @@
         "mr": "तांदळाचे शेत",
         "transliteration": "taandalaache shet",
         "hi": "धान का खेत",
-        "bhb": "हाल"
+        "bhb": "हाली पुलों"
     },
     {
         "en": "Pasture",
@@ -15971,7 +15971,7 @@
         "mr": "गांडूळ खत",
         "transliteration": "gaandool khat",
         "hi": "केंचुआ खाद",
-        "bhb": "गांडुळ खत"
+        "bhb": "हेवाया खत"
     },
     {
         "en": "Chemical Pesticide",
@@ -16188,7 +16188,7 @@
         "mr": "शेतकरी सहकारी संस्था",
         "transliteration": "shetkaree sahakaaree sansthaa",
         "hi": "किसान सहकारी संस्था",
-        "bhb": "शेतकरी सहकारी"
+        "bhb": "खेडूत सहकारी"
     },
     {
         "en": "Organic Certification Agency",
@@ -16482,7 +16482,7 @@
         "mr": "शेत कामगार सुरक्षा",
         "transliteration": "shet kaamagaar surakshaa",
         "hi": "खेती मजदूर सुरक्षा",
-        "bhb": "खेती काम केनारा सुरक्षा"
+        "bhb": "खेती कामा राखवाल्यं"
     },
     {
         "en": "Pest Population Monitoring",
@@ -16874,7 +16874,7 @@
         "mr": "पीक विविधीकरण निर्देशांक / पीक विविधता निर्देशांक",
         "transliteration": "peek vividheekaran nirdeshaank",
         "hi": "फसल विविधता सूचकांक",
-        "bhb": "पिकुंहा वेगळो वेगळो पिकूं निर्देशांक"
+        "bhb": "पिकाहा ज्युदो - ज्युदो पीकं निर्देशांक"
     },
     {
         "en": "Intercropping System",
@@ -16930,7 +16930,7 @@
         "mr": "रोवनी पद्धतीने भात लागवड",
         "transliteration": "rovanee paddhateene bhaat laagavad",
         "hi": "प्रत्यक्ष बुवाई विधि से धान की खेती",
-        "bhb": "बिना बियारा भात"
+        "bhb": "बिना बियारा चोखा"
     },
     {
         "en": "Crop Damage Assessment",
@@ -17007,7 +17007,7 @@
         "mr": "रात्रीचे सिंचन",
         "transliteration": "raatreeche sinchan",
         "hi": "रात में सिंचाई",
-        "bhb": "रातू पाणी"
+        "bhb": "रातीने पाई"
     },
     {
         "en": "Root Zone Watering",
@@ -17070,7 +17070,7 @@
         "mr": "पीक क्षेत्राचे नकाशांकन",
         "transliteration": "peek kshetraache nakaashaankan",
         "hi": "फसल क्षेत्र का मानचित्रण",
-        "bhb": "पिकू खेतू नकाशा"
+        "bhb": "पिकाहा खेती नकाशा"
     },
     {
         "en": "Salinity-tolerant Varieties",
@@ -17133,7 +17133,7 @@
         "mr": "आळीपाळीने ओले करणे आणि वाळवणे / वैकल्पिक ओलावा आणि कोरडेपण",
         "transliteration": "aaleepaaleene ole karane aani vaalavane",
         "hi": "वैकल्पिक गीला और सूखा रखना",
-        "bhb": "आलटालिन पिजवूनू आन हुकवूनू"
+        "bhb": "उलटीपालटीन पिजवूनू आने हुकवुनु"
     },
     {
         "en": "Crop-cutting Experiment",
@@ -17350,7 +17350,7 @@
         "mr": "आंबवलेले सेंद्रिय खत",
         "transliteration": "aanbavalele sendriy khat",
         "hi": "फरमेंटेड जैविक खाद",
-        "bhb": "आंबवलो सेंद्रिय खत"
+        "bhb": "खाटवुलं सेंद्रिय खत"
     },
     {
         "en": "Cloud-based Farm Management Software",
@@ -17371,7 +17371,7 @@
         "mr": "पावसापासून संरक्षित लागवड",
         "transliteration": "paavasaapaasoon sanrakshit laagavad",
         "hi": "वर्षा आश्रयित खेती",
-        "bhb": "पावसामेने बचाव करून खेती"
+        "bhb": "वहरातामेने बचाव केनी खेती"
     },
     {
         "en": "Inter-row Cultivation",
@@ -17462,7 +17462,7 @@
         "mr": "फळे पिकवण्याची खोली",
         "transliteration": "phale pikavanyaachee kholee",
         "hi": "फल पकाने का कक्ष",
-        "bhb": "फळ पिकवूनु कक्ष"
+        "bhb": "फल - फलवे पाकत केअनु खोली"
     },
     {
         "en": "Virtual Fencing",
@@ -17616,7 +17616,7 @@
         "mr": "परीशुद्ध चुण्याचा वापर",
         "transliteration": "pareeshuddh chunyaachaa vaapar",
         "hi": "सटीक चुने का उपयोग",
-        "bhb": "चुनी खत वापर"
+        "bhb": "चुना खत वापर"
     },
     {
         "en": "Seedling Emergence Rate",
@@ -18421,7 +18421,7 @@
         "mr": "पावसाचे पाणी साठवणूक खड्डा",
         "transliteration": "paavasaache paanee saathavanook khaddaa",
         "hi": "वर्षा जल संचयन गड्ढा",
-        "bhb": "पावसानू पाण्या खाडो"
+        "bhb": "वहरातामेने पाया खाड्डो"
     },
     {
         "en": "Integrated Weed Control Strategy",
@@ -19065,7 +19065,7 @@
         "mr": "बी टोकन यंत्र",
         "transliteration": "bee tokan yantra",
         "hi": "बी बोने की छड़ी",
-        "bhb": "आथकी दाणे फोडनू यंत्र"
+        "bhb": "आथाकी दाणे फोडनू मसीन"
     },
     {
         "en": "Aquaponics Unit",
@@ -19254,7 +19254,7 @@
         "mr": "पिक अवशेष जाळण्याचा परिणाम",
         "transliteration": "pik avashesh jaalanyaachaa parinaam",
         "hi": "फसल अवशेष जलाने का प्रभाव",
-        "bhb": "अवशेष जाळणू परिणाम"
+        "bhb": "अवशेष बालनू परिणाम"
     },
     {
         "en": "Indigenous Knowledge Integration",
@@ -19527,7 +19527,7 @@
         "mr": "दूध अवस्था",
         "transliteration": "doodh avasthaa",
         "hi": "दूध अवस्था",
-        "bhb": "दुध अवस्था"
+        "bhb": "दुदा अवस्था"
     },
     {
         "en": "Nitrogen Volatilization",
@@ -20171,7 +20171,7 @@
         "mr": "ऊस कापणी यंत्र",
         "transliteration": "oos kaapanee yantra",
         "hi": "गन्ना कटाई यंत्र",
-        "bhb": "हेडी तोडनूं यंत्र"
+        "bhb": "हेअडी तोड केनू मसीन"
     },
     {
         "en": "Dormant Bud",
@@ -20521,7 +20521,7 @@
         "mr": "मधमाश्यांचे पोळे",
         "transliteration": "madhamaashyaanche pole",
         "hi": "मधुमक्खियों का छत्ता",
-        "bhb": "मधमाशी"
+        "bhb": "मदामाखी"
     },
     {
         "en": "Trellis System",
@@ -21193,7 +21193,7 @@
         "mr": "मधमाशी परागीकरण",
         "transliteration": "madhamaashee paraageekaran",
         "hi": "मधुमक्खी परागण",
-        "bhb": "मधमाशी परागीकरण"
+        "bhb": "मदामाखी परागीकरण"
     },
     {
         "en": "Land Preparation Cost",
@@ -21417,7 +21417,7 @@
         "mr": "निंदन",
         "transliteration": "nindan",
         "hi": "निराई",
-        "bhb": "आथकी नेदनूं"
+        "bhb": "आथाकी नेदनूं"
     },
     {
         "en": "Jhum Cultivation",
@@ -21466,7 +21466,7 @@
         "mr": "पर्जन्यमापक",
         "transliteration": "parjanyamaapak",
         "hi": "वर्षामापी",
-        "bhb": "पाय मापन यंत्र"
+        "bhb": "पांय मोजनू मसीन"
     },
     {
         "en": "Transgenic Variety",
@@ -21858,7 +21858,7 @@
         "mr": "शेताचा धुरा किंवा बांध",
         "transliteration": "shetaachaa dhuraa kinvaa baandh",
         "hi": "खेत का मेड़ या बांध",
-        "bhb": "खेतामने बांध"
+        "bhb": "खेतामेने हेडो"
     },
     {
         "en": "Silage Compaction",
@@ -21935,7 +21935,7 @@
         "mr": "रात्रीचे तापमान",
         "transliteration": "raatreeche taapamaan",
         "hi": "रात का तापमान",
-        "bhb": "रातू तापमान"
+        "bhb": "राती वेलने तापमान"
     },
     {
         "en": "Tip Burn",
@@ -22215,7 +22215,7 @@
         "mr": "उष्ण पाण्याने बियाणे प्रक्रिया",
         "transliteration": "ushn paanyaane biyaane prakriyaa",
         "hi": "गर्म पानी से बीज उपचार",
-        "bhb": "गरम पाण्याकी बीज प्रक्रिया"
+        "bhb": "ऊनो पायांकी बीज प्रक्रिया"
     },
     {
         "en": "Root Elongation",
@@ -22418,7 +22418,7 @@
         "mr": "रात्रीचे तापमानाचा ताण",
         "transliteration": "raatreeche taapamaanaachaa taan",
         "hi": "रात्री के तापमान का तनाव",
-        "bhb": "रातू तापमान ताण"
+        "bhb": "रातीने तापमाना ताण"
     },
     {
         "en": "Intercultural Operations",
@@ -27213,7 +27213,7 @@
         "mr": "पाखडणे",
         "transliteration": "paakhadane",
         "hi": "फटकना",
-        "bhb": "वारो"
+        "bhb": "धान्य उडवूनूं"
     },
     {
         "en": "Winnower",
@@ -28172,7 +28172,7 @@
         "mr": "पाणी वाचविणारी सिंचण प्रणाली",
         "transliteration": "paanee vaachavinaaree sinchan pranaalee",
         "hi": "पानी बचाने वाली सिंचाई प्रणाली",
-        "bhb": "पांय वाचवणारी सिंचन"
+        "bhb": "पांय वाचवुनारी सिंचन"
     },
     {
         "en": "Soil Salinity Management",
@@ -28949,7 +28949,7 @@
         "mr": "वर्मिक्युलाइट",
         "transliteration": "varmikyulaait",
         "hi": "वर्मीक्युलाइट",
-        "bhb": "गांडूळ"
+        "bhb": "हेवायं"
     },
     {
         "en": "Fruit Fly Trap",
@@ -29740,7 +29740,7 @@
         "mr": "जलसिंचित भात शेती",
         "transliteration": "jalasinchit bhaat shetee",
         "hi": "सिंचित धान की खेती",
-        "bhb": "पाण्याम भात लागवड"
+        "bhb": "पांयाम रोपड्या लागवड"
     },
     {
         "en": "Breeder Rights",
@@ -30111,14 +30111,14 @@
         "mr": "लोंबी वरील ढेकुण",
         "transliteration": "lonbee vareel dhekun",
         "hi": "बालियों पर का कीड़ा",
-        "bhb": "कानू माखाडो"
+        "bhb": "कानामेने कीड़"
     },
     {
         "en": "Shoot Fly",
         "mr": "खोड माशी",
         "transliteration": "khod maashee",
         "hi": "तना मक्खी",
-        "bhb": "माखाडा"
+        "bhb": "खोड़ माख"
     },
     {
         "en": "Pod Borer",
@@ -32400,7 +32400,7 @@
         "mr": "गादमाशी",
         "transliteration": "gaadamaashee",
         "hi": "गोली मक्खी",
-        "bhb": "गॉल मिज"
+        "bhb": "गादमाशी"
     },
     {
         "en": "Gray Leaf Spot",
@@ -32442,7 +32442,7 @@
         "mr": "पानांचा बोकडा रोग / चुरडा मुरडा",
         "transliteration": "paanaanchaa bokadaa rog",
         "hi": "पत्ती मुड़न वायरस",
-        "bhb": "पाने वाकडी वेनारो रोग"
+        "bhb": "चुरडा मुरडा /बोकड्यो"
     },
     {
         "en": "Bacterial Oozing",
@@ -32498,7 +32498,7 @@
         "mr": "तांबेरा",
         "transliteration": "taanberaa",
         "hi": "करपा (रोग)",
-        "bhb": "जंग"
+        "bhb": "तांबेरा"
     },
     {
         "en": "Anthracnose",
@@ -32561,7 +32561,7 @@
         "mr": "गंज रोग",
         "transliteration": "ganj rog",
         "hi": "गेरू रोग",
-        "bhb": "जंग"
+        "bhb": "तांबेरा"
     },
     {
         "en": "Aphid",
@@ -32610,7 +32610,7 @@
         "mr": "खोडकिडा / कटवर्म कीड",
         "transliteration": "khodakidaa",
         "hi": "कटवर्म कीट",
-        "bhb": "कापणी ओली"
+        "bhb": "हुमणी"
     },
     {
         "en": "Root-knot Nematode",
@@ -32638,7 +32638,7 @@
         "mr": "लष्करी अळी",
         "transliteration": "lashkaree alee",
         "hi": "सेना की इल्ली",
-        "bhb": "आर्मीवर्म"
+        "bhb": "लष्करी ओली"
     },
     {
         "en": "Termite",
@@ -32659,14 +32659,14 @@
         "mr": "पिवळा रोग",
         "transliteration": "pivalaa rog",
         "hi": "पीला रोग",
-        "bhb": "पिवलो रोग"
+        "bhb": "केवडा"
     },
     {
         "en": "Late Blight",
         "mr": "करपा",
         "transliteration": "karapaa",
         "hi": "झुलसा",
-        "bhb": "उसेने करपा"
+        "bhb": "करपा"
     },
     {
         "en": "Fusarium Wilt",
@@ -32701,14 +32701,14 @@
         "mr": "हेड स्मट",
         "transliteration": "hed smat",
         "hi": "हेड स्मट",
-        "bhb": "डोके"
+        "bhb": "काणी"
     },
     {
         "en": "Black Rot",
         "mr": "काळा कुज",
         "transliteration": "kaalaa kuj",
         "hi": "काला सड़न",
-        "bhb": "काली कुज"
+        "bhb": "काजळी रोग"
     },
     {
         "en": "Cyst Nematode",
@@ -32729,7 +32729,7 @@
         "mr": "पाने खान करणारी अळी",
         "transliteration": "paane khaan karanaaree alee",
         "hi": "पत्ते खाने वाली सुंडी",
-        "bhb": "पानामेने किडो"
+        "bhb": "पानामेंने ओली /नाग अळी"
     },
     {
         "en": "Saprophytic Fungi",
@@ -32785,7 +32785,7 @@
         "mr": "पडवळ",
         "transliteration": "padaval",
         "hi": "परवल",
-        "bhb": "कोलो"
+        "bhb": "गिलकें"
     },
     {
         "en": "Popat",
@@ -32806,7 +32806,7 @@
         "mr": "पडवळ",
         "transliteration": "padaval",
         "hi": "परवल",
-        "bhb": "पेंडे"
+        "bhb": "दुद्ये /दुधी"
     },
     {
         "en": "Buckwheat",
@@ -32841,7 +32841,7 @@
         "mr": "राजगिरा",
         "transliteration": "raajagiraa",
         "hi": "राजगीरा",
-        "bhb": "धान्या आंबा"
+        "bhb": "मांटलों"
     },
     {
         "en": "Kodo",
@@ -32876,7 +32876,7 @@
         "mr": "काटेरी राजगिरा",
         "transliteration": "kaateree raajagiraa",
         "hi": "कांटेदार चौलाई",
-        "bhb": "काटा वाली चौपाय"
+        "bhb": "काटालों माटलों"
     },
     {
         "en": "Turnips",
@@ -32897,7 +32897,7 @@
         "mr": "ताग",
         "transliteration": "taag",
         "hi": "जूट",
-        "bhb": "ताग"
+        "bhb": "होण"
     },
     {
         "en": "Arabian Jasmine",
@@ -33016,7 +33016,7 @@
         "mr": "गुलमोहर",
         "transliteration": "gulamohar",
         "hi": "गुलमोहर",
-        "bhb": "गुलमोहर"
+        "bhb": "गुलमोहोर"
     },
     {
         "en": "Madhukamini/Kunti",
@@ -33065,7 +33065,7 @@
         "mr": "झेंडू",
         "transliteration": "jhendoo",
         "hi": "गेंदा",
-        "bhb": "झेंडू"
+        "bhb": "आजा-यों"
     },
     {
         "en": "Orchid",
@@ -33107,7 +33107,7 @@
         "mr": "ढैंचा",
         "transliteration": "dhainchaa",
         "hi": "ढैंचा",
-        "bhb": "धैंचा"
+        "bhb": "टांन्ड्रोहों"
     },
     {
         "en": "Alfalfa",
@@ -33163,7 +33163,7 @@
         "mr": "बेल",
         "transliteration": "bel",
         "hi": "बेल",
-        "bhb": "बेलो"
+        "bhb": "बिली"
     },
     {
         "en": "Apple",
@@ -33212,7 +33212,7 @@
         "mr": "जांभूळ",
         "transliteration": "jaanbhool",
         "hi": "जामुन",
-        "bhb": "जांबु"
+        "bhb": "जांम्बें"
     },
     {
         "en": "Kiwifruit; Chinese Gooseberry; Woody Vine",
@@ -33226,7 +33226,7 @@
         "mr": "करवंद",
         "transliteration": "karavand",
         "hi": "करवंद",
-        "bhb": "करवंद"
+        "bhb": "कोंन्डे"
     },
     {
         "en": "Mandarin",
@@ -33247,7 +33247,7 @@
         "mr": "मोसंबी",
         "transliteration": "mosanbee",
         "hi": "मौसम्बी",
-        "bhb": "मोसामी"
+        "bhb": "मोसंम्बी"
     },
     {
         "en": "Mulberry",
@@ -33268,7 +33268,7 @@
         "mr": "नोनी",
         "transliteration": "nonee",
         "hi": "नोनी",
-        "bhb": "नोनी"
+        "bhb": "आलाडों"
     },
     {
         "en": "Nakfal",
@@ -33366,7 +33366,7 @@
         "mr": "अडुळसा",
         "transliteration": "adulasaa",
         "hi": "अडुलसा",
-        "bhb": "अदुल्सा"
+        "bhb": "डोलारों"
     },
     {
         "en": "Ashwagandha",
@@ -33387,7 +33387,7 @@
         "mr": "बेहडा",
         "transliteration": "behadaa",
         "hi": "बेहडा",
-        "bhb": "बेहेडा"
+        "bhb": "बेडो"
     },
     {
         "en": "Bakul",
@@ -33471,7 +33471,7 @@
         "mr": "मेंदी",
         "transliteration": "mendee",
         "hi": "मेंहदी",
-        "bhb": "हिना"
+        "bhb": "मेहदी"
     },
     {
         "en": "Indian Basil",
@@ -33520,7 +33520,7 @@
         "mr": "करंज",
         "transliteration": "karanj",
         "hi": "करंज",
-        "bhb": "करंज"
+        "bhb": "कोअंजो"
     },
     {
         "en": "Kewda",
@@ -33688,7 +33688,7 @@
         "mr": "करंज",
         "transliteration": "karanj",
         "hi": "करंज",
-        "bhb": "जट्रोफा"
+        "bhb": "ओअंडो"
     },
     {
         "en": "Indigo",
@@ -33772,7 +33772,7 @@
         "mr": "बांबू",
         "transliteration": "baanboo",
         "hi": "बांस",
-        "bhb": "बांबू"
+        "bhb": "वांहटों"
     },
     {
         "en": "Cocoa",
@@ -33982,7 +33982,7 @@
         "mr": "निलगिरी",
         "transliteration": "nilagiree",
         "hi": "नीलगिरी",
-        "bhb": "युकेलिप्टस"
+        "bhb": "निलगिरी"
     },
     {
         "en": "Casurina",
@@ -34017,14 +34017,14 @@
         "mr": "गिरिपुष्प",
         "transliteration": "giripushp",
         "hi": "गिरिपुष्प",
-        "bhb": "ग्लिरिसिडिया"
+        "bhb": "गिरीपुष्प / उंदिर मा-यों"
     },
     {
         "en": "Indian Banyan Tree",
         "mr": "वड",
         "transliteration": "vad",
         "hi": "बरगद",
-        "bhb": "भारतामने वडा"
+        "bhb": "वोड"
     },
     {
         "en": "Hingani",
@@ -34066,7 +34066,7 @@
         "mr": "खैर",
         "transliteration": "khair",
         "hi": "खैर",
-        "bhb": "खैर"
+        "bhb": "काटी"
     },
     {
         "en": "Kazra",
@@ -34101,7 +34101,7 @@
         "mr": "कडूलिंब",
         "transliteration": "kadoolinb",
         "hi": "कडूलिंब",
-        "bhb": "लिंबो"
+        "bhb": "निंबवो"
     },
     {
         "en": "Oak Tree",
@@ -34122,14 +34122,14 @@
         "mr": "पळस",
         "transliteration": "palas",
         "hi": "पलस",
-        "bhb": "पालस"
+        "bhb": "पालोहो /खाकरो"
     },
     {
         "en": "Peepal",
         "mr": "पिंपळ",
         "transliteration": "pinpal",
         "hi": "पीपल",
-        "bhb": "पीपल"
+        "bhb": "पिपलो"
     },
     {
         "en": "Raintree",
@@ -34227,7 +34227,7 @@
         "mr": "गवार",
         "transliteration": "gavaar",
         "hi": "ग्वार",
-        "bhb": "गवारसीड"
+        "bhb": "गोरवाया"
     },
     {
         "en": "Haritaki",
@@ -34248,7 +34248,7 @@
         "mr": "महूआ",
         "transliteration": "mahooaa",
         "hi": "महूआ",
-        "bhb": "मोहवा"
+        "bhb": "मोव"
     },
     {
         "en": "Seema Ruba/ Paradise Tree / Lakshmitaru",
@@ -34444,7 +34444,7 @@
         "mr": "काकडी",
         "transliteration": "kaakadee",
         "hi": "खीरा",
-        "bhb": "लांब तोंबें"
+        "bhb": "लांबे तोंहें"
     },
     {
         "en": "Black Eyed Pea/Lobhiya",
@@ -34738,7 +34738,7 @@
         "mr": "चौकोनी ठिपक्याचा पतंग",
         "transliteration": "chaukonee thipakyaachaa patang",
         "hi": "चौकोनी ठिपक्याचा पतंग",
-        "bhb": "डायमंडबॅक मोथ"
+        "bhb": "फुलसुकें"
     },
     {
         "en": "Leaf Eating Caterpillar",
@@ -34815,7 +34815,7 @@
         "mr": "फुलकळी पोखरणारी अळी",
         "transliteration": "phulakalee pokharanaaree alee",
         "hi": "कली छेदक",
-        "bhb": "बोर"
+        "bhb": "कातरी खाना-या किडी"
     },
     {
         "en": "Fungal Blast",
@@ -34906,7 +34906,7 @@
         "mr": "जलद व हळुवार मर",
         "transliteration": "jalad v haluvaar mar",
         "hi": "जलद व हलुवार मर",
-        "bhb": "माहरी आन बागेने मर"
+        "bhb": "माहार आन् बागेने आवनारो मोर रोग"
     },
     {
         "en": "Drumstick Canker",
@@ -34927,14 +34927,14 @@
         "mr": "गाय वर्ग",
         "transliteration": "gaay varg",
         "hi": "गाय वर्ग",
-        "bhb": "डोगरा"
+        "bhb": "बोईल-गावडें"
     },
     {
         "en": "buffalo",
         "mr": "म्हैस",
         "transliteration": "mhais",
         "hi": "भैंस",
-        "bhb": "मोडी डोगरी"
+        "bhb": "मोहडी"
     },
     {
         "en": "sheep",
@@ -34962,7 +34962,7 @@
         "mr": "घोडा",
         "transliteration": "ghodaa",
         "hi": "घोडा",
-        "bhb": "घोडा"
+        "bhb": "कोडो"
     },
     {
         "en": "division",
@@ -34990,7 +34990,7 @@
         "mr": "मांस उत्पादन",
         "transliteration": "maans utpaadan",
         "hi": "मांस उत्पादन",
-        "bhb": "माहा उत्पादन"
+        "bhb": "मटना उत्पादन"
     },
     {
         "en": "Fishery Production",
@@ -35046,7 +35046,7 @@
         "mr": "शुद्ध जातीय वासरे",
         "transliteration": "shuddh jaateey vaasare",
         "hi": "शुद्ध जातीय वासरे",
-        "bhb": "हारो जात वासरा"
+        "bhb": "वासडांहा हारी जात"
     },
     {
         "en": "Value-added Dairy Products",
@@ -35284,21 +35284,21 @@
         "mr": "खरीप हंगाम",
         "transliteration": "khareep hangaam",
         "hi": "खरीप हंगाम",
-        "bhb": "खरीप हंगाम"
+        "bhb": "वोहरात"
     },
     {
         "en": "Rabi Season",
         "mr": "रबी हंगाम",
         "transliteration": "rabee hangaam",
         "hi": "रबी हंगाम",
-        "bhb": "रब्बी हंगाम"
+        "bhb": "हियालो सिजन"
     },
     {
         "en": "Summer Crops",
         "mr": "उन्हाळी पिके",
         "transliteration": "unhaalee pike",
         "hi": "उन्हाली पिके",
-        "bhb": "उनालामने पिक"
+        "bhb": "उनाल्यें पिके"
     },
     {
         "en": "Sowing Method",
@@ -35396,7 +35396,7 @@
         "mr": "पोषक तत्वे",
         "transliteration": "poshak tatve",
         "hi": "पोषक तत्वे",
-        "bhb": "खूब हारो"
+        "bhb": "अन्नद्रव्ये/ खाद"
     },
     {
         "en": "Natural Feed",
@@ -35417,7 +35417,7 @@
         "mr": "जूट",
         "transliteration": "joot",
         "hi": "जूट",
-        "bhb": "गोणपाट"
+        "bhb": "खोतलो"
     },
     {
         "en": "racks",
@@ -39015,7 +39015,7 @@
         "mr": "झार",
         "transliteration": "jhaar",
         "hi": "झार",
-        "bhb": "अळी"
+        "bhb": "ओवर"
     },
     {
         "en": "Oral Administration",
@@ -39568,7 +39568,7 @@
         "mr": "कॉक्सिडिओसिस",
         "transliteration": "koksidiosis",
         "hi": "कॉक्सिडिओसिस",
-        "bhb": "कोक्सीडिओसिस"
+        "bhb": "रोगता जूलाब"
     },
     {
         "en": "trichomoniasis",
@@ -39582,7 +39582,7 @@
         "mr": "ऊवा",
         "transliteration": "oovaa",
         "hi": "ऊवा",
-        "bhb": "लिस"
+        "bhb": "जूवें"
     },
     {
         "en": "mites",
@@ -39652,7 +39652,7 @@
         "mr": "निकृष्ट चारा",
         "transliteration": "nikrusht chaaraa",
         "hi": "निकृष्ट चारा",
-        "bhb": "खराब खावनु"
+        "bhb": "खराब  प्रति खाद /चारो"
     },
     {
         "en": "fertility",
@@ -39764,7 +39764,7 @@
         "mr": "अलग ठेवणे",
         "transliteration": "alag thevane",
         "hi": "अलग रखना",
-        "bhb": "एखलो"
+        "bhb": "अलग थोवनू पद्धत"
     },
     {
         "en": "Veterinary Consultation",
@@ -40016,7 +40016,7 @@
         "mr": "प्रजनन प्रणालीचे आजार",
         "transliteration": "prajanan pranaaleeche aajaar",
         "hi": "प्रजनन प्रणालीचे आजार",
-        "bhb": "प्रजनन प्रणाली रोग"
+        "bhb": "वाईंटो"
     },
     {
         "en": "infertility",
@@ -40541,7 +40541,7 @@
         "mr": "खुराची संसर्ग",
         "transliteration": "khuraachee sansarg",
         "hi": "खुराची संक्रमण",
-        "bhb": "हुफ इन्फेक्शन"
+        "bhb": "खूरी दुखापत"
     },
     {
         "en": "anaemia",
@@ -40604,7 +40604,7 @@
         "mr": "नर जनक",
         "transliteration": "nar janak",
         "hi": "नर जनक",
-        "bhb": "सर"
+        "bhb": "हांड्यो/ हांड / टानगो"
     },
     {
         "en": "Donor Cow",
@@ -40653,7 +40653,7 @@
         "mr": "ऊत्तरावस्था समकालीन करणे",
         "transliteration": "oottaraavasthaa samakaaleen karane",
         "hi": "ऊत्तरावस्था समकालीन करना",
-        "bhb": "माजाव आवणू"
+        "bhb": "वापानूं"
     },
     {
         "en": "Deep-frozen Semen",
@@ -40716,7 +40716,7 @@
         "mr": "निर्देश",
         "transliteration": "nirdesh",
         "hi": "निर्देश",
-        "bhb": "संकेत"
+        "bhb": "ईशारो"
     },
     {
         "en": "contraindications",
@@ -40954,7 +40954,7 @@
         "mr": "विजेचा गडगडाटासह वादळ",
         "transliteration": "vijechaa gadagadaataasah vaadal",
         "hi": "विजेचा गडगडाटासह वादल",
-        "bhb": "वादळ"
+        "bhb": "वादूं/ वेडों"
     },
     {
         "en": "Feed Conservation",
@@ -41045,7 +41045,7 @@
         "mr": "रक्त",
         "transliteration": "rakt",
         "hi": "रक्त",
-        "bhb": "रक्त"
+        "bhb": "रोगोत"
     },
     {
         "en": "heparin",
@@ -41192,7 +41192,7 @@
         "mr": "हेमोलिसिस",
         "transliteration": "hemolisis",
         "hi": "हेमोलिसिस",
-        "bhb": "हेमोलायसिस"
+        "bhb": "रोगता कमतरता"
     },
     {
         "en": "Avian Blood",
@@ -41360,7 +41360,7 @@
         "mr": "दाणेदार खाद्य",
         "transliteration": "daanedaar khaady",
         "hi": "दाणेदार खाद्य",
-        "bhb": "सांद्र"
+        "bhb": "ठेफ"
     },
     {
         "en": "Selective Breeding",
@@ -41374,14 +41374,14 @@
         "mr": "मादी जनावर माता",
         "transliteration": "maadee janaavar maataa",
         "hi": "मादी जनावर माता",
-        "bhb": "बांद"
+        "bhb": "वासडी/ कोलवड"
     },
     {
         "en": "Proven Sire",
         "mr": "प्रमाणित नर",
         "transliteration": "pramaanit nar",
         "hi": "प्रमाणित नर",
-        "bhb": "साबीत नर"
+        "bhb": "हांड्यो/ हांड"
     },
     {
         "en": "pedigree",
@@ -41395,7 +41395,7 @@
         "mr": "संतती",
         "transliteration": "santatee",
         "hi": "संतती",
-        "bhb": "पोयरो"
+        "bhb": "पिलकें"
     },
     {
         "en": "germplasm",
@@ -41437,7 +41437,7 @@
         "mr": "कळप नोंदणी",
         "transliteration": "kalap nondanee",
         "hi": "कलप नोंदणी",
-        "bhb": "गावडीही नोंदणी"
+        "bhb": "जनावरां नोंदणी"
     },
     {
         "en": "Data Recording System",
@@ -41472,7 +41472,7 @@
         "mr": "वीर्य गोठविण्याची सुविधा",
         "transliteration": "veery gothavinyaachee suvidhaa",
         "hi": "वीर्य गोठविण्याची सुविधा",
-        "bhb": "हियालो"
+        "bhb": "वीर्य गोठवूंनूं सुविधा"
     },
     {
         "en": "Nucleus Farm",
@@ -41598,7 +41598,7 @@
         "mr": "मूत्र नमुना",
         "transliteration": "mootra namunaa",
         "hi": "मूत्र नमुना",
-        "bhb": "मुता नमुना"
+        "bhb": "लघवी नमुनो"
     },
     {
         "en": "Schistosoma Haematobium",
@@ -41661,7 +41661,7 @@
         "mr": "रक्तातून हेमोग्लोबिन काढणे",
         "transliteration": "raktaatoon hemoglobin kaadhane",
         "hi": "रक्तातून हेमोग्लोबिन निकालना",
-        "bhb": "डिहेमोग्लोबिनायझेशन"
+        "bhb": "रक्ता कमतरता"
     },
     {
         "en": "Romanowsky Stains",
@@ -41689,7 +41689,7 @@
         "mr": "तेल इमर्शन लेंस",
         "transliteration": "tel imarshan lens",
         "hi": "तेल इमर्शन लेंस",
-        "bhb": "तेला बुडवूनु उद्देश"
+        "bhb": "तेलांम पिगलूनारो पदार्थ"
     },
     {
         "en": "Skin Scraping",
