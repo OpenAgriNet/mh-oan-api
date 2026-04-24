@@ -191,3 +191,7 @@ cython_debug/
 .pypirc
 .DS_Store
 .DS_Store
+
+# TypeScript incremental build info
+*.tsbuildinfo
+viewer/tsconfig.tsbuildinfo
