@@ -7,7 +7,18 @@ from typing import List, Optional
 from pydantic import BaseModel, Field
 from langcodes import Language
 from datetime import datetime
-from pydantic_ai.messages import ModelMessagesTypeAdapter, ModelMessage, ModelResponse, ThinkingPart
+from pydantic_ai.messages import ModelMessagesTypeAdapter, ModelMessage, ModelResponse
+
+try:
+    from pydantic_ai.messages import ThinkingPart  # type: ignore[attr-defined]
+except ImportError:
+    class ThinkingPart:  # type: ignore[no-redef]
+        """Fallback stub for older pydantic-ai versions that lack ThinkingPart.
+
+        On pydantic-ai < version with ThinkingPart, no real message part is an
+        instance of this local class, so ``strip_thinking`` becomes a no-op.
+        """
+        pass
 
 from synthetic.utils import get_crop_season
 

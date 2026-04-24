@@ -1,5 +1,5 @@
 import os
-from pydantic_ai.models.openai import OpenAIChatModel, OpenAIResponsesModel
+from pydantic_ai.models.openai import OpenAIModel, OpenAIResponsesModel
 from pydantic_ai.providers.openai import OpenAIProvider
 from dotenv import load_dotenv
 
@@ -37,27 +37,27 @@ elif LLM_PROVIDER == 'openai':
             api_key=os.getenv('OPENAI_API_KEY'),
         ),
     )
-    LLM_USER_MODEL = OpenAIChatModel(
+    LLM_USER_MODEL = OpenAIModel(
         LLM_USER_MODEL_NAME,
         provider=OpenAIProvider(
             api_key=os.getenv('OPENAI_API_KEY'),
         ),
     )
-    LLM_MODERATION_MODEL = OpenAIChatModel(
+    LLM_MODERATION_MODEL = OpenAIModel(
         LLM_MODERATION_MODEL_NAME,
         provider=OpenAIProvider(
             api_key=os.getenv('OPENAI_API_KEY'),
         ),
     )
 elif LLM_PROVIDER == 'azure-openai':
-    LLM_AGRINET_MODEL = OpenAIChatModel(
+    LLM_AGRINET_MODEL = OpenAIModel(
     LLM_AGRINET_MODEL_NAME,
     provider=OpenAIProvider(
         base_url=VLLM_AGRINET_MODEL_URL,
         api_key="not-required",
     ),
     )
-    LLM_MODERATION_MODEL = OpenAIChatModel(
+    LLM_MODERATION_MODEL = OpenAIModel(
         LLM_MODERATION_MODEL_NAME,
         provider=OpenAIProvider(
             base_url=VLLM_MODERATION_MODEL_URL,
