@@ -25,6 +25,7 @@ from synthetic.deps import FarmerContext, build_moderation_input
 from synthetic.mock_data import TARGET_LANGUAGE_WEIGHTS, SAME_LANGUAGE_PROBABILITY, LANGUAGE_SWITCH_PROBABILITY
 from synthetic.models import LLM_AGRINET_MODEL_NAME
 from synthetic.moderation import moderation_agent
+from synthetic.translation import BhashiniTranslator
 from synthetic.user import (
     EndConversation,
     FarmerProfile,
@@ -119,6 +120,11 @@ async def run_conversation(
 
     current_target_lang = env.target_language
     language_switches: list[LanguageSwitch] = []
+
+    # Initialize Bhili translators (only used if current_target_lang is 'bhb')
+    bhili_to_en_translator = BhashiniTranslator(source_lang='bhb', target_lang='en')
+    en_to_bhili_translator = BhashiniTranslator(source_lang='en', target_lang='bhb')
+
     planned_switch = _pick_language_switch(current_target_lang, max_turns)
 
     farmer_ctx = FarmerContext(
@@ -171,15 +177,21 @@ async def run_conversation(
             break
 
         user_text = user_output
+        if current_target_lang == 'bhb':
+            user_text_for_processing = await bhili_to_en_translator.translate_text(
+                user_text, source_lang='bhb', target_lang='en'
+            )
+        else:
+            user_text_for_processing = user_text
 
-        # Moderate
-        mod_input = build_moderation_input(user_text, agrinet_history, limit=3)
+        mod_input = build_moderation_input(user_text_for_processing, agrinet_history, limit=3)
         mod_result = await moderation_agent.run(mod_input)
 
-        # Rebuild FarmerContext
+        agrinet_lang_code = 'en' if current_target_lang == 'bhb' else current_target_lang
+
         farmer_ctx = FarmerContext(
-            query=user_text,
-            lang_code=current_target_lang,
+            query=user_text_for_processing,
+            lang_code=agrinet_lang_code,
             session_id=env.session_id,
             today_date=env.today_date,
             moderation_str=str(mod_result.output),
@@ -208,9 +220,16 @@ async def run_conversation(
         )
         agrinet_history = agrinet_result.all_messages()
 
+        if current_target_lang == 'bhb':
+            agrinet_response_for_user = await en_to_bhili_translator.translate_text(
+                agrinet_result.output, source_lang='en', target_lang='bhb'
+            )
+        else:
+            agrinet_response_for_user = agrinet_result.output
+
         # Run user agent with agrinet's response
         user_result = await user_agent.run(
-            user_prompt=agrinet_result.output,
+            user_prompt=agrinet_response_for_user,
             deps=profile,
             message_history=user_history,
         )

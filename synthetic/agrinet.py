@@ -32,7 +32,11 @@ agrinet_agent = Agent(
 def get_system_prompt(ctx: RunContext[FarmerContext]):
     deps = ctx.deps
     lang_code = deps.lang_code or 'en'
-    prompt_name = f'agrinet_system_{lang_code}'
+
+    # Map Bhili to English for prompt selection
+    prompt_lang = 'en' if lang_code == 'bhb' else lang_code
+    
+    prompt_name = f'agrinet_system_{prompt_lang}'
     return get_prompt(prompt_name, context={
         'today_date': deps.get_today_date_str(),
         'crop_season': deps.crop_season,
