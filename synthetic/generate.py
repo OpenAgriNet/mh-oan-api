@@ -149,15 +149,15 @@ async def run_conversation(
         farmer_is_pocra=profile.is_pocra,
     )
 
-    # First turn — user agent speaks first
     user_result = await user_agent.run(
         "Begin the conversation based on your goal.",
         deps=profile,
     )
 
-    if current_target_lang == "bhb":
+    user_text_english = user_result.output
+    if current_target_lang == "bhb" and isinstance(user_text_english, str) and "EndConversation" not in user_text_english:
         user_result.output = await en_to_bhili_translator.translate_text(
-            user_result.output, source_lang="en", target_lang="bhb"
+            user_text_english, source_lang="en", target_lang="bhb"
         )
 
     agrinet_history = []
@@ -181,13 +181,10 @@ async def run_conversation(
             completed = True
             break
 
-        user_text = user_output
         if current_target_lang == 'bhb':
-            user_text_for_processing = await bhili_to_en_translator.translate_text(
-                user_text, source_lang='bhb', target_lang='en'
-            )
+            user_text_for_processing = user_text_english
         else:
-            user_text_for_processing = user_text
+            user_text_for_processing = user_output
 
         mod_input = build_moderation_input(user_text_for_processing, agrinet_history, limit=3)
         mod_result = await moderation_agent.run(mod_input)
@@ -239,9 +236,10 @@ async def run_conversation(
             message_history=user_history,
         )
 
-        if current_target_lang == "bhb":
+        user_text_english = user_result.output
+        if current_target_lang == "bhb" and isinstance(user_text_english, str) and "EndConversation" not in user_text_english:
             user_result.output = await en_to_bhili_translator.translate_text(
-                user_result.output, source_lang="en", target_lang="bhb"
+                user_text_english, source_lang="en", target_lang="bhb"
             )
 
         user_history = user_result.all_messages()

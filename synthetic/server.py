@@ -257,7 +257,9 @@ async def simulate(req: SimulateRequest, request: Request):
 
             user_language = req.language
             if user_language is None:
-                if random.random() < SAME_LANGUAGE_PROBABILITY:
+                if req.target_language == "bhb":
+                    user_language = "bhb"
+                elif random.random() < SAME_LANGUAGE_PROBABILITY:
                     user_language = env.target_language
 
             profile = generate_random_profile(language=user_language, scenario_id=req.scenario_id)
@@ -314,7 +316,7 @@ async def simulate(req: SimulateRequest, request: Request):
 
             # First turn — user speaks first (user agent outputs English for bhb; then NMT → Bhili)
             user_result = await user_agent.run("Begin the conversation based on your goal.", deps=profile)
-            if current_target_lang == "bhb":
+            if current_target_lang == "bhb" and isinstance(user_result.output, str) and "EndConversation" not in user_result.output:
                 user_result.output = await en_to_bhili_translator.translate_text(
                     user_result.output, source_lang="en", target_lang="bhb"
                 )
@@ -420,7 +422,7 @@ async def simulate(req: SimulateRequest, request: Request):
                 user_result = await user_agent.run(
                     user_prompt=agrinet_response_for_user, deps=profile, message_history=user_history,
                 )
-                if current_target_lang == "bhb":
+                if current_target_lang == "bhb" and isinstance(user_result.output, str) and "EndConversation" not in user_result.output:
                     user_result.output = await en_to_bhili_translator.translate_text(
                         user_result.output, source_lang="en", target_lang="bhb"
                     )
