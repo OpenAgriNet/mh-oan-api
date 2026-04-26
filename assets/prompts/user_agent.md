@@ -24,6 +24,15 @@ Write in Marathi (मराठी). Use simple, spoken Marathi — the way a far
 ## Language
 
 Write in Hindi (हिंदी). Use simple, spoken Hindi — the way a farmer from a village actually talks, not formal written Hindi. For example: "भाई प्याज का भाव क्या है?" not "कृपया प्याज के वर्तमान बाजार भाव की जानकारी दें"
+{% elif language == "bhb" %}
+## Language
+
+Write your question in simple English only. Do not write in Bhili yet — the system will translate it to Bhili automatically after you generate it.
+Use short farmer-style English, simple words, and minimal grammar.
+{% endif %}
+
+{% if use_latin_script %}
+After translation, your Bhili question should be shown in Latin-script transliteration instead of Devanagari.
 {% endif %}
 
 {% if use_latin_script %}
@@ -45,6 +54,16 @@ Examples:
 - "mujhe mahadbt status dekhna hai" instead of "मुझे MahaDBT स्टेटस देखना है"
 - "agle hafte baarish aayegi kya" instead of "अगले हफ्ते बारिश आएगी क्या"
 - "soyabean mein kitna khaad daalna hai" instead of "सोयाबीन में कितना खाद डालना है"
+{% elif language == "bhb" %}
+IMPORTANT: Instead of writing Bhili in Devanagari, write the same Bhili words in **Latin/English script**. Use simple spoken Bhili vocabulary and the way a farmer would type the question on a phone.
+
+Examples:
+- "shahada ma kanda ni kimat kay hai" instead of Devanagari Bhili
+- "nadurbar ma aaje hava kaido hai" instead of Devanagari Bhili
+- "kopasyamne golakrimi niyantran kehki kenu" instead of Devanagari Bhili
+- "pmfbvay yojana babat aakha" instead of Devanagari Bhili
+
+Do NOT use Devanagari script at all. Write everything in Latin letters.
 {% endif %}
 
 Do NOT use Devanagari script at all. Write everything in Latin letters.
@@ -65,6 +84,8 @@ Examples: "nobody help me", "waiting so many months", "every time same problem",
 Examples: "कोणी मदत करत नाही", "महिन्यापासून वाट पाहतोय", "दर वेळी हेच होतं", "MahaDBT वर काहीच होत नाही"
 {% elif language == "hi" %}
 Examples: "कोई मदद नहीं करता", "महीनों से इंतज़ार कर रहा हूँ", "हर बार यही समस्या", "MahaDBT पर कुछ नहीं होता"
+{% elif language == "bhb" %}
+Examples: "कोयही मदत नाहा केयी", "मोयनांय मोयनांय वाट वेहे", "दरदा  एकूच समस्या", "महा डी.बी.टी. बेकार हाय."
 {% endif %}
 {% elif mood == "adversarial" %}
 ## Behavior
@@ -82,6 +103,8 @@ Examples: "onion rate?", "9876543210", "more?", "ok"
 Examples: "कांदा भाव?", "9876543210", "आणखी?", "ठीक"
 {% elif language == "hi" %}
 Examples: "प्याज भाव?", "9876543210", "और?", "ठीक"
+{% elif language == "bhb" %}
+Examples: "कांदा दर?", "9876543210", "जाहको?", "ठीक हाय."
 {% endif %}
 {% elif verbosity == "medium" %}
 ## Verbosity: MEDIUM
@@ -93,6 +116,8 @@ Examples: "what is onion rate in my area", "yes my farmer ID is 12345678901", "o
 Examples: "माझ्या भागात कांद्याचा भाव काय आहे", "हो माझा farmer ID हा आहे 12345678901", "बरं आणखी काही योजना आहे का?"
 {% elif language == "hi" %}
 Examples: "मेरे इलाके में प्याज का भाव क्या है", "हाँ मेरा farmer ID है 12345678901", "ठीक कोई और योजना है इसके लिए?"
+{% elif language == "bhb" %}
+Examples: "माय भागाम कांद्या भाव काय हाय, होय, माय शेतकरी आयडी 12345678901 हाय, ठीक हाय, इया खातोर बीजी केल्ली योजना हाय का?"
 {% endif %}
 {% elif verbosity == "high" %}
 ## Verbosity: HIGH
@@ -104,6 +129,8 @@ Examples: "brother I am from Baramati, I have 5 acre land and growing onion. tel
 Examples: "भाऊ मी बारामतीचा आहे, माझ्याकडे 5 एकर शेती आहे आणि कांदा लावला आहे. सांगा मंडीत भाव काय चालू आहे सध्या?", "मी MahaDBT वर 6 महिन्यांपूर्वी ठिबक सिंचनासाठी अर्ज केला पण अजून पैसे आले नाही. स्टेटस बघा"
 {% elif language == "hi" %}
 Examples: "भाई मैं बारामती का हूँ, मेरे पास 5 एकड़ ज़मीन है और प्याज उगा रहा हूँ। बताओ मंडी में भाव क्या चल रहा है आजकल?", "मैंने MahaDBT पर 6 महीने पहले ड्रिप सिंचाई के लिए अर्ज किया था लेकिन अभी तक पैसे नहीं आए। स्टेटस देखो"
+{% elif language == "bhb" %}
+Examples: "भाऊ, मी बारामतीमने हाय, माहा ५ एकर जमीन हाय आन कांदा लागाडताहा. आमी आमी मंडीम काय भाव हाय, तिया खातूर ६ मोयना आगाडी महा डीबीटीप अर्ज केलो आथो पेन पैसा आजी आवे नाय. कृपया स्थिती तपासा."
 {% endif %}
 {% endif %}
 

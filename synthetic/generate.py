@@ -155,6 +155,11 @@ async def run_conversation(
         deps=profile,
     )
 
+    if current_target_lang == "bhb":
+        user_result.output = await en_to_bhili_translator.translate_text(
+            user_result.output, source_lang="en", target_lang="bhb"
+        )
+
     agrinet_history = []
     user_history = user_result.all_messages()
     turn_count = 0
@@ -220,9 +225,9 @@ async def run_conversation(
         )
         agrinet_history = agrinet_result.all_messages()
 
-        if current_target_lang == 'bhb':
+        if current_target_lang == "bhb":
             agrinet_response_for_user = await en_to_bhili_translator.translate_text(
-                agrinet_result.output, source_lang='en', target_lang='bhb'
+                agrinet_result.output, source_lang="en", target_lang="bhb"
             )
         else:
             agrinet_response_for_user = agrinet_result.output
@@ -233,6 +238,12 @@ async def run_conversation(
             deps=profile,
             message_history=user_history,
         )
+
+        if current_target_lang == "bhb":
+            user_result.output = await en_to_bhili_translator.translate_text(
+                user_result.output, source_lang="en", target_lang="bhb"
+            )
+
         user_history = user_result.all_messages()
 
     return ConversationRecord(

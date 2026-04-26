@@ -6,9 +6,14 @@
 import os
 import re
 import json
+import time
+import asyncio
 import httpx
+import logging
 from dotenv import load_dotenv
 from typing import Any, Dict, List, Tuple, Union, Set
+
+logger = logging.getLogger(__name__)
 
 load_dotenv(override=True)
 
@@ -387,10 +392,11 @@ class BhashiniTranslator(BaseTranslator):
         response_json = response.json()
         return [item['target'] for item in response_json['pipelineResponse'][0]['output']]
 
-    async def translate_text(self, text: str, source_lang: str, target_lang: str) -> str:
-        """Translate a single text with per-call language pair."""
+    async def translate_text(self, text: str, source_lang: str, target_lang: str, max_retries: int = 3) -> str:
+        """Translate a single text with per-call language pair and retry logic."""
         if source_lang == target_lang or not text:
             return text
+
         headers = {
             'Authorization': self.api_key,
             'Content-Type': 'application/json'
@@ -413,12 +419,30 @@ class BhashiniTranslator(BaseTranslator):
                 "input": [{"source": text}]
             }
         }
-        async with httpx.AsyncClient(timeout=30.0) as client:
-            response = await client.post(self.base_url, headers=headers, json=data)
-            response.raise_for_status()
-            result = response.json()
 
-        return result['pipelineResponse'][0]['output'][0]['target']
+        last_error = None
+        for attempt in range(max_retries):
+            try:
+                async with httpx.AsyncClient(timeout=30.0) as client:
+                    response = await client.post(self.base_url, headers=headers, json=data)
+                    response.raise_for_status()
+                    result = response.json()
+                    return result['pipelineResponse'][0]['output'][0]['target']
+            except (httpx.HTTPError, KeyError, IndexError) as e:
+                last_error = e
+                if attempt < max_retries - 1:
+                    delay = 2 ** attempt
+                    logger.warning(
+                        "Translation attempt %d/%d failed for %s→%s: %s. Retrying in %ds...",
+                        attempt + 1, max_retries, source_lang, target_lang, e, delay,
+                    )
+                    await asyncio.sleep(delay)
+
+        logger.error(
+            "Translation failed after %d retries for %s→%s: %s. Returning original text.",
+            max_retries, source_lang, target_lang, last_error,
+        )
+        return text
 
 
 translation_service = BhashiniTranslator()

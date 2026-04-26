@@ -32,6 +32,7 @@ const LANG_LABELS: Record<string, string> = {
   mr: "Marathi",
   hi: "Hindi",
   en: "English",
+  bhb: "Bhili",
 };
 
 const COLORS = ["#6366f1", "#f59e0b", "#10b981", "#ef4444", "#8b5cf6", "#06b6d4"];
@@ -213,7 +214,7 @@ export default function SuggestionsPage() {
                       {s.id.slice(0, 8)}...
                     </span>
                     <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary">
-                      {s.target_language}
+                      {LANG_LABELS[s.target_language] ?? s.target_language}
                     </span>
                   </div>
                   <div className="text-sm mt-1">
@@ -242,7 +243,8 @@ export default function SuggestionsPage() {
                   <div className="flex items-center justify-between">
                     <h2 className="font-semibold">Suggestion Detail</h2>
                     <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary">
-                      {selected.target_language}
+                      {LANG_LABELS[selected.target_language] ??
+                        selected.target_language}
                     </span>
                   </div>
 

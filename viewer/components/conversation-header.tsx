@@ -22,6 +22,7 @@ const langLabels: Record<string, string> = {
   mr: "Marathi",
   hi: "Hindi",
   en: "English",
+  bhb: "Bhili",
 };
 
 interface ConversationHeaderProps {

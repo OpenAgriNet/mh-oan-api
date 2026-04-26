@@ -35,6 +35,7 @@ const LANG_LABELS: Record<string, string> = {
   mr: "Marathi",
   hi: "Hindi",
   en: "English",
+  bhb: "Bhili",
 };
 
 const PAGE_SIZES = [25, 50, 100];

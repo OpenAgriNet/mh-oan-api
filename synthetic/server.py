@@ -251,6 +251,7 @@ async def simulate(req: SimulateRequest, request: Request):
         try:
             import random
             from synthetic.mock_data import SAME_LANGUAGE_PROBABILITY, TARGET_LANGUAGE_WEIGHTS
+            from synthetic.translation import BhashiniTranslator
 
             env = generate_random_environment(target_language=req.target_language)
 
@@ -285,6 +286,10 @@ async def simulate(req: SimulateRequest, request: Request):
             else:
                 planned_switch = _pick_language_switch(current_target_lang, req.max_turns)
 
+            # Same as generate.run_conversation: Bhashini Bhili NMT when target is bhb
+            bhili_to_en_translator = BhashiniTranslator(source_lang="bhb", target_lang="en")
+            en_to_bhili_translator = BhashiniTranslator(source_lang="en", target_lang="bhb")
+
             farmer_ctx = FarmerContext(
                 query="",
                 lang_code=current_target_lang,
@@ -307,8 +312,12 @@ async def simulate(req: SimulateRequest, request: Request):
                 farmer_is_pocra=profile.is_pocra,
             )
 
-            # First turn — user speaks first
+            # First turn — user speaks first (user agent outputs English for bhb; then NMT → Bhili)
             user_result = await user_agent.run("Begin the conversation based on your goal.", deps=profile)
+            if current_target_lang == "bhb":
+                user_result.output = await en_to_bhili_translator.translate_text(
+                    user_result.output, source_lang="en", target_lang="bhb"
+                )
             user_history = user_result.all_messages()
             agrinet_history = []
             turn_count = 0
@@ -346,12 +355,21 @@ async def simulate(req: SimulateRequest, request: Request):
                 user_text = user_output
                 yield _sse_event("user_message", {"turn_number": turn_count, "text": user_text, "is_end": False})
 
-                mod_input = build_moderation_input(user_text, agrinet_history, limit=3)
+                if current_target_lang == "bhb":
+                    user_text_for_processing = await bhili_to_en_translator.translate_text(
+                        user_text, source_lang="bhb", target_lang="en"
+                    )
+                else:
+                    user_text_for_processing = user_text
+
+                mod_input = build_moderation_input(user_text_for_processing, agrinet_history, limit=3)
                 mod_result = await moderation_agent.run(mod_input)
 
+                agrinet_lang_code = "en" if current_target_lang == "bhb" else current_target_lang
+
                 farmer_ctx = FarmerContext(
-                    query=user_text,
-                    lang_code=current_target_lang,
+                    query=user_text_for_processing,
+                    lang_code=agrinet_lang_code,
                     session_id=env.session_id,
                     today_date=env.today_date,
                     moderation_str=str(mod_result.output),
@@ -379,6 +397,13 @@ async def simulate(req: SimulateRequest, request: Request):
                 )
                 agrinet_history = agrinet_result.all_messages()
 
+                if current_target_lang == "bhb":
+                    agrinet_response_for_user = await en_to_bhili_translator.translate_text(
+                        agrinet_result.output, source_lang="en", target_lang="bhb"
+                    )
+                else:
+                    agrinet_response_for_user = agrinet_result.output
+
                 tool_calls = []
                 for msg in agrinet_result.new_messages():
                     for part in msg.parts:
@@ -389,12 +414,16 @@ async def simulate(req: SimulateRequest, request: Request):
                             })
 
                 yield _sse_event("agent_message", {
-                    "turn_number": turn_count, "text": agrinet_result.output, "tool_calls": tool_calls,
+                    "turn_number": turn_count, "text": agrinet_response_for_user, "tool_calls": tool_calls,
                 })
 
                 user_result = await user_agent.run(
-                    user_prompt=agrinet_result.output, deps=profile, message_history=user_history,
+                    user_prompt=agrinet_response_for_user, deps=profile, message_history=user_history,
                 )
+                if current_target_lang == "bhb":
+                    user_result.output = await en_to_bhili_translator.translate_text(
+                        user_result.output, source_lang="en", target_lang="bhb"
+                    )
                 user_history = user_result.all_messages()
 
             record = ConversationRecord(

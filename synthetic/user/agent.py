@@ -6,7 +6,7 @@ to drive multi-turn conversations with the agrinet agent.
 from typing import Union
 
 from pydantic_ai import Agent
-from pydantic_ai.models.openai import OpenAIModelSettings
+from pydantic_ai.models.openai import OpenAIChatModelSettings
 
 from synthetic.utils import get_prompt
 from synthetic.mock_data import scheme_display_name
@@ -22,7 +22,7 @@ user_agent = Agent[FarmerProfile, Union[str, EndConversation]](
     deps_type=FarmerProfile,
     retries=3,
     end_strategy='exhaustive',
-    model_settings=OpenAIModelSettings(
+    model_settings=OpenAIChatModelSettings(
         #openai_reasoning_effort="low",
         # temperature=0.7,
         # top_p=0.8,
