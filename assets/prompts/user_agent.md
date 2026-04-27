@@ -32,10 +32,6 @@ Use short farmer-style English, simple words, and minimal grammar.
 {% endif %}
 
 {% if use_latin_script %}
-After translation, your Bhili question should be shown in Latin-script transliteration instead of Devanagari.
-{% endif %}
-
-{% if use_latin_script %}
 ## Script Override: Latin Transliteration
 
 {% if language == "mr" %}
@@ -54,19 +50,11 @@ Examples:
 - "mujhe mahadbt status dekhna hai" instead of "मुझे MahaDBT स्टेटस देखना है"
 - "agle hafte baarish aayegi kya" instead of "अगले हफ्ते बारिश आएगी क्या"
 - "soyabean mein kitna khaad daalna hai" instead of "सोयाबीन में कितना खाद डालना है"
-{% elif language == "bhb" %}
-IMPORTANT: Instead of writing Bhili in Devanagari, write the same Bhili words in **Latin/English script**. Use simple spoken Bhili vocabulary and the way a farmer would type the question on a phone.
 
-Examples:
-- "shahada ma kanda ni kimat kay hai" instead of Devanagari Bhili
-- "nadurbar ma aaje hava kaido hai" instead of Devanagari Bhili
-- "kopasyamne golakrimi niyantran kehki kenu" instead of Devanagari Bhili
-- "pmfbvay yojana babat aakha" instead of Devanagari Bhili
 
 Do NOT use Devanagari script at all. Write everything in Latin letters.
 {% endif %}
 
-Do NOT use Devanagari script at all. Write everything in Latin letters.
 {% endif %}
 
 {% if mood == "normal" %}

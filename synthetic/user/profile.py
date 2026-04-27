@@ -108,11 +108,9 @@ def generate_random_profile(
         language = random.choices(langs, weights=weights, k=1)[0]
 
     # Latin script transliteration (~10% for MH — many farmers type in Roman Marathi)
-    if language == "bhb":
-        use_latin_script = random.random() < 0.25
-    else:
-        use_latin_script = language != "en" and random.random() < LATIN_SCRIPT_PROBABILITY
-        # Mood
+    use_latin_script = language not in ("en", "bhb") and random.random() < LATIN_SCRIPT_PROBABILITY
+
+    # Mood
     if mood is None:
         moods, weights = zip(*MOOD_WEIGHTS.items())
         mood = random.choices(moods, weights=weights, k=1)[0]

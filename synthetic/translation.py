@@ -27,30 +27,7 @@ def fix_underscores(text):
     return text
 
 
-def markdown_to_chunks(text):
-    """Convert markdown to chunks (For Bhashini)"""
-    # Only match the start of lines for headings and lists (excluding * as a list marker)
-    pattern = r'(^\s*(?:#{1,6}|\-|\+|\d+\.)\s+)' ### This matches with heading and list markers at start of lines only (no asterisk)
-    parts = re.split(pattern, text, flags=re.MULTILINE)
 
-    chunks = []
-    for part in parts:
-        if not part:
-            continue
-
-        # Check if this is a heading/list marker (excluding * as a list marker)
-        if re.match(r'^\s*(?:#{1,6}|\-|\+|\d+\.)\s+$', part):
-            chunks.append({'start': part, 'text': '', 'end': ''})
-        else:
-            # Treat the entire part as regular text
-            chunks.append({'start': '', 'text': part.strip(), 'end': '\n' if part.endswith('\n') else ''})
-
-    return chunks
-
-
-def chunks_to_markdown(chunks):
-    """Convert a list of chunks (For Bhashini) back to markdown."""
-    return ''.join(f"{c['start']}{c['text']}{c['end']}" for c in chunks)
 
 
 def add_marathi_terms(text: str, term_pairs=term_pairs) -> str:
@@ -393,8 +370,31 @@ class BhashiniTranslator(BaseTranslator):
         return [item['target'] for item in response_json['pipelineResponse'][0]['output']]
 
     async def translate_text(self, text: str, source_lang: str, target_lang: str, max_retries: int = 3) -> str:
-        """Translate a single text with per-call language pair and retry logic."""
+        """Translate a single text with per-call language pair and retry logic, handling markdown."""
         if source_lang == target_lang or not text:
+            return text
+
+        # 1. Clean markdown formatting that causes Bhili NMT to hallucinate
+        if source_lang == "bhb" or target_lang == "bhb":
+            text = re.sub(r'[*_`#]', '', text)
+
+        # 2. Split into lines to preserve structure and avoid long-text NMT drops
+        lines = text.split('\n')
+        texts_to_translate = []
+        prefixes = []
+
+        for line in lines:
+            if not line.strip():
+                continue
+            # Preserve bullet points/numbering by extracting prefix
+            match = re.match(r'^(\s*(?:[-+]|\d+\.)\s+)(.*)', line)
+            prefix, content = match.groups() if match else ("", line)
+            
+            if content.strip():
+                texts_to_translate.append(content.strip())
+                prefixes.append(prefix)
+
+        if not texts_to_translate:
             return text
 
         headers = {
@@ -416,18 +416,21 @@ class BhashiniTranslator(BaseTranslator):
                 }
             ],
             "inputData": {
-                "input": [{"source": text}]
+                "input": [{"source": t} for t in texts_to_translate]
             }
         }
 
         last_error = None
+        translated_texts = texts_to_translate # fallback
+        
         for attempt in range(max_retries):
             try:
                 async with httpx.AsyncClient(timeout=30.0) as client:
                     response = await client.post(self.base_url, headers=headers, json=data)
                     response.raise_for_status()
                     result = response.json()
-                    return result['pipelineResponse'][0]['output'][0]['target']
+                    translated_texts = [item['target'] for item in result['pipelineResponse'][0]['output']]
+                    break
             except (httpx.HTTPError, KeyError, IndexError) as e:
                 last_error = e
                 if attempt < max_retries - 1:
@@ -437,12 +440,31 @@ class BhashiniTranslator(BaseTranslator):
                         attempt + 1, max_retries, source_lang, target_lang, e, delay,
                     )
                     await asyncio.sleep(delay)
+        else:
+            logger.error(
+                "Translation failed after %d retries for %s→%s: %s. Returning original text.",
+                max_retries, source_lang, target_lang, last_error,
+            )
 
-        logger.error(
-            "Translation failed after %d retries for %s→%s: %s. Returning original text.",
-            max_retries, source_lang, target_lang, last_error,
-        )
-        return text
+        # 3. Reconstruct
+        result_lines = []
+        t_idx = 0
+        for line in lines:
+            if not line.strip():
+                result_lines.append(line)
+                continue
+                
+            match = re.match(r'^(\s*(?:[-+]|\d+\.)\s+)(.*)', line)
+            _, content = match.groups() if match else ("", line)
+            
+            if content.strip():
+                translated = translated_texts[t_idx] if t_idx < len(translated_texts) else content
+                result_lines.append(f"{prefixes[t_idx]}{translated}")
+                t_idx += 1
+            else:
+                result_lines.append(line)
+
+        return '\n'.join(result_lines)
 
 
 translation_service = BhashiniTranslator()

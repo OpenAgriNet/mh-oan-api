@@ -246,6 +246,7 @@ async def simulate(req: SimulateRequest, request: Request):
     from synthetic.agrinet import agrinet_agent
     from synthetic.deps import FarmerContext, build_moderation_input
     from synthetic.moderation import moderation_agent
+    from synthetic.surface_jsonl import add_agrinet_turn, add_farmer_turn, to_json
 
     async def event_stream():
         try:
@@ -292,6 +293,9 @@ async def simulate(req: SimulateRequest, request: Request):
             bhili_to_en_translator = BhashiniTranslator(source_lang="bhb", target_lang="en")
             en_to_bhili_translator = BhashiniTranslator(source_lang="en", target_lang="bhb")
 
+            surf_user: list = []
+            surf_agrinet: list = []
+
             farmer_ctx = FarmerContext(
                 query="",
                 lang_code=current_target_lang,
@@ -320,6 +324,7 @@ async def simulate(req: SimulateRequest, request: Request):
                 user_result.output = await en_to_bhili_translator.translate_text(
                     user_result.output, source_lang="en", target_lang="bhb"
                 )
+            add_farmer_turn(surf_user, user_result)
             user_history = user_result.all_messages()
             agrinet_history = []
             turn_count = 0
@@ -346,8 +351,9 @@ async def simulate(req: SimulateRequest, request: Request):
                 is_end = isinstance(user_output, EndConversation)
 
                 # Also detect "EndConversation" leaked as text
-                if not is_end and isinstance(user_output, str) and "EndConversation" in user_output:
-                    is_end = True
+                if not is_end and isinstance(user_output, str):
+                    if "endconversation" in user_output.replace(" ", "").lower():
+                        is_end = True
 
                 if is_end:
                     yield _sse_event("user_message", {"turn_number": turn_count, "text": "[End conversation]", "is_end": True})
@@ -392,6 +398,8 @@ async def simulate(req: SimulateRequest, request: Request):
                     farmer_is_pocra=profile.is_pocra,
                 )
 
+                agrinet_prefix_len = len(agrinet_history)
+
                 agrinet_result = await agrinet_agent.run(
                     user_prompt=farmer_ctx.get_user_message(),
                     deps=farmer_ctx,
@@ -405,6 +413,19 @@ async def simulate(req: SimulateRequest, request: Request):
                     )
                 else:
                     agrinet_response_for_user = agrinet_result.output
+
+                shown_prompt = (
+                    farmer_ctx.model_copy(update={"query": user_text, "lang_code": "bhb"}).get_user_message()
+                    if current_target_lang == "bhb"
+                    else farmer_ctx.get_user_message()
+                )
+                add_agrinet_turn(
+                    surf_agrinet,
+                    agrinet_history,
+                    agrinet_prefix_len,
+                    shown_prompt,
+                    agrinet_response_for_user,
+                )
 
                 tool_calls = []
                 for msg in agrinet_result.new_messages():
@@ -420,20 +441,23 @@ async def simulate(req: SimulateRequest, request: Request):
                 })
 
                 user_result = await user_agent.run(
-                    user_prompt=agrinet_response_for_user, deps=profile, message_history=user_history,
+                    user_prompt=agrinet_result.output, deps=profile, message_history=user_history,
                 )
-                if current_target_lang == "bhb" and isinstance(user_result.output, str) and "EndConversation" not in user_result.output:
-                    user_result.output = await en_to_bhili_translator.translate_text(
-                        user_result.output, source_lang="en", target_lang="bhb"
-                    )
+                if current_target_lang == "bhb" and isinstance(user_result.output, str):
+                    clean_out = user_result.output.replace(" ", "").lower()
+                    if "endconversation" not in clean_out:
+                        user_result.output = await en_to_bhili_translator.translate_text(
+                            user_result.output, source_lang="en", target_lang="bhb"
+                        )
+                add_farmer_turn(surf_user, user_result)
                 user_history = user_result.all_messages()
 
             record = ConversationRecord(
                 session_id=env.session_id,
                 env=env,
                 profile=profile,
-                agrinet_messages_json=agrinet_result.all_messages_json() if agrinet_result else "[]",
-                user_messages_json=user_result.all_messages_json(),
+                agrinet_messages_json=to_json(surf_agrinet) if surf_agrinet else "[]",
+                user_messages_json=to_json(surf_user),
                 turn_count=turn_count,
                 completed=completed,
                 language_switches=language_switches or None,

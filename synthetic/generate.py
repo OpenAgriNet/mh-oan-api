@@ -22,6 +22,7 @@ from pydantic import BaseModel
 
 from synthetic.agrinet import agrinet_agent
 from synthetic.deps import FarmerContext, build_moderation_input
+from synthetic.surface_jsonl import add_agrinet_turn, add_farmer_turn, to_json
 from synthetic.mock_data import TARGET_LANGUAGE_WEIGHTS, SAME_LANGUAGE_PROBABILITY, LANGUAGE_SWITCH_PROBABILITY
 from synthetic.models import LLM_AGRINET_MODEL_NAME
 from synthetic.moderation import moderation_agent
@@ -127,6 +128,10 @@ async def run_conversation(
 
     planned_switch = _pick_language_switch(current_target_lang, max_turns)
 
+    surf_user: list = []
+    surf_agrinet: list = []
+    agrinet_result = None
+
     farmer_ctx = FarmerContext(
         query="",
         lang_code=current_target_lang,
@@ -155,10 +160,14 @@ async def run_conversation(
     )
 
     user_text_english = user_result.output
-    if current_target_lang == "bhb" and isinstance(user_text_english, str) and "EndConversation" not in user_text_english:
-        user_result.output = await en_to_bhili_translator.translate_text(
-            user_text_english, source_lang="en", target_lang="bhb"
-        )
+    if current_target_lang == "bhb" and isinstance(user_text_english, str):
+        clean_out = user_text_english.replace(" ", "").lower()
+        if "endconversation" not in clean_out:
+            user_result.output = await en_to_bhili_translator.translate_text(
+                user_text_english, source_lang="en", target_lang="bhb"
+            )
+
+    add_farmer_turn(surf_user, user_result)
 
     agrinet_history = []
     user_history = user_result.all_messages()
@@ -177,7 +186,13 @@ async def run_conversation(
             ))
 
         user_output = user_result.output
-        if isinstance(user_output, EndConversation):
+        
+        is_end = isinstance(user_output, EndConversation)
+        if not is_end and isinstance(user_output, str):
+            if "endconversation" in user_output.replace(" ", "").lower():
+                is_end = True
+
+        if is_end:
             completed = True
             break
 
@@ -214,6 +229,8 @@ async def run_conversation(
             farmer_is_pocra=profile.is_pocra,
         )
 
+        agrinet_prefix_len = len(agrinet_history)
+
         # Run agrinet agent
         agrinet_result = await agrinet_agent.run(
             user_prompt=farmer_ctx.get_user_message(),
@@ -229,29 +246,43 @@ async def run_conversation(
         else:
             agrinet_response_for_user = agrinet_result.output
 
+        shown_prompt = (
+            farmer_ctx.model_copy(update={"query": user_output, "lang_code": "bhb"}).get_user_message()
+            if current_target_lang == "bhb"
+            else farmer_ctx.get_user_message()
+        )
+        add_agrinet_turn(
+            surf_agrinet,
+            agrinet_history,
+            agrinet_prefix_len,
+            shown_prompt,
+            agrinet_response_for_user,
+        )
+
         # Run user agent with agrinet's response
         user_result = await user_agent.run(
-            user_prompt=agrinet_response_for_user,
+            user_prompt=agrinet_result.output,
             deps=profile,
             message_history=user_history,
         )
 
         user_text_english = user_result.output
-        if current_target_lang == "bhb" and isinstance(user_text_english, str) and "EndConversation" not in user_text_english:
-            user_result.output = await en_to_bhili_translator.translate_text(
-                user_text_english, source_lang="en", target_lang="bhb"
-            )
+        if current_target_lang == "bhb" and isinstance(user_text_english, str):
+            clean_out = user_text_english.replace(" ", "").lower()
+            if "endconversation" not in clean_out:
+                user_result.output = await en_to_bhili_translator.translate_text(
+                    user_text_english, source_lang="en", target_lang="bhb"
+                )
 
+        add_farmer_turn(surf_user, user_result)
         user_history = user_result.all_messages()
 
     return ConversationRecord(
         session_id=env.session_id,
         env=env,
         profile=profile,
-        agrinet_messages_json=agrinet_result.all_messages_json()
-        if turn_count > 0
-        else "[]",
-        user_messages_json=user_result.all_messages_json(),
+        agrinet_messages_json=to_json(surf_agrinet) if surf_agrinet else "[]",
+        user_messages_json=to_json(surf_user),
         turn_count=turn_count,
         completed=completed,
         language_switches=language_switches or None,

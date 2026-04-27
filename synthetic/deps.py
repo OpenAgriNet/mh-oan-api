@@ -7,7 +7,12 @@ from typing import List, Optional
 from pydantic import BaseModel, Field
 from langcodes import Language
 from datetime import datetime
-from pydantic_ai.messages import ModelMessagesTypeAdapter, ModelMessage, ModelResponse
+from pydantic_ai.messages import (
+    ModelMessagesTypeAdapter,
+    ModelMessage,
+    ModelRequest,
+    ModelResponse,
+)
 
 try:
     from pydantic_ai.messages import ThinkingPart  # type: ignore[attr-defined]
