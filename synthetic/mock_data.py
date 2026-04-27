@@ -33,6 +33,22 @@ def random_name() -> str:
 # ─── Maharashtra Locations (district, taluka, village, lat, lon) ─────────────
 
 LOCATIONS: list[dict] = [
+    # Bhili-speaking regions (Northwestern Maharashtra - Vidarbha border)
+    # Nandurbar district — primary Bhili heartland
+    {"district": "Nandurbar", "taluka": "Taloda", "village": "Taloda", "lat": 21.56, "lon": 74.21},
+    {"district": "Nandurbar", "taluka": "Shahada", "village": "Shahada", "lat": 21.50, "lon": 74.19},
+    {"district": "Nandurbar", "taluka": "Akkalkuva", "village": "Akkalkuva", "lat": 21.73, "lon": 74.19},
+    {"district": "Nandurbar", "taluka": "Nandurbar", "village": "Nawapur", "lat": 21.38, "lon": 74.40},
+    {"district": "Nandurbar", "taluka": "Nandurbar", "village": "Bhadgaon", "lat": 21.35, "lon": 74.45},
+    {"district": "Nandurbar", "taluka": "Wavi", "village": "Wavi", "lat": 21.66, "lon": 74.68},
+    {"district": "Nandurbar", "taluka": "Navapur", "village": "Navapur", "lat": 21.38, "lon": 74.40},
+    # Dhule district — adjacent Bhili region
+    {"district": "Dhule", "taluka": "Dhule", "village": "Halsi", "lat": 21.03, "lon": 74.77},
+    {"district": "Dhule", "taluka": "Sakri", "village": "Sakri", "lat": 21.18, "lon": 74.48},
+    {"district": "Dhule", "taluka": "Pimpalner", "village": "Pimpalner", "lat": 21.27, "lon": 75.07},
+    # Jalgaon district — border Bhili areas
+    {"district": "Jalgaon", "taluka": "Yaval", "village": "Yaval", "lat": 21.50, "lon": 75.43},
+    {"district": "Jalgaon", "taluka": "Chopda", "village": "Chopda", "lat": 21.25, "lon": 75.29},
     # Pune Division
     {"district": "Pune", "taluka": "Junnar", "village": "Otur", "lat": 19.27, "lon": 73.83},
     {"district": "Pune", "taluka": "Baramati", "village": "Morgaon", "lat": 18.27, "lon": 74.22},
@@ -91,24 +107,6 @@ LOCATIONS: list[dict] = [
     {"district": "Sindhudurg", "taluka": "Kudal", "village": "Malvan", "lat": 16.06, "lon": 73.46},
     {"district": "Thane", "taluka": "Bhiwandi", "village": "Shahapur", "lat": 19.45, "lon": 73.33},
     {"district": "Palghar", "taluka": "Dahanu", "village": "Jawhar", "lat": 19.92, "lon": 73.23},
-    # Bhili-speaking regions (Northwestern Maharashtra - Vidarbha border)
-    # Nandurbar district — primary Bhili heartland
-    {"district": "Nandurbar", "taluka": "Taloda", "village": "Taloda", "lat": 21.56, "lon": 74.21},
-    {"district": "Nandurbar", "taluka": "Shahada", "village": "Shahada", "lat": 21.50, "lon": 74.19},
-    {"district": "Nandurbar", "taluka": "Akkalkuva", "village": "Akkalkuva", "lat": 21.73, "lon": 74.19},
-    {"district": "Nandurbar", "taluka": "Nandurbar", "village": "Nawapur", "lat": 21.38, "lon": 74.40},
-    {"district": "Nandurbar", "taluka": "Nandurbar", "village": "Bhadgaon", "lat": 21.35, "lon": 74.45},
-    {"district": "Nandurbar", "taluka": "Wavi", "village": "Wavi", "lat": 21.66, "lon": 74.68},
-    {"district": "Nandurbar", "taluka": "Navapur", "village": "Navapur", "lat": 21.38, "lon": 74.40},
-    # Dhule district — adjacent Bhili region
-    {"district": "Dhule", "taluka": "Dhule", "village": "Halsi", "lat": 21.03, "lon": 74.77},
-    {"district": "Dhule", "taluka": "Sakri", "village": "Sakri", "lat": 21.18, "lon": 74.48},
-    {"district": "Dhule", "taluka": "Pimpalner", "village": "Pimpalner", "lat": 21.27, "lon": 75.07},
-    # Jalgaon district — border Bhili areas
-    {"district": "Jalgaon", "taluka": "Yaval", "village": "Yaval", "lat": 21.50, "lon": 75.43},
-    {"district": "Jalgaon", "taluka": "Chopda", "village": "Chopda", "lat": 21.25, "lon": 75.29},
-
-
 ]
 
 
@@ -125,6 +123,10 @@ def get_nearest_locations(lat: float, lon: float, n: int = 3) -> list[dict]:
 # ─── Maharashtra APMC Mandi Names ────────────────────────────────────────────
 
 MANDI_NAMES = [
+        # Bhili-speaking regions mandis
+    "Nandurbar APMC", "Taloda APMC", "Shahada APMC", "Akkalkuva APMC",
+    "Dhule APMC", "Sakri APMC", "Pimpalner APMC",
+    "Yaval APMC", "Chopda APMC",
     "Lasalgaon APMC", "Pune Market Yard", "Nashik APMC", "Solapur APMC",
     "Sangli APMC", "Kolhapur APMC", "Aurangabad APMC", "Nagpur APMC",
     "Latur APMC", "Jalgaon APMC", "Ahmednagar APMC", "Satara APMC",
@@ -132,10 +134,6 @@ MANDI_NAMES = [
     "Nanded APMC", "Osmanabad APMC", "Yavatmal APMC", "Chandrapur APMC",
     "Baramati APMC", "Niphad APMC", "Rahuri APMC", "Pandharpur APMC",
     "Indapur APMC", "Kopargaon APMC", "Shrirampur APMC", "Karad APMC",
-    # Bhili-speaking regions mandis
-    "Nandurbar APMC", "Taloda APMC", "Shahada APMC", "Akkalkuva APMC",
-    "Dhule APMC", "Sakri APMC", "Pimpalner APMC",
-    "Yaval APMC", "Chopda APMC",
 ]
 
 MANDI_DISTRICTS = {
@@ -145,9 +143,7 @@ MANDI_DISTRICTS = {
     "Jalgaon APMC": "Jalgaon", "Ahmednagar APMC": "Ahmednagar", "Satara APMC": "Satara",
     "Amravati APMC": "Amravati", "Akola APMC": "Akola", "Beed APMC": "Beed",
     "Parbhani APMC": "Parbhani", "Nanded APMC": "Nanded", "Osmanabad APMC": "Osmanabad",
-    "Yavatmal APMC": "Yavatmal", "Chandrapur APMC": "Chandrapur",
-    # Bhili-speaking regions
-    "Nandurbar APMC": "Nandurbar", "Taloda APMC": "Nandurbar", "Shahada APMC": "Nandurbar", "Akkalkuva APMC": "Nandurbar",
+    "Yavatmal APMC": "Yavatmal", "Chandrapur APMC": "Chandrapur", "Nandurbar APMC": "Nandurbar", "Taloda APMC": "Nandurbar", "Shahada APMC": "Nandurbar", "Akkalkuva APMC": "Nandurbar",
     "Dhule APMC": "Dhule", "Sakri APMC": "Dhule", "Pimpalner APMC": "Dhule",
     "Yaval APMC": "Jalgaon", "Chopda APMC": "Jalgaon",
 }
@@ -345,14 +341,14 @@ MOOD_WEIGHTS = {
 
 # MH-OAN supports Marathi, Hindi, and English
 LANGUAGE_WEIGHTS = {
-    "mr": 0.15,
+    "mr": 0.05,
     "hi": 0.05,
     "en": 0.05,
-    "bhb": 0.75,
+    "bhb": 0.85,
 }
 
 TARGET_LANGUAGE_WEIGHTS = {
-    "mr": 0.15,
+    "mr": 0.05,
     "hi": 0.05,
     "en": 0.05,
     "bhb": 0.85,
@@ -406,30 +402,29 @@ KVK_NAMES = [
 ]
 
 CHC_NAMES = [
-    "कस्टम हायरिंग सेंटर, बारामती", "कस्टम हायरिंग सेंटर, कराड",
-    "कस्टम हायरिंग सेंटर, लातूर", "कस्टम हायरिंग सेंटर, नाशिक",
-    "कस्टम हायरिंग सेंटर, नागपूर", "कस्टम हायरिंग सेंटर, जळगाव",
     # Bhili-speaking regions
     "कस्टम हायरिंग सेंटर, नंदुरबार", "कस्टम हायरिंग सेंटर, शहाडा",
     "कस्टम हायरिंग सेंटर, धुळे", "कस्टम हायरिंग सेंटर, पिंपळनेर",
+    "कस्टम हायरिंग सेंटर, बारामती", "कस्टम हायरिंग सेंटर, कराड",
+    "कस्टम हायरिंग सेंटर, लातूर", "कस्टम हायरिंग सेंटर, नाशिक",
+    "कस्टम हायरिंग सेंटर, नागपूर", "कस्टम हायरिंग सेंटर, जळगाव",
+
 ]
 
 SOIL_LAB_NAMES = [
+    "माती परीक्षण प्रयोगशाळा, नंदुरबार", "माती परीक्षण प्रयोगशाळा, धुळे",
+    "माती परीक्षण प्रयोगशाळा, जळगाव",
     "माती परीक्षण प्रयोगशाळा, पुणे", "माती परीक्षण प्रयोगशाळा, नाशिक",
     "माती परीक्षण प्रयोगशाळा, औरंगाबाद", "माती परीक्षण प्रयोगशाळा, नागपूर",
     "माती परीक्षण प्रयोगशाळा, कोल्हापूर", "माती परीक्षण प्रयोगशाळा, अमरावती",
-    # Bhili-speaking regions
-    "माती परीक्षण प्रयोगशाळा, नंदुरबार", "माती परीक्षण प्रयोगशाळा, धुळे",
-    "माती परीक्षण प्रयोगशाळा, जळगाव",
 ]
 
 WAREHOUSE_NAMES = [
+    "राज्य गोदाम, नंदुरबार", "राज्य गोदाम, धुळे",
+    "केंद्रीय गोदाम (CWC), जळगाव",
     "केंद्रीय गोदाम (CWC), पुणे", "राज्य गोदाम, नाशिक",
     "राज्य गोदाम, सोलापूर", "केंद्रीय गोदाम (CWC), नागपूर",
     "राज्य गोदाम, लातूर", "केंद्रीय गोदाम (CWC), औरंगाबाद",
-     # Bhili-speaking regions
-    "राज्य गोदाम, नंदुरबार", "राज्य गोदाम, धुळे",
-    "केंद्रीय गोदाम (CWC), जळगाव",
 ]
 
 
