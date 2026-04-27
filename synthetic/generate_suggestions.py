@@ -18,6 +18,7 @@ from uuid import uuid4
 
 from synthetic.deps import FarmerContext, build_suggestions_input, load_conversation
 from synthetic.suggestions_agent import suggestions_agent
+from synthetic.translation import BhashiniTranslator
 from synthetic.utils import walk_dir
 
 
@@ -97,12 +98,17 @@ async def generate_one(convo_id: str) -> dict:
 
     result = await suggestions_agent.run(suggestions_input, deps=farmer_ctx)
 
+    suggestions_out: list[str] = list(result.output)
+    if env["target_language"] == "bhb" and suggestions_out:
+        en_to_bhili = BhashiniTranslator(source_lang="en", target_lang="bhb")
+        suggestions_out = await en_to_bhili.translate_texts([str(s) for s in suggestions_out])
+
     return {
         "id": str(uuid4()),
         "source_session_id": convo_id,
         "target_language": env["target_language"],
         "suggestions_input": suggestions_input,
-        "suggestions": result.output,
+        "suggestions": suggestions_out,
     }
 
 
