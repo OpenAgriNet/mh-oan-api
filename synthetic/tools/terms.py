@@ -10,13 +10,14 @@ from rapidfuzz import fuzz, process
 # Load real term pairs
 term_pairs = json.load(open('assets/glossary_terms.json', 'r', encoding='utf-8'))
 
-SUPPORTED_LANGS = ("en", "hi", "mr", "transliteration")
+SUPPORTED_LANGS = ("en", "hi", "mr", "bhb", "transliteration")
 
 
 class Language(str, Enum):
     ENGLISH = "en"
     HINDI = "hi"
     MARATHI = "mr"
+    BHILI = "bhb"
     TRANSLITERATION = "transliteration"
 
 
@@ -25,6 +26,7 @@ class TermPair(BaseModel):
     mr: str = Field(default="", description="Marathi term")
     hi: str = Field(default="", description="Hindi term")
     transliteration: str = Field(default="", description="Transliteration to English")
+    bhb: str = Field(default="", description="Bhili term")
 
     def get_term(self, lang: str) -> str:
         """Get the term for a specific language code."""
@@ -36,13 +38,15 @@ class TermPair(BaseModel):
             parts.append(f"hi: {self.hi}")
         if self.mr:
             parts.append(f"mr: {self.mr}")
+        if self.bhb:
+            parts.append(f"bhb: {self.bhb}")
         if self.transliteration:
             parts.append(f"({self.transliteration})")
         return " -> ".join(parts)
 
 
 # Convert raw dictionaries to TermPair objects
-TERM_PAIRS = [TermPair(**{k: v for k, v in pair.items() if k in ("en", "mr", "hi", "transliteration")}) for pair in term_pairs]
+TERM_PAIRS = [TermPair(**{k: v for k, v in pair.items() if k in ("en", "mr", "hi", "bhb", "transliteration")}) for pair in term_pairs]
 
 
 async def search_terms(
