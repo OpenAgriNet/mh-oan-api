@@ -50,6 +50,7 @@ export function MessageTimeline({ entries }: MessageTimelineProps) {
                 key={i}
                 role="user"
                 content={entry.content ?? ""}
+                contentEn={entry.content_en}
               />
             );
 
@@ -59,6 +60,7 @@ export function MessageTimeline({ entries }: MessageTimelineProps) {
                 key={i}
                 role="agent"
                 content={entry.content ?? ""}
+                contentEn={entry.content_en}
               />
             );
 

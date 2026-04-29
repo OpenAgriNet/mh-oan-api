@@ -65,7 +65,9 @@ export default function ConversationPage() {
 
   const timeline = parseMessages(
     record.agrinet_messages_json,
-    record.user_messages_json
+    record.user_messages_json,
+    record.agrinet_messages_en_json,
+    record.user_messages_en_json,
   );
 
   return (
