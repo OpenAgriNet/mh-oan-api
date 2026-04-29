@@ -6,7 +6,6 @@
 import os
 import re
 import json
-import time
 import asyncio
 import httpx
 import logging
@@ -20,9 +19,8 @@ load_dotenv(override=True)
 term_pairs = json.load(open('assets/glossary_terms.json', 'r', encoding='utf-8'))
 
 def fix_underscores(text):
-    """Replace underscores with spaces -> underscores."""
+    """Normalize spaced underscores to a double underscore."""
     if isinstance(text, str):
-        text = re.sub(r'[_] [_]', '__', text)
         text = re.sub(r'[_] [_]', '__', text)
     return text
 
@@ -321,10 +319,12 @@ class BaseTranslator:
 
 
 class BhashiniTranslator(BaseTranslator):
-    """Translator implementation using the Bhashini API."""
+    """Translator implementation using the Bhashini API with chunking and paragraph-aware stitching."""
 
     BHILI_SERVICE_ID = "bhashini/ai4b/bhili-nmt"
     DEFAULT_SERVICE_ID = "bhashini/ai4bharat/indictrans-v3"
+
+    MAX_CHUNK_SIZE = 400
 
     def __init__(self, source_lang='en', target_lang='hi', batch_size=4, term_pairs=None):
         super().__init__(source_lang, target_lang, batch_size, term_pairs)
@@ -336,13 +336,108 @@ class BhashiniTranslator(BaseTranslator):
             return self.BHILI_SERVICE_ID
         return self.DEFAULT_SERVICE_ID
 
+    # ---------------------------
+    # Sentence splitting (Latin + Devanagari / danda)
+    # ---------------------------
+    def _split_into_sentences(self, text: str) -> List[str]:
+        if not text:
+            return []
+
+        sentences = re.split(r'(?<=[.!?])\s+(?=[A-Z0-9])', text)
+        if len(sentences) <= 1:
+            sentences = re.split(r'(?<=[.!?।॥])\s+', text)
+        if len(sentences) <= 1:
+            sentences = text.split("\n")
+
+        return [s.strip() for s in sentences if s.strip()]
+
+    # ---------------------------
+    # Chunking (no overlap — overlap caused duplicated translated spans)
+    # ---------------------------
+    def _chunk_text(self, text: str) -> List[Tuple[str, Dict[str, Any]]]:
+        if not text or len(text) <= self.MAX_CHUNK_SIZE:
+            return [(text, {"type": "full"})]
+
+        chunks: List[Tuple[str, Dict[str, Any]]] = []
+        paragraphs = re.split(r'\n\s*\n', text)
+
+        for para_idx, paragraph in enumerate(paragraphs):
+            if not paragraph.strip():
+                continue
+
+            sentences = self._split_into_sentences(paragraph.strip())
+            current_chunk: List[str] = []
+
+            for sentence in sentences:
+                while len(sentence) > self.MAX_CHUNK_SIZE:
+                    if current_chunk:
+                        chunks.append((" ".join(current_chunk), {"para_idx": para_idx}))
+                        current_chunk = []
+                    chunks.append((sentence[: self.MAX_CHUNK_SIZE], {"para_idx": para_idx}))
+                    sentence = sentence[self.MAX_CHUNK_SIZE :].lstrip()
+                if not sentence:
+                    continue
+                if current_chunk and len(" ".join(current_chunk + [sentence])) > self.MAX_CHUNK_SIZE:
+                    chunks.append((" ".join(current_chunk), {"para_idx": para_idx}))
+                    current_chunk = []
+                current_chunk.append(sentence)
+
+            if current_chunk:
+                chunks.append((" ".join(current_chunk), {"para_idx": para_idx}))
+
+        return chunks if chunks else [(text, {"type": "fallback"})]
+
+    def _reconstruct_translated_chunks(
+        self,
+        translated_chunks: List[str],
+        chunks_with_metadata: List[Tuple[str, Dict[str, Any]]],
+    ) -> str:
+        """Join translated pieces with spaces inside a paragraph and blank lines between paragraphs."""
+        if not translated_chunks or not chunks_with_metadata:
+            return ""
+        if len(translated_chunks) != len(chunks_with_metadata):
+            logger.warning(
+                "Translated chunk count mismatch (%d vs %d); joining naively.",
+                len(translated_chunks),
+                len(chunks_with_metadata),
+            )
+            return " ".join(translated_chunks)
+
+        meta0 = chunks_with_metadata[0][1]
+        if meta0.get("type") in ("full", "fallback"):
+            return translated_chunks[0]
+
+        paragraph_parts: List[str] = []
+        current_para: int | None = None
+        buf: List[str] = []
+
+        for translated, (_, meta) in zip(translated_chunks, chunks_with_metadata):
+            pidx = meta.get("para_idx", 0)
+            t = translated.strip()
+            if current_para is None:
+                current_para = pidx
+            if pidx != current_para:
+                paragraph_parts.append(" ".join(x for x in buf if x))
+                buf = []
+                current_para = pidx
+            if t:
+                buf.append(t)
+        if buf:
+            paragraph_parts.append(" ".join(buf))
+
+        return "\n\n".join(p for p in paragraph_parts if p)
+
+    # ---------------------------
+    # Batch Translation API
+    # ---------------------------
     async def translate_texts(self, texts: List[str]) -> List[str]:
-        """Translate a list of texts using the Bhashini API."""
         headers = {
             'Authorization': self.api_key,
             'Content-Type': 'application/json'
         }
+
         service_id = self._get_service_id(self.source_lang, self.target_lang)
+
         data = {
             "pipelineTasks": [
                 {
@@ -360,6 +455,7 @@ class BhashiniTranslator(BaseTranslator):
                 "input": [{"source": text} for text in texts]
             }
         }
+
         async with httpx.AsyncClient(timeout=30.0) as client:
             response = await client.post(self.base_url, headers=headers, json=data)
 
@@ -369,39 +465,17 @@ class BhashiniTranslator(BaseTranslator):
         response_json = response.json()
         return [item['target'] for item in response_json['pipelineResponse'][0]['output']]
 
-    async def translate_text(self, text: str, source_lang: str, target_lang: str, max_retries: int = 3) -> str:
-        """Translate a single text with per-call language pair and retry logic, handling markdown."""
-        if source_lang == target_lang or not text:
-            return text
-
-        # 1. Clean markdown formatting that causes Bhili NMT to hallucinate
-        if source_lang == "bhb" or target_lang == "bhb":
-            text = re.sub(r'[*_`#]', '', text)
-
-        # 2. Split into lines to preserve structure and avoid long-text NMT drops
-        lines = text.split('\n')
-        texts_to_translate = []
-        prefixes = []
-
-        for line in lines:
-            if not line.strip():
-                continue
-            # Preserve bullet points/numbering by extracting prefix
-            match = re.match(r'^(\s*(?:[-+]|\d+\.)\s+)(.*)', line)
-            prefix, content = match.groups() if match else ("", line)
-            
-            if content.strip():
-                texts_to_translate.append(content.strip())
-                prefixes.append(prefix)
-
-        if not texts_to_translate:
-            return text
-
+    # ---------------------------
+    # Single Chunk Translation
+    # ---------------------------
+    async def _translate_chunk(self, text: str, source_lang: str, target_lang: str, max_retries: int) -> str:
         headers = {
             'Authorization': self.api_key,
             'Content-Type': 'application/json'
         }
+
         service_id = self._get_service_id(source_lang, target_lang)
+
         data = {
             "pipelineTasks": [
                 {
@@ -416,55 +490,64 @@ class BhashiniTranslator(BaseTranslator):
                 }
             ],
             "inputData": {
-                "input": [{"source": t} for t in texts_to_translate]
+                "input": [{"source": text}]
             }
         }
 
-        last_error = None
-        translated_texts = texts_to_translate # fallback
-        
         for attempt in range(max_retries):
             try:
                 async with httpx.AsyncClient(timeout=30.0) as client:
                     response = await client.post(self.base_url, headers=headers, json=data)
                     response.raise_for_status()
+
                     result = response.json()
-                    translated_texts = [item['target'] for item in result['pipelineResponse'][0]['output']]
-                    break
-            except (httpx.HTTPError, KeyError, IndexError) as e:
-                last_error = e
+                    translated = result['pipelineResponse'][0]['output'][0]['target']
+                    if translated is not None and str(translated).strip():
+                        return str(translated)
+
+            except Exception as exc:
+                logger.warning("Chunk translation attempt failed: %s", exc)
                 if attempt < max_retries - 1:
-                    delay = 2 ** attempt
-                    logger.warning(
-                        "Translation attempt %d/%d failed for %s→%s: %s. Retrying in %ds...",
-                        attempt + 1, max_retries, source_lang, target_lang, e, delay,
-                    )
-                    await asyncio.sleep(delay)
-        else:
-            logger.error(
-                "Translation failed after %d retries for %s→%s: %s. Returning original text.",
-                max_retries, source_lang, target_lang, last_error,
-            )
+                    await asyncio.sleep(2 ** attempt)
 
-        # 3. Reconstruct
-        result_lines = []
-        t_idx = 0
-        for line in lines:
-            if not line.strip():
-                result_lines.append(line)
-                continue
-                
-            match = re.match(r'^(\s*(?:[-+]|\d+\.)\s+)(.*)', line)
-            _, content = match.groups() if match else ("", line)
-            
-            if content.strip():
-                translated = translated_texts[t_idx] if t_idx < len(translated_texts) else content
-                result_lines.append(f"{prefixes[t_idx]}{translated}")
-                t_idx += 1
-            else:
-                result_lines.append(line)
+        return text
 
-        return '\n'.join(result_lines)
+    # ---------------------------
+    # Batch Chunk Translation
+    # ---------------------------
+    async def _translate_chunks_batch(self, chunks: List[str], source_lang: str, target_lang: str, max_retries: int) -> List[str]:
+        tasks = [
+            self._translate_chunk(chunk, source_lang, target_lang, max_retries)
+            for chunk in chunks
+        ]
 
+        translated = []
+        for i in range(0, len(tasks), self.batch_size):
+            batch = tasks[i:i + self.batch_size]
+            batch_results = await asyncio.gather(*batch)
+            translated.extend(batch_results)
 
-translation_service = BhashiniTranslator()
+        return translated
+
+    # ---------------------------
+    # Main Translation Entry
+    # ---------------------------
+    async def translate_text(self, text: str, source_lang: str, target_lang: str, max_retries: int = 3) -> str:
+        if source_lang == target_lang or not text:
+            return text
+
+        # Strip light markdown for Bhili NMT — punctuation noise for the pipeline
+        if source_lang == "bhb" or target_lang == "bhb":
+            text = re.sub(r'[*_`#]', '', text)
+
+        chunks_with_metadata = self._chunk_text(text)
+        chunk_texts = [chunk for chunk, _ in chunks_with_metadata]
+
+        if len(chunk_texts) == 1:
+            return await self._translate_chunk(chunk_texts[0], source_lang, target_lang, max_retries)
+
+        translated_chunks = await self._translate_chunks_batch(
+            chunk_texts, source_lang, target_lang, max_retries
+        )
+
+        return self._reconstruct_translated_chunks(translated_chunks, chunks_with_metadata)
