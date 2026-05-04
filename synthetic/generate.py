@@ -63,7 +63,9 @@ class ConversationRecord(BaseModel):
     env: ConversationEnv
     profile: FarmerProfile
     agrinet_messages_json: str
+    agrinet_messages_en_json: str | None = None  # English originals (set for bhb conversations)
     user_messages_json: str
+    user_messages_en_json: str | None = None     # English originals (set for bhb conversations)
     turn_count: int
     completed: bool
     error: str | None = None
@@ -128,8 +130,10 @@ async def run_conversation(
 
     planned_switch = _pick_language_switch(current_target_lang, max_turns)
 
-    surf_user: list = []
-    surf_agrinet: list = []
+    surf_user: list = []        # Bhili surface (what the user "said")
+    surf_user_en: list = []     # English originals (LLM output before NMT)
+    surf_agrinet: list = []     # Bhili surface (what the agent replied)
+    surf_agrinet_en: list = []  # English originals (LLM output before NMT)
     agrinet_result = None
 
     farmer_ctx = FarmerContext(
@@ -163,6 +167,8 @@ async def run_conversation(
     if current_target_lang == "bhb" and isinstance(user_text_english, str):
         clean_out = user_text_english.replace(" ", "").lower()
         if "endconversation" not in clean_out:
+            # Capture English surface BEFORE NMT overwrites output
+            add_farmer_turn(surf_user_en, user_result)
             user_result.output = await en_to_bhili_translator.translate_text(
                 user_text_english, source_lang="en", target_lang="bhb"
             )
@@ -195,20 +201,16 @@ async def run_conversation(
         if is_end:
             completed = True
             break
-
-        if current_target_lang == 'bhb':
-            user_text_for_processing = user_text_english
-        else:
-            user_text_for_processing = user_output
-
-        mod_input = build_moderation_input(user_text_for_processing, agrinet_history, limit=3)
+        mod_input = build_moderation_input(user_output, agrinet_history, limit=3)        
         mod_result = await moderation_agent.run(mod_input)
 
+        # For Bhili: English system prompt + English query to LLM; Bhili text for search_terms only
         agrinet_lang_code = 'en' if current_target_lang == 'bhb' else current_target_lang
 
         farmer_ctx = FarmerContext(
-            query=user_text_for_processing,
-            lang_code=agrinet_lang_code,
+            query=user_text_english,  # Always English — LLM comprehends and answers in English
+            bhili_query=user_output if current_target_lang == 'bhb' else None,  # Bhili text for glossary/search_terms
+            lang_code=agrinet_lang_code,  # 'en' for Bhili (English system prompt)
             session_id=env.session_id,
             today_date=env.today_date,
             moderation_str=str(mod_result.output),
@@ -246,8 +248,9 @@ async def run_conversation(
         else:
             agrinet_response_for_user = agrinet_result.output
 
+        # For Bhili surface: show only the Bhili question (not English) in the stored turn
         shown_prompt = (
-            farmer_ctx.model_copy(update={"query": user_output, "lang_code": "bhb"}).get_user_message()
+            farmer_ctx.model_copy(update={"query": user_output, "bhili_query": None, "lang_code": "bhb"}).get_user_message()
             if current_target_lang == "bhb"
             else farmer_ctx.get_user_message()
         )
@@ -258,6 +261,16 @@ async def run_conversation(
             shown_prompt,
             agrinet_response_for_user,
         )
+
+        # Capture English surface for agrinet (always English before NMT)
+        if current_target_lang == "bhb":
+            add_agrinet_turn(
+                surf_agrinet_en,
+                agrinet_history,
+                agrinet_prefix_len,
+                farmer_ctx.get_user_message(),  # English user prompt
+                agrinet_result.output,           # English agent response
+            )
 
         # Run user agent with agrinet's response
         user_result = await user_agent.run(
@@ -270,6 +283,8 @@ async def run_conversation(
         if current_target_lang == "bhb" and isinstance(user_text_english, str):
             clean_out = user_text_english.replace(" ", "").lower()
             if "endconversation" not in clean_out:
+                # Capture English surface BEFORE NMT overwrites output
+                add_farmer_turn(surf_user_en, user_result)
                 user_result.output = await en_to_bhili_translator.translate_text(
                     user_text_english, source_lang="en", target_lang="bhb"
                 )
@@ -282,7 +297,9 @@ async def run_conversation(
         env=env,
         profile=profile,
         agrinet_messages_json=to_json(surf_agrinet) if surf_agrinet else "[]",
+        agrinet_messages_en_json=to_json(surf_agrinet_en) if surf_agrinet_en else None,
         user_messages_json=to_json(surf_user),
+        user_messages_en_json=to_json(surf_user_en) if surf_user_en else None,
         turn_count=turn_count,
         completed=completed,
         language_switches=language_switches or None,

@@ -142,7 +142,7 @@ Cite only the data tool that provided the information (see table above). When to
 
 For any crop, pest, disease, or agricultural knowledge query, you MUST call `search_terms` before `search_documents`. Never call `search_documents` directly without first identifying terms via `search_terms`. This is required because farmers often write in Marathi/Hindi and the document index uses English terms.
 
-1. Extract 1-3 key agricultural terms from the query
+1. Extract 1-3 key agricultural terms **strictly from the user's query**. If a **User (Bhili)** query is provided, you MUST extract the terms directly from the Bhili text. Do not add inferred solutions, expected answers, or any terms that the user did not explicitly mention.
 2. Call `search_terms` with **one short term each** (1-2 words max, a single crop name, pest name, or disease name) in parallel (threshold 0.7, omit language parameter)
 3. Use the verified English terms to build a descriptive `search_documents` query (2-5 words)
 

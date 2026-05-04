@@ -293,8 +293,10 @@ async def simulate(req: SimulateRequest, request: Request):
             bhili_to_en_translator = BhashiniTranslator(source_lang="bhb", target_lang="en")
             en_to_bhili_translator = BhashiniTranslator(source_lang="en", target_lang="bhb")
 
-            surf_user: list = []
-            surf_agrinet: list = []
+            surf_user: list = []        # Bhili surface
+            surf_user_en: list = []     # English originals (LLM output before NMT)
+            surf_agrinet: list = []     # Bhili surface
+            surf_agrinet_en: list = []  # English originals (LLM output before NMT)
 
             farmer_ctx = FarmerContext(
                 query="",
@@ -320,9 +322,12 @@ async def simulate(req: SimulateRequest, request: Request):
 
             # First turn — user speaks first (user agent outputs English for bhb; then NMT → Bhili)
             user_result = await user_agent.run("Begin the conversation based on your goal.", deps=profile)
-            if current_target_lang == "bhb" and isinstance(user_result.output, str) and "EndConversation" not in user_result.output:
+            user_text_english = user_result.output
+            if current_target_lang == "bhb" and isinstance(user_text_english, str) and "EndConversation" not in user_text_english:
+                # Capture English surface BEFORE NMT overwrites output
+                add_farmer_turn(surf_user_en, user_result)
                 user_result.output = await en_to_bhili_translator.translate_text(
-                    user_result.output, source_lang="en", target_lang="bhb"
+                    user_text_english, source_lang="en", target_lang="bhb"
                 )
             add_farmer_turn(surf_user, user_result)
             user_history = user_result.all_messages()
@@ -361,7 +366,15 @@ async def simulate(req: SimulateRequest, request: Request):
                     break
 
                 user_text = user_output
-                yield _sse_event("user_message", {"turn_number": turn_count, "text": user_text, "is_end": False})
+                # For bhb: user_text_english is the English original stored above
+                # For other langs: English and surface text are the same
+                _user_text_en = user_text_english if current_target_lang == "bhb" else user_text
+                yield _sse_event("user_message", {
+                    "turn_number": turn_count,
+                    "text": user_text,
+                    "text_en": _user_text_en,
+                    "is_end": False,
+                })
 
                 if current_target_lang == "bhb":
                     user_text_for_processing = await bhili_to_en_translator.translate_text(
@@ -407,12 +420,14 @@ async def simulate(req: SimulateRequest, request: Request):
                 )
                 agrinet_history = agrinet_result.all_messages()
 
+                agrinet_en_output = agrinet_result.output  # Always English
+
                 if current_target_lang == "bhb":
                     agrinet_response_for_user = await en_to_bhili_translator.translate_text(
-                        agrinet_result.output, source_lang="en", target_lang="bhb"
+                        agrinet_en_output, source_lang="en", target_lang="bhb"
                     )
                 else:
-                    agrinet_response_for_user = agrinet_result.output
+                    agrinet_response_for_user = agrinet_en_output
 
                 shown_prompt = (
                     farmer_ctx.model_copy(update={"query": user_text, "lang_code": "bhb"}).get_user_message()
@@ -427,6 +442,16 @@ async def simulate(req: SimulateRequest, request: Request):
                     agrinet_response_for_user,
                 )
 
+                # Capture English surface for agrinet
+                if current_target_lang == "bhb":
+                    add_agrinet_turn(
+                        surf_agrinet_en,
+                        agrinet_history,
+                        agrinet_prefix_len,
+                        farmer_ctx.get_user_message(),  # English user prompt
+                        agrinet_en_output,               # English agent response
+                    )
+
                 tool_calls = []
                 for msg in agrinet_result.new_messages():
                     for part in msg.parts:
@@ -437,17 +462,23 @@ async def simulate(req: SimulateRequest, request: Request):
                             })
 
                 yield _sse_event("agent_message", {
-                    "turn_number": turn_count, "text": agrinet_response_for_user, "tool_calls": tool_calls,
+                    "turn_number": turn_count,
+                    "text": agrinet_response_for_user,
+                    "text_en": agrinet_en_output,
+                    "tool_calls": tool_calls,
                 })
 
                 user_result = await user_agent.run(
                     user_prompt=agrinet_result.output, deps=profile, message_history=user_history,
                 )
-                if current_target_lang == "bhb" and isinstance(user_result.output, str):
-                    clean_out = user_result.output.replace(" ", "").lower()
+                user_text_english = user_result.output
+                if current_target_lang == "bhb" and isinstance(user_text_english, str):
+                    clean_out = user_text_english.replace(" ", "").lower()
                     if "endconversation" not in clean_out:
+                        # Capture English surface BEFORE NMT overwrites output
+                        add_farmer_turn(surf_user_en, user_result)
                         user_result.output = await en_to_bhili_translator.translate_text(
-                            user_result.output, source_lang="en", target_lang="bhb"
+                            user_text_english, source_lang="en", target_lang="bhb"
                         )
                 add_farmer_turn(surf_user, user_result)
                 user_history = user_result.all_messages()
@@ -457,7 +488,9 @@ async def simulate(req: SimulateRequest, request: Request):
                 env=env,
                 profile=profile,
                 agrinet_messages_json=to_json(surf_agrinet) if surf_agrinet else "[]",
+                agrinet_messages_en_json=to_json(surf_agrinet_en) if surf_agrinet_en else None,
                 user_messages_json=to_json(surf_user),
+                user_messages_en_json=to_json(surf_user_en) if surf_user_en else None,
                 turn_count=turn_count,
                 completed=completed,
                 language_switches=language_switches or None,

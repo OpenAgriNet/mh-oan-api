@@ -34,7 +34,8 @@ class FarmerContext(BaseModel):
     Extends the production FarmerContext with additional fields needed
     for mock tools to return data consistent with the simulated farmer.
     """
-    query: str = Field(description="The user's question.")
+    query: str = Field(description="The user's question in English.")
+    bhili_query: Optional[str] = Field(default=None, description="Bhili translation of the query, used for search term extraction via glossary.")
     lang_code: str = Field(description="The language code of the user's question.", default='mr')
     session_id: str = Field(description="The session ID for the conversation.")
     moderation_str: Optional[str] = Field(default=None, description="The moderation result.")
@@ -80,7 +81,8 @@ class FarmerContext(BaseModel):
             return "**Agristack Information Availability**: ❌"
 
     def get_user_message(self):
-        strings = [self._query_string(), self._language_string(), self._moderation_string(), self._agristack_availability_string()]
+        bhili = f'**User (Bhili):** "{self.bhili_query}"' if self.bhili_query else None
+        strings = [self._query_string(), bhili, self._language_string(), self._moderation_string(), self._agristack_availability_string()]
         return "\n".join([x for x in strings if x])
 
     def get_today_date_str(self) -> str:
